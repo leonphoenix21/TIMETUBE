@@ -67,14 +67,15 @@ def sign_up():
             firstname=form.data['firstname'],
             lastname=form.data['lastname'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            avatar='https://pngimg.com/uploads/question_mark/small/question_mark_PNG134.png',
+            header='https://i.pinimg.com/originals/89/4b/90/894b90a5eff635d5167aa81309b6f9ba.jpg'
         )
         db.session.add(user)
         db.session.commit()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 
 
 @auth_routes.route('/unauthorized')
