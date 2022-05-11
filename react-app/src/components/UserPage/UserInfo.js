@@ -22,17 +22,14 @@ function UserInfo() {
     }
 
     return (
-        <ul>
-            <li>
-                <strong>User Id</strong> {userId}
-            </li>
-            <li>
+        <div className='userInfo '>
+            <div className='username'>
                 <strong>Username</strong> {user.username}
-            </li>
-            <li>
+            </div>
+            <div className='email'>
                 <strong>Email</strong> {user.email}
-            </li>
-        </ul>
+            </div>
+        </div>
     );
 }
 export default UserInfo;

@@ -24,17 +24,16 @@ function User() {
   }
 
   return (
-    <ul>
-      <li>
-        <UserInfo />
-      </li>
-      <li>
-        < Avatar />
-      </li>
-      <li>
+    <div className='details'>
+      <div className='user header'>
         <Header />
-      </li>
-    </ul>
+      </div>
+      <div className='user avatar'>
+        < Avatar />
+        <UserInfo />
+      </div>
+      <div className='bottom-line'> </div>
+    </div>
   );
 }
 export default User;

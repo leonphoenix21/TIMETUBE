@@ -21,11 +21,11 @@ function Avatar() {
     }
 
     return (
-        <ul>
-            <li>
+        <div>
+            <div>
                 <img className='avatar' src={`${user.avatar}`} />
-            </li>
-        </ul>
+            </div>
+        </div>
     );
 }
 export default Avatar;

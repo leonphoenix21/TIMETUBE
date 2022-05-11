@@ -5,7 +5,7 @@ from app.models import db, User
 def seed_users():
     demo = User(
         firstname='Demo', lastname='User', username='Demo', email='demo@aa.io', password='password',
-        avatar='https://pngimg.com/uploads/question_mark/small/question_mark_PNG134.png', header='https://i.pinimg.com/originals/89/4b/90/894b90a5eff635d5167aa81309b6f9ba.jpg')
+        avatar='https://pngimg.com/uploads/question_mark/small/question_mark_PNG134.png', header='https://wallpaperaccess.com/full/2424419.jpg')
 
     marnie = User(
         firstname='Marnie', lastname='Big', username='marnie', email='marnie@aa.io', password='password',

@@ -23,7 +23,7 @@ function Header() {
     return (
         <ul>
             <li>
-                <img src={`${user.header}`} />
+                <img className='header' src={`${user?.header}`} />
             </li>
         </ul>
     );

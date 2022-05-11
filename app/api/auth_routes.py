@@ -69,7 +69,7 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             avatar='https://pngimg.com/uploads/question_mark/small/question_mark_PNG134.png',
-            header='https://i.pinimg.com/originals/89/4b/90/894b90a5eff635d5167aa81309b6f9ba.jpg'
+            header='https://wallpaperaccess.com/full/2424419.jpg'
         )
         db.session.add(user)
         db.session.commit()
