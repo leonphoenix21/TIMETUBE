@@ -9,5 +9,11 @@ export const SidebarData = [
         path: '/',
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
+    },
+    {
+        title: 'Users',
+        path: '/users',
+        icon: <AiIcons.AiFillHome />,
+        cName: 'nav-text'
     }
 ];
