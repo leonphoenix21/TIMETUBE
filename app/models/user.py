@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
     header = db.Column(db.String(255))
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    # videos = db.relationship("Video", back_populates="user")
+
     @property
     def password(self):
         return self.hashed_password
