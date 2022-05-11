@@ -22,7 +22,7 @@ const NavBar = () => {
   let sessionlinks = (
     <nav className='navbar'>
       <>
-        <IconContext.Provider value={{ color: 'grey' }}>
+        <IconContext.Provider value={{ color: 'black' }}>
           <div className='sidenavbar'>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} className='menuIcon' />

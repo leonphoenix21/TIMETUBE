@@ -92,11 +92,12 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    margin-right: 100px;
 }
 
 .menu-bars {
     margin-left: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background: none;
 }
 
