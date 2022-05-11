@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Avatar from './Avatar';
+import EditUserModal from './EditUserModal';
 import Header from './Header';
 import UserInfo from './UserInfo';
 
 function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
+
 
   useEffect(() => {
     if (!userId) {
@@ -24,7 +26,7 @@ function User() {
   }
 
   return (
-    <div className='details'>
+    <div className='details' id='details'>
       <div className='user header'>
         <Header />
       </div>
@@ -33,6 +35,9 @@ function User() {
         <UserInfo />
       </div>
       <div className='bottom-line'> </div>
+      <div className='editUserDiv'>
+        <EditUserModal />
+      </div>
     </div>
   );
 }
