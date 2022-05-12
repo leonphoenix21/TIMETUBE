@@ -23,8 +23,11 @@ def user(id):
 
 
 @user_routes.route('/', methods=['PUT'])
+@login_required
 def user_users():
 
+    print(request.files)
+    print(request.form)
     avatar = request.files["avatar"]
     header = request.files["header"]
 
@@ -37,9 +40,13 @@ def user_users():
     avatar.filename = get_unique_filename(avatar.filename)
     header.filename = get_unique_filename(header.filename)
 
+    print('1111111111111111111', avatar)
+    print('1111111111111111111', header)
     avatar_upload = upload_file_to_s3(avatar)
     header_upload = upload_file_to_s3(header)
 
+    print('222222222222222222', avatar_upload)
+    print('222222222222222222', header_upload)
     if "url" not in avatar_upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -59,12 +66,12 @@ def user_users():
     Edits the user's users
     """
     user = User.query.get(int(request.form["id"]))
-    user.username = request.form['username'],
     user.firstname = request.form['firstname'],
     user.lastname = request.form['lastname'],
+    user.username = request.form['username'],
     user.email = request.form['email'],
     user.avatar_url = avatar_url,
     user.banner_url = header_url,
-    db.session.add(users)
+    db.session.add(user)
     db.session.commit()
     return user.to_dict()

@@ -23,6 +23,9 @@ function UserInfo() {
 
     return (
         <div className='userInfo '>
+            <div className='fullname'>
+                <strong> {user.firstname} {user.lastname} </strong>
+            </div>
             <div className='username'>
                 <strong>Username</strong> {user.username}
             </div>

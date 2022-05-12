@@ -1,7 +1,15 @@
-import './videos.css'
+import './videos.css';
+import VideoPlayer from 'react-video-js-player';
+
 
 
 function UploadVideos() {
 
-    const []
+    const videoSource = 
+
+    return (
+        <div>
+
+        </div>
+    )
 }

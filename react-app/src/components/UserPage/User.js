@@ -26,18 +26,19 @@ function User() {
   }
 
   return (
-    <div className='details' id='details'>
+    <div className='details'>
       <div className='user header'>
         <Header />
       </div>
       <div className='user avatar'>
         < Avatar />
-        <UserInfo />
+        <div className='editUserDiv'>
+          <UserInfo />
+          <EditUserModal user={user} />
+        </div>
       </div>
       <div className='bottom-line'> </div>
-      <div className='editUserDiv'>
-        <EditUserModal />
-      </div>
+
     </div>
   );
 }
