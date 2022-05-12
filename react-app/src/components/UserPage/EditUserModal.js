@@ -68,13 +68,12 @@ function EditUserModal({ user }) {
         formData.append("lastname", lastname);
         formData.append("avatar", avatar);
         formData.append("header", header);
-        formData.append("password", user.password);
-        const res = await dispatch(userDetails(formData));
-        if (res) {
-            if (res.errors) {
-                setErrors(res.errors);
-            } else {
-                history.push(`/`);
+        const detail = await dispatch(userDetails(formData));
+        if (detail) {
+            history.push(`/`);
+        } else {
+            if (detail.errors) {
+                setErrors(detail.errors);
             }
         }
     }

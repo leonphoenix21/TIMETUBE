@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
 function UserInfo() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
+    const sessionUser = useSelector(state => state.session.user)
+
 
     useEffect(() => {
         if (!userId) {
@@ -29,9 +32,7 @@ function UserInfo() {
             <div className='username'>
                 <strong>Username</strong> {user.username}
             </div>
-            <div className='email'>
-                <strong>Email</strong> {user.email}
-            </div>
+
         </div>
     );
 }

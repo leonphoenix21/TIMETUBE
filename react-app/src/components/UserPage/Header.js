@@ -5,6 +5,7 @@ function Header() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
 
+
     useEffect(() => {
         if (!userId) {
             return;

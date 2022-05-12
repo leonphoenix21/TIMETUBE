@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './navbar_files';
 import './sidenavbar.css';
 import { IconContext } from 'react-icons';
+import { ImUpload2 } from 'react-icons/im';
 
 
 const NavBar = () => {
@@ -52,6 +53,9 @@ const NavBar = () => {
       <NavLink className='navlinks' to='/users' exact={true} activeClassName='active'>
         Users
       </NavLink>
+      <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
+        <span className='UploadIcon'> <ImUpload2 /> </span>
+      </NavLink>
       <NavLink className='navlinks' to='/' exact={true} activeClassName='active'>
         Home
       </NavLink>
@@ -70,7 +74,7 @@ const NavBar = () => {
         <>
           <nav className='navbar' >
             <NavLink to='/' className='navlinks' exact={true} activeClassName='active'>
-              Home
+              Home(Icon Insert Here)
             </NavLink>
 
             <NavLink to='/login' className='navlinks' exact={true} activeClassName='active'>

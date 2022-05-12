@@ -82,7 +82,7 @@ export const userDetails = (data) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(editUser(data))
-    return null;
+    return data;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
