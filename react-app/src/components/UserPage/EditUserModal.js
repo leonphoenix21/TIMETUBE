@@ -5,7 +5,7 @@ import { MdManageAccounts } from 'react-icons/md';
 import './user_page.css';
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { userDetails } from '../../store/session';
+import { userDetails } from '../../store/details';
 
 
 function EditUserModal({ user }) {
@@ -68,9 +68,10 @@ function EditUserModal({ user }) {
         formData.append("lastname", lastname);
         formData.append("avatar", avatar);
         formData.append("header", header);
+        closeModal()
         const detail = await dispatch(userDetails(formData));
         if (detail) {
-            history.push(`/`);
+            history.push(`/users/${user.id}`);
         } else {
             if (detail.errors) {
                 setErrors(detail.errors);

@@ -9,6 +9,8 @@ import UsersList from './components/ViewUsers/UsersList';
 import User from './components/UserPage/User';
 import { authenticate } from './store/session';
 import UploadVideos from './components/Videos/UploadVideos.js/upload_videos';
+import { loadUserDetails } from './store/details';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +20,12 @@ function App() {
     (async () => {
       await dispatch(authenticate());
       setLoaded(true);
+    })();
+  }, [dispatch]);
+
+  useEffect(() => {
+    (async () => {
+      // await dispatch(loadUserDetails());
     })();
   }, [dispatch]);
 

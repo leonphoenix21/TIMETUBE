@@ -1,14 +1,14 @@
 // constants
 const SET_USER = 'session/SET_USER';
-const PUT_USER = 'session/PUT_USER';
+const LOAD_USER = 'session/LOAD_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
 });
-const editUser = (user) => ({
-  type: PUT_USER,
+const loadDetails = (user) => ({
+  type: LOAD_USER,
   payload: user
 });
 
@@ -74,24 +74,6 @@ export const logout = () => async (dispatch) => {
   }
 };
 
-export const userDetails = (data) => async (dispatch) => {
-  const response = await fetch(`/api/users/`, {
-    method: 'PUT',
-    body: data,
-  });
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(editUser(data))
-    return data;
-  } else if (response.status < 500) {
-    const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
-  } else {
-    return ['An error occurred. Please try again.']
-  }
-}
 
 export const signUp = (firstname, lastname, username, email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {
@@ -126,9 +108,6 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
-    case PUT_USER:
-      const newState = { user: action.payload }
-      return newState
     case REMOVE_USER:
       return { user: null }
     default:

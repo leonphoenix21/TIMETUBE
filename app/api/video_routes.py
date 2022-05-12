@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import Video, db
+from app.forms import NewVideoForm, EditVideoForm
 from datetime import datetime
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -14,6 +15,8 @@ def new_video():
     Create a New video
     """
     if request.method == 'POST':
+        form = NewVideoForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         keys = list(request.files.to_dict().keys())
         if len(keys) != 2:
             return {"errors": "No file uploaded"}
@@ -48,7 +51,8 @@ def new_video():
         db.session.add(video)
 
     else:
-
+        form = NewVideoForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if not any(request.files):
             video = Video.query.get(int(request.form["id"]))
             video.title = request.form['title']
@@ -141,12 +145,9 @@ def delete_video(id):
     """
     video = Video.query.get(id)
     if video:
-
         db.session.delete(video)
         db.session.commit()
         return {'id': id}
-    else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 # GET /api/videos/:id/comments
@@ -158,5 +159,3 @@ def get_comments_by_video_id(id):
     video = Video.query.get(id)
     if video:
         return jsonify([comment.to_dict() for comment in video.comments])
-    else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
