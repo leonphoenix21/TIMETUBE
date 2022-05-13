@@ -1,13 +1,13 @@
 .bodyCon {
     display: flex;
     flex-direction: row;
+    margin: 10px
 }
 
 .Con {
     position: absolute;
     background: url('https://cdn.shutterstock.com/shutterstock/videos/8085121/thumb/1.jpg') no-repeat left bottom;
     object-fit: cover;
-    /* border: blue 2px solid; */
     display: flex;
     flex-direction: row;
     width: 500px;
@@ -133,18 +133,18 @@
 
 .firstCon {
     /* border: solid red 1px; */
-    height: 75vh;
+    height: 76vh;
     width: 500px;
 }
 
 .firstCon>div {
-    height: 9px;
+    height: 10px;
     width: 10px;
 }
 
 .dot {
     margin-left: 4%;
-    margin-top: 137px;
+    margin-top: 105px;
     background-color: blue;
     opacity: 20%;
     border-radius: 50%;
@@ -160,7 +160,8 @@
 
 .dot2 {
     margin-left: 48px;
-    margin-top: 98px;
+    margin-top: 94px;
+
     background-color: blue;
     opacity: 20%;
     border-radius: 50%;
@@ -194,7 +195,7 @@
 
 .dot6 {
     margin-left: 200px;
-    margin-top: -56.5px;
+    margin-top: -60.5px;
     background-color: blue;
     opacity: 20%;
     border-radius: 50%;
