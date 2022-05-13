@@ -1,26 +1,23 @@
 import './videos.css';
-import { useState } from 'react'
+import './dot.css';
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
 import { uploadVideo } from '../../../store/videos'
-import { FaDeviantart } from 'react-icons/fa';
 
 
 function UploadVideos() {
 
     const sessionUser = useSelector(state => state.session.user)
-    const dispatch = useDispatch;
-    const history = useHistory()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [errors, setErrors] = useState([]);
+    const [num, setNum] = useState(0);
     const [title, setTitle] = useState('');
     const [video_url, setVideoUrl] = useState('');
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
-
-    const [fadeIn, setFade] = useState({
-        fade: 'fade',
-    })
 
     const updateVideo = (e) => {
         const file = e.target.files[0];
@@ -40,40 +37,42 @@ function UploadVideos() {
         formData.append("description", description);
         formData.append("image_url", image_url);
 
-        await dispatch(uploadVideo(formData));
-
-        // if (data) {
-        //     history.push(`/`);
-        // } else {
-        //     if (data.errors) {
-        //         setErrors(data.errors);
-        //     }
-        // }
+        const data = await dispatch(uploadVideo(formData));
+        if (data) {
+            history.push(`/`);
+        } else {
+            if (data.errors) {
+                setErrors(data.errors);
+            }
+        }
     }
 
-    // useEffect(() => {
-    //     const toggleFade = setInterval(() => {
-    //         setNum((prevNum) => (prevNum === 9 ? 0 : prevNum + 1));
-    //     }, 10000);
-    //     return () => pictureInterval;
-    // }, []);
+    useEffect(() => {
+        const toggleFade = setInterval(() => {
+            setNum((prevNum) => (prevNum === 9 ? 0 : prevNum + 1));
+        }, 10000);
+        return () => toggleFade;
+    }, []);
 
+
+    const fadeIn = 1
     return (
-        <body className='bodyCon'>
-            <div className="firstCon">
-                <div className="dot"></div>
-                <div className="dot1"></div>
-                <div className="dot2"></div>
-                <div className="dot3"></div>
-                <div className="dot4"></div>
-                <div className="dot5"></div>
-                <div className="dot6"></div>
-                <div className="dot7"></div>
-                <div className="dot8"></div>
-                <div className="dot9"></div>
+        <div className='bodyCon'>
+            <div className='Con'>
+                <div className="firstCon">
+                    <div className="fade dot"></div>
+                    <div className="fade dot1"></div>
+                    <div className="fade dot2"></div>
+                    <div className="fade dot3"></div>
+                    <div className="fade dot4"></div>
+                    <div className="fade dot5"></div>
+                    <div className="fade dot6"></div>
+                    <div className="fade dot7"></div>
+                    <div className="fade dot8"></div>
+                    <div className="fade dot9"></div>
+                </div>
             </div>
             <div className="secondCOn">
-
                 <form onSubmit={handleSubmit}>
                     <div className='upload-div'>
                         <div className='left-border'> </div>
@@ -135,7 +134,7 @@ function UploadVideos() {
                     </div>
                 </form>
             </div>
-        </body>
+        </div>
     )
 }
 

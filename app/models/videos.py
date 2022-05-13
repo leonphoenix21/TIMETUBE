@@ -16,15 +16,14 @@ class Video(db.Model):
 
     user = db.relationship("User", back_populates="video")
 
-
-def to_dict(self):
-    return {
-        'id': self.id,
-        'title': self.title,
-        'user_id': self.user_id,
-        'video_url': self.video_url,
-        'description': self.description,
-        'image_url': self.image_url,
-        'created_at': self.created_at,
-        'updated_at': self.updated_at,
-    }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'user_id': self.user_id,
+            'video_url': self.video_url,
+            'description': self.description,
+            'image_url': self.image_url,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+        }

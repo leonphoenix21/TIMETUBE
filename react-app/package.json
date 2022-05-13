@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@videojs/themes": "^1.0.1",
     "aws-sdk": "^2.1133.0",
     "http-proxy-middleware": "^1.0.5",
     "react": "^17.0.2",
@@ -15,14 +17,20 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-modal": "^3.15.1",
+    "react-native": "^0.68.2",
+    "react-native-paper": "^4.12.1",
+    "react-player": "^2.10.1",
     "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.1",
     "react-scripts": "^4.0.3",
     "react-video-js-player": "^1.1.1",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sidebar": "^1.0.2"
+    "sass": "^1.51.0",
+    "screenfull": "^6.0.1",
+    "sidebar": "^1.0.2",
+    "videojs-seek-buttons": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,5 +54,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "video.js": "^7.18.1"
+  }
 }

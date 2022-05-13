@@ -15,12 +15,11 @@ def users():
     return {'users': [user.to_dict() for user in users]}
 
 
-# @user_routes.route('/all')
-# @login_required
-# def users():
-#     usersall = User.query.all()
-#     print(users, "//////////////")
-#     return jsonify([user.to_dict() for user in usersall])
+@user_routes.route('/details')
+def details():
+    items = User.query.all()
+    print(items, "//////////////")
+    return jsonify([user.to_dict() for user in items])
 
 
 @user_routes.route('/<int:id>')

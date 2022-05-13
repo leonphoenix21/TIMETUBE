@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from app.models import Video, db
-from app.forms import NewVideoForm, EditVideoForm
 from datetime import datetime
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -15,8 +14,6 @@ def new_video():
     Create a New video
     """
     if request.method == 'POST':
-        form = NewVideoForm()
-        form['csrf_token'].data = request.cookies['csrf_token']
         keys = list(request.files.to_dict().keys())
         if len(keys) != 2:
             return {"errors": "No file uploaded"}
@@ -51,8 +48,6 @@ def new_video():
         db.session.add(video)
 
     else:
-        form = NewVideoForm()
-        form['csrf_token'].data = request.cookies['csrf_token']
         if not any(request.files):
             video = Video.query.get(int(request.form["id"]))
             video.title = request.form['title']
@@ -125,8 +120,8 @@ def new_video():
                 video.image_url = image_url
                 video.updated_at = datetime.now()
 
-        db.session.commit()
-        return video.to_dict()
+    db.session.commit()
+    return video.to_dict()
 
 
 @video_routes.route('/')
@@ -148,14 +143,3 @@ def delete_video(id):
         db.session.delete(video)
         db.session.commit()
         return {'id': id}
-
-
-# GET /api/videos/:id/comments
-@video_routes.route('/<int:id>/comments')
-def get_comments_by_video_id(id):
-    """
-    Get all comments of video ID
-    """
-    video = Video.query.get(id)
-    if video:
-        return jsonify([comment.to_dict() for comment in video.comments])

@@ -56,7 +56,7 @@ const NavBar = () => {
       <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
         <span className='UploadIcon'> <ImUpload2 /> </span>
       </NavLink>
-      <NavLink className='navlinks' to='/' exact={true} activeClassName='active'>
+      <NavLink className='navlinks' to='/home' exact={true} activeClassName='active'>
         Home
       </NavLink>
       <ProfileModal user={sessionUser} />

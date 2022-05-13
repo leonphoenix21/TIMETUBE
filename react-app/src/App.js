@@ -10,6 +10,10 @@ import User from './components/UserPage/User';
 import { authenticate } from './store/session';
 import UploadVideos from './components/Videos/UploadVideos.js/upload_videos';
 import { loadUserDetails } from './store/details';
+import VideoPlayer from './components/VideoPlayer/video-player'
+import { getAllVideos } from './store/videos';
+import SingleVideo from './components/Videos/SingleVideo/singlevideo';
+import VideoDisplay from './components/Videos/VideoList/videolist';
 
 
 function App() {
@@ -25,7 +29,8 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      // await dispatch(loadUserDetails());
+      await dispatch(loadUserDetails());
+      await dispatch(getAllVideos)
     })();
   }, [dispatch]);
 
@@ -51,6 +56,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/video/:videoId' exact={true} >
+          <SingleVideo />
+        </ProtectedRoute>
+        <ProtectedRoute path='/home' exact={true} >
+          <VideoDisplay />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
         </ProtectedRoute>

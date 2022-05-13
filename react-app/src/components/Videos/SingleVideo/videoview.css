@@ -1,0 +1,50 @@
+.video-js {
+    /* border: red solid 1px; */
+    height: 80vh;
+    width: 100vw;
+}
+
+.videoPlayerDiv {
+    /* border: blue 1px solid; */
+    background-color: black;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.single {
+    margin: 50px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.singleview {
+    margin: 20px 0px 0px 20px;
+
+}
+
+.singleline {
+    margin-top: 20px;
+}
+
+.descriptionTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.videoDescription {
+    margin-right: 600px;
+}
+
+.displayname {
+    margin: 10px 0px 0px 15px;
+}

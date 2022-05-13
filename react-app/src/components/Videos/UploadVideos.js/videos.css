@@ -1,9 +1,16 @@
 .bodyCon {
-    background: url('https://cdn.shutterstock.com/shutterstock/videos/8085121/thumb/1.jpg') no-repeat left bottom;
-    object-fit: cover;
-    border: red 2px solid;
     display: flex;
     flex-direction: row;
+}
+
+.Con {
+    position: absolute;
+    background: url('https://cdn.shutterstock.com/shutterstock/videos/8085121/thumb/1.jpg') no-repeat left bottom;
+    object-fit: cover;
+    /* border: blue 2px solid; */
+    display: flex;
+    flex-direction: row;
+    width: 500px;
 }
 
 .upload-div {
@@ -15,120 +22,6 @@
     width: 50vh;
 }
 
-.firstCon {
-    border: solid red 1px;
-    height: 75vh;
-    width: 500px;
-}
-
-.dot {
-    margin-left: 20px;
-    margin-top: 137px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot1 {
-    margin-left: 13.5px;
-    margin-top: 17px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot2 {
-    margin-left: 48px;
-    margin-top: 94px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot3 {
-    margin-left: 113px;
-    margin-top: 129px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot4 {
-    margin-left: 175px;
-    margin-top: 92.7px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity .3s ease-in-out;
-    -ms-transition: opacity .3s ease-in-out;
-    -o-transition: opacity .3s ease-in-out;
-    transition: opacity .3s ease-in-out;
-    border-radius: 50%;
-}
-
-.dot4.fade {
-    opacity: 0;
-}
-
-.dot5 {
-    margin-left: 207px;
-    margin-top: 12.8px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot6 {
-    margin-left: 200px;
-    margin-top: -60.5px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot7 {
-    margin-left: 163.6px;
-    margin-top: -107px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot8 {
-    margin-left: 113px;
-    margin-top: -119px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
-
-.dot9 {
-    margin-left: 60px;
-    margin-top: -103px;
-    height: 10px;
-    width: 8px;
-    background-color: blue;
-    opacity: 50%;
-    border-radius: 50%;
-}
 
 
 .left-border {
@@ -202,4 +95,143 @@
 
 .submitvideobtn:hover {
     background-color: #d3d3d3;
+}
+
+.secondCOn {
+    margin-left: 500px;
+    position: absolute;
+}
+
+.fade {
+    animation: pulse-animation 3s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 0%;
+    }
+
+    .25% {
+        opacity: .15%;
+    }
+
+    .50% {
+        opacity: .30%;
+    }
+
+    .75% {
+        opacity: .40%;
+    }
+
+    100% {
+        opacity: .50;
+    }
+
+
+}
+
+
+.firstCon {
+    /* border: solid red 1px; */
+    height: 75vh;
+    width: 500px;
+}
+
+.firstCon>div {
+    height: 9px;
+    width: 10px;
+}
+
+.dot {
+    margin-left: 4%;
+    margin-top: 137px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot1 {
+    margin-left: 13.5px;
+    margin-top: 17px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot2 {
+    margin-left: 48px;
+    margin-top: 98px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot3 {
+    margin-left: 113px;
+    margin-top: 129px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot4 {
+    margin-left: 175px;
+    margin-top: 92.7px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+
+
+.dot5 {
+    margin-left: 207px;
+    margin-top: 12.8px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot6 {
+    margin-left: 200px;
+    margin-top: -56.5px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot7 {
+    margin-left: 163.6px;
+    margin-top: -107px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot8 {
+    margin-left: 113px;
+    margin-top: -119px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+.dot9 {
+    margin-left: 60px;
+    margin-top: -103px;
+    background-color: blue;
+    opacity: 20%;
+    border-radius: 50%;
+}
+
+@media (max-width: 1548px) {
+    .fade {
+        visibility: hidden;
+    }
+}
+
+@media (min-width: 1550px) {
+    .fade {
+        visibility: visible;
+    }
 }
