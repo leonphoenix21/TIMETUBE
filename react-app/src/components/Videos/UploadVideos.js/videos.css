@@ -15,6 +15,7 @@
 
 .upload-div {
     display: flex;
+    position: absolute;
     flex-direction: row;
     margin-left: 40%;
     margin-top: 30px;
@@ -57,10 +58,7 @@
     background-color: #d3d3d3;
 }
 
-.videoUploadIcon {
-    padding-left: 28px;
-    font-size: 20px;
-}
+
 
 .upload-title {
     display: flex;
@@ -129,6 +127,33 @@
 
 
 }
+
+
+.videoUploadIcon {
+    padding-left: 28px;
+    font-size: 20px;
+}
+
+.videoUploadIcon {
+    overflow: hidden;
+    animation: hopping 3s infinite linear;
+}
+
+@keyframes hopping {
+    0% {
+
+        transform: rotateY(3.142rad);
+    }
+
+    100% {
+        transform: rotateY(-3.142rad);
+
+
+    }
+
+
+}
+
 
 
 .firstCon {
