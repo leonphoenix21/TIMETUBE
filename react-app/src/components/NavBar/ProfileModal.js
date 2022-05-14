@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 import { NavLink } from "react-router-dom";
 import { ImHome } from "react-icons/im";
+import { MdSwitchAccount } from "react-icons/md";
 
 function ProfileModal({ user }) {
 
@@ -39,7 +40,7 @@ function ProfileModal({ user }) {
                     {showMenu && (
                         <div className="profile-dropdown">
                             <div>
-                                <NavLink className='navlinks ' to={`/users/${user?.id}`} exact={true} activeClassName="active"> Profile </NavLink>
+                                <NavLink className='navlinks ' to={`/users/${user?.id}`} exact={true} activeClassName="active"><span><MdSwitchAccount /> </span> Profile </NavLink>
                                 <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div>
                             </div>
                             <button style={{ minWidth: '80px' }} onClick={onLogout}>Log Out</button>

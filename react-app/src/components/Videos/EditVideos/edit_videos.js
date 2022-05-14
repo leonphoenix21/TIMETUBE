@@ -1,15 +1,19 @@
 import './edit_videos.css';
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
-import { uploadVideo } from '../../../store/videos'
+import { deleteVideo, editVideo } from '../../../store/videos'
 import { FaTools } from "react-icons/fa";
 import { VscSettingsGear } from "react-icons/vsc";
 
 
 function EditVideos() {
 
+
+    const { videoId } = useParams()
+    const video = useSelector(state => state.videos[videoId])
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -32,21 +36,27 @@ function EditVideos() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("user_id", sessionUser.id);
+        formData.append("id", sessionUser.id);
         formData.append("title", title);
-        formData.append("video_url", video_url);
         formData.append("description", description);
         formData.append("image_url", image_url);
 
-        const data = await dispatch(uploadVideo(formData));
+        const data = await dispatch(editVideo(formData));
         if (data) {
-            history.push(`/`);
+            history.push(`/home`);
         } else {
             if (data.errors) {
                 setErrors(data.errors);
             }
         }
     }
+    const deleteVideoSubmit = async (e) => {
+        e.preventDefault();
+        const res = await dispatch(deleteVideo(+videoId));
+        if (res) {
+            history.push("/home");
+        }
+    };
 
 
     return (
@@ -60,41 +70,12 @@ function EditVideos() {
                                 <h2> Edit Video  </h2>
                                 <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                             </div>
+
                             <div className='contDiv'>
-                                <label> Title </label>
-                                <input
-                                    className="videofield strings"
-                                    type="text"
-                                    onChange={(e) => setTitle(e.target.value)}
-                                    value={title}
-                                    placeholder=" title here..."
-                                    name="title"
-                                    required
-                                />
-                            </div >
-                            <div className='contDiv'>
-                                <label> Choose Video </label>
-                                <input
-                                    className='videofield'
-                                    type='file'
-                                    id='videoFile'
-                                    accept='video/*'
-                                    onChange={updateVideo}
-                                />
+                                <img src={`${video?.image_url}`} alt='' style={{ height: '150px', width: '250px' }} />
                             </div>
-                            <div className='contDiv description'>
-                                <label> Description </label>
-                                <textarea
-                                    className="videotext strings"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    placeholder=" description here ... "
-                                    name="description"
-                                    id="description"
-                                />
-                            </div>
-                            <label> Choose Image </label>
                             <div className='contDiv' >
+                                <label > change cover image?... </label>
                                 <input
                                     className='videofield'
                                     type='file'
@@ -104,11 +85,42 @@ function EditVideos() {
                                 />
                             </div>
                             <div className='contDiv'>
+                                <input
+                                    className="videofield strings"
+                                    type="text"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    value={title}
+                                    placeholder={` edit title here... current --> ${video?.title}`}
+                                    name="title"
+                                    required
+                                />
+                            </div >
+
+                            <div className='contDiv descriptionedit'>
+                                <textarea
+                                    className="videotext strings"
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    placeholder={`edit description ...          current --> ${video?.description}`}
+                                    name="description"
+                                    id="description"
+                                />
+                            </div>
+
+                            <div className='contDiv'>
                                 <button
                                     type='submit'
                                     className='submitvideobtn'>
                                     Submit
                                 </button>
+
+                                <button
+                                    type='button'
+                                    onClick={deleteVideoSubmit}
+                                    className='submitvideobtn'>
+                                    Delete
+                                </button>
+
                             </div>
                         </div>
 

@@ -44,7 +44,7 @@
     font-size: 16px;
     color: black;
     z-index: 1;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
 }
 
 .navlinks.homeIcon {
