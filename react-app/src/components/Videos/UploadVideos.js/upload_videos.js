@@ -1,6 +1,6 @@
 import './videos.css';
 import './dot.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
@@ -13,7 +13,6 @@ function UploadVideos() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
-    const [num, setNum] = useState(0);
     const [title, setTitle] = useState('');
     const [video_url, setVideoUrl] = useState('');
     const [description, setDescription] = useState('');
@@ -39,7 +38,7 @@ function UploadVideos() {
 
         const data = await dispatch(uploadVideo(formData));
         if (data) {
-            history.push(`/`);
+            history.push(`/home`);
         } else {
             if (data.errors) {
                 setErrors(data.errors);
@@ -47,15 +46,8 @@ function UploadVideos() {
         }
     }
 
-    useEffect(() => {
-        const toggleFade = setInterval(() => {
-            setNum((prevNum) => (prevNum === 9 ? 0 : prevNum + 1));
-        }, 10000);
-        return () => toggleFade;
-    }, []);
 
 
-    const fadeIn = 1
     return (
         <div className='bodyCon'>
             <div className='Con'>

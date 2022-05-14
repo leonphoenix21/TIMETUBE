@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getAllVideos } from '../../../store/videos';
 import './videolist.css';
 
@@ -14,11 +14,8 @@ const VideoDisplay = () => {
     }, [dispatch]);
 
 
-    const sessionUser = useSelector(state => state.session.user);
     const videos = useSelector(state => state.videos);
     const allVideos = Object.values(videos)
-    console.log(allVideos, 'VVVVVVVVVVVVVVVVV')
-    const [num, setNum] = useState(0);
 
 
     const navLink = (id) => {

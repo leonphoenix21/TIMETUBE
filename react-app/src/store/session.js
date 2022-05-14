@@ -1,14 +1,9 @@
 // constants
 const SET_USER = 'session/SET_USER';
-const LOAD_USER = 'session/LOAD_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
-  payload: user
-});
-const loadDetails = (user) => ({
-  type: LOAD_USER,
   payload: user
 });
 

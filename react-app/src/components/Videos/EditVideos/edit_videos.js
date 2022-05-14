@@ -36,7 +36,7 @@ function EditVideos() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("id", sessionUser.id);
+        formData.append("id", videoId);
         formData.append("title", title);
         formData.append("description", description);
         formData.append("image_url", image_url);
@@ -70,12 +70,19 @@ function EditVideos() {
                                 <h2> Edit Video  </h2>
                                 <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                             </div>
+                            <div>
+                                {errors.map((error, ind) => (
+                                    <div className="error_message" key={ind}>
+                                        {error}
+                                    </div>
+                                ))}
+                            </div>
 
                             <div className='contDiv'>
                                 <img src={`${video?.image_url}`} alt='' style={{ height: '150px', width: '250px' }} />
                             </div>
                             <div className='contDiv' >
-                                <label > change cover image?... </label>
+                                <label > update cover ... </label>
                                 <input
                                     className='videofield'
                                     type='file'
