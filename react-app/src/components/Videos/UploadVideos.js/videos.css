@@ -27,7 +27,7 @@
 
 .left-border {
     border-left: black 1px solid;
-    margin: 10px 0px 90px 10px;
+    margin: 10px 0px 50px 10px;
     padding: 10px;
 }
 
@@ -128,7 +128,6 @@
 
 }
 
-
 .videoUploadIcon {
     padding-left: 28px;
     font-size: 20px;
@@ -141,19 +140,31 @@
 
 @keyframes hopping {
     0% {
+        transform: translateX(10px);
+        transform: rotate();
+    }
 
-        transform: rotateY(3.142rad);
+    50% {
+        transform: translateX(0px);
     }
 
     100% {
-        transform: rotateY(-3.142rad);
-
-
+        transform: translateX(10px);
     }
+
 
 
 }
 
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
 
 
 .firstCon {

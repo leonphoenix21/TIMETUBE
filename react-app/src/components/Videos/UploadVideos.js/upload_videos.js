@@ -94,6 +94,7 @@ function UploadVideos() {
                                 />
                             </div >
                             <div className='contDiv'>
+                                <label> Choose Video </label>
                                 <input
                                     className='videofield'
                                     type='file'
@@ -113,6 +114,7 @@ function UploadVideos() {
                                     id="description"
                                 />
                             </div>
+                            <label> Choose Image </label>
                             <div className='contDiv' >
                                 <input
                                     className='videofield'

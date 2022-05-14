@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import videojs from 'video.js';
 import './videoview.css'
@@ -21,6 +21,8 @@ import '@videojs/themes/dist/sea/index.css';
 function SingleVideo() {
 
     const { videoId } = useParams()
+    const history = useHistory();
+
     const [user, setUserUploader] = useState({});
     console.log('///sfsefaeff///asfafs/', videoId)
     const video = useSelector(state => state.videos[+videoId])
@@ -35,6 +37,10 @@ function SingleVideo() {
             setUserUploader(user);
         })();
     }, [videoId]);
+
+    const navLink = (id) => {
+        history.push(`/edit/${videoId}`)
+    }
 
     return (
         <>
@@ -62,7 +68,9 @@ function SingleVideo() {
 
             <div className='videoDescription'>
                 <p> {video?.description}</p>
+                <button onClick={navLink}> Edit  </button>
             </div>
+
         </>
     )
 

@@ -10,10 +10,10 @@ import User from './components/UserPage/User';
 import { authenticate } from './store/session';
 import UploadVideos from './components/Videos/UploadVideos.js/upload_videos';
 import { loadUserDetails } from './store/details';
-import VideoPlayer from './components/VideoPlayer/video-player'
 import { getAllVideos } from './store/videos';
 import SingleVideo from './components/Videos/SingleVideo/singlevideo';
 import VideoDisplay from './components/Videos/VideoList/videolist';
+import EditVideos from './components/Videos/EditVideos/edit_videos';
 
 
 function App() {
@@ -59,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/video/:videoId' exact={true} >
           <SingleVideo />
+        </ProtectedRoute>
+        <ProtectedRoute path='/edit/:videoId' exact={true} >
+          <EditVideos />
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
           <VideoDisplay />

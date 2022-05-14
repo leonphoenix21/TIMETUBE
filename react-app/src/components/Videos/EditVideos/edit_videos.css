@@ -1,0 +1,31 @@
+.editUploadIcon {
+    padding-left: 28px;
+    font-size: 20px;
+}
+
+
+.editUploadIcon {
+    overflow: hidden;
+    animation: hopping 3s infinite linear;
+}
+
+@keyframes hopping {
+    0% {
+        transform: translateX(10px);
+        color: blue;
+        opacity: 50%;
+    }
+
+    50% {
+        transform: translateX(0px);
+        color: '';
+        opacity: 0%;
+    }
+
+    100% {
+        transform: translateX(10px);
+        color: blue;
+        opacity: 50%;
+    }
+
+}
