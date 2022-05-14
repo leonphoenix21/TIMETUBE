@@ -7,16 +7,37 @@
 
 .avatar {
     border-radius: 50px;
-    height: 120px;
-    width: 120px;
+    height: 110px;
+    width: 110px;
     /* border: red solid 2px; */
 }
 
+.profileAvtr {
+    margin-top: 25px;
+}
+
 .header {
-    margin: 0;
+    margin: 2% 12% 0px 10%;
+    top: 50%;
     padding: 0;
+    width: 90vw;
+    border-radius: 3px;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    align-items: center;
+    /* border: green solid 2px; */
+
+}
+
+.userheader {
     width: 100vw;
-    height: 40vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     /* border: green solid 2px; */
 
 }
@@ -35,7 +56,9 @@
 .userInfo {
     /* border: blue solid 2px; */
     padding-left: 30px;
+    margin-top: 15px;
     width: 200px;
+    border: solid red 1px;
 }
 
 .bottom-line {
@@ -43,12 +66,8 @@
     margin: 0px 50px 0px 50px;
 }
 
-.editUserDiv {
-    /* border: 1px red solid; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+.editModalbtn {
+    margin-left: 50%;
 }
 
 .editModal {
@@ -62,47 +81,29 @@
 
 
 .editUserbtn {
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+    border-radius: 5px;
+    transition: background-color .5s ease-in-out;
+    border: white 2px solid;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    appearance: none;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
-    border-radius: .375em;
-    box-shadow: none;
-    box-sizing: border-box;
-    color: #363636;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    height: 1.5em;
-    justify-content: center;
-    line-height: 1.5;
-    padding: calc(.5em - 1px) 1em;
-    position: relative;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
-}
-
-.editUserbtn:active {
-    border-color: #4a4a4a;
-    outline: 0;
-}
-
-.editUserbtn:focus {
-    border-color: #485fc7;
-    outline: 0;
+    font-size: 15px;
+    padding: 15px;
 }
 
 .editUserbtn:hover {
-    border-color: #b5b5b5;
+    border-right: solid rgba(45, 13, 228, 0.596) 4px;
+    border-bottom: solid rgba(24, 11, 205, 0.648) 4px;
+    background-color: rgb(210, 208, 208);
+
 }
 
-.editUserbtn:focus:not(:active) {
-    box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+
+
+.accntIcon {
+    font-size: 20px;
 }
 
 .editModals {

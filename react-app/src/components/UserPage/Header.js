@@ -24,7 +24,8 @@ function Header() {
     return (
         <ul>
             <li>
-                <img className='header' src={`${user?.header}`} />
+
+                <p> </p>
             </li>
         </ul>
     );

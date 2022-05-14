@@ -23,7 +23,7 @@ function Avatar() {
     return (
         <div>
             <div>
-                <img className='avatar' src={`${user.avatar}`} />
+                <img className='avatar profileAvtr' src={`${user.avatar}`} />
             </div>
         </div>
     );

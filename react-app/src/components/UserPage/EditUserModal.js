@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import * as AiIcons from 'react-icons/ai';
 import { MdManageAccounts } from 'react-icons/md';
 import './user_page.css';
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userDetails } from '../../store/details';
+import { MdOutlineManageAccounts } from "react-icons/md";
 
+function EditUserModal({ User, sessionId }) {
 
-function EditUserModal({ user }) {
-
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const history = useHistory()
     const [errors, setErrors] = useState([]);
@@ -17,9 +18,16 @@ function EditUserModal({ user }) {
     const [lastname, setLastName] = useState(user.lastname)
     const [avatar, setAvatar] = useState(user.avatar)
     const [header, setHeader] = useState(user.header)
+    const [verify, setVerify] = useState(false)
 
     Modal.ariaHideApp = false
 
+
+    useEffect(() => {
+        if (User.id === sessionId) {
+            setVerify(true)
+        }
+    })
     const customStyles = {
         content: {
             top: '50%',
@@ -71,7 +79,7 @@ function EditUserModal({ user }) {
         closeModal()
         const detail = await dispatch(userDetails(formData));
         if (detail) {
-            history.push(`/users/${user.id}`);
+            history.push(`/users/${+user.id}`);
         } else {
             if (detail.errors) {
                 setErrors(detail.errors);
@@ -81,9 +89,19 @@ function EditUserModal({ user }) {
 
     return (
         <div className='editModal'>
-            <div>
-                <button className="editUserbtn" onClick={openModal}>Open Modal</button>
-            </div>
+            {
+                verify ?
+                    <div>
+                        <button className="editUserbtn" onClick={openModal}>
+                            Edit Account
+                            <span className='accntIcon'>< MdOutlineManageAccounts /> </span>
+                        </button>
+                    </div>
+                    :
+                    <>
+                    </>
+            }
+
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
@@ -91,14 +109,15 @@ function EditUserModal({ user }) {
                 style={customStyles}
                 contentLabel="EditUser"
             >
-                <div className='editModals'>
-                    <div className='modalIcons'>
-                        <span className='modalHeader'> < MdManageAccounts /></span>
-                        <span className='closeIcon' onClick={closeModal}> <AiIcons.AiOutlineClose /></span>
-                    </div>
-                    <div className="bottom-line modal"></div>
+                <form onSubmit={handleSubmit} >
+                    <div className='editModals' ref={(_subtitle) => (subtitle = _subtitle)}>
+                        <div className='modalIcons'>
+                            <span className='modalHeader'> < MdManageAccounts /></span>
+                            <span className='closeIcon' onClick={closeModal}> <AiIcons.AiOutlineClose /></span>
+                        </div>
+                        <div className="bottom-line modal"></div>
 
-                    <form onSubmit={handleSubmit} ref={(_subtitle) => (subtitle = _subtitle)}>
+
                         <div className='fullname'>
                             <div>
                                 <label> first name </label>
@@ -158,8 +177,8 @@ function EditUserModal({ user }) {
                                 Submit
                             </button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </Modal>
         </div>
     );

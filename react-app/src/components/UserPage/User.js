@@ -29,14 +29,16 @@ function User() {
 
   return (
     <div className='details'>
-      <div className='user header'>
-        <Header />
+      <div className='userheader'>
+        <img className='header' src={`${user?.header}`} alt='' />
       </div>
       <div className='user avatar'>
         < Avatar />
-        <div className='editUserDiv'>
+        <div className='UserInfoDiv'>
           <UserInfo />
-          <EditUserModal user={user} />
+        </div>
+        <div className='editModalbtn'>
+          <EditUserModal User={user} sessionId={sessionUser.id} />
         </div>
       </div>
       <div className='bottom-line'> </div>
