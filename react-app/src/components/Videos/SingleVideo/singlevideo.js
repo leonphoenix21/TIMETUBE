@@ -17,6 +17,7 @@ import '@videojs/themes/dist/forest/index.css';
 
 // Sea
 import '@videojs/themes/dist/sea/index.css';
+import CommentsDisplay from '../../Comments/CommentDisplay/comments';
 
 function SingleVideo() {
 
@@ -70,6 +71,7 @@ function SingleVideo() {
                 <p> {video?.description}</p>
                 <button onClick={navLink}> Edit  </button>
             </div>
+            < CommentsDisplay />
 
         </>
     )

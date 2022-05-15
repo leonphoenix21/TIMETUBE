@@ -1,0 +1,74 @@
+.commentsContainer {
+    height: 500px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    border: red 1px dotted;
+    margin-top: 10px;
+}
+
+.border-Top-line {
+    margin: 2% 2% 0% 2%;
+    border-top: 1px solid black;
+
+}
+
+.commentsDisplay {
+    height: 500px;
+    width: 70vw;
+    border: green 1px dotted;
+
+}
+
+.VideoSideBar {
+    height: 500px;
+    width: 30%;
+    border: blue 1px dotted;
+
+}
+
+
+.commentsAvtr {
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    margin: 20px 20px;
+
+}
+
+.addCommentDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex start;
+    align-items: center;
+}
+
+.addCommentInputDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.addCommentInputField {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px black solid;
+    padding: 10px;
+}
+
+.addCommentInputField:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px black solid;
+
+}
+
+.commentInputBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: .5%;
+}
