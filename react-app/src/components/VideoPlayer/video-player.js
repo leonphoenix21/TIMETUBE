@@ -25,7 +25,6 @@ function VideoPlayer() {
     const playerRef = useRef(null);
 
     const video = useSelector(state => state.videos[+videoId])
-    console.log('hffjfjjfjjf', video)
 
     useEffect(() => {
         const player = playerRef.current;

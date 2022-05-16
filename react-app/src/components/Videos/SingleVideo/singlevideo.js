@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import videojs from 'video.js';
 import './videoview.css'
 // import ReactPlayer from 'react-player'
@@ -22,22 +23,24 @@ import CommentsDisplay from '../../Comments/CommentDisplay/comments';
 function SingleVideo() {
 
     const { videoId } = useParams()
+    const dispatch = useDispatch();
+    console.log(+videoId, "VVVVVVVVVV", useParams(),)
     const history = useHistory();
 
     const [user, setUserUploader] = useState({});
     console.log('///sfsefaeff///asfafs/', videoId)
-    const video = useSelector(state => state.videos[+videoId])
+    const video = useSelector(state => state.videos[videoId])
 
     useEffect(() => {
         if (!video?.user_id) {
             return;
         }
         (async () => {
-            const response = await fetch(`/api/users/${video.user_id}`);
+            const response = await fetch(`/api/users/${+video?.user_id}`);
             const user = await response.json();
             setUserUploader(user);
         })();
-    }, [videoId]);
+    }, [dispatch]);
 
     const navLink = (id) => {
         history.push(`/edit/${videoId}`)

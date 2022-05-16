@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './comments.css';
-import Avatar from '../../UserPage/Avatar';
 import { useSelector } from 'react-redux';
 
 function CommentsDisplay() {
@@ -31,7 +30,11 @@ function CommentsDisplay() {
                         <div className='addCommentInputDiv'>
                             <input
                                 className='addCommentInputField'
-                                onChange={updateBtnActivity}
+                                onChange={(e) => (
+                                    updateBtnActivity(e),
+                                    setContent(e.target.value)
+                                )}
+                                value={content}
                                 type="text"
                                 placeholder='Add a comment here '
                                 name='commentInput'

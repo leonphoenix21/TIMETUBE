@@ -1,13 +1,16 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import session from './session'
-import videos from './videos'
-import details from './details'
+import session from './session';
+import videos from './videos';
+import details from './details';
+import comments from './comments';
+
 
 const rootReducer = combineReducers({
   session,
   videos,
-  details
+  details,
+  comments
 });
 
 

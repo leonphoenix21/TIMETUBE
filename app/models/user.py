@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     video = db.relationship("Video", back_populates="user")
+    comments = db.relationship("Comment", back_populates="user")
 
     @property
     def password(self):
