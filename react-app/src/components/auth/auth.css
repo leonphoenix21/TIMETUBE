@@ -1,0 +1,87 @@
+.loginContainer {
+    /* border: red solid 1px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.right-border {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    margin-right: 250px;
+}
+
+.loginForm {
+    font-size: 20px;
+    margin-top: 15%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 2s ease-in-out;
+}
+
+.loginnav:hover {
+    transform: translateY(-10%);
+}
+
+.left-Border {
+    margin: 3% 3% 8% 0px;
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: black 1px solid;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+.submitLoginBtn {
+    border: none;
+    height: 40px;
+    width: 250px;
+    background-color: whitesmoke;
+    border: solid white 1.5px;
+    border-radius: 5px;
+}
+
+.submitLoginBtn:hover {
+    background-color: #d3d3d3;
+}
+
+.signUpContainer {
+    border: red solid 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.fullnameSign {
+    width: 120px;
+    height: 40px;
+}
+
+.first {
+    margin-right: 5px;
+}
+
+.last {
+    margin-left: 5px;
+}
+
+.signUpform {
+    font-size: 20px;
+    margin-top: 15%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 2s ease-in-out;
+}

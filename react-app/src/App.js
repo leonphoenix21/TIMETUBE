@@ -68,6 +68,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
         </ProtectedRoute>
+        <Route>
+          <h1> Page Not Found</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

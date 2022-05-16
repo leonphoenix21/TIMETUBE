@@ -5,7 +5,7 @@ import { MdManageAccounts } from 'react-icons/md';
 import './user_page.css';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { userDetails } from '../../store/details';
+import { loadUserDetails, userDetails } from '../../store/details';
 import { MdOutlineManageAccounts } from "react-icons/md";
 
 function EditUserModal({ User, sessionId }) {
@@ -27,7 +27,8 @@ function EditUserModal({ User, sessionId }) {
         if (User.id === sessionId) {
             setVerify(true)
         }
-    })
+
+    }, [])
     const customStyles = {
         content: {
             top: '50%',
@@ -76,9 +77,9 @@ function EditUserModal({ User, sessionId }) {
         formData.append("lastname", lastname);
         formData.append("avatar", avatar);
         formData.append("header", header);
-        closeModal()
         const detail = await dispatch(userDetails(formData));
         if (detail) {
+            closeModal()
             history.push(`/users/${+user.id}`);
         } else {
             if (detail.errors) {
