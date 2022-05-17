@@ -4,8 +4,9 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { videoComments } from '../../../../store/comments';
 import './comdisplay.css';
 import { GiTrashCan } from "react-icons/gi";
-import { MdEditNote } from "react-icons/md";
-import EditComment from '../../EditComment/editcomment';
+import EditComment from '../EditComment/editcomment';
+import DeleteComments from '../DeleteComment/delete-comments';
+
 function CommentsDisplay({ boxId }) {
 
     const dispatch = useDispatch();
@@ -49,8 +50,8 @@ function CommentsDisplay({ boxId }) {
                                 <div className="contentpart">  <span> {comment?.content}</span> </div>
                                 {comment?.user_id === sessionUser.id ?
                                     <div className="commentIcons">
-                                        <span className="navlinks homeIcon"> <GiTrashCan /></span>
                                         <span className="navlinks homeIcon"> <EditComment commentId={comment.id} /></span>
+                                        <span className="navlinks homeIcon"> <DeleteComments commentId={comment.id} /></span>
                                     </div>
                                     :
                                     <>

@@ -1,16 +1,18 @@
+import './deletecomments.css';
 import React, { useEffect, useRef, useState } from 'react';
 import Modal from 'react-modal';
-import { MdEditNote } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
-
-import './editcomment.css';
-import { editComment } from '../../../../store/comments';
-
-
-function EditComment({ commentId }) {
+import { useHistory, useParams } from 'react-router-dom'
+import { GiTrashCan } from "react-icons/gi";
+import { removeComment } from '../../../../store/comments';
 
 
+
+function DeleteComments({ commentId }) {
+
+
+    const { videoId } = useParams()
+    console.log(videoId, "lkLKLKLKLKLKLjjjj", useParams())
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -18,8 +20,6 @@ function EditComment({ commentId }) {
     const [errors, setErrors] = useState([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const comment = useSelector(state => Object.values(state.comments).filter(comment => comment.id === +commentId))
-    console.log('HHDHHDHDHDH', comment[0].content)
-    const [content, setContent] = useState(comment[0]?.content)
 
 
     const customStyles = {
@@ -49,11 +49,11 @@ function EditComment({ commentId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const formData = new FormData();
         formData.append("id", commentId);
-        formData.append("content", content);
 
-        const data = await dispatch(editComment(formData))
+        const data = await dispatch(removeComment(formData))
         if (data) {
             closeModal()
         } else {
@@ -61,13 +61,14 @@ function EditComment({ commentId }) {
                 setErrors(data.errors)
             }
         }
-    }
+        history.push(`/video/${videoId}`)
 
+    }
     return (
         <>
-            <div className='editCommentModal'>
+            <div className="deleteContainer">
                 <div>
-                    <span className="navlinks homeIcon" onClick={openModal}> < MdEditNote /></span>
+                    <span className="navlinks homeIcon" onClick={openModal}> <GiTrashCan /></span>
                 </div>
                 <Modal
                     isOpen={modalIsOpen}
@@ -77,41 +78,35 @@ function EditComment({ commentId }) {
                     contentLabel="EditComment"
                 >
                     <form onSubmit={handleSubmit} >
-                        <div className="firstCont">
-                            <textarea
-                                className='editCommmentInputField'
-                                onChange={(e) => (
-                                    setContent(e.target.value)
-                                )}
-                                value={content}
-                                name='commentInput'
-                                required
-                            />
-                        </div>
-                        <div className='commentInputBtns'>
-                            <button
-                                type='submit'
-                                className='submitvideobtn'>
-                                Submit
-                            </button>
-                            <button
-                                type='button'
-                                onClick={(e) => (
-                                    setContent(''),
-                                    closeModal()
-                                )}
-                                className='submitvideobtn'>
-                                Cancel
-                            </button>
+                        <div className="mainContainer">
+                            <div>
+                                <span> Are you sure you want to delete this comment? </span>
+                            </div>
+                            <div className="deleteBtns">
+                                <div className='commentInputBtns'>
+                                    <button
+                                        type='submit'
+                                        className='submitvideobtn'>
+                                        Submit
+                                    </button>
+                                    <button
+                                        type='button'
+                                        onClick={(e) => (
+                                            closeModal()
+                                        )}
+                                        className='submitvideobtn'>
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </form>
 
                 </Modal>
-            </div>
 
+            </div>
         </>
     )
 }
 
-
-export default EditComment;
+export default DeleteComments;

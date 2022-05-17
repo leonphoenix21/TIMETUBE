@@ -49,13 +49,12 @@ def get_comments():
     return jsonify([comment.to_dict() for comment in comments])
 
 
-@comment_routes.route('/<int:id>', methods=['DELETE'])
-def delete_song(id):
+@comment_routes.route('/delete', methods=['DELETE'])
+def delete_comment():
     """
     Delete Comment by Id
     """
-    comment = Comment.query.get(id)
-    if comment:
-        db.session.delete(comment)
-        db.session.commit()
-        return {'id': id}
+    comment = Comment.query.get(int(request.form['id']))
+    db.session.delete(comment)
+    db.session.commit()
+    return comment.to_dict()
