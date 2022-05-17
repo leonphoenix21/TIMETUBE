@@ -8,15 +8,13 @@ import CommentsDisplay from '../CommentsDisplay/commentsDisplay';
 
 
 
-
-function Comments({ Id }) {
+function CreateComments({ Id }) {
 
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const [active, setActive] = useState(false)
     const [content, setContent] = useState('')
-    const [userId, setUserId] = useState('')
     const sessionUser = useSelector(state => state.session.user)
 
 
@@ -120,4 +118,4 @@ function Comments({ Id }) {
     )
 }
 
-export default Comments;
+export default CreateComments;

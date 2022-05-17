@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Comments from '../../Comments/CommentDisplay/CreateComments/comments';
+import Comments from '../../Comments/VideoCommentsDisplay/CreateComments/create-comments';
 
 
 import './videoview.css'

@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { videoComments } from '../../../../store/comments';
-import './comdisplay.css'
-
+import './comdisplay.css';
+import { GiTrashCan } from "react-icons/gi";
+import { MdEditNote } from "react-icons/md";
+import EditComment from '../../EditComment/editcomment';
 function CommentsDisplay({ boxId }) {
 
-    const history = useHistory();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -16,10 +17,8 @@ function CommentsDisplay({ boxId }) {
     }, [dispatch]);
 
     const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
+    const sessionUser = useSelector(state => state.session.user)
 
-    // const navLink = (id) => {
-    //     history.push(`users/${id}`)
-    // }
 
 
     return (
@@ -32,9 +31,6 @@ function CommentsDisplay({ boxId }) {
                             <a href={`/users/${comment.user_id}`}>
                                 <img className='eachCommentAvtr'
                                     src={`${comment?.avatar}`}
-                                // onClick={() => (
-                                //     navLink(comment.user_id)
-                                // )}
                                 />
                             </a>
                         </div>
@@ -49,7 +45,18 @@ function CommentsDisplay({ boxId }) {
                             </div>
                         </div>
                         <div className='individualContent'>
-                            <span> {comment?.content}</span>
+                            <div className="contentItems">
+                                <div className="contentpart">  <span> {comment?.content}</span> </div>
+                                {comment?.user_id === sessionUser.id ?
+                                    <div className="commentIcons">
+                                        <span className="navlinks homeIcon"> <GiTrashCan /></span>
+                                        <span className="navlinks homeIcon"> <EditComment commentId={comment.id} /></span>
+                                    </div>
+                                    :
+                                    <>
+                                    </>
+                                }
+                            </div>
                             <div className="comment-bottom-border" ></div>
                         </div>
                     </div>

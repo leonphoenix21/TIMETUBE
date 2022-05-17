@@ -1,0 +1,9 @@
+.editCommmentInputField {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 96%;
+    border-bottom: 1px black solid;
+    margin-bottom: 10px;
+    padding: 10px;
+}
