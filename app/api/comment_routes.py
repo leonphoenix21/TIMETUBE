@@ -1,6 +1,6 @@
 from crypt import methods
 from flask import Blueprint, jsonify, request
-from app.models import Comment, Video, db
+from app.models import Comment, db
 from datetime import datetime, time
 
 comment_routes = Blueprint('comment', __name__)
@@ -49,12 +49,14 @@ def get_comments():
     return jsonify([comment.to_dict() for comment in comments])
 
 
-@comment_routes.route('/delete', methods=['DELETE'])
-def delete_comment():
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+def delete_comment(id):
     """
     Delete Comment by Id
     """
-    comment = Comment.query.get(int(request.form['id']))
+    # commentId = int(request.form['id'])
+    # comment = Comment.query.get(int(request.form['id']))
+    comment = Comment.query.get(id)
     db.session.delete(comment)
     db.session.commit()
-    return comment.to_dict()
+    return {'id': id}

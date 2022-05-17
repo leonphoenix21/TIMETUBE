@@ -63,9 +63,9 @@ function App() {
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
         </ProtectedRoute>
-        <Route path='/home' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
           <VideoDisplay />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
         </ProtectedRoute>
         <Route>

@@ -28,7 +28,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   const demoLogin = async (e) => {
@@ -38,7 +38,7 @@ const LoginForm = () => {
       setErrors(data);
       return;
     }
-    history.push("/");
+    history.push("/home");
   };
 
   return (

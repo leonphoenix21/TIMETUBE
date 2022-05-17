@@ -67,15 +67,14 @@ export const editComment = (data) => async (dispatch) => {
     }
 };
 
-export const removeComment = (data) => async (dispatch) => {
-    const response = await fetch(`/api/comments/delete`, {
+export const removeComment = (id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${id}`, {
         method: "DELETE",
-        body: data,
     });
     if (response.ok) {
-        const comment = await response.json();
-        dispatch(deleteComment(comment));
-        return comment;
+        await response.json();
+        dispatch(deleteComment(id));
+        return id;
     }
 };
 

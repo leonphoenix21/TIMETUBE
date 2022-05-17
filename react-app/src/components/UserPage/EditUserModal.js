@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import * as AiIcons from 'react-icons/ai';
 import { MdManageAccounts } from 'react-icons/md';
+import { useParams, Redirect } from 'react-router-dom'
 import './user_page.css';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +12,7 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 function EditUserModal({ User, sessionId }) {
 
     const user = useSelector(state => state.session.user)
+    const { userId } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
     const [errors, setErrors] = useState([]);
@@ -23,12 +25,7 @@ function EditUserModal({ User, sessionId }) {
     Modal.ariaHideApp = false
 
 
-    useEffect(() => {
-        if (User.id === sessionId) {
-            setVerify(true)
-        }
 
-    }, [])
     const customStyles = {
         content: {
             top: '50%',
@@ -58,14 +55,7 @@ function EditUserModal({ User, sessionId }) {
     function closeModal() {
         setIsOpen(false);
     }
-    const avatarUrl = (e) => {
-        const file = e.target.files[0];
-        setAvatar(file);
-    };
-    const headerUrl = (e) => {
-        const file = e.target.files[0];
-        setHeader(file);
-    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,10 +67,13 @@ function EditUserModal({ User, sessionId }) {
         formData.append("lastname", lastname);
         formData.append("avatar", avatar);
         formData.append("header", header);
+
         const detail = await dispatch(userDetails(formData));
+
         if (detail) {
             closeModal()
-            history.push(`/users/${+user.id}`);
+            return <Redirect to={`/users/${user.id}`} />;
+            // history.push();
         } else {
             if (detail.errors) {
                 setErrors(detail.errors);
@@ -88,10 +81,27 @@ function EditUserModal({ User, sessionId }) {
         }
     }
 
+    const updateAvatar = (e) => {
+        if (e) {
+            const file = e.target.files[0];
+            setAvatar(file);
+        } else {
+            setAvatar(user.avatar)
+        }
+    };
+
+    const updateHeader = (e) => {
+        if (e) {
+            const file = e.target.files[0];
+            setHeader(file);
+        } else {
+            setHeader(user.header)
+        }
+    };
     return (
         <div className='editModal'>
             {
-                verify ?
+                user.id === +userId ?
                     <div>
                         <button className="editUserbtn" onClick={openModal}>
                             Edit Account
@@ -153,10 +163,9 @@ function EditUserModal({ User, sessionId }) {
                                 className="field"
                                 type="file"
                                 accept="image/*"
-                                onChange={avatarUrl}
+                                onChange={updateAvatar}
                                 name="avatar"
                                 id="avatar"
-                                required
                             />
                         </div>
                         <div className='inputDiv' >
@@ -165,10 +174,9 @@ function EditUserModal({ User, sessionId }) {
                                 className="field"
                                 type="file"
                                 accept="image/*"
-                                onChange={headerUrl}
+                                onChange={updateHeader}
                                 name="header"
                                 id="header"
-                                required
                             />
                         </div>
                         <div>

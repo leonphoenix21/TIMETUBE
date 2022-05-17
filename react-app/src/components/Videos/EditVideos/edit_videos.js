@@ -18,16 +18,11 @@ function EditVideos() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
-    const [num, setNum] = useState(0);
     const [title, setTitle] = useState('');
-    const [video_url, setVideoUrl] = useState('');
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
 
-    const updateVideo = (e) => {
-        const file = e.target.files[0];
-        setVideoUrl(file);
-    };
+
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImageUrl(file);

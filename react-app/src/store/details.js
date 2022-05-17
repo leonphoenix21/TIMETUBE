@@ -12,19 +12,14 @@ const newDetail = (detail) => ({
 });
 
 export const userDetails = (data) => async (dispatch) => {
-    const response = await fetch(`/api/users/edit`, {
+    const response = await fetch(`/api/users/`, {
         method: 'PUT',
         body: data,
     });
     if (response.ok) {
         const detail = await response.json();
-        dispatch(newDetail(data))
+        dispatch(newDetail(detail))
         return detail;
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
     }
 }
 

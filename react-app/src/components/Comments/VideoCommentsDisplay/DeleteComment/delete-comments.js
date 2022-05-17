@@ -13,6 +13,7 @@ function DeleteComments({ commentId }) {
 
     const { videoId } = useParams()
     console.log(videoId, "lkLKLKLKLKLKLjjjj", useParams())
+    console.log(typeof +commentId, "cCCCCCCCCCCCCCCCCCC")
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -50,10 +51,10 @@ function DeleteComments({ commentId }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append("id", commentId);
+        // const formData = new FormData();
+        // formData.append("id", commentId);
 
-        const data = await dispatch(removeComment(formData))
+        const data = await dispatch(removeComment(commentId))
         if (data) {
             closeModal()
         } else {
