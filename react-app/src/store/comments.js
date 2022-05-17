@@ -12,6 +12,17 @@ const newComment = (comment) => ({
     comment,
 });
 
+//! Get the comments for a specific video
+export const videoComments = () => async (dispatch) => {
+    const response = await fetch(`/api/comments/`);
+    if (response.ok) {
+        const comments = await response.json();
+        dispatch(loadComments(comments));
+    }
+};
+
+
+
 //! Creating Comments 
 export const createComments = (data) => async (dispatch) => {
     const response = await fetch("/api/comments/", {

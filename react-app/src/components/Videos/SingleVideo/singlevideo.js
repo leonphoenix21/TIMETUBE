@@ -1,34 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import videojs from 'video.js';
+import Comments from '../../Comments/CommentDisplay/CreateComments/comments';
+
+
 import './videoview.css'
-// import ReactPlayer from 'react-player'
-// import Appbar from '@material-ui/core/AppBar';
-// import Container from '@material-ui/core/Container';
-// City
-import '@videojs/themes/dist/city/index.css';
 
-// Fantasy
-import '@videojs/themes/dist/fantasy/index.css';
 
-// Forest
-import '@videojs/themes/dist/forest/index.css';
-
-// Sea
-import '@videojs/themes/dist/sea/index.css';
-import CommentsDisplay from '../../Comments/CommentDisplay/comments';
 
 function SingleVideo() {
 
     const { videoId } = useParams()
-    const dispatch = useDispatch();
-    console.log(+videoId, "VVVVVVVVVV", useParams(),)
     const history = useHistory();
 
     const [user, setUserUploader] = useState({});
-    console.log('///sfsefaeff///asfafs/', videoId)
     const video = useSelector(state => state.videos[videoId])
 
     useEffect(() => {
@@ -40,7 +25,7 @@ function SingleVideo() {
             const user = await response.json();
             setUserUploader(user);
         })();
-    }, [dispatch]);
+    }, [videoId]);
 
     const navLink = (id) => {
         history.push(`/edit/${videoId}`)
@@ -74,7 +59,7 @@ function SingleVideo() {
                 <p> {video?.description}</p>
                 <button onClick={navLink}> Edit  </button>
             </div>
-            < CommentsDisplay />
+            < Comments Id={videoId} />
 
         </>
     )

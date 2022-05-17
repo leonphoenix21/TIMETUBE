@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getAllVideos } from '../../../store/videos';
 import './videolist.css';
 
@@ -17,11 +17,6 @@ const VideoDisplay = () => {
     const videos = useSelector(state => state.videos);
     const allVideos = Object.values(videos)
 
-
-    const navLink = (id) => {
-        history.push(`/video/${id}`)
-    }
-
     return (
         <>
             <h1 id='videoH1'> Clips </h1>
@@ -36,13 +31,14 @@ const VideoDisplay = () => {
                                 alt={video.title}
                                 style={{ width: '100%' }}
                             />
-                            <div className='image-overlay'
-                                onClick={() => navLink(video.id)}
-                            >
-                                <div className='insideOverlay'>
-                                    <div className='image-title'>{video.title}  </div>
+                            <NavLink to={`video/${video.id}/`} >
+                                <div className='image-overlay'
+                                >
+                                    <div className='insideOverlay'>
+                                        <div className='image-title'>{video.title}  </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </NavLink>
                         </div>
                     </>
                 ))}

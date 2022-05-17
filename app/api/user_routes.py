@@ -18,7 +18,6 @@ def users():
 @user_routes.route('/details')
 def details():
     items = User.query.all()
-    print(items, "//////////////")
     return jsonify([user.to_dict() for user in items])
 
 

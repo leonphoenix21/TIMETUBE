@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(loadUserDetails());
-      await dispatch(getAllVideos())
+      await dispatch(getAllVideos)
     })();
   }, [dispatch]);
 
@@ -48,21 +48,21 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/upload' exact={true}>
+        <ProtectedRoute path='/upload' exact={true}>
           < UploadVideos />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <Route path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </Route>
-        <Route path='/video/:videoId' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/video/:videoId' exact={true} >
           <SingleVideo />
-        </Route>
-        <Route path='/edit/:videoId' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
-        </Route>
+        </ProtectedRoute>
         <Route path='/home' exact={true} >
           <VideoDisplay />
         </Route>

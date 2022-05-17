@@ -13,10 +13,22 @@ def new_comment():
     comment = Comment(
         content=request.form['content'],
         user_id=request.form['user_id'],
-        song_id=request.form['song_id'],
-        song_timestamp=request.form['song_timestamp']
+        video_id=request.form['video_id'],
+        avatar=request.form['avatar'],
+        lastname=request.form['lastname'],
+        firstname=request.form['firstname']
     )
     db.session.add(comment)
     db.session.commit()
 
     return comment.to_dict()
+
+
+@comment_routes.route('/')
+def get_comments():
+    """
+    Get all comments of a specific video
+    """
+    comments = Comment.query.all()
+    print(comments, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHH')
+    return jsonify([comment.to_dict() for comment in comments])
