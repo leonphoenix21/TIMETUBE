@@ -26,19 +26,19 @@ const VideoDisplay = () => {
                         <div className='pics' key={video.id} >
                             <img
                                 id='videoImg'
-                                placeholder={video?.title}
-                                src={video?.image_url}
+                                placeholder={video.title}
+                                src={video.image_url}
                                 alt={video.title}
                                 style={{ width: '100%' }}
                             />
-                            <NavLink to={`video/${video.id}/`} >
+                            <a href={`videos/${video.id}/`} key={video.id}>
                                 <div className='image-overlay'
                                 >
                                     <div className='insideOverlay'>
                                         <div className='image-title'>{video.title}  </div>
                                     </div>
                                 </div>
-                            </NavLink>
+                            </a>
                         </div>
                     </>
                 ))}

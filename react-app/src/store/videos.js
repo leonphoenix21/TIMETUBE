@@ -43,7 +43,7 @@ export const uploadVideo = (data) => async (dispatch) => {
     }
 };
 
-//! Get Videos from the Database
+//! Get All Videos from the Database
 export const getAllVideos = () => async (dispatch) => {
     const response = await fetch("/api/videos/");
     if (response.ok) {
@@ -51,6 +51,8 @@ export const getAllVideos = () => async (dispatch) => {
         dispatch(loadVideos(videos));
     }
 };
+
+
 
 //! Edit/Update Videos from the db
 export const editVideo = (data) => async (dispatch) => {

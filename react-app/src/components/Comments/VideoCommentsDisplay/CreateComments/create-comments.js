@@ -41,7 +41,7 @@ function CreateComments({ Id }) {
         const data = await dispatch(createComments(formData));
 
         if (data) {
-            history.push(`/video/${Id}`)
+            history.push(`/videos/${Id}`)
             setContent('')
         } else {
             if (data.errors) {
@@ -106,11 +106,6 @@ function CreateComments({ Id }) {
                             </div>
                         </div>
                     </form>
-                    <div className="commentsDisplayDiv">
-                        <CommentsDisplay boxId={Id} />
-                    </div>
-                </div>
-                <div className="VideoSideBar">
 
                 </div>
             </div>

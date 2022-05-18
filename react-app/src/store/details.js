@@ -25,7 +25,6 @@ export const userDetails = (data) => async (dispatch) => {
 
 export const loadUserDetails = () => async (dispatch) => {
     const response = await fetch(`/api/users/details`);
-    console.log()
     if (response.ok) {
         const details = await response.json();
         dispatch(loadDetails(details));

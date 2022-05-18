@@ -21,10 +21,9 @@ function CommentsDisplay({ boxId }) {
     const sessionUser = useSelector(state => state.session.user)
 
 
-
     return (
-        <>
 
+        <div className='CommentsDisplayContainer'>
             {comments?.map(comment => (
                 <div className="commentDisplayBox">
                     <div className="firstContainer">
@@ -64,7 +63,7 @@ function CommentsDisplay({ boxId }) {
                 </div>
 
             ))}
-        </>
+        </div>
     )
 }
 

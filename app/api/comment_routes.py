@@ -45,7 +45,6 @@ def get_comments():
     Get all comments of a specific video
     """
     comments = Comment.query.all()
-    print(comments, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHH')
     return jsonify([comment.to_dict() for comment in comments])
 
 

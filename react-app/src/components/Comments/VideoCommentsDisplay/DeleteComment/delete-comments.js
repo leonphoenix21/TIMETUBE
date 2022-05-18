@@ -12,15 +12,12 @@ function DeleteComments({ commentId }) {
 
 
     const { videoId } = useParams()
-    console.log(videoId, "lkLKLKLKLKLKLjjjj", useParams())
-    console.log(typeof +commentId, "cCCCCCCCCCCCCCCCCCC")
     const history = useHistory();
     const dispatch = useDispatch();
 
     let subtitle;
     const [errors, setErrors] = useState([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    const comment = useSelector(state => Object.values(state.comments).filter(comment => comment.id === +commentId))
 
 
     const customStyles = {
@@ -62,7 +59,6 @@ function DeleteComments({ commentId }) {
                 setErrors(data.errors)
             }
         }
-        history.push(`/video/${videoId}`)
 
     }
     return (
@@ -83,6 +79,7 @@ function DeleteComments({ commentId }) {
                             <div>
                                 <span> Are you sure you want to delete this comment? </span>
                             </div>
+
                             <div className="deleteBtns">
                                 <div className='commentInputBtns'>
                                     <button
@@ -111,3 +108,16 @@ function DeleteComments({ commentId }) {
 }
 
 export default DeleteComments;
+
+
+{/* <label htmlFor='img-upload' id='select-file-button'>Select from computer...</label>
+                    <input
+                        type='file'
+                        onChange={setTheImage}
+                        accept="image/*"
+                        placeholder='Enter your URL image'
+                        id='img-upload'
+                        name='img-upload'
+                        required
+                        hidden
+                    /> */}

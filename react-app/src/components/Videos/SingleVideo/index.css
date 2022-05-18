@@ -1,0 +1,32 @@
+.single-videopage-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    overflow-x: auto;
+    max-width: fit-content;
+    min-width: fit-content;
+    overflow: hidden;
+}
+
+.video-comments-sidebar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: green 5px dotted; */
+}
+
+.video-description-comments-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 70%;
+    /* border: blue 1px dotted; */
+}
+
+.video-sidebar-div {
+    /* border: black 2px dotted; */
+    width: 30%;
+    height: 100%;
+}

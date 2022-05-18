@@ -141,7 +141,6 @@
 @keyframes hopping {
     0% {
         transform: translateX(10px);
-        transform: rotate();
     }
 
     50% {
@@ -151,8 +150,6 @@
     100% {
         transform: translateX(10px);
     }
-
-
 
 }
 

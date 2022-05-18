@@ -32,9 +32,6 @@ def user(id):
 @login_required
 def user_users():
 
-    print(request.files)
-    print(request.form)
-
     if not any(request.files):
         user = User.query.get(int(request.form["id"]))
         user.firstname = request.form['firstname'],

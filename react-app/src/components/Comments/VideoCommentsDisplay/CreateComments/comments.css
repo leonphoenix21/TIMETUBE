@@ -1,9 +1,6 @@
 .commentsContainer {
-    height: 500px;
-    width: 100vw;
     display: flex;
     flex-direction: row;
-    border: red 1px dotted;
     margin-top: 10px;
 }
 
@@ -14,18 +11,10 @@
 }
 
 .commentsDisplay {
-    height: 500px;
+    margin-top: 30px;
     width: 70vw;
-    border: green 1px dotted;
-
 }
 
-.VideoSideBar {
-    height: 500px;
-    width: 30%;
-    border: blue 1px dotted;
-
-}
 
 
 .commentsAvtr {

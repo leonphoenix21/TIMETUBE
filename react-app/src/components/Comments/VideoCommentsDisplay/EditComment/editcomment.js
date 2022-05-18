@@ -18,7 +18,6 @@ function EditComment({ commentId }) {
     const [errors, setErrors] = useState([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const comment = useSelector(state => Object.values(state.comments).filter(comment => comment.id === +commentId))
-    console.log('HHDHHDHDHDH', comment[0].content)
     const [content, setContent] = useState(comment[0]?.content)
 
 
