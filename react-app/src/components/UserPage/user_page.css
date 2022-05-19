@@ -7,8 +7,8 @@
 
 .avatar {
     border-radius: 50px;
-    height: 110px;
-    width: 110px;
+    height: 100px;
+    width: 100px;
 }
 
 .profileAvtr {
@@ -20,7 +20,6 @@
     top: 50%;
     padding: 0;
     width: 90vw;
-    border-radius: 3px;
     height: 65vh;
     display: flex;
     flex-direction: column;
