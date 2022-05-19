@@ -101,7 +101,7 @@
 }
 
 .fade {
-    animation: pulse-animation 3s infinite;
+    /* animation: pulse-animation 3s infinite; */
 }
 
 @keyframes pulse-animation {
@@ -128,17 +128,24 @@
 
 }
 
-.videoUploadIcon {
+.videoUploadArrow {
     padding-left: 28px;
-    font-size: 20px;
+    font-size: 20.5px;
+    animation: slide-in 3s infinite linear;
+
+}
+
+.videoUploadCloud {
+    padding-left: 27.5px;
+    font-size: 22px;
 }
 
 .videoUploadIcon {
     overflow: hidden;
-    animation: hopping 3s infinite linear;
+    animation: slide-in 3s infinite linear;
 }
 
-@keyframes hopping {
+/* @keyframes hopping {
     0% {
         transform: translateX(10px);
     }
@@ -152,14 +159,15 @@
     }
 
 }
+*/
 
 @keyframes slide-in {
     from {
-        transform: translateX(-100%);
+        transform: translateY(0%);
     }
 
     to {
-        transform: translateX(0%);
+        transform: translateY(-105%);
     }
 }
 
@@ -270,4 +278,7 @@
     }
 }
 
-.left-Border-sign {}
+.loadingIcons {
+    display: flex;
+    flex-direction: column;
+}

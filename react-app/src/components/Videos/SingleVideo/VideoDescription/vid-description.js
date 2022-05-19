@@ -13,6 +13,7 @@ function VideoDescription() {
     const [users, setUsers] = useState([]);
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
+    console.log('KLKLKLKLKL', videoPlaying)
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/users/');
@@ -21,7 +22,7 @@ function VideoDescription() {
         }
         fetchData();
     }, [dispatch]);
-    const findUser = users.filter(currUser => currUser.id === videoPlaying?.id);
+    const findUser = users.filter(currUser => currUser.id === videoPlaying?.user_id);
     const user = findUser[0]
 
     //redirecting to the edit page for each video

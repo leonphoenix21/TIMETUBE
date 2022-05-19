@@ -1,0 +1,32 @@
+.sidebarContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    border: red dotted 1px;
+    box-sizing: border-box;
+
+}
+
+.picDiv {
+    border: blue solid 1px;
+    padding: 10px;
+}
+
+.sideBarImg {
+    height: 200px;
+    width: 200px;
+    margin-right: 30px;
+    border: black 1px solid;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 3px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: block;
+    transition: transform 500ms;
+}
+
+.sidebarContainer .sideBarImg:focus,
+.sidebarContainer .sideBarImg:hover {
+    transform: scale(1.5);
+    z-index: 1;
+}

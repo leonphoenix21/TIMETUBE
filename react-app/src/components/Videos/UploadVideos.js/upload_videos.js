@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
+import { BsFillCloudArrowUpFill } from 'react-icons/bs';
+import { BsArrowUpShort } from 'react-icons/bs';
+
 import { uploadVideo } from '../../../store/videos'
 
 
@@ -14,6 +17,7 @@ function UploadVideos() {
     const history = useHistory();
     const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState('');
+    const [loading, setVideoLoading] = useState(false);
     const [video_url, setVideoUrl] = useState('');
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
@@ -36,8 +40,10 @@ function UploadVideos() {
         formData.append("description", description);
         formData.append("image_url", image_url);
 
+        setVideoLoading(true)
         const data = await dispatch(uploadVideo(formData));
         if (data) {
+            setVideoLoading(false)
             history.push(`/home`);
         } else {
             if (data.errors) {
@@ -70,8 +76,20 @@ function UploadVideos() {
                         <div className='left-border'> </div>
                         <div className='upload-container'>
                             <div className='upload-title'>
-                                <h2> Upload Video  </h2>
-                                <span className='videoUploadIcon'> <ImUpload2 /> </span>
+                                {
+                                    loading ?
+                                        <h2 className="loadingTitle"> uploading ... </h2>
+                                        :
+                                        <h2> Upload Video  </h2>
+                                }
+                                {
+                                    loading &&
+                                    <div className="loadingIcons">
+                                        <span className='videoUploadCloud'> <BsFillCloudArrowUpFill /> </span>
+                                        <span className='videoUploadArrow'> <BsArrowUpShort /> </span>
+                                    </div>
+                                }
+
                             </div>
                             <div className='contDiv'>
                                 <label> Title </label>
@@ -123,6 +141,7 @@ function UploadVideos() {
                                     Submit
                                 </button>
                             </div>
+
                         </div>
 
                     </div>
