@@ -6,7 +6,6 @@
 }
 
 .body {
-
     background-color: whitesmoke;
 }
 
@@ -21,6 +20,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 1.7em;
+
 }
 
 .firstContainer {

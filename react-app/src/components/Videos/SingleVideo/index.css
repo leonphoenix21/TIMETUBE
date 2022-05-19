@@ -30,3 +30,17 @@
     /* border: black 2px dotted; */
     width: 30%;
 }
+
+.countSort {
+    /* border: red 1px solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.commentCount {
+    font-size: 20px;
+    margin: 20px 0px -30px 20px;
+}

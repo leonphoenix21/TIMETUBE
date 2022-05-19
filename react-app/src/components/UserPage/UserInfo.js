@@ -7,6 +7,7 @@ function UserInfo() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
+    const details = useSelector(state => state.details)
 
 
     useEffect(() => {
@@ -18,7 +19,7 @@ function UserInfo() {
             const user = await response.json();
             setUser(user);
         })();
-    }, [userId]);
+    }, [userId, details]);
 
     if (!user) {
         return null;

@@ -11,11 +11,12 @@ function User() {
   const { userId } = useParams();
   const sessionUser = useSelector(state => state.session.user)
 
-
   useEffect(() => {
     if (!userId) {
       return;
     }
+
+    console.log('Hit use Effect');
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
@@ -38,7 +39,7 @@ function User() {
           <UserInfo />
         </div>
         <div className='editModalbtn'>
-          <EditUserModal User={user} sessionId={sessionUser.id} />
+          <EditUserModal />
         </div>
       </div>
       <div className='bottom-line'> </div>

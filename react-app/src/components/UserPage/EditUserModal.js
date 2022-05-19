@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadUserDetails, userDetails } from '../../store/details';
 import { MdOutlineManageAccounts } from "react-icons/md";
 
-function EditUserModal({ User, sessionId }) {
+function EditUserModal() {
 
     const user = useSelector(state => state.session.user)
     const { userId } = useParams()
@@ -57,7 +57,7 @@ function EditUserModal({ User, sessionId }) {
     }
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("id", user.id);
@@ -68,17 +68,18 @@ function EditUserModal({ User, sessionId }) {
         formData.append("avatar", avatar);
         formData.append("header", header);
 
-        const detail = await dispatch(userDetails(formData));
-
-        if (detail) {
-            closeModal()
-            return <Redirect to={`/users/${user.id}`} />;
-            // history.push();
-        } else {
-            if (detail.errors) {
-                setErrors(detail.errors);
+        // const detail = await dispatch(userDetails(formData));
+        dispatch(userDetails(formData)).then(res => {
+            if (res) {
+                // return <Redirect to={`/users/${user.id}`} />;
+                closeModal()
+                history.push(`/users/${user.id}`);
+            } else {
+                if (res.errors) {
+                    setErrors(res.errors);
+                }
             }
-        }
+        })
     }
 
     const updateAvatar = (e) => {

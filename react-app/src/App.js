@@ -63,10 +63,8 @@ function App() {
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
         </ProtectedRoute>
-        <ProtectedRoute path='/home'  >
+        <ProtectedRoute path={'/'}   >
           <VideoDisplay />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
         </ProtectedRoute>
         <Route>
           <h1> Page Not Found</h1>

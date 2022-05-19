@@ -9,11 +9,13 @@ function VideoDescription() {
     const dispatch = useDispatch();
     const { videoId } = useParams()
 
-    //Querrying for users and finding the user who uploaded this video
+    const sessionUser = useSelector(state => state.session.user)
     const [users, setUsers] = useState([]);
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
-    console.log('KLKLKLKLKL', videoPlaying)
+
+
+    //Querrying for users and finding the user who uploaded this video
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/users/');
@@ -49,13 +51,20 @@ function VideoDescription() {
                         </div>
                         <div className='fullname single'>
                             <strong > {user?.firstname} {user?.lastname} </strong>
+                            {sessionUser.id === videoPlaying.user_id &&
+                                <button onClick={navLink}
+                                    className='editVideoBtn'
+                                > Edit Video
+                                </button>
+                            }
+
                         </div>
                     </div>
 
                     <div className='videoDescription'>
                         <p> {videoPlaying?.description}</p>
-                        <button onClick={navLink}> Edit  </button>
                     </div>
+
 
                 </>
                 :

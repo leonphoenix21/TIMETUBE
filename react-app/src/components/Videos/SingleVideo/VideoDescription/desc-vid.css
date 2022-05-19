@@ -27,10 +27,13 @@
 
 .singleview {
     margin: 20px 0px 0px 20px;
+    height: 80px;
+    width: 80px;
 }
 
 .singleline {
-    margin-top: 20px;
+    margin: 20px;
+
 }
 
 .descriptionTitle {
@@ -38,12 +41,29 @@
     flex-direction: row;
     justify-content: space-between;
     font-size: 30px;
+    /* border: red 1px solid; */
+    margin: 10px 20px 0px 5px;
 }
 
 .videoDescription {
-    margin-right: 600px;
+    margin: 20px 0px 0px 119.5px;
+    /* border: red dotted 1px; */
 }
 
 .displayname {
     margin: 10px 0px 0px 15px;
+}
+
+.editVideoBtn {
+    position: relative;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    transition: transform 500ms;
+}
+
+.editVideoBtn:hover() {
+    transform: scale(1.5);
+    z-index: 1;
 }

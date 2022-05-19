@@ -16,7 +16,9 @@ function CreateComments({ Id }) {
     const [active, setActive] = useState(false)
     const [content, setContent] = useState('')
     const sessionUser = useSelector(state => state.session.user)
+    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +Id))
 
+    console.log('COMEMEMNTMD', comments)
 
     const updateBtnActivity = (e) => {
         if (e.target.value) {
@@ -53,13 +55,8 @@ function CreateComments({ Id }) {
 
     return (
         <>
-            <div className="border-Top-line"></div>
             <div className="commentsContainer">
                 <div className="commentsDisplay">
-                    <div className="countSort">
-                        <div className="commentCount"> </div>
-                        <div className="sortByComments"></div>
-                    </div>
                     <form onSubmit={handleSubmit}>
                         <div className='addCommentDiv'>
                             <img className='commentsAvtr' src={`${sessionUser?.avatar}`} />
