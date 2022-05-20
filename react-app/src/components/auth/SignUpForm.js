@@ -155,7 +155,7 @@ const SignUpForm = () => {
               className="signUpbtn">
               Sign Up
             </button>
-            <span className='signupnav'>   <NavLink to='/sign-up' > Already have an account </NavLink></span>
+            <span className='signupnav'> <NavLink to='/login'  > Already have an account </NavLink></span>
           </form>
         </div>
       </div>

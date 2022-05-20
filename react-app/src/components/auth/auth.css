@@ -9,7 +9,7 @@
 .loginBody {
     height: 92.8vh;
     width: 100vw;
-    background: url('https://images7.alphacoders.com/313/thumb-1920-313727.jpg') no-repeat center;
+    background: url('https://i.pinimg.com/originals/e1/54/08/e1540876956576d6391c8b96be0a25bc.jpg') no-repeat center;
     object-fit: contain;
     background-size: cover;
     z-index: 1;
@@ -31,17 +31,17 @@
     width: 25%;
     box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 1);
     /* border: red solid 1px; */
-    background-color: rgba(251, 31, 203, 0.363);
+    background-color: rgba(152, 145, 150, 0.363);
     margin-top: 150px;
-    margin-right: 600px;
+    margin-left: 600px;
 }
 
 .logInheader {
-    color: #32174d;
+    color: #f1e8f9;
     margin-bottom: 60px;
     margin-top: -30px;
     font-family: 'Satisfy', cursive;
-    text-shadow: 2px 2px #be00a5;
+    text-shadow: 2px 2px #020002;
 
 }
 
@@ -69,14 +69,14 @@
     background-color: whitesmoke;
     border: none;
     border-radius: 5px;
-    background-color: #be00a5;
+    background-color: #7d7b7b;
     font-size: 20px;
-    transition: background-color, transform .7s ease-in-out;
+    transition: background-color, transform .3s ease-in-out;
 }
 
 .loginbtn:hover {
-    background-color: rgb(0, 83, 237);
-    transform: scale(1.1);
+    background-color: rgb(249, 250, 252);
+    transform: scale(1.05);
 }
 
 #demoUserBtn {
@@ -131,7 +131,7 @@
 .body {
     height: 92.8vh;
     width: 100vw;
-    background: url('https://media.gettyimages.com/photos/camera-in-purple-neon-lighting-close-up-picture-id1304406243?b=1&k=20&m=1304406243&s=170667a&w=0&h=wbgT5k36CcJNdV-_Kce2GbzD9P7pWO5bfh3hG3qLPHU=') no-repeat center;
+    background: url('https://i.pinimg.com/originals/e1/54/08/e1540876956576d6391c8b96be0a25bc.jpg') no-repeat right;
     background-size: cover;
     z-index: 1;
 
@@ -168,7 +168,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #000080;
+    color: #000000;
     align-items: center;
     transition: transform 2s ease-in-out;
 }
@@ -182,13 +182,15 @@
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #be00a5ac;
+    background-color: rgb(219, 210, 210);
+    ;
     margin-top: 20px;
-    transition: background-color, transform .7s ease-in-out;
+    transition: background-color, transform .3s ease-in-out;
 }
 
 .signUpbtn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background-color: #806a7c;
 }
 
 .signupnav {
@@ -210,19 +212,23 @@
 .eachError {
     border-bottom: solid 1px rgb(18, 1, 1, .05);
     margin-bottom: 5px;
-    background-color: yellow;
-    color: red;
+    background-color: rgb(54, 53, 53);
+    color: rgb(255, 68, 0);
     padding: 5px;
 }
 
 .signUpheader {
-    color: #ff00ff;
+    color: #e7d6e7;
     padding-bottom: 20px;
     font-family: 'Satisfy', cursive;
-    text-shadow: 2px 2px rgba(4, 29, 251, 0.5);
+    text-shadow: 2px 2px rgba(0, 0, 0, 1);
 
 }
 
 .left-Border-sign {
     width: 100%;
+}
+
+.signupnav {
+    margin-top: 10px;
 }

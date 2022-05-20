@@ -86,6 +86,9 @@ const LoginForm = () => {
               >
                 Demo User
               </button>
+
+              <span className='signupnav'> <NavLink to='/sign-up'  >  Don't have an account </NavLink></span>
+
             </div>
           </form>
         </div>
