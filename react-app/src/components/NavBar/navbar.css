@@ -171,3 +171,10 @@ span {
     font-size: 19px;
     color: black;
 }
+
+.homeScreenIcon {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    /* border-radius: 50%; */
+}

@@ -11,6 +11,7 @@ import { SidebarData } from './navbar_files';
 import { IconContext } from 'react-icons';
 import { ImUpload2 } from 'react-icons/im';
 import { FcHome } from 'react-icons/fc';
+import Logo from './Logo';
 
 
 const NavBar = () => {
@@ -73,10 +74,7 @@ const NavBar = () => {
         :
         <>
           <nav className='navbar' >
-            <NavLink to='/' className='navlinks' exact={true} activeClassName='active'>
-              <span className='UploadIcon'> < FcHome /> </span>
-            </NavLink>
-
+            <Logo />
             <NavLink to='/login' className='navlinks' exact={true} activeClassName='active'>
               Login
             </NavLink>

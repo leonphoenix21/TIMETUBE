@@ -41,56 +41,56 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='loginContainer'>
-      <div className='left-Border'>
+    <body className='loginBody'>
+      <div className='loginContainer'>
+        <div className='login-right-border'>
+          <form onSubmit={onLogin} className='loginForm'>
+            <h2 className="logInheader"> Log In </h2>
+            <div className='errors'>
+              {errors.map((error, ind) => (
+                <div key={ind} className='eachError'>{error}</div>
+              ))}
+            </div>
+            <div className='contDiv'>
+              {/* <label htmlFor='email'>Email</label> */}
+              <input
+                className='videofield strings'
+                name='email'
+                type='text'
+                placeholder='email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div className='contDiv'>
+              {/* <label htmlFor='password'>Password</label> */}
+              <input
+                className='videofield strings'
+                name='password'
+                type='password'
+                placeholder='password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <div className='loginBtns contDiv'>
+              <button type='submit'
+                className="loginbtn lloginbtn">
+                Login
+              </button>
+              <button
+                className="loginbtn"
+                type="submit"
+                id="demoUserBtn"
+                onClick={demoLogin}
+              >
+                Demo User
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div className='right-border'>
-        <form onSubmit={onLogin} className='loginForm'>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
-          <div className='contDiv'>
-            {/* <label htmlFor='email'>Email</label> */}
-            <input
-              className='videofield strings'
-              name='email'
-              type='text'
-              placeholder='email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div className='contDiv'>
-            {/* <label htmlFor='password'>Password</label> */}
-            <input
-              className='videofield strings'
-              name='password'
-              type='password'
-              placeholder='password'
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <div className='loginBtns contDiv'>
-            <button type='submit'
-              className="submitLoginBtn">
-              Login
-            </button>
-            <button
-              className="submitLoginBtn"
-              type="submit"
-              id="demoUserBtn"
-              onClick={demoLogin}
-            >
-              Demo User
-            </button>
-          </div>
-          <span className='navlinks loginnav'>   <NavLink to='/sign-up' > Already have an account </NavLink></span>
-        </form>
-      </div>
-    </div>
+    </body>
   );
 };
 

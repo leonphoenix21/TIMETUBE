@@ -1,34 +1,89 @@
-.loginContainer {
-    /* border: red solid 1px; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital@1&family=Quicksand:wght@500&display=swap');
+
+* {
+    font-family: 'Arsenal', sans-serif;
+    font-family: 'Patrick Hand', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 
-.right-border {
+.loginBody {
+    height: 92.8vh;
+    width: 100vw;
+    background: url('https://images7.alphacoders.com/313/thumb-1920-313727.jpg') no-repeat center;
+    object-fit: contain;
+    background-size: cover;
+    z-index: 1;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-right-border {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     height: 100%;
-    width: 100%;
-    margin-right: 250px;
+    width: 25%;
+    box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 1);
+    /* border: red solid 1px; */
+    background-color: rgba(251, 31, 203, 0.363);
+    margin-top: 150px;
+    margin-right: 600px;
+}
+
+.logInheader {
+    color: #32174d;
+    margin-bottom: 60px;
+    margin-top: -30px;
+    font-family: 'Satisfy', cursive;
+    text-shadow: 2px 2px #be00a5;
+
 }
 
 .loginForm {
     font-size: 20px;
     margin-top: 15%;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: transform 2s ease-in-out;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
 }
 
-.loginnav:hover {
-    transform: translateY(-10%);
+.lloginbtn {
+    margin-top: 10px;
 }
+
+.loginbtn {
+    border: none;
+    height: 40px;
+    width: 250px;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    background-color: #be00a5;
+    font-size: 20px;
+    transition: background-color, transform .7s ease-in-out;
+}
+
+.loginbtn:hover {
+    background-color: rgb(0, 83, 237);
+    transform: scale(1.1);
+}
+
+#demoUserBtn {
+    margin-top: 5px;
+}
+
+
 
 .left-Border {
     margin: 3% 3% 8% 0px;
@@ -48,19 +103,14 @@
     background-color: whitesmoke;
     border: solid white 1.5px;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 .submitLoginBtn:hover {
     background-color: #d3d3d3;
 }
 
-.signUpContainer {
-    border: red solid 1px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 50px;
-}
+
 
 .fullnameSign {
     width: 120px;
@@ -75,13 +125,104 @@
     margin-left: 5px;
 }
 
-.signUpform {
-    font-size: 20px;
-    margin-top: 15%;
-    padding: 30px;
+
+
+
+.body {
+    height: 92.8vh;
+    width: 100vw;
+    background: url('https://media.gettyimages.com/photos/camera-in-purple-neon-lighting-close-up-picture-id1304406243?b=1&k=20&m=1304406243&s=170667a&w=0&h=wbgT5k36CcJNdV-_Kce2GbzD9P7pWO5bfh3hG3qLPHU=') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+
+}
+
+.signUpContainer {
+    /* border: red solid 1px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.right-border {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 25%;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
+    /* border: red solid 1px; */
+    background-color: rgba(250, 238, 238, 0.265);
+    margin-top: 10px;
+    margin-left: 500px;
+}
+
+
+.signUpform {
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000080;
+    align-items: center;
     transition: transform 2s ease-in-out;
+}
+
+
+
+.signUpbtn {
+    border: none;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #be00a5ac;
+    margin-top: 20px;
+    transition: background-color, transform .7s ease-in-out;
+}
+
+.signUpbtn:hover {
+    transform: scale(1.1);
+}
+
+.signupnav {
+    margin-top: 10px;
+}
+
+.signupnav:hover {
+    transform: translateY(-10%);
+}
+
+.errors {
+    /* border: red solid 1px; */
+    margin-top: -40px;
+    font-size: 15px;
+    width: 300px;
+    padding: 5px 5px;
+}
+
+.eachError {
+    border-bottom: solid 1px rgb(18, 1, 1, .05);
+    margin-bottom: 5px;
+    background-color: yellow;
+    color: red;
+    padding: 5px;
+}
+
+.signUpheader {
+    color: #ff00ff;
+    padding-bottom: 20px;
+    font-family: 'Satisfy', cursive;
+    text-shadow: 2px 2px rgba(4, 29, 251, 0.5);
+
+}
+
+.left-Border-sign {
+    width: 100%;
 }
