@@ -54,10 +54,34 @@
     width: 250px;
 }
 
+#select-file-button {
+    border: none;
+    padding: 10px;
+    background-color: #d3d3d3;
+    margin: 5px 0px 10px 0px;
+    width: 250px;
+}
+
+
+
 .strings:hover {
     background-color: #d3d3d3;
 }
 
+.videoErr {
+    font-size: 15px;
+    width: 300px;
+    padding: 5px 5px;
+    margin-left: -25px;
+}
+
+
+.eachVidError {
+    border-bottom: solid 1px rgb(18, 1, 1, .05);
+    background-color: rgb(54, 53, 53);
+    color: rgb(255, 68, 0);
+    padding: 5px;
+}
 
 
 .upload-title {

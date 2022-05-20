@@ -57,7 +57,7 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/videos/:videoId' exact={true} >
+        <ProtectedRoute path='/videos/:videoId' >
           <SingleVideoPage />
         </ProtectedRoute>
         <ProtectedRoute path='/edit/:videoId' exact={true} >

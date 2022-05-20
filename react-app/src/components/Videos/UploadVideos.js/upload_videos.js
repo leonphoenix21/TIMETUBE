@@ -1,5 +1,4 @@
 import './videos.css';
-import './dot.css';
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
@@ -33,6 +32,9 @@ function UploadVideos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!video_url) return setErrors(['Choose a video File to proceed']);
+        if (!image_url) return setErrors(['Choose a poster image file to proceed'])
         const formData = new FormData();
         formData.append("user_id", sessionUser.id);
         formData.append("title", title);
@@ -47,6 +49,7 @@ function UploadVideos() {
             history.push(`/home`);
         } else {
             if (data.errors) {
+                setVideoLoading(false)
                 setErrors(data.errors);
             }
         }
@@ -80,7 +83,7 @@ function UploadVideos() {
                                     loading ?
                                         <h2 className="loadingTitle"> uploading ... </h2>
                                         :
-                                        <h2> Upload Video  </h2>
+                                        <h2 style={{ width: '100%' }}> Upload Video  </h2>
                                 }
                                 {
                                     loading &&
@@ -90,6 +93,12 @@ function UploadVideos() {
                                     </div>
                                 }
 
+
+                            </div>
+                            <div className='videoErr'>
+                                {errors.map((error, ind) => (
+                                    <div key={ind} className='eachVidError'>{error}</div>
+                                ))}
                             </div>
                             <div className='contDiv'>
                                 <label> Title </label>
@@ -99,18 +108,21 @@ function UploadVideos() {
                                     onChange={(e) => setTitle(e.target.value)}
                                     value={title}
                                     placeholder=" title here..."
+                                    minLength={5}
                                     name="title"
                                     required
                                 />
                             </div >
                             <div className='contDiv'>
-                                <label> Choose Video </label>
+                                <label htmlFor='vid-upload' id='select-file-button'> Choose Video File . . .</label>
                                 <input
                                     className='videofield'
                                     type='file'
-                                    id='videoFile'
+                                    id='vid-upload'
+                                    name='img-upload'
                                     accept='video/*'
                                     onChange={updateVideo}
+                                    hidden
                                 />
                             </div>
                             <div className='contDiv description'>
@@ -122,16 +134,18 @@ function UploadVideos() {
                                     placeholder=" description here ... "
                                     name="description"
                                     id="description"
+                                    required
                                 />
                             </div>
-                            <label> Choose Image </label>
+                            <label htmlFor='img-upload' id='select-file-button'> Choose Poster Image . . .</label>
                             <div className='contDiv' >
                                 <input
                                     className='videofield'
                                     type='file'
-                                    id='videoImage'
+                                    id='img-upload'
                                     accept='image/*'
                                     onChange={updateImage}
+                                    hidden
                                 />
                             </div>
                             <div className='contDiv'>

@@ -41,14 +41,14 @@ function VideoSideBar() {
                 {allVideos.map(video => (
                     <>
                         <div className='picDiv' key={video.id} >
-                            <NavLink to={`videos/${+video.id}/`} key={video.id}>
+                            <a href={`/videos/${+video.id}/`} key={video.id}>
                                 <img
                                     className='sideBarImg'
                                     placeholder={video.title}
                                     src={video.image_url}
                                     alt={video.title}
                                 />
-                            </NavLink>
+                            </a>
                             <div className="sidebarDescription">
                                 <strong className='side'> {video.title}</strong>
                                 <p className='sideDescription'> {video.description}</p>
