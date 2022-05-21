@@ -14,6 +14,34 @@
     align-items: center;
 }
 
+.descriptionText {
+    overflow-x: wrap;
+    overflow-y: hidden;
+    height: 50px;
+    padding: 10px;
+}
+
+.descriptionTextFull {
+    overflow-x: wrap;
+    height: 250px;
+    padding: 10px;
+}
+
+.read-more-button {
+    position: relative;
+    border: none;
+    background-color: white;
+    color: rgb(130, 129, 129);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: color .2s ease-in-out;
+}
+
+.read-more-button:hover {
+    color: rgb(0, 0, 0);
+}
+
 /* .testText {
     text-overflow: ellipsis;
     height: 10px;

@@ -49,5 +49,18 @@
 
 .sideDescription {
     margin-top: 5px;
-    margin-left: 5px;
+    min-height: 50px;
+    font-size: 12px;
+    width: 230px;
+    overflow: hidden;
+}
+
+.sideTitle {
+    width: 230px;
+    min-height: 37px;
+    max-height: 37px;
+    height: 25px;
+    margin-top: -9px;
+    overflow: hidden;
+    font-size: 14px;
 }

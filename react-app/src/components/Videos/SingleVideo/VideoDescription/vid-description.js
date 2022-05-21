@@ -7,10 +7,12 @@ function VideoDescription() {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const { videoId } = useParams()
+    const { videoId } = useParams();
 
     const sessionUser = useSelector(state => state.session.user)
     const [users, setUsers] = useState([]);
+    const [showMore, setShowMore] = useState('descriptionText');
+    const [showLess, setShowLess] = useState(true);
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
 
@@ -28,34 +30,24 @@ function VideoDescription() {
     const user = findUser[0]
 
 
-    const testText = () => {
-        return (
-            <div className='testTextdiv'>
-                <span className='testText'>
-                    After Watergate, many people withdrew from politics altogether.
-                    They turned instead to pop culture–easy to do in such a trend-laden, fad-happy decade.
-                    They listened to 8-track tapes of Jackson Browne, Olivia Newton-John, Donna Summer and Marvin Gaye.
-                    Disco rose and with it, the sounds of Abba, the Bee Gees and Donna Summer. On the rock front, bands like the Rolling Stones,
-                    Van Halen, Pink Floyd and Queen dominated airwaves.
-                    Additionally, the 1970s saw a return of handicrafts like latch-hook rugs and macramé,
-                    while sports like racquetball and yoga gained popularity.
-                    Many people read “I’m OK, You’re OK” and “The Joy of Sex,” experimented with wife-swapping parties and smoked pot.
-                    In general, by the end of the decade, many young people were using their hard-fought freedom to simply do as they pleased:
-                    to wear what they wanted, to grow their hair long, to have sex, to do drugs.
-                    Their liberation, in other words, was intensely personal.
 
-                </span>
-            </div>
-        )
-    }
-    const span = testText()
-    console.log(span, "MMMMMMMdescription")
 
     //redirecting to the edit page for each video
     const navLink = () => {
         history.push(`/edit/${videoId}`)
     }
 
+    const showMoreBtn = () => {
+        if (showMore === 'descriptionText') {
+            setShowLess(false)
+            setShowMore('descriptionTextFull');
+        } else {
+            setShowLess(true)
+            setShowMore('descriptionText');
+        }
+    }
+
+    console.log(videoPlaying?.description.length, 'LLLLLLLLKLKLKLKLKLKLKLKLK')
 
     return (
         <>
@@ -86,9 +78,27 @@ function VideoDescription() {
                     </div>
 
                     <div className='videoDescription'>
-                        <p ><span></span> {testText()}</p>
-                        {/* <p> {videoPlaying?.description}</p> */}
-                        <button className='read-more-button'> Show More </button>
+                        <p className={showMore}> {videoPlaying?.description}</p>
+                        {videoPlaying?.description.length > 250 &&
+                            <>
+                                {
+                                    showLess ?
+                                        <>
+                                            < button className='read-more-button'
+                                                onClick={showMoreBtn}
+                                            > Show More . . . </button>
+                                        </>
+                                        :
+                                        <>
+                                            < button className='read-more-button'
+                                                onClick={showMoreBtn}
+                                            > Show Less . . . </button>
+                                        </>
+                                }
+                            </>
+
+                        }
+
                     </div>
 
 

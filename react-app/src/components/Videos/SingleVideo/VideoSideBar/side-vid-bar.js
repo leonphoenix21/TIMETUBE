@@ -50,7 +50,7 @@ function VideoSideBar() {
                                 />
                             </a>
                             <div className="sidebarDescription">
-                                <strong className='side'> {video.title}</strong>
+                                <div className='sideTitle'><strong > {video.title}</strong></div>
                                 <p className='sideDescription'> {video.description}</p>
                             </div>
 
