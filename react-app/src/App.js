@@ -8,7 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/ViewUsers/UsersList';
 import User from './components/UserPage/User';
 import { authenticate } from './store/session';
-import UploadVideos from './components/Videos/UploadVideos.js/upload_videos';
+import UploadVideos from './components/Videos/UploadVideos/upload_videos';
 import { loadUserDetails } from './store/details';
 import { getAllVideos } from './store/videos';
 import VideoDisplay from './components/Videos/VideoList/videolist';

@@ -3,8 +3,15 @@
     font-size: 20px;
 }
 
+.bodyContainer {
+    position: absolute;
+    height: 92.5%;
+    width: 99.6%;
+    overflow: hidden;
+    z-index: 1;
+}
 
-.editUploadIcon {
+.bodyCon .editUploadIcon {
     overflow: hidden;
     animation: hopping 3s infinite linear;
 }
@@ -31,3 +38,128 @@
 }
 
 .descriptionedit {}
+
+.editBodyCon {
+    position: absolute;
+    height: 92.5%;
+    width: 99.6%;
+    overflow: hidden;
+    /* background: url('https://cdn.pixabay.com/photo/2022/01/18/11/42/repair-6946846_1280.png') no-repeat center; */
+    background-size: cover;
+    z-index: 1;
+}
+
+.edit-container {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    /* border: red solid 1px; */
+    margin-left: 222.5px;
+    margin-top: 10px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.editVideoForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.editBtns {
+    display: flex;
+    flex-direction: row;
+}
+
+.editvideobtn {
+    border: none;
+    height: 40px;
+    width: 120px;
+    margin: 5px;
+    background-color: whitesmoke;
+    border: solid white 1.5px;
+    border-radius: 5px;
+    transition: transform, background-color .3s ease-in-out;
+}
+
+.editvideobtn:hover {
+    background-color: #a3e5f9;
+    transform: scale(1.1);
+}
+
+.editTitleHeader {}
+
+.edit-title-div {
+    /* border: red solid 1px; */
+    min-width: 250px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 0px;
+}
+
+#select-file-button {
+    transition: transform, background-color .2s ease-in-out;
+}
+
+.editVideoComp {
+    height: 1000px;
+    /* background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center; */
+    background-size: cover;
+    z-index: 1;
+    width: 900px;
+    /* position: absolute; */
+    margin-left: 680px;
+}
+
+.edit-video-js {
+    /* position: absolute; */
+    height: 340px;
+    width: 600px;
+    background-color: black;
+    margin-left: 155px;
+}
+
+#select-file-button:hover {
+    transform: scale(1.07);
+    background-color: #a3e5f9;
+}
+
+
+.redX {
+    font-size: 130px;
+    margin-left: -65px;
+    position: absolute;
+    animation: error-cir 3s infinite linear;
+}
+
+@keyframes error-cir {
+    0% {
+        transform: translateX(10px);
+    }
+
+    25% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(10px)
+    }
+
+    75% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(10px);
+    }
+
+}

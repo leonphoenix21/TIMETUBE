@@ -132,6 +132,7 @@ function UploadVideos() {
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     placeholder=" description here ... "
+                                    minLength={5}
                                     name="description"
                                     id="description"
                                     required
