@@ -26,14 +26,6 @@ function SingleVideoPage() {
                     <div className="video-description-comments-div">
                         <VideoDescription />
                         <div className="border-Top-line"></div>
-                        <div className="countSort">
-                            <div className="commentCount">
-                                {comments.length} Comments
-                            </div>
-                            <div className="sortByComments">
-
-                            </div>
-                        </div>
                         <CommentContainer videoCommentId={videoId} />
                         <CommentsDisplay boxId={videoId} />
                     </div>

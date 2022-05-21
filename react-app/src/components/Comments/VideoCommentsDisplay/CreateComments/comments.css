@@ -3,6 +3,7 @@
     flex-direction: row;
     margin-top: 10px;
     margin-left: 10px;
+    /* margin-bottom: 30px; */
 }
 
 .border-Top-line {
@@ -15,6 +16,23 @@
     margin-top: 30px;
     width: 70vw;
 }
+
+.commentErr {
+    font-size: 10px;
+    width: 300px;
+    padding: 5px 5px;
+    margin-top: -20px;
+    position: absolute;
+}
+
+
+.eachCommError {
+    border-bottom: solid 1px rgb(18, 1, 1, .05);
+    background-color: rgb(54, 53, 53);
+    color: rgb(255, 68, 0);
+    padding: 5px;
+}
+
 
 
 .commentsAvtr {

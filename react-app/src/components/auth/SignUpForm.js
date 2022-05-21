@@ -13,22 +13,18 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [signupActive, setSignUpActivity] = useState(false)
-  const [showPassError, setShowPassError] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      setShowPassError(false)
       const data = await dispatch(signUp(firstname, lastname, username, email, password, repeatPassword));
       if (data) {
         setErrors(data)
       }
     } else {
-      setShowPassError(true)
-      setPassword('')
-      setRepeatPassword('')
+      setErrors(['Passwords do not match'])
     }
   };
 
@@ -72,7 +68,6 @@ const SignUpForm = () => {
       <div className="signUpContainer">
         <div className='right-border'>
           <form onSubmit={onSignUp} className='signUpform'>
-            {showPassError && <div className='eachError'>Passwords do not match</div>}
             <div className='errors'>
               {errors.map((error, ind) => (
                 <div key={ind} className='eachError'>{error}</div>
@@ -130,7 +125,7 @@ const SignUpForm = () => {
               <label>Password</label>
               <input
                 className='videofield strings'
-                type='password text'
+                type='password'
                 name='password'
                 onChange={updatePassword}
                 value={password}

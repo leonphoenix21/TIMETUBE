@@ -14,6 +14,19 @@
     align-items: center;
 }
 
+/* .testText {
+    text-overflow: ellipsis;
+    height: 10px;
+}
+
+.testTextdiv {
+    text-overflow: ellipsis;
+    height: 10px;
+    overflow: hidden;
+}
+
+.videoDescription {} */
+
 .VideoInfo {
     display: flex;
     flex-direction: row;

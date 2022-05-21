@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createComments } from '../../../../store/comments';
 import { useHistory } from 'react-router-dom'
 import { AiFillCloseCircle } from "react-icons/ai";
-import CommentsDisplay from '../CommentsDisplay/commentsDisplay';
 
 
 
@@ -21,16 +20,19 @@ function CreateComments({ Id }) {
     console.log('COMEMEMNTMD', comments)
 
     const updateBtnActivity = (e) => {
-        if (e.target.value) {
-            setActive(true)
-        } else {
+        if (e.target.value.length === 250) {
             setActive(false)
+            return (setErrors(['character length can not exceed 250']))
         }
+        else {
+            setActive(true)
+            return (setErrors([]))
+        }
+
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const formData = new FormData();
         formData.append("user_id", sessionUser.id);
         formData.append("firstname", sessionUser.firstname);
@@ -52,15 +54,24 @@ function CreateComments({ Id }) {
         }
 
     }
+    // const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +videoId))
+
 
     return (
         <>
+
+
             <div className="commentsContainer">
                 <div className="commentsDisplay">
                     <form onSubmit={handleSubmit}>
                         <div className='addCommentDiv'>
                             <img className='commentsAvtr' src={`${sessionUser?.avatar}`} />
                             <div className='addCommentInputDiv'>
+                                <div className='commentErr'>
+                                    {errors.map((error, ind) => (
+                                        <div key={ind} className='eachCommError'>{error}</div>
+                                    ))}
+                                </div>
                                 <div className='addCommentInputDivField'>
                                     <input
                                         className='addCommentInputField'
@@ -70,6 +81,7 @@ function CreateComments({ Id }) {
                                         )}
                                         value={content}
                                         type="text"
+                                        maxLength={250}
                                         placeholder='Add a comment here '
                                         name='commentInput'
                                         required
@@ -89,7 +101,8 @@ function CreateComments({ Id }) {
                                             type='button'
                                             onClick={(e) => (
                                                 setActive(false),
-                                                setContent('')
+                                                setContent(''),
+                                                setErrors([])
                                             )}
                                             className='submitvideobtn'>
                                             Cancel

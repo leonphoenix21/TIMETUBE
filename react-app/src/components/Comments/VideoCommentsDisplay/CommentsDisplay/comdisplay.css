@@ -2,7 +2,8 @@
     margin-bottom: 5px;
     border-bottom: solid .1px black;
     opacity: .1;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    /* border: red solid 1px; */
 }
 
 .body {
@@ -57,14 +58,38 @@
 
 .CommentsDisplayContainer {
     /* border: red solid 1px; */
+    position: relative;
+    width: 100%;
     max-height: 700px;
     overflow-y: scroll;
+    /* overscroll-behavior-x: wrap; */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
 }
 
 .CommentsDisplayContainer::-webkit-scrollbar {
     width: 10px;
+}
+
+.commentContent {
+    width: 60vw;
+    /* border: red solid 1px; */
+    /* overflow-y: scroll; */
+    overflow-x: auto;
+    /* overscroll-behavior-x: wrap; */
+    text-overflow: inherit;
+}
+
+/* .commentContent::-webkit-scrollbar {
+    color: red;
+    width: 10px;
+} */
+
+.countSort {
+    position: relative;
+    bottom: 140px;
 }

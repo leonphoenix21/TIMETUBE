@@ -30,20 +30,22 @@ function VideoDescription() {
 
     const testText = () => {
         return (
-            <span>
-                After Watergate, many people withdrew from politics altogether.
-                They turned instead to pop culture–easy to do in such a trend-laden, fad-happy decade.
-                They listened to 8-track tapes of Jackson Browne, Olivia Newton-John, Donna Summer and Marvin Gaye.
-                Disco rose and with it, the sounds of Abba, the Bee Gees and Donna Summer. On the rock front, bands like the Rolling Stones,
-                Van Halen, Pink Floyd and Queen dominated airwaves.
-                Additionally, the 1970s saw a return of handicrafts like latch-hook rugs and macramé,
-                while sports like racquetball and yoga gained popularity.
-                Many people read “I’m OK, You’re OK” and “The Joy of Sex,” experimented with wife-swapping parties and smoked pot.
-                In general, by the end of the decade, many young people were using their hard-fought freedom to simply do as they pleased:
-                to wear what they wanted, to grow their hair long, to have sex, to do drugs.
-                Their liberation, in other words, was intensely personal.
+            <div className='testTextdiv'>
+                <span className='testText'>
+                    After Watergate, many people withdrew from politics altogether.
+                    They turned instead to pop culture–easy to do in such a trend-laden, fad-happy decade.
+                    They listened to 8-track tapes of Jackson Browne, Olivia Newton-John, Donna Summer and Marvin Gaye.
+                    Disco rose and with it, the sounds of Abba, the Bee Gees and Donna Summer. On the rock front, bands like the Rolling Stones,
+                    Van Halen, Pink Floyd and Queen dominated airwaves.
+                    Additionally, the 1970s saw a return of handicrafts like latch-hook rugs and macramé,
+                    while sports like racquetball and yoga gained popularity.
+                    Many people read “I’m OK, You’re OK” and “The Joy of Sex,” experimented with wife-swapping parties and smoked pot.
+                    In general, by the end of the decade, many young people were using their hard-fought freedom to simply do as they pleased:
+                    to wear what they wanted, to grow their hair long, to have sex, to do drugs.
+                    Their liberation, in other words, was intensely personal.
 
-            </span>
+                </span>
+            </div>
         )
     }
     const span = testText()
@@ -84,7 +86,7 @@ function VideoDescription() {
                     </div>
 
                     <div className='videoDescription'>
-                        <p> {testText()}</p>
+                        <p ><span></span> {testText()}</p>
                         {/* <p> {videoPlaying?.description}</p> */}
                         <button className='read-more-button'> Show More </button>
                     </div>

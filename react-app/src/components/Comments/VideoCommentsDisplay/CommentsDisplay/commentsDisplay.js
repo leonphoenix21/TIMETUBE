@@ -10,60 +10,77 @@ import DeleteComments from '../DeleteComment/delete-comments';
 function CommentsDisplay({ boxId }) {
 
     const dispatch = useDispatch();
-
+    const comments = []
+    let countComments = 0;
     useEffect(() => {
         (async () => {
             await dispatch(videoComments());
         })();
-    }, [dispatch]);
+    }, []);
 
-    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
+    const unsortedcomments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
+    for (let i = 0; i < unsortedcomments.length; i++) {
+        comments.push(unsortedcomments.pop())
+    }
     const sessionUser = useSelector(state => state.session.user)
 
 
+
+
     return (
-
-        <div className='CommentsDisplayContainer'>
-            {comments?.map(comment => (
-                <div className="commentDisplayBox">
-                    <div className="firstContainer">
-                        <div className="commentAvatar">
-                            <a href={`/users/${comment.user_id}`}>
-                                <img className='eachCommentAvtr'
-                                    src={`${comment?.avatar}`}
-                                />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="secondCOntainer">
-                        <div className="fullCommentName">
-                            <div className="commentFirstname">
-                                {comment?.firstname}
-                            </div>
-                            <div className="commentLastname">
-                                {comment?.lastname}
-                            </div>
-                        </div>
-                        <div className='individualContent'>
-                            <div className="contentItems">
-                                <div className="contentpart">  <span> {comment?.content}</span> </div>
-                                {comment?.user_id === sessionUser.id ?
-                                    <div className="commentIcons">
-                                        <span className="navlinks homeIcon"> <EditComment commentId={comment.id} /></span>
-                                        <span className="navlinks homeIcon"> <DeleteComments commentId={comment.id} /></span>
-                                    </div>
-                                    :
-                                    <>
-                                    </>
-                                }
-                            </div>
-                            <div className="comment-bottom-border" ></div>
-                        </div>
-                    </div>
+        <>
+            {/* <div className="countSort">
+                <div className="commentCount">
+                    {comments.length} Comments
                 </div>
+                <div className="sortByComments">
 
-            ))}
-        </div>
+                </div>
+            </div> */}
+            <div className='CommentsDisplayContainer'>
+
+                {comments?.map(comment => (
+                    <div className="commentDisplayBox">
+                        <div className="firstContainer">
+                            <div className="commentAvatar">
+                                <a href={`/users/${comment.user_id}`}>
+                                    <img className='eachCommentAvtr'
+                                        src={`${comment?.avatar}`}
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                        <div className="secondCOntainer">
+                            <div className="fullCommentName">
+                                <div className="commentFirstname">
+                                    {comment?.firstname}
+                                </div>
+                                <div className="commentLastname">
+                                    {comment?.lastname}
+                                </div>
+                            </div>
+                            <div className='individualContent'>
+                                <div className="contentItems">
+                                    <p className="commentContent">  {comment?.content}</p>
+                                    {comment?.user_id === sessionUser.id ?
+                                        <div className="commentIcons">
+                                            <span className="navlinks homeIcon"> <EditComment commentId={comment.id} /></span>
+                                            <span className="navlinks homeIcon"> <DeleteComments commentId={comment.id} /></span>
+                                        </div>
+                                        :
+                                        <>
+                                        </>
+                                    }
+                                </div>
+                                <div className="comment-bottom-border" ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                ))}
+            </div>
+        </>
+
     )
 }
 
