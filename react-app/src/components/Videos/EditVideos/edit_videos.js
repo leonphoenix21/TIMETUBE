@@ -188,13 +188,13 @@ function EditVideos() {
                         {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
                     </div> */}
                     </div>
+                    <div className="videoDisplayTitle"> <h2> View Video </h2> </div>
                     <div className='editVideoComp'>
                         <span className='VideoCompSpan'> <VideoPlayerComp videoId={videoId} /> </span>
                     </div>
                     <div className="videoStand">
                     </div>
                     <div className="videoStandLeg">
-                        can you see me?
                     </div>
                 </div>
             </div >
