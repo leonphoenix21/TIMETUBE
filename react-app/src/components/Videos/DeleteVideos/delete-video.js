@@ -9,10 +9,9 @@ import { deleteVideo, editVideo } from '../../../store/videos'
 
 
 
-function DeleteVideos() {
+function DeleteVideos({ videoId }) {
 
 
-    const { videoId } = useParams()
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -46,7 +45,7 @@ function DeleteVideos() {
     }
     const deleteVideoSubmit = async (e) => {
         e.preventDefault();
-        const res = await dispatch(deleteVideo(+videoId));
+        const res = await dispatch(deleteVideo(videoId));
         if (res) {
             history.push("/home");
         }

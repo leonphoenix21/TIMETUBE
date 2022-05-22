@@ -17,6 +17,7 @@ function EditVideos() {
     const { videoId } = useParams()
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const video = useSelector(state => state.videos[videoId])
+    // const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,6 +25,7 @@ function EditVideos() {
     const [title, setTitle] = useState(video?.title);
     const [description, setDescription] = useState(video?.description);
     const [image_url, setImageUrl] = useState(video?.image_url);
+    const [showDelete, setShowDelete] = useState(false);
     let subtitle;
 
     const customStyles = {
@@ -76,92 +78,129 @@ function EditVideos() {
     }
     const deleteVideoSubmit = async (e) => {
         e.preventDefault();
-        const res = await dispatch(deleteVideo(+videoId));
-        if (res) {
-            history.push("/home");
-        }
+        setShowDelete(false)
+        await dispatch(deleteVideo(+videoId));
+        history.push("/home");
     };
 
 
     return (
-        <div className="bodyContainer">
+        <>
 
-            <div className="editBodyCon">
-                <div className='edit-container'>
-                    <form onSubmit={handleSubmit} className='editVideoForm'>
-                        <div className='edit-title-div'>
-                            <h2 className='editTitleHeader'> Edit Video </h2>
-                            <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
-                        </div>
-                        <div>
-                            {errors.map((error, ind) => (
-                                <div className="error_message" key={ind}>
-                                    {error}
-                                </div>
-                            ))}
-                        </div>
+            < div className="bodyContainer" >
+                <div className="editBodyCon">
+                    <div className='edit-container'>
+                        <form onSubmit={handleSubmit} className='editVideoForm'>
+                            <div className='edit-title-div'>
+                                <h2 className='editTitleHeader'> Edit Video </h2>
+                                <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
+                            </div>
+                            <div>
+                                {errors.map((error, ind) => (
+                                    <div className="error_message" key={ind}>
+                                        {error}
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className='contDiv'>
-                            <img src={`${video?.image_url}`} alt='' style={{ height: '120px', width: '250px' }} />
-                        </div>
-                        <div className='contDiv' >
-                            <label htmlFor='edit-poster' id='select-file-button'> Update Cover Photo . . .</label>
-                            <input
-                                className='videofield'
-                                type='file'
-                                id='edit-poster'
-                                accept='image/*'
-                                onChange={updateImage}
-                                hidden
-                            />
-                        </div>
-                        <div className='contDiv'>
-                            <label> Edit Title </label>
-                            <input
-                                className="videofield strings"
-                                type="text"
-                                onChange={(e) => setTitle(e.target.value)}
-                                value={title}
-                                placeholder={`add title here...`}
-                                name="title"
-                                minLength={3}
-                                required
-                            />
-                        </div >
+                            <div className='contDiv'>
+                                <img src={`${video?.image_url}`} alt='' style={{ height: '150px', width: '250px' }} />
+                            </div>
+                            <div className='contDiv' >
+                                <label htmlFor='edit-poster' id='select-file-button'> Update Cover Photo . . .</label>
+                                <input
+                                    className='videofield'
+                                    type='file'
+                                    id='edit-poster'
+                                    accept='image/*'
+                                    onChange={updateImage}
+                                    hidden
+                                />
+                            </div>
+                            <div className='contDiv'>
+                                <label> Edit Title </label>
+                                <input
+                                    className="videofield strings"
+                                    type="text"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    value={title}
+                                    placeholder={`add title here...`}
+                                    name="title"
+                                    minLength={3}
+                                    required
+                                />
+                            </div >
 
-                        <div className='contDiv descriptionedit'>
+                            <div className='contDiv descriptionedit'>
 
-                            <label> Edit Description </label>
-                            <textarea
-                                className="videotext strings"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                placeholder={`add description here ...`}
-                                minLength={10}
-                                name="description"
-                                id="description"
-                            />
-                        </div>
+                                <label> Edit Description </label>
+                                <textarea
+                                    className="videotext strings"
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    placeholder={`add description here ...`}
+                                    min={10}
+                                    name="description"
+                                    id="description"
+                                />
+                            </div>
 
-                        <div className='editBtns'>
-                            <button
-                                type='submit'
-                                className='editvideobtn'>
-                                Submit
-                            </button>
-                            <DeleteVideos />
-                        </div>
-                    </form>
-                    <div >
-                        {/* {errors.length > 1 && <span className='redX' ><FcCancel /></span>} */}
+                            <div className='editBtnsDiv'>
+                                {showDelete ?
+                                    <>
+                                        <div className='verifyDiv'>
+                                            Are you sure you to delete this video?
+                                        </div>
+                                        <div className='editBtns'>
+                                            <button
+                                                type='button'
+                                                onClick={() => setShowDelete(false)}
+                                                className='editvideobtn'>
+                                                Cancel
+                                            </button>
+                                            <button
+                                                type='button'
+                                                onClick={deleteVideoSubmit}
+                                                className='deletebtn'>
+                                                Delete Video
+                                            </button>
+                                        </div>
+                                    </>
+                                    :
+                                    <div className='editBtns'>
+                                        <button
+                                            type='submit'
+                                            className='editvideobtn'>
+                                            Submit
+                                        </button>
+                                        <button
+                                            type='button'
+                                            onClick={() => setShowDelete(true)}
+                                            className='editvideobtn'>
+                                            Delete
+                                        </button>
+                                    </div>
+                                }
+
+                            </div>
+                        </form>
+                        {/* <div >
+                        {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
+                    </div> */}
+                    </div>
+                    <div className='editVideoComp'>
+                        <span className='VideoCompSpan'> <VideoPlayerComp videoId={videoId} /> </span>
+                    </div>
+                    <div className="videoStand">
+                    </div>
+                    <div className="videoStandLeg">
+                        can you see me?
                     </div>
                 </div>
-                {/* <div className='editVideoComp'>
-                    <span className='VideoCompSpan'> <VideoPlayerComp videoId={videoId} /> </span>
-                </div> */}
+            </div >
 
-            </div>
-        </div>
+
+        </>
 
     )
 }

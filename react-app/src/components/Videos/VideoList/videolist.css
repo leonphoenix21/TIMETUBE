@@ -1,7 +1,7 @@
 .allVideos {
     padding: 50px;
     flex-direction: row;
-    border: red 1px solid;
+    /* border: red 1px solid; */
     overflow-wrap: normal;
 }
 

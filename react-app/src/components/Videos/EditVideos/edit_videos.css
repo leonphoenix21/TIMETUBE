@@ -55,7 +55,7 @@
     /* border: red solid 1px; */
     margin-left: 222.5px;
     margin-top: 10px;
-    height: 550px;
+    height: 630px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -73,6 +73,23 @@
     margin-bottom: 10px;
 }
 
+.editBtnsDiv {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.verifyDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    padding: 5px;
+    background-color: #e5fe05;
+    color: rgb(252, 3, 3);
+}
+
 .editBtns {
     display: flex;
     flex-direction: row;
@@ -87,6 +104,23 @@
     border: solid white 1.5px;
     border-radius: 5px;
     transition: transform, background-color .3s ease-in-out;
+}
+
+.deletebtn {
+    border: none;
+    height: 40px;
+    width: 120px;
+    margin: 5px;
+    background-color: rgb(254, 132, 132);
+    border: solid white 1.5px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform, background-color .3s ease-in-out;
+}
+
+.deletebtn:hover {
+    background-color: #fe0505;
+    transform: scale(1.1);
 }
 
 .editvideobtn:hover {
@@ -111,21 +145,53 @@
 }
 
 .editVideoComp {
-    height: 1000px;
+    height: 400px;
     /* background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center; */
+    border: black 10px solid;
     background-size: cover;
-    z-index: 1;
-    width: 900px;
+    /* z-index: 1; */
+    width: 700px;
     /* position: absolute; */
     margin-left: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-video-js {
     /* position: absolute; */
     height: 340px;
-    width: 600px;
+    width: 620px;
     background-color: black;
-    margin-left: 155px;
+    margin-right: 10px;
+}
+
+
+.videoStand {
+    position: absolute;
+    height: 150px;
+    width: 100px;
+    background-color: rgb(15, 15, 15);
+    border: black 10px solid;
+    border-bottom: none;
+    margin-left: 985px;
+}
+
+.videoStandLeg {
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    background-color: rgb(15, 15, 15);
+    border: black 10px solid;
+    margin-top: 150px;
+    margin-left: 884px;
+    color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
 
 #select-file-button:hover {

@@ -42,6 +42,7 @@ function UploadVideos() {
         formData.append("description", description);
         formData.append("image_url", image_url);
 
+        setErrors([''])
         setVideoLoading(true)
         const data = await dispatch(uploadVideo(formData));
         if (data) {
