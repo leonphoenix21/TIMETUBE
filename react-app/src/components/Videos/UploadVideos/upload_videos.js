@@ -46,7 +46,7 @@ function UploadVideos() {
         formData.append("description", description);
         formData.append("image_url", image_url);
 
-        setErrors([''])
+        // setErrors([''])
         setVideoLoading(true)
         const data = await dispatch(uploadVideo(formData));
         if (data) {
@@ -133,7 +133,7 @@ function UploadVideos() {
                     </div>
                     <label className='approvedFileLabel'> Our approved image file types</label>
                     <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
-                    <label className='approvedFileLabel errorsFile'> any other files will not load </label>
+                    <label className='approvedFileLabel errorsFile'> any other files will provide errors </label>
                     <label htmlFor='img-upload' id='select-video-button'> Choose Poster Image . . .</label>
                     <div className='contDiv' >
                         <input

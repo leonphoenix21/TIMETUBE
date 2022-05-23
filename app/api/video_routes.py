@@ -45,9 +45,10 @@ def new_video():
             description=request.form['description'],
             image_url=image_url,
         )
-        if not video:
+        if video:
+            db.session.add(video)
+        else:
             return {"errors": ["error with video/image file"]}
-        db.session.add(video)
 
     else:
         if not any(request.files):
@@ -123,7 +124,10 @@ def new_video():
                 video.updated_at = datetime.now()
 
     db.session.commit()
-    return video.to_dict()
+    if video:
+        return video.to_dict()
+    else:
+        return {"errors": ["error with video/image file"]}
 
 
 @video_routes.route('/')

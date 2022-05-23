@@ -24,6 +24,7 @@ const VideoDisplay = () => {
                 </div>
                 {allVideos.map(video => (
                     <div className='pics' key={video.id} >
+
                         <a href={`videos/${video.id}/`} key={video.id}>
                             <img
                                 className='HomePoster'

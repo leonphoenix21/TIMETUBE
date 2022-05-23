@@ -20,14 +20,15 @@ function CommentsDisplay({ boxId }) {
 
     const unsortedcomments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
 
-    if (unsortedcomments.length > 1) {
+
+
+    if (unsortedcomments.length === 1) {
+        comments.push(unsortedcomments[0])
+    } else if (unsortedcomments.length > 1) {
         for (let i = 1; i < unsortedcomments.length; i++) {
             let el = unsortedcomments[unsortedcomments.length - i]
             comments.push(el)
         }
-    } else if (unsortedcomments.length > 0 && unsortedcomments.length < 1) {
-        let el = unsortedcomments[0]
-        comments.push(el)
     }
     const sessionUser = useSelector(state => state.session.user)
 
