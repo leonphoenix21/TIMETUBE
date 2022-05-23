@@ -20,12 +20,10 @@ function CommentsDisplay({ boxId }) {
 
     const unsortedcomments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
     if (unsortedcomments.length === 0) {
-        for (let i = 1; i < unsortedcomments.length; i++) {
-            let el = unsortedcomments[i]
-            comments.push(el)
-        }
+        let el = unsortedcomments[0]
+        comments.push(el)
     } else {
-        for (let i = 0; i < unsortedcomments.length; i++) {
+        for (let i = 1; i < unsortedcomments.length; i++) {
             let el = unsortedcomments[unsortedcomments.length - i]
             comments.push(el)
         }
@@ -51,7 +49,7 @@ function CommentsDisplay({ boxId }) {
                     <div className="commentDisplayBox">
                         <div className="firstContainer">
                             <div className="commentAvatar">
-                                <a href={`/users/${comment.user_id}`}>
+                                <a href={`/users/${comment?.user_id}`}>
                                     <img className='eachCommentAvtr'
                                         src={`${comment?.avatar}`}
                                         onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
