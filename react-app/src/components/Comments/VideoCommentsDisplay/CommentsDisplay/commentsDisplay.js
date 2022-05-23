@@ -19,9 +19,16 @@ function CommentsDisplay({ boxId }) {
     }, []);
 
     const unsortedcomments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
-    for (let i = 1; i < unsortedcomments.length; i++) {
-        let el = unsortedcomments[unsortedcomments.length - i]
-        comments.push(el)
+    if (unsortedcomments.length === 0) {
+        for (let i = 1; i < unsortedcomments.length; i++) {
+            let el = unsortedcomments[i]
+            comments.push(el)
+        }
+    } else {
+        for (let i = 0; i < unsortedcomments.length; i++) {
+            let el = unsortedcomments[unsortedcomments.length - i]
+            comments.push(el)
+        }
     }
     const sessionUser = useSelector(state => state.session.user)
 
