@@ -222,3 +222,22 @@ span {
 .nav-text {
     margin-top: 10px;
 }
+
+.logOutBtn {
+    padding: 6px 15px;
+    position: absolute;
+    right: 5%;
+    border-radius: 15px;
+    background-color: rgb(143, 140, 140);
+    color: black;
+    font-size: 15px;
+    border: none;
+    transition: transform, background-color, box-shadow .3s ease-in-out;
+
+}
+
+.logOutBtn:hover {
+    transform: scale(1.1);
+    background-color: rgb(222, 219, 219);
+    box-shadow: 5px 2px 5px rgb(62, 59, 59);
+}

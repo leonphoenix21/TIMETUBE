@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
@@ -12,15 +12,21 @@ import { IconContext } from 'react-icons';
 import { ImUpload2 } from 'react-icons/im';
 import { FcHome } from 'react-icons/fc';
 import { MdSwitchAccount } from "react-icons/md";
+import { logout } from '../../store/session';
 
 import Logo from './Logo';
 
 
 const NavBar = () => {
+  const dispatch = useDispatch();
 
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  const onLogout = () => {
+    dispatch(logout());
+  };
+
 
   const SessionLogo = () => {
     return (
@@ -97,10 +103,12 @@ const NavBar = () => {
       <NavLink className='navlinks' to='/home' exact={true} activeClassName='active'>
         Home
       </NavLink>
-      <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
+      {/* <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
         <span className='UploadIcon'> <ImUpload2 /> </span>
-      </NavLink>
-      <ProfileModal user={sessionUser} />
+      </NavLink> */}
+      <button className='logOutBtn' onClick={onLogout}>Log Out</button>
+
+      {/* <ProfileModal user={sessionUser} /> */}
     </nav>
   )
 
