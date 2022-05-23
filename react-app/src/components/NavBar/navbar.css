@@ -199,3 +199,26 @@ span {
 .sideLogo {
     top: -3%;
 }
+
+.githubLinkDiv {
+    position: absolute;
+    margin: 20px;
+    margin-left: 30px;
+    margin-top: 50px;
+    right: 20%;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.githubLinkTitle {
+    margin-bottom: -15px;
+    color: black;
+}
+
+.nav-text {
+    margin-top: 10px;
+}

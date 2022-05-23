@@ -14,6 +14,7 @@ import { getAllVideos } from './store/videos';
 import VideoDisplay from './components/Videos/VideoList/videolist';
 import EditVideos from './components/Videos/EditVideos/edit_videos';
 import SingleVideoPage from './components/Videos/SingleVideo/index';
+import SplashPage from './components/Splash/splash';
 
 
 function App() {
@@ -63,9 +64,12 @@ function App() {
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
         </ProtectedRoute>
-        <ProtectedRoute path={'/'}   >
+        <ProtectedRoute path={'/home'}   >
           <VideoDisplay />
         </ProtectedRoute>
+        <Route path='/' exact={true}>
+          <SplashPage />
+        </Route>
         <Route>
           <h1> Page Not Found</h1>
         </Route>

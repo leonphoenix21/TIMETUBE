@@ -1,0 +1,116 @@
+.splashBody {
+    margin: 0px;
+    padding: 0px;
+    /* border: red solid 1px; */
+    height: 92.8vh;
+    width: 99.9vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.splash-container {
+    /* background: url('https://blog.infinitydirect.com/wp-content/uploads/2018/05/film-750x429.png') no-repeat center; */
+    background-size: cover;
+    z-index: 1;
+    position: absolute;
+
+}
+
+.splash-img {
+    position: absolute;
+    /* border: red solid 1px; */
+    margin-top: 5px;
+    height: 430px;
+    width: 300px;
+    top: 5%;
+    left: 5%;
+    background: url('https://img.freepik.com/free-vector/man-video-camera-tripod-white-background_82574-8587.jpg') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    transform: rotateX(20deg);
+}
+
+.splash-img2 {
+    position: absolute;
+    /* border: red solid 1px; */
+    height: 390px;
+    width: 300px;
+    border-radius: 35%;
+    background: url('https://us.123rf.com/450wm/yupiramos/yupiramos1903/yupiramos190307586/118960805-man-with-clapperboard-avatar-character-vector-illustration-desing.jpg?ver=6') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    right: 3%;
+    top: 10%;
+}
+
+.splash-img3 {
+    position: absolute;
+    /* border: red solid 1px; */
+    height: 370px;
+    width: 320px;
+    border-radius: 35%;
+    background: url('https://us.123rf.com/450wm/yusufdemirci/yusufdemirci2111/yusufdemirci211100054/177217905-cartoon-drawing-of-a-photographer.jpg?ver=6') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    top: 51%;
+}
+
+.splashBoxFooter {
+    position: absolute;
+    background-size: cover;
+    z-index: -1;
+    margin-top: 420px;
+    margin-left: 40px;
+    width: 97vw;
+}
+
+.textContainer {
+    /* position: absolute; */
+    /* border: 1px solid red; */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px 2px rgb(58, 58, 58);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    border: 2px solid white;
+}
+
+.splashLogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: red 1px solid;
+}
+
+.splashName {
+    font-size: 55px;
+    color: black;
+}
+
+.splashScreenIcon {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    /* border-radius: 50%; */
+}
+
+.loginSignupbtn {
+    margin: 20px 5px;
+}
+
+.splashBtns {
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.splashBtns:hover {
+    color: red;
+}

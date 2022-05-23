@@ -9,11 +9,13 @@ export const SidebarData = [
         path: '/home',
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
-    },
-    {
-        title: 'Users',
-        path: '/users',
-        icon: <AiIcons.AiFillHome />,
-        cName: 'nav-text'
     }
 ];
+
+// ,
+//     {
+//         title: 'Account',
+//         path: `/users/${sessionUser?.id}`,
+//         icon: <MdSwitchAccount />,
+//         cName: 'nav-text'
+//     }

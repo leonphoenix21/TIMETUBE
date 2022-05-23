@@ -4,8 +4,6 @@ import './navbar.css';
 
 
 const Logo = () => {
-
-
     return (
         <div>
             <NavLink to='/' className='navlinks' exact={true} activeClassName='active'>
