@@ -48,6 +48,10 @@ function EditComment({ commentId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (content.trim().length === 0) return setErrors(['sorry there must be content'])
+        if (content.length > 250) return setErrors([`content must be less than 250 characters, current: ${content.length}`])
+
         const formData = new FormData();
         formData.append("id", commentId);
         formData.append("content", content);
@@ -55,6 +59,7 @@ function EditComment({ commentId }) {
         const data = await dispatch(editComment(formData))
         if (data) {
             closeModal()
+            setErrors([])
         } else {
             if (data.errors) {
                 setErrors(data.errors)
@@ -87,10 +92,15 @@ function EditComment({ commentId }) {
                                 required
                             />
                         </div>
+                        <div className='commentErr'>
+                            {errors.map((error, ind) => (
+                                <div key={ind} className='eachCommError'>{error}</div>
+                            ))}
+                        </div>
                         <div className='commentInputBtns'>
                             <button
                                 type='submit'
-                                className='submitvideobtn'>
+                                className='editSubmitCommentbtn'>
                                 Submit
                             </button>
                             <button
@@ -99,7 +109,7 @@ function EditComment({ commentId }) {
                                     setContent(''),
                                     closeModal()
                                 )}
-                                className='submitvideobtn'>
+                                className='editSubmitCommentbtn'>
                                 Cancel
                             </button>
                         </div>

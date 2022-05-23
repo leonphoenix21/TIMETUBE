@@ -20,9 +20,10 @@ function CreateComments({ Id }) {
     console.log('COMEMEMNTMD', comments)
 
     const updateBtnActivity = (e) => {
-        if (e.target.value.length === 250) {
+
+        if (e.target.value.length === 252) {
             setActive(false)
-            return (setErrors(['character length can not exceed 250']))
+            return (setErrors([`character length can not exceed 250, current: ${content.length}`]))
         }
         else {
             setActive(true)
@@ -85,7 +86,7 @@ function CreateComments({ Id }) {
                                         )}
                                         value={content}
                                         type="text"
-                                        maxLength={250}
+                                        maxLength={252}
                                         placeholder='Add a comment here '
                                         name='commentInput'
                                         required

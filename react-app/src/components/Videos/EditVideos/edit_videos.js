@@ -63,9 +63,9 @@ function EditVideos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (title.trim().length === 0) return setErrors(['sorry there must be content'])
+        if (title.trim().length === 0) return setErrors(['sorry there must be content for title'])
         if (title.length > 55) return setErrors(['Title must be less than 55 characters'])
-        if (description.trim().length === 0) return setErrors(['sorry there must be content'])
+        if (description.trim().length === 0) return setErrors(['sorry there must be content for description'])
         if (description.length > 1400) return setErrors(['Description must be less than 1000 characters'])
 
         const formData = new FormData();

@@ -21,6 +21,7 @@ function EditUserModal() {
     const [avatar, setAvatar] = useState(user.avatar)
     const [header, setHeader] = useState(user.header)
     const [verify, setVerify] = useState(false)
+    const [active, setActive] = useState(false)
 
     Modal.ariaHideApp = false
 
@@ -89,6 +90,32 @@ function EditUserModal() {
             }
         })
     }
+    const updateFirstBtnActivity = (e) => {
+
+        if (e.target.value.length === 25) {
+            setActive(false)
+            return (setErrors([`firstname can not exceed 25 letters, current: ${e.target.value.length}`]))
+        }
+        else {
+            setActive(true)
+            return (setErrors([]))
+        }
+
+    }
+
+    const updateLastBtnActivity = (e) => {
+
+        if (e.target.value.length === 25) {
+            setActive(false)
+            return (setErrors([`lastname can not exceed 25 letters, current: ${e.target.value.length}`]))
+        }
+        else {
+            setActive(true)
+            return (setErrors([]))
+        }
+
+    }
+
 
     const updateAvatar = (e) => {
         if (e) {
@@ -135,9 +162,9 @@ function EditUserModal() {
                             <span className='closeIcon' onClick={closeModal}> <AiIcons.AiOutlineClose /></span>
                         </div>
                         <div className="bottom-line modal"></div>
-                        <div className='videoErr'>
+                        <div className='commentErr'>
                             {errors.map((error, ind) => (
-                                <div key={ind} className='eachVidError'>{error}</div>
+                                <div key={ind} className='eachCommError'>{error}</div>
                             ))}
                         </div>
 
@@ -147,9 +174,13 @@ function EditUserModal() {
                                 <input
                                     className='field'
                                     type="text"
-                                    onChange={(e) => setFirstName(e.target.value)}
+                                    onChange={(e) => (
+                                        updateFirstBtnActivity(e),
+                                        setFirstName(e.target.value)
+                                    )}
                                     value={firstname}
                                     placeholder={user.firstname}
+                                    maxLength={25}
                                     name='firstname'
                                     required
                                 />
@@ -159,8 +190,12 @@ function EditUserModal() {
                                 <input
                                     className='field lastname'
                                     type="text"
-                                    onChange={(e) => setLastName(e.target.value)}
+                                    onChange={(e) => (
+                                        updateLastBtnActivity(e),
+                                        setLastName(e.target.value)
+                                    )}
                                     value={lastname}
+                                    maxLength={25}
                                     placeholder={user.lastname}
                                     name='firstname'
                                     required
