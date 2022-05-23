@@ -60,14 +60,15 @@ export const editVideo = (data) => async (dispatch) => {
         body: data,
     });
     if (response.ok) {
-        const video = await response.json();
-        dispatch(newVideo(video));
-        return video;
-    } else {
         const data = await response.json();
         if (data.errors) {
-            return ['An video/image file error occured. please try again']
+            return data
+        } else if (!data.errors) {
+            dispatch(newVideo(data));
+            return data;
         }
+    } else {
+        return { 'errors': ['an error has occured please verify your file types'] }
     }
 };
 

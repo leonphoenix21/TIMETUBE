@@ -75,13 +75,14 @@ function EditVideos() {
         formData.append("image_url", image_url);
 
         const data = await dispatch(editVideo(formData));
-        if (data) {
-            history.push(`/home`);
+        if (data.errors) {
+            setErrors(data.errors);
         } else {
-            if (data.errors) {
-                setErrors(data.errors);
+            if (!data.errors) {
+                history.push(`/home`);
             }
         }
+
     }
     const deleteVideoSubmit = async (e) => {
         e.preventDefault();
@@ -104,9 +105,9 @@ function EditVideos() {
                                 <h2 className='editTitleHeader'> Edit Video </h2>
                                 <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                             </div>
-                            <div className='videoErr'>
+                            <div className='commentErr' style={{ top: '52%' }}>
                                 {errors.map((error, ind) => (
-                                    <div key={ind} className='eachVidError'>{error}</div>
+                                    <div key={ind} className='eachCommError'>{error}</div>
                                 ))}
                             </div>
 
