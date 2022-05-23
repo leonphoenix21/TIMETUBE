@@ -10,10 +10,7 @@ const Logo = () => {
                 <div className="logoPicName">
                     <img src='https://clipart.world/wp-content/uploads/2020/09/classic-camera-clipart-transparent.png'
                         alt='' className='homeScreenIcon'
-                    // onError={({ e }) => {
-                    //     // e.onerror = null;
-                    //     e.src = 'https://ih1.redbubble.net/image.1339858831.9273/st,small,845x845-pad,1000x1000,f8f8f8.u1.jpg'
-                    // }} 
+                        onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                     />
                     <p className='websiteName'>timetube</p>
                 </div>
