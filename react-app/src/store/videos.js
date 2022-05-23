@@ -23,20 +23,24 @@ const removeVideo = (videoId) => {
 
 
 //! Create videos in the database
-export const uploadVideo = (formdata) => async (dispatch) => {
+export const uploadVideo = (Data) => async (dispatch) => {
+    console.log('this is when video is received in store and about to be sent to backend')
+
     const response = await fetch("/api/videos/", {
         method: "POST",
-        body: formdata,
+        body: Data,
     });
+    console.log(' hhhhhhhhhhhhhhh ', response)
     if (response.ok) {
         const data = await response.json();
-        dispatch(newVideo(data));
-        return data;
-    } else {
-        const data = await response.json();
         if (data.errors) {
-            return ['An video/image file error occured. please try again']
+            return data
+        } else if (!data.errors) {
+            dispatch(newVideo(data));
+            return data;
         }
+    } else {
+        return { 'errors': ['an error has occured please verify your file types'] }
     }
 };
 

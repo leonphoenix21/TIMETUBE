@@ -48,14 +48,17 @@ function UploadVideos() {
 
         // setErrors([''])
         setVideoLoading(true)
+        console.log('this is before dispatch returns from store')
         const data = await dispatch(uploadVideo(formData));
-        if (data) {
+        console.log('this is after dispatch returns from store')
+        console.log('this is data', data)
+        if (data.errors) {
             setVideoLoading(false)
-            history.push(`/home`);
+            setErrors(data.errors);
         } else {
-            if (data.errors) {
+            if (!data.errors) {
                 setVideoLoading(false)
-                setErrors(data.errors);
+                history.push(`/home`);
             }
         }
     }
