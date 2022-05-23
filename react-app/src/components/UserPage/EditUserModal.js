@@ -59,6 +59,14 @@ function EditUserModal() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (firstname.length > 25) return setErrors(['firstname must be less than a 25 characters'])
+        if (lastname.length > 25) return setErrors(['lastname must be less than a 25 characters'])
+        if (firstname.trim().length === 0) return setErrors(['add firstname'])
+        if (lastname.trim().length === 0) return setErrors(['add lastname'])
+
+
+
         const formData = new FormData();
         formData.append("id", user.id);
         formData.append("username", user.username);
@@ -104,9 +112,8 @@ function EditUserModal() {
             {
                 user.id === +userId ?
                     <div>
-                        <button className="editUserbtn" onClick={openModal}>
-                            Edit Account
-                            <span className='accntIcon'>< MdOutlineManageAccounts /> </span>
+                        <button className='editUserbtn' onClick={openModal}>
+                            < MdOutlineManageAccounts />
                         </button>
                     </div>
                     :
@@ -128,7 +135,11 @@ function EditUserModal() {
                             <span className='closeIcon' onClick={closeModal}> <AiIcons.AiOutlineClose /></span>
                         </div>
                         <div className="bottom-line modal"></div>
-
+                        <div className='videoErr'>
+                            {errors.map((error, ind) => (
+                                <div key={ind} className='eachVidError'>{error}</div>
+                            ))}
+                        </div>
 
                         <div className='fullname'>
                             <div>
@@ -159,7 +170,7 @@ function EditUserModal() {
                         </div>
 
                         <div className='inputDiv' >
-                            <label>  avatar file </label>
+                            <label htmlFor='avatar' id='select-video-button'> Choose Profile Image . . .</label>
                             <input
                                 className="field"
                                 type="file"
@@ -167,10 +178,11 @@ function EditUserModal() {
                                 onChange={updateAvatar}
                                 name="avatar"
                                 id="avatar"
+                                hidden
                             />
                         </div>
                         <div className='inputDiv' >
-                            <label> header file </label>
+                            <label htmlFor='header' id='select-video-button'> Choose Header Image . . .</label>
                             <input
                                 className="field"
                                 type="file"
@@ -178,6 +190,7 @@ function EditUserModal() {
                                 onChange={updateHeader}
                                 name="header"
                                 id="header"
+                                hidden
                             />
                         </div>
                         <div>

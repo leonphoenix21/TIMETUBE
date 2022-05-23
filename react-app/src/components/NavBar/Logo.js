@@ -7,11 +7,14 @@ const Logo = () => {
 
 
     return (
-        <>
+        <div>
             <NavLink to='/' className='navlinks' exact={true} activeClassName='active'>
-                <img src='https://clipart.world/wp-content/uploads/2020/09/classic-camera-clipart-transparent.png' alt='' className='homeScreenIcon' />
+                <div className="logoPicName">
+                    <img src='https://clipart.world/wp-content/uploads/2020/09/classic-camera-clipart-transparent.png' alt='' className='homeScreenIcon' />
+                    <p className='websiteName'>timetube</p>
+                </div>
             </NavLink>
-        </>
+        </div>
     );
 }
 

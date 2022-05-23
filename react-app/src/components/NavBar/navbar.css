@@ -178,3 +178,24 @@ span {
     object-fit: contain;
     /* border-radius: 50%; */
 }
+
+.logoContainer {
+    position: absolute;
+    left: 3%;
+}
+
+.logoPicName {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.websiteName {
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+}
+
+.sideLogo {
+    top: -3%;
+}

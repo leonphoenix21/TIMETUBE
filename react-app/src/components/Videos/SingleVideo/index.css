@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 1000px;
+    overflow: scroll;
     /* border: green 5px dotted; */
 }
 

@@ -26,6 +26,8 @@ function EditVideos() {
     const [description, setDescription] = useState(video?.description);
     const [image_url, setImageUrl] = useState(video?.image_url);
     const [showDelete, setShowDelete] = useState(false);
+
+
     let subtitle;
 
     const customStyles = {
@@ -61,6 +63,11 @@ function EditVideos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (title.trim().length === 0) return setErrors(['sorry there must be content'])
+        if (title.length > 55) return setErrors(['Title must be less than 55 characters'])
+        if (description.trim().length === 0) return setErrors(['sorry there must be content'])
+        if (description.length > 1400) return setErrors(['Description must be less than 1000 characters'])
+
         const formData = new FormData();
         formData.append("id", videoId);
         formData.append("title", title);
@@ -84,6 +91,8 @@ function EditVideos() {
     };
 
 
+
+
     return (
         <>
 
@@ -95,11 +104,9 @@ function EditVideos() {
                                 <h2 className='editTitleHeader'> Edit Video </h2>
                                 <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                             </div>
-                            <div>
+                            <div className='videoErr'>
                                 {errors.map((error, ind) => (
-                                    <div className="error_message" key={ind}>
-                                        {error}
-                                    </div>
+                                    <div key={ind} className='eachVidError'>{error}</div>
                                 ))}
                             </div>
 
@@ -137,9 +144,10 @@ function EditVideos() {
                                 <textarea
                                     className="videotext strings"
                                     value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
+                                    onChange={(e) => (
+                                        setDescription(e.target.value)
+                                    )}
                                     placeholder={`add description here ...`}
-                                    min={10}
                                     name="description"
                                     id="description"
                                 />
@@ -198,7 +206,6 @@ function EditVideos() {
                     </div>
                 </div>
             </div >
-
 
         </>
 

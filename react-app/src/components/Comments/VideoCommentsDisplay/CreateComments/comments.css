@@ -99,3 +99,20 @@
     align-items: center;
     margin-top: .5%;
 }
+
+.submitCommentbtn {
+    border: none;
+    height: 30px;
+    width: 100px;
+    background-color: #d3d5f0;
+    border: solid white 1.5px;
+    border-radius: 5px;
+    transition: transform .3s ease-in;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.submitCommentbtn:hover {
+    transform: scale(1.07);
+    background-color: #5021f7df;
+}

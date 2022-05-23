@@ -33,6 +33,9 @@ function CreateComments({ Id }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (content.trim().length === 0) return setErrors(['sorry there must be content'])
+
         const formData = new FormData();
         formData.append("user_id", sessionUser.id);
         formData.append("firstname", sessionUser.firstname);
@@ -45,6 +48,7 @@ function CreateComments({ Id }) {
         const data = await dispatch(createComments(formData));
 
         if (data) {
+            setActive(false)
             history.push(`/videos/${Id}`)
             setContent('')
         } else {
@@ -93,7 +97,7 @@ function CreateComments({ Id }) {
                                     <div className='commentInputBtns'>
                                         <button
                                             type='submit'
-                                            className='submitvideobtn'>
+                                            className='submitCommentbtn'>
                                             Submit
                                         </button>
 
@@ -104,7 +108,7 @@ function CreateComments({ Id }) {
                                                 setContent(''),
                                                 setErrors([])
                                             )}
-                                            className='submitvideobtn'>
+                                            className='submitCommentbtn'>
                                             Cancel
                                         </button>
                                     </div>

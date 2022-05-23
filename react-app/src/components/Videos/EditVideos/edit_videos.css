@@ -146,8 +146,9 @@
 
 .editVideoComp {
     height: 370px;
-    /* background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center; */
+    background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center;
     border: black 10px solid;
+    background-color: rgb(16, 16, 16);
     box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
     border-radius: 2px;
     background-size: cover;
@@ -242,4 +243,12 @@
         transform: translateX(10px);
     }
 
+}
+
+#select-file-button {
+    border: none;
+    padding: 10px;
+    background-color: #d3d3d3;
+    margin: 5px 0px 10px 0px;
+    width: 250px;
 }

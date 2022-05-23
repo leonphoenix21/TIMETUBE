@@ -24,6 +24,8 @@ const NavBar = () => {
   let sessionlinks = (
     <nav className='navbar'>
       <>
+        <span className='logoContainer'><Logo /> </span>
+
         <IconContext.Provider value={{ color: 'black' }}>
           <div className='sidenavbar'>
             <Link to='#' className='menu-bars'>
@@ -35,6 +37,8 @@ const NavBar = () => {
               <li className='navbar-toggle'>
                 <Link to='#' className='menu-bars'>
                   <AiIcons.AiOutlineClose />
+                  <span className='logoContainer sideLogo'><Logo /> </span>
+
                 </Link>
               </li>
               {SidebarData.map((item, index) => {
@@ -74,7 +78,7 @@ const NavBar = () => {
         :
         <>
           <nav className='navbar' >
-            <Logo />
+            <span className='logoContainer'><Logo /> </span>
             <NavLink to='/login' className='navlinks' exact={true} activeClassName='active'>
               Login
             </NavLink>

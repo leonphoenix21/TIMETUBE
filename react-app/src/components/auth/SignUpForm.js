@@ -17,6 +17,14 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
+
+    if (firstname.length > 25) return setErrors(['firstname must be less than 25 characters'])
+    if (lastname.length > 25) return setErrors(['lastname must be less than 25 characters'])
+    if (username.length > 25) return setErrors(['username must be less than 25 characters'])
+    if (lastname.trim().length === 0) return setErrors(['add lastname'])
+    if (firstname.trim().length === 0) return setErrors(['add firstname'])
+    if (username.trim().length === 0) return setErrors(['add username'])
+
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstname, lastname, username, email, password, repeatPassword));
