@@ -19,21 +19,20 @@
 }
 
 .splash-img {
-    position: absolute;
+    position: relative;
     /* border: red solid 1px; */
     margin-top: 5px;
     height: 430px;
     width: 300px;
-    top: 5%;
-    left: 5%;
     background: url('https://img.freepik.com/free-vector/man-video-camera-tripod-white-background_82574-8587.jpg') no-repeat center;
     background-size: cover;
     z-index: 1;
     transform: rotateX(20deg);
+    margin-right: 1300px;
 }
 
 .splash-img2 {
-    position: absolute;
+    position: relative;
     /* border: red solid 1px; */
     height: 390px;
     width: 300px;
@@ -41,12 +40,13 @@
     background: url('https://us.123rf.com/450wm/yupiramos/yupiramos1903/yupiramos190307586/118960805-man-with-clapperboard-avatar-character-vector-illustration-desing.jpg?ver=6') no-repeat center;
     background-size: cover;
     z-index: 1;
-    right: 3%;
-    top: 10%;
+    margin-left: 1100px;
+    margin-top: -450px;
+
 }
 
 .splash-img3 {
-    position: absolute;
+    position: relative;
     /* border: red solid 1px; */
     height: 370px;
     width: 320px;
@@ -54,7 +54,6 @@
     background: url('https://us.123rf.com/450wm/yusufdemirci/yusufdemirci2111/yusufdemirci211100054/177217905-cartoon-drawing-of-a-photographer.jpg?ver=6') no-repeat center;
     background-size: cover;
     z-index: 1;
-    top: 51%;
 }
 
 .splashBoxFooter {
@@ -67,7 +66,7 @@
 }
 
 .textContainer {
-    /* position: absolute; */
+    position: absolute;
     /* border: 1px solid red; */
     padding: 20px 40px;
     border-radius: 10px;
@@ -113,4 +112,10 @@
 
 .splashBtns:hover {
     color: red;
+}
+
+@media (max-width: 800px) {
+    .splash-img3 {
+        display: none;
+    }
 }
