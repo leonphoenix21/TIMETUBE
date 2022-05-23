@@ -47,7 +47,6 @@ function VideoDescription() {
         }
     }
 
-    console.log(videoPlaying?.description.length, 'LLLLLLLLKLKLKLKLKLKLKLKLK')
 
     return (
         <>

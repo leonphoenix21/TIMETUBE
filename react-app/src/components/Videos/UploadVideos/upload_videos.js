@@ -48,10 +48,7 @@ function UploadVideos() {
 
         // setErrors([''])
         setVideoLoading(true)
-        console.log('this is before dispatch returns from store')
         const data = await dispatch(uploadVideo(formData));
-        console.log('this is after dispatch returns from store')
-        console.log('this is data', data)
         if (data.errors) {
             setVideoLoading(false)
             setErrors(data.errors);

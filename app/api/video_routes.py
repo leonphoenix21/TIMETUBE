@@ -14,7 +14,6 @@ def new_video():
     Create a New video
     """
     if request.method == 'POST':
-        print('this is the post on the request')
         keys = list(request.files.to_dict().keys())
         if len(keys) != 2:
             return {"errors": "No file uploaded"}
@@ -39,7 +38,6 @@ def new_video():
         video_url = video_upload["url"]
         image_url = image_upload["url"]
 
-        print('this is before the video is submitted')
         video = Video(
             user_id=request.form['user_id'],
             title=request.form['title'],
@@ -48,14 +46,9 @@ def new_video():
             image_url=image_url,
         )
 
-        print('this is after the video is submitted')
-
         if video:
-            print('is there a video validation in the backend')
             db.session.add(video)
         else:
-            print(
-                'there is an error with the upload and the upload should be sent to the backend')
             return {"errors": ["error with video/image file"]}
 
     else:

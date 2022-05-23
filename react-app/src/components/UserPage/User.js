@@ -16,7 +16,6 @@ function User() {
       return;
     }
 
-    console.log('Hit use Effect');
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();

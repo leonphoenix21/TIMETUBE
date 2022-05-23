@@ -24,13 +24,11 @@ const removeVideo = (videoId) => {
 
 //! Create videos in the database
 export const uploadVideo = (Data) => async (dispatch) => {
-    console.log('this is when video is received in store and about to be sent to backend')
 
     const response = await fetch("/api/videos/", {
         method: "POST",
         body: Data,
     });
-    console.log(' hhhhhhhhhhhhhhh ', response)
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {

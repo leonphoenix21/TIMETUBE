@@ -17,7 +17,6 @@ function CreateComments({ Id }) {
     const sessionUser = useSelector(state => state.session.user)
     const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +Id))
 
-    console.log('COMEMEMNTMD', comments)
 
     const updateBtnActivity = (e) => {
 
