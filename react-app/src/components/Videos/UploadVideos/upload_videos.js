@@ -104,7 +104,7 @@ function UploadVideos() {
                         />
                     </div >
                     <div className='contDiv'>
-                        <label className='approvedFileLabel'> Our approved file types</label>
+                        <label className='approvedFileLabel'> Our approved video file types</label>
                         <label className='approvedFileLabel'> Include: mpeg, mp4, mpg, .mov</label>
                         <label htmlFor='vid-upload' id='select-video-button'> Choose Video File . . .</label>
                         <input
@@ -130,6 +130,8 @@ function UploadVideos() {
                             required
                         />
                     </div>
+                    <label className='approvedFileLabel'> Our approved image file types</label>
+                    <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
                     <label htmlFor='img-upload' id='select-video-button'> Choose Poster Image . . .</label>
                     <div className='contDiv' >
                         <input

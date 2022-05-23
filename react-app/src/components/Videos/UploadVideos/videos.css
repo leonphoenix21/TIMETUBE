@@ -332,3 +332,8 @@
     display: flex;
     align-items: center;
 }
+
+.errorsFile {
+    background-color: rgba(254, 2, 2, 0.63);
+    color: black;
+}

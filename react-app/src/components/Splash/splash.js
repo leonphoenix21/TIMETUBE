@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './splash.css'
 
 function SplashPage() {
 
+    const user = useSelector(state => state.session.user);
     const history = useHistory();
+    if (user) {
+        return <Redirect to='/home' />;
+    }
 
     const SessionLogo = () => {
         return (

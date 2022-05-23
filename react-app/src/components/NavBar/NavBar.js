@@ -55,7 +55,7 @@ const NavBar = () => {
         <IconContext.Provider value={{ color: 'black' }}>
           <div className='sidenavbar'>
             <Link to='#' className='menu-bars'>
-              <FaIcons.FaBars onClick={showSidebar} className='menuIcon' />
+              <FaIcons.FaBars onClick={showSidebar} className='navmenuIcon' />
             </Link>
           </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -100,9 +100,9 @@ const NavBar = () => {
       {/* <NavLink className='navlinks' to='/users' exact={true} activeClassName='active'>
         Users
       </NavLink> */}
-      <NavLink className='navlinks' to='/home' exact={true} activeClassName='active'>
+      {/* <NavLink className='navlinks' to='/home' exact={true} activeClassName='active'>
         Home
-      </NavLink>
+      </NavLink> */}
       {/* <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
         <span className='UploadIcon'> <ImUpload2 /> </span>
       </NavLink> */}

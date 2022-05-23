@@ -105,6 +105,13 @@
     color: black;
 }
 
+.navmenuIcon {
+    color: black;
+    position: absolute;
+    left: 3%;
+    top: 30%;
+}
+
 .nav-menu {
     background-color: whitesmoke;
     width: 250px;
@@ -181,7 +188,7 @@ span {
 
 .logoContainer {
     position: absolute;
-    left: 3%;
+    left: 7%;
 }
 
 .logoPicName {
