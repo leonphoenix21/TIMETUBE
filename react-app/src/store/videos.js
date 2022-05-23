@@ -33,15 +33,13 @@ export const uploadVideo = (data) => async (dispatch) => {
         const data = await response.json();
         dispatch(newVideo(data));
         return data;
-    } else {
-        // const data = await response.json();
-        // if (data.errors) {
-        //     return data.errors;
-        // }
+    } else if (response.errors) {
+        const data = await response.json();
+        return data.errors;
+    }
+    else {
         return ['An video/image file error occured. please try again']
-        // if (data.errors) {
-        //     return data.errors;
-        // }
+
     }
 };
 
