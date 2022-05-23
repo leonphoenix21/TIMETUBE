@@ -45,6 +45,8 @@ def new_video():
             description=request.form['description'],
             image_url=image_url,
         )
+        if not video:
+            return {"errors": ["error with video/image file"]}
         db.session.add(video)
 
     else:

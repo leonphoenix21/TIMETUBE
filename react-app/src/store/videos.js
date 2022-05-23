@@ -34,10 +34,14 @@ export const uploadVideo = (data) => async (dispatch) => {
         dispatch(newVideo(data));
         return data;
     } else {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
+        // const data = await response.json();
+        // if (data.errors) {
+        //     return data.errors;
+        // }
+        return ['An video/image file error occured. please try again']
+        // if (data.errors) {
+        //     return data.errors;
+        // }
     }
 };
 
@@ -62,6 +66,11 @@ export const editVideo = (data) => async (dispatch) => {
         const video = await response.json();
         dispatch(newVideo(video));
         return video;
+    } else {
+        const data = await response.json();
+        if (data.errors) {
+            return ['An video/image file error occured. please try again']
+        }
     }
 };
 

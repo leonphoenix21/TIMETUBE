@@ -120,6 +120,7 @@ function EditVideos() {
                             <div className='contDiv' >
                                 <label className='approvedFileLabel'> Our approved image file types</label>
                                 <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
+                                <label className='approvedFileLabel errorsFile'> any other files will not load </label>
                                 <label htmlFor='edit-poster' id='select-file-button'> Update Cover Photo . . .</label>
                                 <input
                                     className='videofield'
