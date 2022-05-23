@@ -63,7 +63,13 @@ function VideoDescription() {
 
                     <div className='VideoInfo'>
                         <div>
-                            <img className='avatar singleview' src={`${user?.avatar}`} />
+                            <img className='avatar singleview'
+                                src={`${user?.avatar}`}
+                            // onError={({ e }) => {
+                            //     // e.onerror = null;
+                            //     e.src = 'https://ih1.redbubble.net/image.1339858831.9273/st,small,845x845-pad,1000x1000,f8f8f8.u1.jpg'
+                            // }}
+                            />
                         </div>
                         <div className='fullname single'>
                             <strong > {user?.firstname} {user?.lastname} </strong>

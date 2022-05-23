@@ -325,3 +325,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.approvedFileLabel {
+    font-size: 12px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+}

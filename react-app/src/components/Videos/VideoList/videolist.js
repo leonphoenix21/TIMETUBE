@@ -21,7 +21,6 @@ const VideoDisplay = () => {
         <div className='allVideos'>
             <div className='gallery' >
                 <div className='firstBlockDiv'>
-
                 </div>
                 {allVideos.map(video => (
                     <div className='pics' key={video.id} >
@@ -32,6 +31,7 @@ const VideoDisplay = () => {
                                 src={video.image_url}
                                 alt={video.title}
                                 style={{ width: '100%' }}
+
                             />
                         </a>
                         <div className='image-title'>{video.title}  </div>

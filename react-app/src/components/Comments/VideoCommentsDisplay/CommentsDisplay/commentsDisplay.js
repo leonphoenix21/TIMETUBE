@@ -47,6 +47,10 @@ function CommentsDisplay({ boxId }) {
                                 <a href={`/users/${comment.user_id}`}>
                                     <img className='eachCommentAvtr'
                                         src={`${comment?.avatar}`}
+                                    // onError={({ e }) => {
+                                    //     // e.onerror = null;
+                                    //     e.src = 'https://ih1.redbubble.net/image.1339858831.9273/st,small,845x845-pad,1000x1000,f8f8f8.u1.jpg'
+                                    // }}
                                     />
                                 </a>
                             </div>

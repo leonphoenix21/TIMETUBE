@@ -111,7 +111,13 @@ function EditVideos() {
                             </div>
 
                             <div className='contDiv'>
-                                <img src={`${video?.image_url}`} alt='' style={{ height: '150px', width: '250px' }} />
+                                <img src={`${video?.image_url}`}
+                                    alt='' style={{ height: '150px', width: '250px' }}
+                                // onError={({ e }) => {
+                                //     // e.onerror = null;
+                                //     e.src = 'https://ih1.redbubble.net/image.1339858831.9273/st,small,845x845-pad,1000x1000,f8f8f8.u1.jpg'
+                                // }} 
+                                />
                             </div>
                             <div className='contDiv' >
                                 <label htmlFor='edit-poster' id='select-file-button'> Update Cover Photo . . .</label>

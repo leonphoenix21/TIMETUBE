@@ -70,7 +70,12 @@ function CreateComments({ Id }) {
                 <div className="commentsDisplay">
                     <form onSubmit={handleSubmit}>
                         <div className='addCommentDiv'>
-                            <img className='commentsAvtr' src={`${sessionUser?.avatar}`} />
+                            <img className='commentsAvtr' src={`${sessionUser?.avatar}`}
+                            // onError={({ e }) => {
+                            //     // e.onerror = null;
+                            //     e.src = 'https://ih1.redbubble.net/image.1339858831.9273/st,small,845x845-pad,1000x1000,f8f8f8.u1.jpg'
+                            // }}
+                            />
                             <div className='addCommentInputDiv'>
                                 <div className='commentErr'>
                                     {errors.map((error, ind) => (
