@@ -23,7 +23,7 @@
 
 .descriptionTextFull {
     overflow-x: wrap;
-    height: 250px;
+    height: fit-content;
     padding: 10px;
 }
 
