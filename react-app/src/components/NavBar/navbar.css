@@ -188,7 +188,7 @@ span {
 
 .logoContainer {
     position: absolute;
-    left: 7%;
+    left: 5%;
 }
 
 .logoPicName {
@@ -213,7 +213,7 @@ span {
     margin-left: 30px;
     margin-top: 50px;
     right: 20%;
-    bottom: 5%;
+    bottom: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -247,4 +247,22 @@ span {
     transform: scale(1.1);
     background-color: rgb(222, 219, 219);
     box-shadow: 5px 2px 5px rgb(62, 59, 59);
+}
+
+.linkedIn {
+    height: 130px;
+    width: 180px;
+    transition: transform .3s ease-in-out;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+}
+
+.transformOneOne:hover {
+    transform: scale(1.1);
+}
+
+.mrTop {
+    margin-top: -25px;
+    margin-bottom: 20px;
 }

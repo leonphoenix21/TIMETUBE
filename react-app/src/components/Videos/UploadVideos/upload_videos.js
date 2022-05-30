@@ -5,9 +5,10 @@ import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
-
 import { uploadVideo } from '../../../store/videos'
-
+import React, { useEffect, useRef } from 'react';
+import videojs from 'video.js';
+import { useParams } from 'react-router-dom';
 
 function UploadVideos() {
 
@@ -18,17 +19,117 @@ function UploadVideos() {
     const [title, setTitle] = useState('');
     const [loading, setVideoLoading] = useState(false);
     const [video_url, setVideoUrl] = useState('');
+    const [previewVid, setPreviewVid] = useState('');
+    const [previewImg, setPreviewImg] = useState('');
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
+    const [vidActive, setVidActive] = useState(false);
+    const [newVid, setNewVid] = useState(false);
+
 
     const updateVideo = (e) => {
+
+        // setPreviewVid('')
         const file = e.target.files[0];
         setVideoUrl(file);
+
+        if (video_url) {
+            setVidActive(true)
+
+        }
+        // setPreviewVid(URL.createObjectURL(file));
+
     };
+
+
+
     const updateImage = (e) => {
+
         const file = e.target.files[0];
         setImageUrl(file);
+
+        setPreviewImg(URL.createObjectURL(file));
+
     };
+
+    useEffect(() => {
+        if (video_url) {
+            setVidActive(true)
+        }
+        let fileReader, isCancel = false;
+
+        if (video_url) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setPreviewVid(result)
+                }
+            }
+            fileReader.readAsDataURL(video_url);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [video_url]);
+
+
+    // const onChangeVid = (e) => {
+    //     if (e.target.files[0]) {
+    //         const file = e.target.files[0];
+    //         if (previewVid !== null) {
+    //             setPreviewVid(null)
+    //             const readFile = URL.createObjectURL(file)
+    //             setPreviewVid(readFile);
+    //         } else {
+    //             const readFile = URL.createObjectURL(file)
+    //             setPreviewVid(readFile);
+    //         }
+    //     }
+    // };
+
+
+
+    // useEffect(() => {
+    //     // create the preview
+
+    //     const videoUrl = URL.createObjectURL(video_url)
+    //     setPreviewVid(videoUrl)
+
+    //     const imageUrl = URL.createObjectURL(image_url)
+    //     setPreviewImg(imageUrl)
+
+    //     // free memory when ever this component is unmounted
+    //     // return () => URL.revokeObjectURL(objectUrl)
+    // }, [image_url, video_url])
+
+
+    const onChangeImg = (e) => {
+
+        if (e.target.files[0]) {
+
+            const file = e.target.files[0];
+            if (previewImg !== null) {
+                setPreviewImg(null)
+                const readFile = URL.createObjectURL(file)
+                setPreviewImg(readFile);
+            } else {
+                const readFile = URL.createObjectURL(file)
+                setPreviewImg(readFile);
+            }
+        }
+    };
+
+
+
+
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -62,6 +163,9 @@ function UploadVideos() {
 
 
 
+
+
+
     return (
         <div className='uploadbodyCon'>
             <div className='upload-container'>
@@ -72,7 +176,6 @@ function UploadVideos() {
                                 <div className="uploadTitle">  <h2 className="loadingTitle"> uploading ... </h2></div>
                                 :
                                 <div className="uploadTitle"><h2 > Upload Video  </h2></div>
-
 
                         }
                         {
@@ -106,7 +209,6 @@ function UploadVideos() {
                     <div className='contDiv'>
                         <label className='approvedFileLabel'> Our approved video file types</label>
                         <label className='approvedFileLabel'> Include: mpeg, mp4, mpg, .mov</label>
-                        <label className='approvedFileLabel errorsFile'> any other files will not load </label>
                         <label htmlFor='vid-upload' id='select-video-button'> Choose Video File . . .</label>
                         <input
                             className='videofield'
@@ -114,6 +216,7 @@ function UploadVideos() {
                             id='vid-upload'
                             name='img-upload'
                             accept='video/*'
+                            // onClick={onChangeVid}
                             onChange={updateVideo}
                             hidden
                         />
@@ -133,15 +236,26 @@ function UploadVideos() {
                     </div>
                     <label className='approvedFileLabel'> Our approved image file types</label>
                     <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
-                    <label className='approvedFileLabel errorsFile'> any other files will provide errors </label>
-                    <label htmlFor='img-upload' id='select-video-button'> Choose Poster Image . . .</label>
+
+                    {
+                        vidActive ?
+                            <label htmlFor='img-upload' id='select-video-button'> Choose Poster Image . . .</label>
+                            :
+
+                            <>
+                                <label className='approvedFileLabel posterErr' style={{ backgroundColor: 'black', padding: '3px', color: 'yellow' }}> choose a video file </label>
+                                <label id='fake-video-button' > Choose Poster Image . . .</label>
+                            </>
+
+                    }
+
                     <div className='contDiv' >
                         <input
                             className='videofield'
                             type='file'
                             id='img-upload'
                             accept='image/*'
-                            onChange={updateImage}
+                            onChange={(e) => (updateImage(e), onChangeImg(e))}
                             hidden
                         />
                     </div>
@@ -152,11 +266,33 @@ function UploadVideos() {
                             Submit
                         </button>
                     </div>
-
-
-
                 </form>
             </div>
+
+            <div className="videoDisplayTitle"> <h2> Preview </h2> </div>
+            <div className='previewVideoComp'>
+                <>
+                    {previewVid || previewImg ?
+                        <>
+                            <div data-vjs-player className='videoPlayerComp'>
+                                <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
+                                    controls preload="none" poster={previewImg}
+                                    data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
+                                    <source src={previewVid} type='video/mp4' />
+                                </video>
+                            </div>
+
+                        </>
+                        :
+                        <>
+                        </>
+                    }
+
+
+
+                </>
+            </div>
+
             <div className="boxFooter">
                 <img src='https://d3c9ouasuy8pg6.cloudfront.net/dist/images/signup-bg-light_baa27c5957a33417853bf54b523adf5a.png'
                     alt='' className='boxFooterImg' />

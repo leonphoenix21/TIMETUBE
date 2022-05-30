@@ -15,7 +15,7 @@ const VideoDisplay = () => {
 
 
     const videos = useSelector(state => state.videos);
-    const allVideos = Object.values(videos)
+    const allVideos = Object.values(videos).reverse()
 
     return (
         <div className='allVideos'>

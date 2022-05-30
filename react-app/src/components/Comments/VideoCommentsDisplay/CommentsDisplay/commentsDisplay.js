@@ -10,7 +10,6 @@ import DeleteComments from '../DeleteComment/delete-comments';
 function CommentsDisplay({ boxId }) {
 
     const dispatch = useDispatch();
-    const comments = []
     let countComments = 0;
     useEffect(() => {
         (async () => {
@@ -18,18 +17,10 @@ function CommentsDisplay({ boxId }) {
         })();
     }, []);
 
-    const unsortedcomments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId))
+    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId).reverse()
+    )
 
 
-
-    if (unsortedcomments.length === 1) {
-        comments.push(unsortedcomments[0])
-    } else if (unsortedcomments.length > 1) {
-        for (let i = 1; i < unsortedcomments.length; i++) {
-            let el = unsortedcomments[unsortedcomments.length - i]
-            comments.push(el)
-        }
-    }
     const sessionUser = useSelector(state => state.session.user)
 
 

@@ -80,17 +80,32 @@ const NavBar = () => {
                   <span>Account </span>
                 </Link>
               </li>
-              <a href='https://github.com/leonphoenix21/FAUXTUBE/wiki' >
-                <div className="githubLinkDiv" >
-                  <h2 className='githubLinkTitle'>GitHub Link</h2>
-                  <img className='avatar profileAvtr'
+
+              <div className="githubLinkDiv" >
+                <h2 className='githubLinkTitle'>Creator Links</h2>
+
+                <a href='https://github.com/leonphoenix21/FAUXTUBE/wiki' >
+                  <img className='avatar profileAvtr transformOneOne'
                     src='https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/ac5937c0ee12d5494784615330905549~c5_720x720.jpeg?x-expires=1653444000&x-signature=1iDNuitHaS3dcvMkySdKe2ZdwOU%3D'
                     alt=''
                     onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                   />
-                  <p>by Noel M. </p>
-                </div>
+                </a>
+                <h3 className='mrTop'> Github </h3>
+              </div>
+              <a href='https://www.linkedin.com/in/noel-m-19145aa3/' >
+                <img className='linkedIn transformOneOne'
+                  src='http://cdn.designblognews.com/wp-content/uploads/2020/07/linkedinlogo-1593683207nkg84.png'
+                  alt=''
+                  onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                />
               </a>
+
+
+
+
+
+
             </ul>
           </nav>
         </IconContext.Provider>

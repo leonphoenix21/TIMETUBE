@@ -47,3 +47,31 @@
     font-size: 20px;
     margin: 20px 0px -30px 20px;
 }
+
+@media (max-width: 991px) {
+    .video-comments-sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        height: 1000px;
+        overflow: scroll;
+        /* border: green 5px dotted; */
+    }
+}
+
+@media (max-width: 791px) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+}

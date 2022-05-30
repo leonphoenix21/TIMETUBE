@@ -13,7 +13,10 @@
 
 .profileAvtr {
     margin-top: 25px;
+    transition: transform .3s ease-in-out;
 }
+
+
 
 .header {
     margin: 2% 12% 0px 10%;
