@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom'
 import { ImUpload2 } from 'react-icons/im';
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
+import { VscLoading } from 'react-icons/vsc';
+
 import { uploadVideo } from '../../../store/videos'
 import React, { useEffect, useRef } from 'react';
 import videojs from 'video.js';
@@ -24,14 +26,20 @@ function UploadVideos() {
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
     const [vidActive, setVidActive] = useState(false);
-    const [newVid, setNewVid] = useState(false);
+    const [previewVidLoading, setPreviewVidLoading] = useState(false);
 
 
     const updateVideo = (e) => {
 
         // setPreviewVid('')
+        if (previewVid) {
+            setPreviewVid(null)
+            setPreviewImg(null)
+        }
         const file = e.target.files[0];
         setVideoUrl(file);
+        setPreviewVidLoading(true)
+
 
         if (video_url) {
             setVidActive(true)
@@ -48,17 +56,19 @@ function UploadVideos() {
         const file = e.target.files[0];
         setImageUrl(file);
 
-        setPreviewImg(URL.createObjectURL(file));
+        // setPreviewImg(URL.createObjectURL(file));
 
     };
 
     useEffect(() => {
+
         if (video_url) {
-            setVidActive(true)
         }
         let fileReader, isCancel = false;
 
         if (video_url) {
+            setVidActive(true)
+            setPreviewVidLoading(true)
             fileReader = new FileReader();
             fileReader.onload = (e) => {
                 const { result } = e.target;
@@ -67,6 +77,24 @@ function UploadVideos() {
                 }
             }
             fileReader.readAsDataURL(video_url);
+
+        } else {
+            setPreviewVid('')
+        }
+        if (previewVid) {
+            setPreviewVidLoading(false)
+        }
+        if (image_url) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setPreviewImg(result)
+                }
+            }
+            fileReader.readAsDataURL(image_url);
+        } else {
+            setPreviewImg('')
         }
         return () => {
             isCancel = true;
@@ -75,37 +103,7 @@ function UploadVideos() {
             }
         }
 
-    }, [video_url]);
-
-
-    // const onChangeVid = (e) => {
-    //     if (e.target.files[0]) {
-    //         const file = e.target.files[0];
-    //         if (previewVid !== null) {
-    //             setPreviewVid(null)
-    //             const readFile = URL.createObjectURL(file)
-    //             setPreviewVid(readFile);
-    //         } else {
-    //             const readFile = URL.createObjectURL(file)
-    //             setPreviewVid(readFile);
-    //         }
-    //     }
-    // };
-
-
-
-    // useEffect(() => {
-    //     // create the preview
-
-    //     const videoUrl = URL.createObjectURL(video_url)
-    //     setPreviewVid(videoUrl)
-
-    //     const imageUrl = URL.createObjectURL(image_url)
-    //     setPreviewImg(imageUrl)
-
-    //     // free memory when ever this component is unmounted
-    //     // return () => URL.revokeObjectURL(objectUrl)
-    // }, [image_url, video_url])
+    }, [video_url, previewVid]);
 
 
     const onChangeImg = (e) => {
@@ -161,11 +159,6 @@ function UploadVideos() {
         }
     }
 
-
-
-
-
-
     return (
         <div className='uploadbodyCon'>
             <div className='upload-container'>
@@ -173,9 +166,13 @@ function UploadVideos() {
                     <div className='upload-title'>
                         {
                             loading ?
-                                <div className="uploadTitle">  <h2 className="loadingTitle"> uploading ... </h2></div>
+                                <div className="uploadTitle">
+                                    <h2 className="loadingTitle"> uploading ... </h2>
+                                </div>
                                 :
-                                <div className="uploadTitle"><h2 > Upload Video  </h2></div>
+                                <div className="uploadTitle">
+                                    <h2> Upload Video  </h2>
+                                </div>
 
                         }
                         {
@@ -268,25 +265,38 @@ function UploadVideos() {
                     </div>
                 </form>
             </div>
-
-            <div className="videoDisplayTitle"> <h2> Preview </h2> </div>
+            {
+                previewVidLoading ?
+                    <div className="previewDisplayTitle"> <h3> Loading Preview . . . </h3> </div>
+                    :
+                    <div className="previewDisplayTitle"> <h3> Preview Video</h3> </div>
+            }
             <div className='previewVideoComp'>
+
                 <>
-                    {previewVid || previewImg ?
+                    {previewVid ?
                         <>
-                            <div data-vjs-player className='videoPlayerComp'>
+                            <div data-vjs-player className='videoPlayerComp' style={{ marginLeft: '13px' }}>
                                 <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
-                                    controls preload="none" poster={previewImg}
+                                    controls preload="none"
                                     data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
-                                    <source src={previewVid} type='video/mp4' />
+                                    <source src={previewVid ? previewVid : ''} type='video/mp4' />
                                 </video>
                             </div>
+
 
                         </>
                         :
                         <>
                         </>
                     }
+                    <div className="ImgDisplayTitle"> <h3> Preview Poster Image</h3> </div>
+                    <div className='uploadImgComp'>
+                        <img className='VideoCompSpanImg' src={`${previewImg ? previewImg : null}`}
+                            alt=''
+                            onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                        />
+                    </div>
 
 
 

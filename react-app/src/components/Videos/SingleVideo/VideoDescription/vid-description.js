@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { BsGearWideConnected } from 'react-icons/bs';
 import './desc-vid.css'
 
 function VideoDescription() {
@@ -71,8 +72,8 @@ function VideoDescription() {
                             <strong > {user?.firstname} {user?.lastname} </strong>
                             {sessionUser.id === videoPlaying.user_id &&
                                 <button onClick={navLink}
-                                    className='editVideoBtn'
-                                > Edit Video
+                                    className='singlePageEditbtn'
+                                > Edit Video <BsGearWideConnected />
                                 </button>
                             }
 

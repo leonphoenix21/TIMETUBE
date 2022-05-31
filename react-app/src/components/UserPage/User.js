@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Avatar from './Avatar';
+import UserNavBar from './BelowUserProfile/UserNav';
 import EditUserModal from './EditUserModal';
 import UserInfo from './UserInfo';
 
@@ -45,6 +46,7 @@ function User() {
         </div>
       </div>
       <div className='bottom-line'> </div>
+      <UserNavBar />
 
     </div>
   );

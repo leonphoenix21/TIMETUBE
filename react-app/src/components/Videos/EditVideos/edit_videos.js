@@ -26,6 +26,7 @@ function EditVideos() {
     const [description, setDescription] = useState(video?.description);
     const [image_url, setImageUrl] = useState(video?.image_url);
     const [showDelete, setShowDelete] = useState(false);
+    const [previewImg, setPreviewImg] = useState('');
 
 
     let subtitle;
@@ -91,6 +92,30 @@ function EditVideos() {
         history.push("/home");
     };
 
+    useEffect(() => {
+
+        let fileReader, isCancel = false;
+
+        if (image_url) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setPreviewImg(result)
+                }
+            }
+            fileReader.readAsDataURL(image_url);
+        } else {
+            setPreviewImg('')
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [image_url])
 
 
 
@@ -105,7 +130,7 @@ function EditVideos() {
                                 <h2 className='editTitleHeader'> Edit Video </h2>
                                 <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                             </div>
-                            <div className='commentErr' style={{ top: '52%' }}>
+                            <div className='commentErr' style={{ top: '50%' }}>
                                 {errors.map((error, ind) => (
                                     <div key={ind} className='eachCommError'>{error}</div>
                                 ))}
@@ -203,14 +228,18 @@ function EditVideos() {
                         {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
                     </div> */}
                     </div>
-                    <div className="videoDisplayTitle"> <h2> View Video </h2> </div>
+                    <div className="videoDisplayTitle"> <h3> Video Preview</h3> </div>
                     <div className='editVideoComp'>
                         <span className='VideoCompSpan'> <VideoPlayerComp videoId={videoId} /> </span>
                     </div>
-                    <div className="videoStand">
+                    <div className="videoDisplayTitle"> <h3> Cover Preview </h3> </div>
+                    <div className='editImgComp'>
+                        <img className='VideoCompSpanImg' src={`${previewImg ? previewImg : video?.image_url}`}
+                            alt=''
+                            onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                        />
                     </div>
-                    <div className="videoStandLeg">
-                    </div>
+
                 </div>
             </div >
 

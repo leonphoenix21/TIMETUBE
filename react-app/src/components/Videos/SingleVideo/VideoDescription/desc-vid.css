@@ -116,3 +116,19 @@
     transform: scale(1.5);
     z-index: 1;
 }
+
+.singlePageEditbtn {
+    height: 35px;
+    width: 130px;
+    border-radius: 3%;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(31, 7, 246);
+    border: rgb(253, 247, 247);
+    padding: 5px;
+    transition: transform, .3s ease-in-out;
+}
+
+.singlePageEditbtn:hover {
+    transform: scale(1.1);
+}

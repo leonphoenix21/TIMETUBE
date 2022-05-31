@@ -349,7 +349,7 @@
 }
 
 .previewVideoComp {
-    height: 370px;
+    height: 305px;
     background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center;
     border: black 10px solid;
     background-color: rgb(16, 16, 16);
@@ -357,46 +357,57 @@
     border-radius: 2px;
     background-size: cover;
     /* z-index: 1; */
-    width: 660px;
+    width: 600px;
     position: absolute;
-    margin-left: 600px;
+    margin-left: 605px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin-top: 30px;
 
 }
 
-.previewStand {
+.previewDisplayTitle {
     position: absolute;
-    height: 150px;
-    width: 100px;
-    background-color: rgb(15, 15, 15);
+    border: red solid 1px;
+    margin-left: 600px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.videoDisplayTitle {
+
+    margin-right: 350px;
+    width: 400px;
+
+}
+
+.uploadImgComp {
+    position: absolute;
+    height: 300px;
+    background-color: black;
     border: black 10px solid;
-    border-bottom: none;
-    margin-left: 800px;
-    bottom: 5%;
-
-}
-
-.videoStandLeg {
-    position: absolute;
-    border-right: #fbfeff .1pc solid;
-    border-bottom: #fbfeff .1pc solid;
-    height: 40px;
-    width: 300px;
-    background-color: rgb(15, 15, 15);
-    /* border: black 10px solid; */
-    margin-top: 150px;
-    margin-left: 884px;
-    color: rgb(20, 20, 20);
+    background-color: rgb(16, 16, 16);
+    box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
+    border-radius: 2px;
+    background-size: cover;
+    /* z-index: 1; */
+    width: 550px;
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    /* box-shadow: 0px 10px rgba(0, 0, 0, 1);
-     */
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin-top: 700px;
+
+}
+
+.ImgDisplayTitle {
+    position: absolute;
+    margin-top: 370px;
 }
