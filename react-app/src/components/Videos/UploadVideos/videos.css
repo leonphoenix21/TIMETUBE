@@ -371,7 +371,7 @@
 
 .previewDisplayTitle {
     position: absolute;
-    border: red solid 1px;
+    /* border: red solid 1px; */
     margin-left: 600px;
     width: 400px;
     display: flex;
