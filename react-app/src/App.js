@@ -15,6 +15,9 @@ import VideoDisplay from './components/Videos/VideoList/videolist';
 import EditVideos from './components/Videos/EditVideos/edit_videos';
 import SingleVideoPage from './components/Videos/SingleVideo/index';
 import SplashPage from './components/Splash/splash';
+import LibraryPage from './components/LibraryPage';
+import LibraryUploadVids from './components/LibraryPage/Uploaded Vids/uploadedvids';
+import LibraryLikedVids from './components/LibraryPage/Liked Vids/likedvids';
 
 
 function App() {
@@ -70,6 +73,15 @@ function App() {
         <Route path='/' exact={true}>
           <SplashPage />
         </Route>
+
+        <ProtectedRoute path='/library/upload' exact={true}>
+          <LibraryPage />
+          <LibraryUploadVids />
+        </ProtectedRoute>
+        <ProtectedRoute path='/library/likes' exact={true}>
+          <LibraryPage />
+          <LibraryLikedVids />
+        </ProtectedRoute>
         <Route>
           <h1> Page Not Found</h1>
         </Route>

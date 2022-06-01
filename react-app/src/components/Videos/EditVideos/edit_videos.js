@@ -3,21 +3,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
-import { FcCancel } from 'react-icons/fc';
 import { deleteVideo, editVideo } from '../../../store/videos'
 import { FaTools } from "react-icons/fa";
 import { VscSettingsGear } from "react-icons/vsc";
-import Modal from 'react-modal';
 import VideoPlayerComp from '../../VideoPlayer/video-player';
-import DeleteVideos from '../DeleteVideos/delete-video';
-
+import { videoComments } from '../../../store/comments';
+import DelComEditPg from './delCommentsEditPage';
 
 function EditVideos() {
 
     const { videoId } = useParams()
-    const [modalIsOpen, setIsOpen] = React.useState(false);
     const video = useSelector(state => state.videos[videoId])
-    // const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -27,34 +23,9 @@ function EditVideos() {
     const [image_url, setImageUrl] = useState(video?.image_url);
     const [showDelete, setShowDelete] = useState(false);
     const [previewImg, setPreviewImg] = useState('');
+    const [commCount, setCommCount] = useState(0);
+    const [showCommDelete, setShowCommDelete] = useState(false);
 
-
-    let subtitle;
-
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            flexDirection: 'row'
-
-        },
-    };
-
-    function openModal() {
-        setIsOpen(true);
-    }
-    function closeModal() {
-        setIsOpen(false);
-    }
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        return () => { subtitle.style.color = '#0000'; }
-    }
 
 
     const updateImage = (e) => {
@@ -91,6 +62,21 @@ function EditVideos() {
         await dispatch(deleteVideo(+videoId));
         history.push("/home");
     };
+    useEffect(() => {
+        (async () => {
+            await dispatch(videoComments());
+        })();
+    }, []);
+
+    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +videoId).reverse()
+    )
+    useEffect(() => {
+        if (comments) {
+            setCommCount(comments.length)
+        }
+    }, [comments]);
+    console.log(commCount, 'KKKKKKKKKKLLLLL', comments)
+
 
     useEffect(() => {
 
@@ -104,7 +90,9 @@ function EditVideos() {
                     setPreviewImg(result)
                 }
             }
+
             fileReader.readAsDataURL(image_url);
+
         } else {
             setPreviewImg('')
         }
@@ -239,7 +227,36 @@ function EditVideos() {
                             onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                         />
                     </div>
+                    <div className="userViewComments">
+                        <div className="CommentTitleandCount">
+                            <h2> {commCount}  Comments </h2>
+                        </div>
+                        <div className="border-bottomComm"> </div>
+                        {comments?.map(comment => (
+                            <div className="editCommentsDisplay">
+                                <div className="commentUserAvatar">
+                                    <a href={`/users/${comment?.user_id}`}>
+                                        <img className='eachCommentAvtr'
+                                            src={`${comment?.avatar}`}
+                                            onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                                        />
+                                    </a>
+                                </div>
+                                <div className="commentNameContent">
+                                    <div className="editCommFullname">
+                                        {comment?.firstname}
+                                        {comment?.lastname}
+                                    </div>
+                                    <div className="editCommContent">
+                                        {comment?.content}
+                                    </div>
+                                </div>
+                                <DelComEditPg comment={comment} />
+                                <div className="border-bottomComm"> </div>
+                            </div>
 
+                        ))}
+                    </div>
                 </div>
             </div >
 

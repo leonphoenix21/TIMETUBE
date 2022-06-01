@@ -9,10 +9,16 @@ import './index.css'
 import CommentContainer from '../../Comments/CommentContainer';
 
 function SingleVideoPage() {
+    const [commCount, setCommCount] = useState(0)
 
     const { videoId } = useParams()
-    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +videoId))
-
+    const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +videoId).reverse()
+    )
+    useEffect(() => {
+        if (comments) {
+            setCommCount(comments.length)
+        }
+    }, [comments]);
     return (
         <>
             <div className="single-videopage-container">
@@ -27,6 +33,9 @@ function SingleVideoPage() {
                         <VideoDescription />
                         <div className="border-Top-line"></div>
                         <CommentContainer videoCommentId={videoId} />
+                        <div className="commentsCount">
+                            {commCount} Comments
+                        </div>
                         <CommentsDisplay boxId={videoId} />
                     </div>
                     <div className="video-sidebar-div">

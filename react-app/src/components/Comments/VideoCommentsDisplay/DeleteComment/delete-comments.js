@@ -73,6 +73,8 @@ function DeleteComments({ commentId }) {
                     onRequestClose={closeModal}
                     style={customStyles}
                     contentLabel="EditComment"
+                    arialHideApp={true}
+                    shouldFocusAfterRender={true}
                 >
                     <form onSubmit={handleSubmit} >
                         <div className="mainContainer">

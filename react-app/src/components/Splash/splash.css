@@ -102,6 +102,7 @@
 
 .loginSignupbtn {
     margin: 20px 5px;
+    color: blue;
 }
 
 .splashBtns {
@@ -115,7 +116,52 @@
 }
 
 @media (max-width: 800px) {
+    .splashBody {
+        height: fit-content;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
     .splash-img3 {
         display: none;
+    }
+
+    .splash-img2 {
+        display: none;
+    }
+
+    .splash-img {
+        display: none;
+    }
+
+    .splashName {
+        font-size: 45px;
+        color: black;
+    }
+}
+
+@media (max-width: 700px) {
+    .splash-img3 {
+        display: none;
+    }
+
+    .splashName {
+        font-size: 35px;
+        color: black;
+    }
+}
+
+@media (max-width: 600px) {
+    .splash-img3 {
+        display: none;
+    }
+
+    .splashName {
+        position: absolute;
+        width: 450px;
+        font-size: 35px;
+        color: black;
+        margin-top: 65px;
     }
 }

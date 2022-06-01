@@ -3,6 +3,8 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import { ImUpload2 } from 'react-icons/im';
+import { MdVideoLibrary } from 'react-icons/md';
+
 
 export const SidebarData = [
     {
@@ -15,6 +17,12 @@ export const SidebarData = [
         title: 'Upload',
         path: '/upload',
         icon: <ImUpload2 />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Library',
+        path: '/library/upload',
+        icon: <MdVideoLibrary />,
         cName: 'nav-text'
     }
 

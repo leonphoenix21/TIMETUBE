@@ -7,7 +7,8 @@
     position: absolute;
     height: 92.5%;
     width: 99.6%;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
     z-index: 1;
 }
 
@@ -53,7 +54,7 @@
     background-color: rgb(255, 255, 255);
     position: absolute;
     /* border: red solid 1px; */
-    margin-left: 222.5px;
+    margin-left: 50px;
     margin-top: 10px;
     height: 650px;
     display: flex;
@@ -155,7 +156,7 @@
     /* z-index: 1; */
     width: 595px;
     /* position: absolute; */
-    margin-left: 700px;
+    margin-left: 380px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,7 +176,7 @@
     /* z-index: 1; */
     width: 550px;
     /* position: absolute; */
-    margin-left: 725px;
+    margin-left: 425px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,7 +186,7 @@
 }
 
 .videoDisplayTitle {
-    margin-left: 950px;
+    margin-left: 650px;
     font-size: 18px;
 }
 
@@ -221,4 +222,77 @@
     height: 290px;
     width: 540px;
     background-color: black;
+}
+
+.userViewComments {
+    position: absolute;
+    margin-left: 1000px;
+    margin-top: -630px;
+    border: red solid 2px;
+    height: 630px;
+    width: 540px;
+    overflow-y: scroll;
+}
+
+.CommentTitleandCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.border-bottomComm {
+    border-bottom: rgba(0, 0, 0, 0.171) solid .1px;
+    margin: 20px;
+}
+
+.editCommentsDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: green 1px solid; */
+}
+
+.editCommFullname {
+    text-decoration: underline;
+}
+
+.commComfirmDel {
+    position: absolute;
+    right: 17%;
+    padding: 7px;
+    border: none;
+    border-radius: 1px;
+    transition: background-color, transform .3s ease-in-out;
+}
+
+.commComfirmDel:hover {
+    background-color: rgba(240, 54, 54, 0.721);
+    transform: scale(1.1);
+}
+
+.commComfirmCancel {
+    position: absolute;
+    right: 5%;
+    padding: 7px;
+    border: none;
+    border-radius: 1px;
+    transition: background-color, transform .3s ease-in-out;
+}
+
+.commComfirmCancel:hover {
+    background-color: rgb(202, 200, 200);
+    transform: scale(1.1);
+}
+
+.areUSure {
+    position: absolute;
+    right: 5%;
+    margin-top: -30px;
+    font-size: 10px;
+    width: 170px;
+    /* border: red solid 1px; */
+    overflow: wrap;
+    margin-left: 45px;
 }

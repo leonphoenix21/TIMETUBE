@@ -1,0 +1,39 @@
+.libraryContainer {
+    /* border: rgb(47, 7, 246) solid 5px; */
+    height: 7vh;
+    width: 99.8vw;
+}
+
+.libraryNavbar {
+    /* border: red solid 2px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    margin-left: 90px;
+}
+
+.libNavLink {
+    color: black;
+    border-bottom: grey solid 2px;
+    padding: 7px 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.libNavLink:hover {
+    background-color: grey;
+}
+
+.libNavLink.active:hover {
+    background-color: grey;
+}
+
+.libNavLink.active {
+    border-bottom: none;
+    background-color: rgb(248, 247, 247);
+}

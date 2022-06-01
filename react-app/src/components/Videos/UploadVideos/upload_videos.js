@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import './videos.css';
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,9 +7,7 @@ import { ImUpload2 } from 'react-icons/im';
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
 import { VscLoading } from 'react-icons/vsc';
-
 import { uploadVideo } from '../../../store/videos'
-import React, { useEffect, useRef } from 'react';
 import videojs from 'video.js';
 import { useParams } from 'react-router-dom';
 

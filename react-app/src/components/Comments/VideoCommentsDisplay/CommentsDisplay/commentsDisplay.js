@@ -9,8 +9,9 @@ import DeleteComments from '../DeleteComment/delete-comments';
 
 function CommentsDisplay({ boxId }) {
 
+    const [commCount, setCommCount] = useState(0)
+
     const dispatch = useDispatch();
-    let countComments = 0;
     useEffect(() => {
         (async () => {
             await dispatch(videoComments());
@@ -19,23 +20,18 @@ function CommentsDisplay({ boxId }) {
 
     const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +boxId).reverse()
     )
-
-
+    const video = useSelector(state => Object.values(state.videos).filter((vid) => vid.id === +boxId))
     const sessionUser = useSelector(state => state.session.user)
-
-
 
 
     return (
         <>
-            {/* <div className="countSort">
-                <div className="commentCount">
-                    {comments.length} Comments
-                </div>
+            <div className="countSort">
+
                 <div className="sortByComments">
 
                 </div>
-            </div> */}
+            </div>
             <div className='CommentsDisplayContainer'>
 
                 {comments?.map(comment => (
@@ -63,10 +59,13 @@ function CommentsDisplay({ boxId }) {
                                 <div className="contentItems">
                                     <p className="commentContent">  {comment?.content}</p>
                                     {comment?.user_id === sessionUser.id ?
-                                        <div className="commentIcons">
-                                            <span className="navlinks homeIcon"> <EditComment commentId={comment.id} /></span>
-                                            <span className="navlinks homeIcon"> <DeleteComments commentId={comment.id} /></span>
-                                        </div>
+                                        <span className="commentReactIcons"> <EditComment commentId={comment.id} /></span>
+                                        :
+                                        <>
+                                        </>
+                                    }
+                                    {comment?.user_id === sessionUser.id || sessionUser.id === video.user ?
+                                        <span className="navlinks homeIcon"> <DeleteComments commentId={comment.id} /></span>
                                         :
                                         <>
                                         </>
