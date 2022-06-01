@@ -6,13 +6,13 @@ const UserNavBar = () => {
 
     return (
         <nav className='navbar' >
-            <a className='navlinks' >
+            <NavLink to='/library/upload' className='navlinks' >
                 uploads
-            </a>
+            </NavLink>
 
-            <a className='navlinks' >
+            <NavLink to='/library/likes' className='navlinks' >
                 liked
-            </a>
+            </NavLink>
         </nav>
     )
 }

@@ -10,6 +10,8 @@
     overflow-y: hidden;
     overflow-x: scroll;
     z-index: 1;
+    display: grid;
+    grid-template-rows: (3, 1fr);
 }
 
 .bodyCon .editUploadIcon {
@@ -186,8 +188,9 @@
 }
 
 .videoDisplayTitle {
-    margin-left: 650px;
+    margin-left: 600px;
     font-size: 18px;
+    padding: 10px;
 }
 
 .edit-video-js {
@@ -227,11 +230,12 @@
 .userViewComments {
     position: absolute;
     margin-left: 1000px;
-    margin-top: -630px;
-    border: red solid 2px;
-    height: 630px;
+    top: 1%;
+    /* border: red solid 2px; */
+    height: 90vh;
     width: 540px;
     overflow-y: scroll;
+    border: .1px whitesmoke solid;
 }
 
 .CommentTitleandCount {
@@ -255,8 +259,18 @@
 }
 
 .editCommFullname {
+    /* border: red solid 1px; */
+    width: 220px;
+    max-width: 225px;
+    text-overflow: wrap;
+    overflow: wrap;
+    display: flex;
+    overflow: hidden;
     text-decoration: underline;
+
 }
+
+
 
 .commComfirmDel {
     position: absolute;
