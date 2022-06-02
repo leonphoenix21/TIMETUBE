@@ -75,7 +75,7 @@ const NavBar = () => {
                 );
               })}
               <li className='nav-text'>
-                <Link to={`/users/${sessionUser?.id}`}>
+                <Link to={`/user/${sessionUser?.id}`}>
                   <MdSwitchAccount />
                   <span>Account </span>
                 </Link>

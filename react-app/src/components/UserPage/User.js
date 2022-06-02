@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import ChannelUploadedVids from '../ViewChannels/channelVideos';
 import Avatar from './Avatar';
 import UserNavBar from './BelowUserProfile/UserNav';
 import EditUserModal from './EditUserModal';
@@ -46,7 +47,18 @@ function User() {
         </div>
       </div>
       <div className='bottom-line'> </div>
-      <UserNavBar />
+      {
+        sessionUser.id === +userId ?
+          <>
+            <UserNavBar />
+            <ChannelUploadedVids channelId={+userId} />
+          </>
+          :
+          <>
+            <ChannelUploadedVids channelId={+userId} />
+          </>
+      }
+
 
     </div>
   );

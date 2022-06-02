@@ -27,11 +27,11 @@ function UserInfo() {
 
     return (
         <div className='userInfo '>
+            <div className='username' style={{ width: 'fit-content' }}>
+                {user.username}
+            </div>
             <div className='fullname'>
                 <strong> {user.firstname} {user.lastname} </strong>
-            </div>
-            <div className='username'>
-                <strong>Username</strong> {user.username}
             </div>
 
         </div>

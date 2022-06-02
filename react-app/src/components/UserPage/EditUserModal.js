@@ -82,7 +82,7 @@ function EditUserModal() {
             if (res) {
                 // return <Redirect to={`/users/${user.id}`} />;
                 closeModal()
-                history.push(`/users/${user.id}`);
+                history.push(`/user/${user.id}`);
             } else {
                 if (res.errors) {
                     setErrors(res.errors);

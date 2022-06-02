@@ -4,6 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import { ImUpload2 } from 'react-icons/im';
 import { MdVideoLibrary } from 'react-icons/md';
+import { MdSubscriptions } from 'react-icons/md';
 
 
 export const SidebarData = [
@@ -23,6 +24,13 @@ export const SidebarData = [
         title: 'Library',
         path: '/library/upload',
         icon: <MdVideoLibrary />,
+        cName: 'nav-text'
+    }
+    ,
+    {
+        title: 'Channels',
+        path: '/channels',
+        icon: <MdSubscriptions />,
         cName: 'nav-text'
     }
 

@@ -55,7 +55,7 @@ const VideoDisplay = () => {
                             />
                         </a>
                         <div className='HomePosterDesc'>
-                            <NavLink to={`/users/${video.user_id}`} style={{ color: 'black' }} >
+                            <NavLink to={`/user/${video.user_id}`} style={{ color: 'black' }} >
                                 <div className="homePosterAvtr">
                                     <img className='videoListAvtr'
                                         src={`${PosterPicture(video.user_id)}`}

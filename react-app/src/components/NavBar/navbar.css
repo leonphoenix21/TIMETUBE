@@ -236,17 +236,19 @@ span {
     position: absolute;
     right: 5%;
     border-radius: 15px;
-    background-color: rgb(143, 140, 140);
+    background-color: rgba(45, 43, 184, 0.224);
+    ;
     color: black;
     font-size: 15px;
+    font-weight: bold;
     border: none;
     transition: transform, background-color, box-shadow .3s ease-in-out;
 
 }
 
 .logOutBtn:hover {
-    transform: scale(1.1);
-    background-color: rgb(222, 219, 219);
+    transform: scale(1.05);
+    background-color: rgb(168, 150, 253);
     box-shadow: 5px 2px 5px rgb(62, 59, 59);
 }
 

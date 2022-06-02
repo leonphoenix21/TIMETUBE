@@ -6,9 +6,11 @@
     /* border: red solid 1px; */
 }
 
-.body {
+/* .commentBody {
+    position: relative;
     background-color: whitesmoke;
-}
+    border: red solid 1px;
+} */
 
 .individualContent {
     border: whitesmoke 2px;
@@ -17,12 +19,14 @@
 }
 
 .commentDisplayBox {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 1.7em;
-
+    /* border: red solid 1px; */
+    overflow: wrap;
 }
 
 .firstContainer {
@@ -37,8 +41,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: red solid 1px;
+    /* border: red solid 1px; */
 }
+
 
 .fullCommentName {
     display: flex;

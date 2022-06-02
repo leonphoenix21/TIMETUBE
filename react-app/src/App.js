@@ -5,7 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/ViewUsers/UsersList';
+import Channels from './components/ViewChannels/channels';
 import User from './components/UserPage/User';
 import { authenticate } from './store/session';
 import UploadVideos from './components/Videos/UploadVideos/upload_videos';
@@ -18,6 +18,7 @@ import SplashPage from './components/Splash/splash';
 import LibraryPage from './components/LibraryPage';
 import LibraryUploadVids from './components/LibraryPage/Uploaded Vids/uploadedvids';
 import LibraryLikedVids from './components/LibraryPage/Liked Vids/likedvids';
+import ChannelSplash from './components/ViewChannels/channelSplash';
 
 
 function App() {
@@ -55,10 +56,13 @@ function App() {
         <ProtectedRoute path='/upload' exact={true}>
           < UploadVideos />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
+        <ProtectedRoute path='/channels' exact={true} >
+          <ChannelSplash />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path={`/channels/:channelId`} exact={true} >
+          <Channels />
+        </ProtectedRoute>
+        <ProtectedRoute path={['/user/:userId', '/users/:userId']} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/videos/:videoId' >

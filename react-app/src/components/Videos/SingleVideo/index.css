@@ -1,11 +1,11 @@
 .single-videopage-container {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 99vw;
     /* overflow-x: auto; */
     max-width: fit-content;
     min-width: fit-content;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 
@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    height: 1000px;
+    height: 700px;
     overflow: scroll;
     /* border: green 5px dotted; */
 }
@@ -24,7 +24,7 @@
     position: relative;
     flex-direction: column;
     margin-left: 10px;
-    width: 70vw;
+    width: 70%;
     /* overflow-x: scroll; */
     /* border: blue 1px dotted; */
 }
