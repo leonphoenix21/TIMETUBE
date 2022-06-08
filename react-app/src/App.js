@@ -59,7 +59,7 @@ function App() {
         <ProtectedRoute path='/channels' exact={true} >
           <ChannelSplash />
         </ProtectedRoute>
-        <ProtectedRoute path={`/channels/:channelId`} exact={true} >
+        <ProtectedRoute path={`/channels/:channelId`} >
           <Channels />
         </ProtectedRoute>
         <ProtectedRoute path={['/user/:userId', '/users/:userId']} >

@@ -77,7 +77,6 @@ const VideoDisplay = () => {
             </div>
         </div >
     )
-
 }
 
 export default VideoDisplay;

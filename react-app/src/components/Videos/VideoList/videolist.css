@@ -7,7 +7,7 @@
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
 }
 
@@ -24,10 +24,11 @@
 }
 
 .HomePoster {
-    height: 170px;
+    height: 190px;
     width: 200px;
     position: relative;
     display: block;
+    transition: .3s ease-in-out;
     transition: transform 500ms;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -38,24 +39,33 @@
 }
 
 .videoListAvtr {
+    margin-left: 8px;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     margin-top: -15px;
+    transition: .3s ease-in-out;
 }
+
+
+.videoListAvtr:hover {
+    transform: scale(1.2);
+}
+
 
 .PosterTitle {
     margin-top: 20px;
     margin-left: 60px;
     /* border: red solid 1px; */
     position: absolute;
-    width: 270px;
+    width: 14%;
     height: 60px;
     font-family: 'Gentium Plus', serif;
     font-size: 15px;
     font-weight: bold;
-    overflow: hidden;
+    overflow: wrap;
     padding-top: 5px;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -63,6 +73,8 @@
 .channelNamePost {
     position: absolute;
     margin: -55px 0px 0px 43px;
+    padding-left: 10px;
+
 }
 
 .channelNamePost {
@@ -71,11 +83,10 @@
 
 .allVideos .HomePoster:focus,
 .allVideos .HomePoster:hover {
-    transform: scale(1.2);
+    transform: scaleX(1.4) scaleY(1.9);
     z-index: 1;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
 }
-
 
 
 @media (max-width: 1091px) {
@@ -84,6 +95,23 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
+
+    .PosterTitle {
+        margin-top: 20px;
+        margin-left: 60px;
+        border: red solid 1px;
+        position: absolute;
+        width: 17%;
+        height: 60px;
+        font-family: 'Gentium Plus', serif;
+        font-size: 15px;
+        font-weight: bold;
+        overflow: hidden;
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 @media (max-width: 991px) {

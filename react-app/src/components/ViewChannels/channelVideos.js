@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getAllVideos } from '../../store/videos';
 import './channelList.css';
 
-const ChannelUploadedVids = ({ channelId }) => {
+const ChannelUploadedVids = () => {
 
+    const { channelId } = useParams()
     const history = useHistory();
     const dispatch = useDispatch();
     const [users, setUsers] = useState([]);
@@ -33,7 +35,7 @@ const ChannelUploadedVids = ({ channelId }) => {
         return userAvatar;
     }
     const videos = useSelector(state => state.videos);
-    const allVideos = useSelector(state => Object.values(state.videos).filter(vid => vid.user_id === channelId).reverse())
+    const allVideos = useSelector(state => Object.values(state.videos).filter(vid => vid.user_id === +channelId).reverse())
 
 
 

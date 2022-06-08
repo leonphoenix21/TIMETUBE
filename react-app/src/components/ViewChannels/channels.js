@@ -18,6 +18,7 @@ function Channels() {
     async function fetchData() {
       const response = await fetch('/api/users/');
       const responseData = await response.json();
+
       setUsers(responseData.users);
     }
     fetchData();
@@ -27,12 +28,24 @@ function Channels() {
   }, [dispatch]);
 
   const allVideos = useSelector(state => Object.values(state.videos))
+  if (!allVideos) {
+
+  }
   const userVideoCount = (id) => {
     const videos = allVideos.filter(vid => vid.user_id === id).reverse()
     if (videos.length < 1) return ' :( no vids';
     if (videos.length === 1) return `: ${videos.length} vid`;
     return `: ${videos.length} vids`;
   }
+  const showOrNot = (id) => {
+    const videos = allVideos.filter(vid => vid.user_id === id).reverse()
+    if (videos.length < 1) return false
+    if (videos.length >= 1) return true
+
+  }
+  const videos = allVideos.filter(vid => vid.user_id === +channelId).reverse()
+
+
 
   return (
     <>
@@ -42,6 +55,7 @@ function Channels() {
           {
             users.map((user) => (
               <>
+
                 <NavLink to={`/channels/${user.id}`} className='eachChannel' >
                   <div className='channelLinks'>
                     <div className='each'
@@ -61,7 +75,7 @@ function Channels() {
           };
         </div>
       </div>
-      <ChannelUploadedVids channelId={channelNum} />
+      <ChannelUploadedVids />
 
     </>
   );
