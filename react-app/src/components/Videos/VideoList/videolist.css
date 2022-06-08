@@ -99,7 +99,7 @@
     .PosterTitle {
         margin-top: 20px;
         margin-left: 60px;
-        border: red solid 1px;
+        /* border: red solid 1px; */
         position: absolute;
         width: 17%;
         height: 60px;
