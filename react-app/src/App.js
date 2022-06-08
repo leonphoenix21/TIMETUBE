@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Channels from './components/ViewChannels/channels';
+import HomeChannels from './components/ViewHomeChannels/homeChannels';
 import User from './components/UserPage/User';
 import { authenticate } from './store/session';
 import UploadVideos from './components/Videos/UploadVideos/upload_videos';
@@ -19,6 +20,7 @@ import LibraryPage from './components/LibraryPage';
 import LibraryUploadVids from './components/LibraryPage/Uploaded Vids/uploadedvids';
 import LibraryLikedVids from './components/LibraryPage/Liked Vids/likedvids';
 import ChannelSplash from './components/ViewChannels/channelSplash';
+import ChannelHomeVids from './components/ViewHomeChannels/homeChannelVids';
 
 
 function App() {
@@ -71,13 +73,17 @@ function App() {
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
         </ProtectedRoute>
-        <ProtectedRoute path={'/home'}   >
+        <ProtectedRoute path={'/home'} exact={true}  >
+          <HomeChannels />
           <VideoDisplay />
+        </ProtectedRoute>
+        <ProtectedRoute path={'/home/:channelId'}   >
+          <HomeChannels />
+          <ChannelHomeVids />
         </ProtectedRoute>
         <Route path='/' exact={true}>
           <SplashPage />
         </Route>
-
         <ProtectedRoute path='/library/upload' exact={true}>
           <LibraryPage />
           <LibraryUploadVids />

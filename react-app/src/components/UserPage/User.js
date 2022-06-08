@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ChannelUploadedVids from '../ViewChannels/channelVideos';
+import UserUploadedVids from '../ViewUserVideos/userVideos';
 import Avatar from './Avatar';
 import UserNavBar from './BelowUserProfile/UserNav';
 import EditUserModal from './EditUserModal';
@@ -51,11 +52,11 @@ function User() {
         sessionUser.id === +userId ?
           <>
             <UserNavBar />
-            <ChannelUploadedVids channelId={+userId} />
+            <UserUploadedVids channelId={+userId} />
           </>
           :
           <>
-            <ChannelUploadedVids channelId={+userId} />
+            <UserUploadedVids channelId={+userId} />
           </>
       }
 
