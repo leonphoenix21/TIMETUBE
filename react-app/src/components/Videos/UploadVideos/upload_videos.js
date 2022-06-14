@@ -3,7 +3,6 @@ import './videos.css';
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { ImUpload2 } from 'react-icons/im';
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
 import { VscLoading } from 'react-icons/vsc';
@@ -30,7 +29,6 @@ function UploadVideos() {
 
     const updateVideo = (e) => {
 
-        // setPreviewVid('')
         if (previewVid) {
             setPreviewVid(null)
             setPreviewImg(null)
@@ -39,23 +37,17 @@ function UploadVideos() {
         setVideoUrl(file);
         setPreviewVidLoading(true)
 
-
         if (video_url) {
             setVidActive(true)
-
         }
-        // setPreviewVid(URL.createObjectURL(file));
 
     };
 
 
 
     const updateImage = (e) => {
-
         const file = e.target.files[0];
         setImageUrl(file);
-
-        // setPreviewImg(URL.createObjectURL(file));
 
     };
 
@@ -79,10 +71,13 @@ function UploadVideos() {
 
         } else {
             setPreviewVid('')
+            setPreviewVidLoading(false)
         }
         if (previewVid) {
             setPreviewVidLoading(false)
         }
+
+
         if (image_url) {
             fileReader = new FileReader();
             fileReader.onload = (e) => {
@@ -144,18 +139,28 @@ function UploadVideos() {
         formData.append("description", description);
         formData.append("image_url", image_url);
 
-        // setErrors([''])
+        setErrors([])
         setVideoLoading(true)
         const data = await dispatch(uploadVideo(formData));
+
+
         if (data.errors) {
             setVideoLoading(false)
             setErrors(data.errors);
-        } else {
+        } else if (data) {
             if (!data.errors) {
                 setVideoLoading(false)
                 history.push(`/home`);
             }
         }
+
+        // if (data) {
+        //     setVideoLoading(false)
+        //     history.push('/home')
+        // } else {
+        //     setVideoLoading(false)
+        //     setErrors(data.errors)
+        // }
     }
 
     return (
@@ -186,7 +191,7 @@ function UploadVideos() {
                     </div>
                     <div className='videoErr'>
                         {errors.map((error, ind) => (
-                            <div key={ind} className='eachVidError'>{error}</div>
+                            <div key={ind} className='eachVidError'> {error} </div>
                         ))}
                     </div>
                     <div className='contDiv'>

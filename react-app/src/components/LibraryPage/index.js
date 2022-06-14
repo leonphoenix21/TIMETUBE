@@ -11,8 +11,8 @@ function LibraryPage() {
                 <nav className='libraryNav'>
                     <NavLink to='/library/upload' className='libNavLink'>
                         Uploads </NavLink>
-                    <NavLink to='/library/likes' className='libNavLink'>
-                        Likes </NavLink>
+                    {/* <NavLink to='/library/likes' className='libNavLink'>
+                        Likes </NavLink> */}
                 </nav>
             </div>
         </div>

@@ -47,7 +47,10 @@ function VideoSideBar() {
                                     placeholder={video.title}
                                     src={video.image_url}
                                     alt={video.title}
-                                    onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                                    onError={(e) =>
+                                        e.target.src
+                                        =
+                                        ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                                 />
                             </a>
                             <div className="sidebarDescription">

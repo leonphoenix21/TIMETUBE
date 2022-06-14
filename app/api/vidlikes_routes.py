@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship, sessionmaker, joinedload
 like_routes = Blueprint('like', __name__)
 
 
-@like_routes.route('/video/', methods=['POST'])
+@like_routes.route('/', methods=['POST'])
 def like_video():
     """
         Create a New like on a video
@@ -23,7 +23,7 @@ def like_video():
     return video.to_dict()
 
 
-@like_routes.route('/video/', methods=['DELETE'])
+@like_routes.route('/unlike', methods=['DELETE'])
 def unlike_video():
     """
         Create a New like on a video

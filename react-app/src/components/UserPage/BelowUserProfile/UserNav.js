@@ -5,14 +5,14 @@ const UserNavBar = () => {
 
 
     return (
-        <nav className='navbar' >
+        <nav className='navbar' style={{ zIndex: '1' }} >
             <NavLink to='/library/upload' className='navlinks' >
                 uploads
             </NavLink>
 
-            <NavLink to='/library/likes' className='navlinks' >
+            {/* <NavLink to='/library/likes' className='navlinks' >
                 liked
-            </NavLink>
+            </NavLink> */}
         </nav>
     )
 }

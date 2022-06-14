@@ -81,13 +81,19 @@
     margin-bottom: 2px;
 }
 
+
 .allVideos .HomePoster:focus,
 .allVideos .HomePoster:hover {
-    transform: scaleX(1.4) scaleY(1.9);
+    transform: scaleX(1.1) scaleY(1.2);
     z-index: 1;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+    border: 3px solid whitesmoke;
+    background-color: whitesmoke;
 }
 
+/* .pics:hover {
+    transform: scale(1.12);
+} */
 
 @media (max-width: 1091px) {
     .gallery {

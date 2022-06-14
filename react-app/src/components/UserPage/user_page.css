@@ -74,6 +74,7 @@
     padding-left: 28px;
     display: flex;
     flex-direction: column;
+    z-index: 1;
     /* border: blue solid 3px; */
 }
 
@@ -112,6 +113,7 @@
 .editModals {
     width: 60vh;
     height: 60vh;
+    z-index: auto;
 }
 
 .closeIcon {

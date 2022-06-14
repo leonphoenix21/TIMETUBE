@@ -84,6 +84,47 @@ export const deleteVideo = (videoId) => async (dispatch) => {
     }
 };
 
+//! like video
+export const likeVideo = (data) => async (dispatch) => {
+    const response = await fetch("/api/likes/", {
+        method: "POST",
+        body: data,
+    });
+
+    if (response.ok) {
+        const video = await response.json();
+        dispatch(newVideo(video));
+        return video;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ["An error occurred. Please try again."];
+    }
+};
+//! unlike video
+export const unlikeVideo = (data) => async (dispatch) => {
+    const response = await fetch("/api/likes/unlike/", {
+        method: "DELETE",
+        body: data,
+    });
+
+    if (response.ok) {
+        const video = await response.json();
+        dispatch(newVideo(video));
+        return video;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ["An error occurred. Please try again."];
+    }
+};
+
 // State shape:
 // state.videos --> {
 //   [id]: {

@@ -181,15 +181,15 @@
 }
 
 .videoUploadArrow {
-    padding-left: 28px;
+    padding-left: 28.5px;
     font-size: 20.5px;
     animation: slide-in 3s infinite linear;
 
 }
 
 .videoUploadCloud {
-    padding-left: 27.5px;
-    font-size: 22px;
+    padding-left: 26.9px;
+    font-size: 23px;
 
 }
 
@@ -198,21 +198,7 @@
     animation: slide-in 3s infinite linear;
 }
 
-/* @keyframes hopping {
-    0% {
-        transform: translateX(10px);
-    }
 
-    50% {
-        transform: translateX(0px);
-    }
-
-    100% {
-        transform: translateX(10px);
-    }
-
-}
-*/
 
 @keyframes slide-in {
     from {
@@ -220,13 +206,12 @@
     }
 
     to {
-        transform: translateY(-105%);
+        transform: translateY(-109%);
     }
 }
 
 
 .firstCon {
-    /* border: solid red 1px; */
     height: 76vh;
     width: 500px;
 }
@@ -244,80 +229,6 @@
     border-radius: 50%;
 }
 
-.dot1 {
-    margin-left: 13.5px;
-    margin-top: 17px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot2 {
-    margin-left: 48px;
-    margin-top: 94px;
-
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot3 {
-    margin-left: 113px;
-    margin-top: 129px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot4 {
-    margin-left: 175px;
-    margin-top: 92.7px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-
-
-.dot5 {
-    margin-left: 207px;
-    margin-top: 12.8px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot6 {
-    margin-left: 200px;
-    margin-top: -60.5px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot7 {
-    margin-left: 163.6px;
-    margin-top: -107px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot8 {
-    margin-left: 113px;
-    margin-top: -119px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
-
-.dot9 {
-    margin-left: 60px;
-    margin-top: -103px;
-    background-color: blue;
-    opacity: 20%;
-    border-radius: 50%;
-}
 
 @media (max-width: 1548px) {
     .fade {

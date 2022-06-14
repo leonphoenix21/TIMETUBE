@@ -72,7 +72,7 @@ function Channels() {
                 </NavLink>
               </>
             ))
-          };
+          }
         </div>
       </div>
       <ChannelUploadedVids />
