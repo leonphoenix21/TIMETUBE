@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsGearWideConnected } from 'react-icons/bs';
-import { getAllVideos, likeVideo, unlikeVideo } from '../../../../store/videos';
-import { AiTwotoneLike } from 'react-icons/ai';
-import { BiLike } from 'react-icons/bi';
+// import { getAllVideos, likeVideo, unlikeVideo } from '../../../../store/videos';
+// import { AiTwotoneLike } from 'react-icons/ai';
+// import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
 
 function VideoDescription() {
@@ -20,22 +20,22 @@ function VideoDescription() {
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
 
-    const handle_LikeButtonClick = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
+    // const handle_LikeButtonClick = async (e) => {
+    //     e.preventDefault();
+    //     const formData = new FormData();
 
-        // formData.append("user_id", user?.id);
-        // formData.append("song_id", video.id);
-        const likedVideo = await dispatch(likeVideo(formData));
-    };
-    const handle_UnLikeButtonClick = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
+    //     // formData.append("user_id", user?.id);
+    //     // formData.append("song_id", video.id);
+    //     const likedVideo = await dispatch(likeVideo(formData));
+    // };
+    // const handle_UnLikeButtonClick = async (e) => {
+    //     e.preventDefault();
+    //     const formData = new FormData();
 
-        // formData.append("user_id", user?.id);
-        // formData.append("song_id", video.id);
-        const unlikedVideo = await dispatch(unlikeVideo(formData));
-    };
+    //     // formData.append("user_id", user?.id);
+    //     // formData.append("song_id", video.id);
+    //     const unlikedVideo = await dispatch(unlikeVideo(formData));
+    // };
 
     //Querrying for users and finding the user who uploaded this video
     useEffect(() => {

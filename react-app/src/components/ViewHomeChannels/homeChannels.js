@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './homeChannel.css'
-import ChannelUploadedVids from '../ViewChannels/channelVideos';
 import { getAllVideos } from '../../store/videos';
 import { BsFillPlayBtnFill } from "react-icons/bs";
-import Logo from '../NavBar/Logo';
 
 
 function HomeChannels() {
@@ -38,12 +36,12 @@ function HomeChannels() {
         if (videos.length === 1) return `: ${videos.length} vid`;
         return `: ${videos.length} vids`;
     }
-    const showOrNot = (id) => {
-        const videos = allVideos.filter(vid => vid.user_id === id).reverse()
-        if (videos.length < 1) return false
-        if (videos.length >= 1) return true
+    // const showOrNot = (id) => {
+    //     const videos = allVideos.filter(vid => vid.user_id === id).reverse()
+    //     if (videos.length < 1) return false
+    //     if (videos.length >= 1) return true
 
-    }
+    // }
     const videos = allVideos.filter(vid => vid.user_id === +channelId).reverse()
 
 

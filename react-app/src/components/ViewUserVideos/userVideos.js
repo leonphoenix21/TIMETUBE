@@ -53,6 +53,7 @@ const UserUploadedVids = ({ channelId }) => {
                                         <a href={`/videos/${video.id}/`} key={video.id}>
                                             <img
                                                 className='HomePoster'
+                                                alt=''
                                                 placeholder={video.title}
                                                 src={video.image_url}
                                                 alt={video.title}

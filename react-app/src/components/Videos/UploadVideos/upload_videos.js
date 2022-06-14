@@ -153,14 +153,6 @@ function UploadVideos() {
                 history.push(`/home`);
             }
         }
-
-        // if (data) {
-        //     setVideoLoading(false)
-        //     history.push('/home')
-        // } else {
-        //     setVideoLoading(false)
-        //     setErrors(data.errors)
-        // }
     }
 
     return (
