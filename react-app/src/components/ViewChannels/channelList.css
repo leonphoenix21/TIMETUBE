@@ -85,7 +85,7 @@
 .noVideosFound {
     height: 83.3vh;
     width: 99.7vw;
-    background: url() no-repeat center;
+    /* background: url() no-repeat center; */
     background-size: cover;
     display: flex;
     flex-direction: column;
