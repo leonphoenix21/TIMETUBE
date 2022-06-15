@@ -54,6 +54,7 @@
   "proxy": "http://localhost:5000",
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.16.7",
-    "video.js": "^7.18.1"
+    "video.js": "^7.18.1",
+    "webpack": "4.19.1"
   }
 }
