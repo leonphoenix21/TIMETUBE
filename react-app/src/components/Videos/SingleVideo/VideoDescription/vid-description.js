@@ -76,7 +76,7 @@ function VideoDescription() {
             {Object.values(Allvideos).length > 0 ?
                 <>
                     <div className='descriptionTitle'>
-                        <strong className='displayname'> {videoPlaying?.title}</strong>
+                        <strong className='displayname' style={{ textTransform: 'uppercase' }}> {videoPlaying?.title}</strong>
                     </div>
                     <div className='bottom-line singleline'></div>
 

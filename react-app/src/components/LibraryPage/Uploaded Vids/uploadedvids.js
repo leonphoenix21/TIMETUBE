@@ -27,11 +27,16 @@ function LibraryUploadVids() {
 
                         />
                     </a>
-                    <div className='image-title'>{video.title}  </div>
-                    <button onClick={() => navLink(video.id)}
-                        className='singlePageEditbtn'
-                    > Edit Video <BsGearWideConnected />
-                    </button>
+                    <div className='image-titleDiv' >
+                        <div className="image-title">
+
+                            {video.title}
+                        </div>
+                        <button onClick={() => navLink(video.id)}
+                            className='libraryEditbtn'
+                        > Edit Video <BsGearWideConnected />
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>

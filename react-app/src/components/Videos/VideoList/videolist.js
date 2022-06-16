@@ -79,7 +79,7 @@ const VideoDisplay = () => {
                                         </div>
                                     </NavLink>
                                     <div className="PosterTitle">
-                                        <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none' }}>
+                                        <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'uppercase' }} >
                                             {video.title}
                                         </NavLink>
                                     </div>

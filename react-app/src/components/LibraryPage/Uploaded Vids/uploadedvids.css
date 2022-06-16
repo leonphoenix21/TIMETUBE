@@ -19,7 +19,41 @@
 
 .LibraryUploadVids .HomePoster:focus,
 .LibraryUploadVids .HomePoster:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     z-index: 1;
+    /* box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5); */
+}
+
+
+.image-titleDiv {
+    display: flex;
+    padding: 15px 15px 20px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.image-title {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 5px;
+}
+
+.libraryEditbtn {
+    border: rgb(164, 108, 108) 2px solid;
+    background-color: white;
+    padding: 3px 15px;
+    border-radius: 50px;
+    transition: border, .05s ease-in-out;
+    width: 130px;
+    margin-left: 11px;
+}
+
+.libraryEditbtn:hover {
+    border: rgb(243, 75, 75) 2px solid;
+    color: red
 }
