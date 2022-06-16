@@ -36,12 +36,7 @@ function HomeChannels() {
         if (videos.length === 1) return `: ${videos.length} vid`;
         return `: ${videos.length} vids`;
     }
-    // const showOrNot = (id) => {
-    //     const videos = allVideos.filter(vid => vid.user_id === id).reverse()
-    //     if (videos.length < 1) return false
-    //     if (videos.length >= 1) return true
 
-    // }
     const videos = allVideos.filter(vid => vid.user_id === +channelId).reverse()
 
 
