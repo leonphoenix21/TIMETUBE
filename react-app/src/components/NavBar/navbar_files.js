@@ -26,13 +26,13 @@ export const SidebarData = [
         icon: <MdVideoLibrary />,
         cName: 'nav-text'
     }
-    ,
-    {
-        title: 'Channels',
-        path: '/channels',
-        icon: <MdSubscriptions />,
-        cName: 'nav-text'
-    }
+    // ,
+    // {
+    //     title: 'Channels',
+    //     path: '/channels',
+    //     icon: <MdSubscriptions />,
+    //     cName: 'nav-text'
+    // }
 
 ];
 
