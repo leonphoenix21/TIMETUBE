@@ -43,9 +43,13 @@
 
 }
 
-.commentCount {
+.commentsCount {
     font-size: 20px;
-    margin: 20px 0px -30px 20px;
+    top: 10%;
+    position: relative;
+    margin-top: -125px;
+    margin-bottom: 90px;
+    /* margin: 20px 0px -30px 20px; */
 }
 
 @media (max-width: 991px) {

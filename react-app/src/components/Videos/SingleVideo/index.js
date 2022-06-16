@@ -34,7 +34,9 @@ function SingleVideoPage() {
                         <div className="border-Top-line"></div>
                         <CommentContainer videoCommentId={videoId} />
                         <div className="commentsCount">
-                            {commCount} Comments
+                            <span>
+                                {commCount} Comments
+                            </span>
                         </div>
                         <CommentsDisplay boxId={videoId} />
                     </div>
