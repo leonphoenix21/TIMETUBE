@@ -74,93 +74,91 @@ const SignUpForm = () => {
   return (
     <body className='body'>
       <div className="signUpContainer">
-        <div className='right-border'>
-          <form onSubmit={onSignUp} className='signUpform'>
-            <div className='errors'>
-              {errors.map((error, ind) => (
-                <div key={ind} className='eachError'>{error}</div>
-              ))}
+        <form onSubmit={onSignUp} className='signUpform'>
+          <div className='errors'>
+            {errors.map((error, ind) => (
+              <div key={ind} className='eachError'>{error}</div>
+            ))}
+          </div>
+          <h2 className="signUpheader"> Sign Up </h2>
+          <div className="fullname">
+            <div className='contDiv'>
+              <label>First Name</label>
+              <input
+                className='fullnameSign first'
+                type='text'
+                name='firstname'
+                onChange={updateFirstname}
+                value={firstname}
+                required
+              ></input>
+            </div >
+            <div className='contDiv'>
+              <label>Last Name</label>
+              <input
+                className='fullnameSign last'
+                type='text'
+                name='lastname'
+                onChange={updateLastname}
+                value={lastname}
+                required
+              ></input>
             </div>
-            <h2 className="signUpheader"> Sign Up </h2>
-            <div className="fullname">
-              <div className='contDiv'>
-                <label>First Name</label>
-                <input
-                  className='fullnameSign first'
-                  type='text'
-                  name='firstname'
-                  onChange={updateFirstname}
-                  value={firstname}
-                  required
-                ></input>
-              </div >
-              <div className='contDiv'>
-                <label>Last Name</label>
-                <input
-                  className='fullnameSign last'
-                  type='text'
-                  name='lastname'
-                  onChange={updateLastname}
-                  value={lastname}
-                  required
-                ></input>
-              </div>
-            </div>
+          </div>
 
-            <div className='contDiv'>
-              <label>User Name</label>
-              <input
-                className='videofield strings'
-                type='text'
-                name='username'
-                onChange={updateUsername}
-                value={username}
-                required
-              ></input>
-            </div>
-            <div className='contDiv'>
-              <label>Email</label>
-              <input
-                className='videofield strings'
-                type='text'
-                name='email'
-                onChange={updateEmail}
-                value={email}
-                required
-              ></input>
-            </div>
-            <div className='contDiv'>
-              <label>Password</label>
-              <input
-                className='videofield strings'
-                type='password'
-                name='password'
-                onChange={updatePassword}
-                value={password}
-                required
-              ></input>
-            </div>
-            <div className='contDiv'>
-              <label>Confirm Password</label>
-              <input
-                className='videofield strings'
-                type='password'
-                name='repeat_password'
-                onChange={(e) => (
-                  updateRepeatPassword(e),
-                  updateActivity(e)
-                )}
-                value={repeatPassword}
-                required={true}
-              ></input>
-            </div>
-            <button type='submit'
-              className="signUpbtn">
-              Sign Up
-            </button>
-            <span className='signupnav'> <NavLink to='/login'  > Already have an account </NavLink></span>
-          </form>
-        </div>
+          <div className='contDiv'>
+            <label>User Name</label>
+            <input
+              className='videofield strings'
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              required
+            ></input>
+          </div>
+          <div className='contDiv'>
+            <label>Email</label>
+            <input
+              className='videofield strings'
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              required
+            ></input>
+          </div>
+          <div className='contDiv'>
+            <label>Password</label>
+            <input
+              className='videofield strings'
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              required
+            ></input>
+          </div>
+          <div className='contDiv'>
+            <label>Confirm Password</label>
+            <input
+              className='videofield strings'
+              type='password'
+              name='repeat_password'
+              onChange={(e) => (
+                updateRepeatPassword(e),
+                updateActivity(e)
+              )}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          <button type='submit'
+            className="signUpbtn">
+            Sign Up
+          </button>
+          <span className='signupnav'>Already have an account?  <NavLink to='/login' style={{ textDecoration: 'none', color: 'purple' }} >  Log In </NavLink></span>
+        </form>
       </div>
     </body>
   );
