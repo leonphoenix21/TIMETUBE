@@ -7,8 +7,8 @@ import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
 import { VscLoading } from 'react-icons/vsc';
 import { uploadVideo } from '../../../store/videos'
-import videojs from 'video.js';
-import { useParams } from 'react-router-dom';
+// import videojs from 'video.js';
+// import { useParams } from 'react-router-dom';
 
 function UploadVideos() {
 
@@ -132,6 +132,8 @@ function UploadVideos() {
         if (description.length > 1400) return setErrors(['Description must be less than 1000 characters'])
         if (!video_url) return setErrors(['Choose a video File to proceed']);
         if (!image_url) return setErrors(['Choose a poster image file to proceed'])
+
+
         const formData = new FormData();
         formData.append("user_id", sessionUser.id);
         formData.append("title", title);
