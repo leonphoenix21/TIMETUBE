@@ -77,7 +77,6 @@ function EditVideos() {
             setCommCount(comments.length)
         }
     }, [comments]);
-    console.log(commCount, 'KKKKKKKKKKLLLLL', comments)
 
 
     useEffect(() => {

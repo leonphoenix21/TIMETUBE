@@ -7,7 +7,7 @@ import { AiFillLike } from 'react-icons/ai'; //Fill Like button
 import { AiOutlineDislike } from 'react-icons/ai'; //Empty DisLike button
 import { AiFillDislike } from 'react-icons/ai'; //Fill DisLike button
 
-import { disLikeVideo, getAllVideos, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../../store/videos';
+import { disLikeVideo, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../../store/videos';
 // import { AiTwotoneLike } from 'react-icons/ai';
 // import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
@@ -30,20 +30,20 @@ function VideoDescription() {
     const handle_LikeButtonClick = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-
-        formData.append("user_id", sessionUser.id);
-        formData.append("video_id", videoId);
-        const likedVideo = await dispatch(likeVideo(formData));
+        if (videoPlaying?.dislikes.includes(sessionUser.id)) {
+            formData.append("user_id", sessionUser.id);
+            formData.append("video_id", videoId);
+            const undislikedVideo = await dispatch(unDisLikeVideo(formData));
+            const likedVideo = await dispatch(likeVideo(formData));
+        }
     };
     const handle_UnLikeButtonClick = async (e) => {
-        console.log('UNLIKE HANDLE ')
         e.preventDefault();
         const formData = new FormData();
 
         formData.append("user_id", sessionUser.id);
         formData.append("video_id", videoId);
-        const unlikedVideo = await dispatch(disLikeVideo(formData));
-        console.log('UNLIKE HANDLE ', unlikedVideo)
+        const unlikedVideo = await dispatch(unlikeVideo(formData));
 
     };
 
@@ -53,24 +53,25 @@ function VideoDescription() {
         e.preventDefault();
         const formData = new FormData();
 
-        formData.append("user_id", sessionUser.id);
-        formData.append("video_id", videoId);
-        const likedVideo = await dispatch(unDisLikeVideo(formData));
+        if (videoPlaying?.likes.includes(sessionUser.id)) {
+            formData.append("user_id", sessionUser.id);
+            formData.append("video_id", videoId);
+            const unlikedVideo = await dispatch(unlikeVideo(formData));
+            const dislikedVideo = await dispatch(disLikeVideo(formData));
+        }
     };
+
     const handle_UnDisLikeButtonClick = async (e) => {
-        console.log('UNLIKE HANDLE ')
         e.preventDefault();
         const formData = new FormData();
 
         formData.append("user_id", sessionUser.id);
         formData.append("video_id", videoId);
-        const unlikedVideo = await dispatch(unlikeVideo(formData));
-        console.log('UNLIKE HANDLE ', unlikedVideo)
+        const undislikedVideo = await dispatch(unDisLikeVideo(formData));
 
     };
 
 
-    console.log(videoPlaying, 'TTHHHTTGGHT')
     //Querrying for users and finding the user who uploaded this video
     useEffect(() => {
         async function fetchData() {
@@ -115,44 +116,42 @@ function VideoDescription() {
                     <div className='descriptionTitle'>
                         <strong className='displayname' style={{ textTransform: 'uppercase' }}> {videoPlaying?.title}</strong>
                         <div className="likeIconsDiv">
-                            {
-                                videoPlaying?.likes.includes(sessionUser.id) ?
-                                    <div
-                                        onClick={handle_UnLikeButtonClick}
-                                        className="song_tile_cover_is_liked"
-                                    >
-                                        < AiFillLike />
-                                    </div>
+                            <div>
 
-                                    :
-                                    <>
-                                        <div
-                                            onClick={handle_LikeButtonClick}
-                                            className="song_tile_cover_is_liked"
+                                {
+                                    videoPlaying?.likes.includes(sessionUser.id) ?
+                                        <span
+                                            onClick={handle_UnLikeButtonClick}
                                         >
-                                            < AiOutlineLike />
-                                        </div>
-                                    </>
-                            }
-                            {
-                                videoPlaying?.dislikes.includes(sessionUser.id) ?
-                                    <div
-                                        onClick={handle_UnDisLikeButtonClick}
-                                        className="song_tile_cover_is_liked"
-                                    >
-                                        < AiFillDislike />
-                                    </div>
+                                            < AiFillLike />
+                                        </span>
 
-                                    :
-                                    <>
-                                        <div
-                                            onClick={handle_DisLikeButtonClick}
-                                            className="song_tile_cover_is_liked"
-                                        >
+                                        :
+                                        <>
+                                            <span
+                                                onClick={handle_LikeButtonClick}
+                                            >
+                                                < AiOutlineLike />
+                                            </span>
+                                        </>
+                                }
+                            </div>
+                            <div>
+
+                                {
+                                    videoPlaying?.dislikes.includes(sessionUser.id) ?
+                                        <span onClick={handle_UnDisLikeButtonClick}>
+                                            < AiFillDislike />
+                                        </span>
+
+                                        :
+
+                                        <span onClick={handle_DisLikeButtonClick}>
                                             < AiOutlineDislike />
-                                        </div>
-                                    </>
-                            }
+                                        </span>
+
+                                }
+                            </div>
 
 
 

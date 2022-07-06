@@ -111,7 +111,6 @@ export const likeVideo = (data) => async (dispatch) => {
 
 //! unlike video
 export const unlikeVideo = (data) => async (dispatch) => {
-    console.log('UNLIKE REDUCER', data)
     const response = await fetch("/api/likes/", {
         method: "DELETE",
         body: data,
@@ -138,6 +137,7 @@ export const unlikeVideo = (data) => async (dispatch) => {
 
 //! Dislike video
 export const disLikeVideo = (data) => async (dispatch) => {
+
     const response = await fetch("/api/dislikes/", {
         method: "POST",
         body: data,

@@ -12,9 +12,7 @@ like_routes = Blueprint('like', __name__)
 #     """
 #        Get all user Id that have liked video
 #     """
-#     print('$$$$$$$$$$$$$$$$$$$$$$$', Video.likes)
 #     videoLikes = db.video_likes
-#     print("&&&&&&&&&&&&&&&&&&&&", videoLikes)
 #     return videoLikes.to_dict()
 
 
@@ -43,7 +41,7 @@ def unlike_video():
 
     user_id = request.form["user_id"]
     video_id = request.form["video_id"]
-    print(' UNLIKE ROUTE BACKEND')
+
     video = Video.query.get(int(video_id))
     user = User.query.get(int(user_id))
 

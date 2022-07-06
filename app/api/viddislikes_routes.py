@@ -18,7 +18,7 @@ def dislike_video():
     video = Video.query.get(int(video_id))
     user = User.query.get(int(user_id))
 
-    video.likes.append(user)
+    video.dislikes.append(user)
 
     db.session.commit()
     return video.to_dict()
@@ -35,6 +35,8 @@ def undislike_video():
     video = Video.query.get(int(video_id))
     user = User.query.get(int(user_id))
 
-    video.dislikes = [like for like in video.likes if user.id != like.id]
+    video.dislikes = [
+        dislike for dislike in video.dislikes if user.id != dislike.id]
     db.session.commit()
+
     return video.to_dict()
