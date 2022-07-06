@@ -21,6 +21,7 @@ const removeVideo = (videoId) => {
 };
 
 
+//? Video Crud Thunks below
 
 //! Create videos in the database
 export const uploadVideo = (Data) => async (dispatch) => {
@@ -50,8 +51,6 @@ export const getAllVideos = () => async (dispatch) => {
         dispatch(loadVideos(videos));
     }
 };
-
-
 
 //! Edit/Update Videos from the db
 export const editVideo = (data) => async (dispatch) => {
@@ -84,6 +83,10 @@ export const deleteVideo = (videoId) => async (dispatch) => {
     }
 };
 
+
+
+//? The Like button thunks below
+
 //! like video
 export const likeVideo = (data) => async (dispatch) => {
     const response = await fetch("/api/likes/", {
@@ -104,9 +107,60 @@ export const likeVideo = (data) => async (dispatch) => {
         return ["An error occurred. Please try again."];
     }
 };
+
+
 //! unlike video
 export const unlikeVideo = (data) => async (dispatch) => {
-    const response = await fetch("/api/likes/unlike/", {
+    console.log('UNLIKE REDUCER', data)
+    const response = await fetch("/api/likes/", {
+        method: "DELETE",
+        body: data,
+    });
+
+    if (response.ok) {
+        const video = await response.json();
+        dispatch(newVideo(video));
+        return video;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ["An error occurred. Please try again."];
+    }
+};
+
+
+
+
+//? The Dislike button thunks below
+
+//! Dislike video
+export const disLikeVideo = (data) => async (dispatch) => {
+    const response = await fetch("/api/dislikes/", {
+        method: "POST",
+        body: data,
+    });
+
+    if (response.ok) {
+        const video = await response.json();
+        dispatch(newVideo(video));
+        return video;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ["An error occurred. Please try again."];
+    }
+};
+
+
+//! Undislike video
+export const unDisLikeVideo = (data) => async (dispatch) => {
+    const response = await fetch("/api/dislikes/", {
         method: "DELETE",
         body: data,
     });

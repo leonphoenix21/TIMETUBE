@@ -6,6 +6,10 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.signUpform {
+    transform: scale(.8);
+}
+
 .loginBody {
     height: 92.8vh;
     width: 100vw;
@@ -200,6 +204,15 @@
 }
 
 .signupnav:hover {
+    transform: scale(1.01);
+}
+
+.toLogin {
+    text-decoration: none;
+    color: purple;
+}
+
+.toLogin:hover {
     transform: scale(1.05);
 }
 

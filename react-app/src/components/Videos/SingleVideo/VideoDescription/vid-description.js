@@ -2,7 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsGearWideConnected } from 'react-icons/bs';
-// import { getAllVideos, likeVideo, unlikeVideo } from '../../../../store/videos';
+import { AiOutlineLike } from 'react-icons/ai'; //Empty Like button
+import { AiFillLike } from 'react-icons/ai'; //Fill Like button
+import { AiOutlineDislike } from 'react-icons/ai'; //Empty DisLike button
+import { AiFillDislike } from 'react-icons/ai'; //Fill DisLike button
+
+import { disLikeVideo, getAllVideos, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../../store/videos';
 // import { AiTwotoneLike } from 'react-icons/ai';
 // import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
@@ -20,29 +25,61 @@ function VideoDescription() {
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
 
-    // const handle_LikeButtonClick = async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData();
 
-    //     // formData.append("user_id", user?.id);
-    //     // formData.append("song_id", video.id);
-    //     const likedVideo = await dispatch(likeVideo(formData));
-    // };
-    // const handle_UnLikeButtonClick = async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData();
+    //? Handle submits for the like button
+    const handle_LikeButtonClick = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
 
-    //     // formData.append("user_id", user?.id);
-    //     // formData.append("song_id", video.id);
-    //     const unlikedVideo = await dispatch(unlikeVideo(formData));
-    // };
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
+        const likedVideo = await dispatch(likeVideo(formData));
+    };
+    const handle_UnLikeButtonClick = async (e) => {
+        console.log('UNLIKE HANDLE ')
+        e.preventDefault();
+        const formData = new FormData();
 
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
+        const unlikedVideo = await dispatch(disLikeVideo(formData));
+        console.log('UNLIKE HANDLE ', unlikedVideo)
+
+    };
+
+
+    //?Handle Submits for the dislike button
+    const handle_DisLikeButtonClick = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
+        const likedVideo = await dispatch(unDisLikeVideo(formData));
+    };
+    const handle_UnDisLikeButtonClick = async (e) => {
+        console.log('UNLIKE HANDLE ')
+        e.preventDefault();
+        const formData = new FormData();
+
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
+        const unlikedVideo = await dispatch(unlikeVideo(formData));
+        console.log('UNLIKE HANDLE ', unlikedVideo)
+
+    };
+
+
+    console.log(videoPlaying, 'TTHHHTTGGHT')
     //Querrying for users and finding the user who uploaded this video
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/users/');
+            // const video_likes = await fetch('/api/likes/')
             const responseData = await response.json();
+            // const videoresponse = await video_likes.json()
             setUsers(responseData.users);
+            // setLikes(videoresponse);
         }
         fetchData();
     }, [dispatch]);
@@ -77,6 +114,49 @@ function VideoDescription() {
                 <>
                     <div className='descriptionTitle'>
                         <strong className='displayname' style={{ textTransform: 'uppercase' }}> {videoPlaying?.title}</strong>
+                        <div className="likeIconsDiv">
+                            {
+                                videoPlaying?.likes.includes(sessionUser.id) ?
+                                    <div
+                                        onClick={handle_UnLikeButtonClick}
+                                        className="song_tile_cover_is_liked"
+                                    >
+                                        < AiFillLike />
+                                    </div>
+
+                                    :
+                                    <>
+                                        <div
+                                            onClick={handle_LikeButtonClick}
+                                            className="song_tile_cover_is_liked"
+                                        >
+                                            < AiOutlineLike />
+                                        </div>
+                                    </>
+                            }
+                            {
+                                videoPlaying?.dislikes.includes(sessionUser.id) ?
+                                    <div
+                                        onClick={handle_UnDisLikeButtonClick}
+                                        className="song_tile_cover_is_liked"
+                                    >
+                                        < AiFillDislike />
+                                    </div>
+
+                                    :
+                                    <>
+                                        <div
+                                            onClick={handle_DisLikeButtonClick}
+                                            className="song_tile_cover_is_liked"
+                                        >
+                                            < AiOutlineDislike />
+                                        </div>
+                                    </>
+                            }
+
+
+
+                        </div>
                     </div>
                     <div className='bottom-line singleline'></div>
 

@@ -157,7 +157,7 @@ const SignUpForm = () => {
             className="signUpbtn">
             Sign Up
           </button>
-          <span className='signupnav'>Already have an account?  <NavLink to='/login' style={{ textDecoration: 'none', color: 'purple' }} >  Log In </NavLink></span>
+          <div className='signupnav'>Already have an account?  <span><NavLink to='/login' className='toLogin'  >  Log In </NavLink> </span></div>
         </form>
       </div>
     </body>

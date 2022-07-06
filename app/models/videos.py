@@ -1,5 +1,6 @@
 from .db import db
 from .vid_likes import video_likes
+from .vid_dislikes import video_dislikes
 from datetime import datetime
 
 
@@ -24,6 +25,11 @@ class Video(db.Model):
         secondary=video_likes,
         back_populates="likes"
     )
+    dislikes = db.relationship(
+        "User",
+        secondary=video_dislikes,
+        back_populates="dislikes"
+    )
 
     def to_dict(self):
         return {
@@ -35,4 +41,9 @@ class Video(db.Model):
             'image_url': self.image_url,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'likes': [like.id for like in self.likes],
+            'dislikes': [dislike.id for dislike in self.dislikes]
         }
+
+#  video_likes = db.relationship(
+#         "Vid_Like", back_populates="video", cascade="all, delete")
