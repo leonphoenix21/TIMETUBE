@@ -145,3 +145,7 @@
     /* border: red solid 1px; */
     padding: 5px;
 }
+
+.likeCount {
+    font-size: 15px;
+}

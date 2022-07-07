@@ -87,7 +87,25 @@ function VideoDescription() {
     const findUser = users.filter(currUser => currUser.id === videoPlaying?.user_id);
     const user = findUser[0]
 
+    //? This will count the likes
+    const likeCounts = () => {
+        if (videoPlaying.likes.length >= 1000) {
+            const num = videoPlaying.likes.length;
+            return `${num[0]}k`
+        } else {
+            return videoPlaying.likes.length
+        }
+    }
 
+    //? This will count the dislikes
+    const disLikeCounts = () => {
+        if (videoPlaying.dislikes.length >= 1000) {
+            const num = videoPlaying.dislikes.length;
+            return `${num[0]}k`
+        } else {
+            return videoPlaying.dislikes.length
+        }
+    }
 
 
     //redirecting to the edit page for each video
@@ -124,6 +142,7 @@ function VideoDescription() {
                                             onClick={handle_UnLikeButtonClick}
                                         >
                                             < AiFillLike />
+                                            <span className='likeCount'> {likeCounts()}</span>
                                         </span>
 
                                         :
@@ -132,6 +151,8 @@ function VideoDescription() {
                                                 onClick={handle_LikeButtonClick}
                                             >
                                                 < AiOutlineLike />
+                                                <span className='likeCount'>  {likeCounts()}</span>
+
                                             </span>
                                         </>
                                 }
@@ -142,12 +163,16 @@ function VideoDescription() {
                                     videoPlaying?.dislikes.includes(sessionUser.id) ?
                                         <span onClick={handle_UnDisLikeButtonClick}>
                                             < AiFillDislike />
+                                            <span className='likeCount'>{disLikeCounts()}</span>
+
                                         </span>
 
                                         :
 
                                         <span onClick={handle_DisLikeButtonClick}>
                                             < AiOutlineDislike />
+                                            <span className='likeCount'> {disLikeCounts()}</span>
+
                                         </span>
 
                                 }
