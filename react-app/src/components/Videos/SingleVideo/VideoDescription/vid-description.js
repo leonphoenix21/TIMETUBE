@@ -89,20 +89,38 @@ function VideoDescription() {
 
     //? This will count the likes
     const likeCounts = () => {
-        if (videoPlaying.likes.length >= 1000) {
-            const num = videoPlaying.likes.length;
-            return `${num[0]}k`
-        } else {
+        let num = videoPlaying.likes.length;
+        let numStr = num.toString()
+
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        }
+        else {
             return videoPlaying.likes.length
         }
     }
 
     //? This will count the dislikes
     const disLikeCounts = () => {
-        if (videoPlaying.dislikes.length >= 1000) {
-            const num = videoPlaying.dislikes.length;
-            return `${num[0]}k`
-        } else {
+        let num = videoPlaying.dislikes.length;
+        let numStr = num.toString()
+
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        }
+        else {
             return videoPlaying.dislikes.length
         }
     }
