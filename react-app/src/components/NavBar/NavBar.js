@@ -12,6 +12,8 @@ import { IconContext } from 'react-icons';
 import { ImUpload2 } from 'react-icons/im';
 import { FcHome } from 'react-icons/fc';
 import { MdSwitchAccount } from "react-icons/md";
+import { GrLogout } from "react-icons/gr";
+import { RiAccountPinBoxFill } from "react-icons/ri";
 import { logout } from '../../store/session';
 
 import Logo from './Logo';
@@ -119,7 +121,7 @@ const NavBar = () => {
       {/* <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
         <span className='UploadIcon'> <ImUpload2 /> </span>
       </NavLink> */}
-      <button className='logOutBtn' onClick={onLogout}>Log Out</button>
+      <button className='logOutBtn' onClick={onLogout}> <span className='logOutSpan'> <RiAccountPinBoxFill />< GrLogout />  </span> </button>
 
       {/* <ProfileModal user={sessionUser} /> */}
     </nav>

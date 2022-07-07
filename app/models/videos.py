@@ -42,7 +42,7 @@ class Video(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'likes': [like.id for like in self.likes],
-            'dislikes': [dislike.id for dislike in self.dislikes]
+            'dislikes': [dislike.id for dislike in self.dislikes],
         }
 
 #  video_likes = db.relationship(

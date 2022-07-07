@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
 
     video = db.relationship("Video", back_populates="user")
     comments = db.relationship("Comment", back_populates="user")
+    subscribers = db.relationship("Subscriber", back_populates="user")
 
     likes = db.relationship(
         "Video",
@@ -52,5 +53,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'avatar': self.avatar,
-            'header': self.header
+            'header': self.header,
+            'subscribers': [sub.id for sub in self.subscribers]
         }

@@ -11,6 +11,7 @@ import { disLikeVideo, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../.
 // import { AiTwotoneLike } from 'react-icons/ai';
 // import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
+import { newUserSubcriber } from '../../../../store/details';
 
 function VideoDescription() {
 
@@ -26,16 +27,26 @@ function VideoDescription() {
     const videoPlaying = Allvideos[0]
 
 
+    //? Handle submit for new subscribers 
+    const handle_NewSubscriber = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+
+        formData.append("user_id", sessionUser.id);
+        const newSub = await dispatch(newUserSubcriber(formData));
+    };
+
+
     //? Handle submits for the like button
     const handle_LikeButtonClick = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
         if (videoPlaying?.dislikes.includes(sessionUser.id)) {
-            formData.append("user_id", sessionUser.id);
-            formData.append("video_id", videoId);
             const undislikedVideo = await dispatch(unDisLikeVideo(formData));
-            const likedVideo = await dispatch(likeVideo(formData));
         }
+        const likedVideo = await dispatch(likeVideo(formData));
     };
     const handle_UnLikeButtonClick = async (e) => {
         e.preventDefault();
@@ -43,6 +54,9 @@ function VideoDescription() {
 
         formData.append("user_id", sessionUser.id);
         formData.append("video_id", videoId);
+        // if (videoPlaying?.likes.includes(sessionUser.id)) {
+        //     const undislikedVideo = await dispatch(unDisLikeVideo(formData));
+        // }
         const unlikedVideo = await dispatch(unlikeVideo(formData));
 
     };
@@ -53,12 +67,12 @@ function VideoDescription() {
         e.preventDefault();
         const formData = new FormData();
 
+        formData.append("user_id", sessionUser.id);
+        formData.append("video_id", videoId);
         if (videoPlaying?.likes.includes(sessionUser.id)) {
-            formData.append("user_id", sessionUser.id);
-            formData.append("video_id", videoId);
             const unlikedVideo = await dispatch(unlikeVideo(formData));
-            const dislikedVideo = await dispatch(disLikeVideo(formData));
         }
+        const dislikedVideo = await dispatch(disLikeVideo(formData));
     };
 
     const handle_UnDisLikeButtonClick = async (e) => {
@@ -152,49 +166,47 @@ function VideoDescription() {
                     <div className='descriptionTitle'>
                         <strong className='displayname' style={{ textTransform: 'uppercase' }}> {videoPlaying?.title}</strong>
                         <div className="likeIconsDiv">
-                            <div>
 
-                                {
-                                    videoPlaying?.likes.includes(sessionUser.id) ?
+                            {
+                                videoPlaying?.likes.includes(sessionUser.id) ?
+                                    <span
+                                        onClick={handle_UnLikeButtonClick}
+                                    >
+                                        < AiFillLike />
+                                        <span className='likeCount'> {likeCounts()}</span>
+                                    </span>
+
+                                    :
+                                    <>
                                         <span
-                                            onClick={handle_UnLikeButtonClick}
+                                            onClick={handle_LikeButtonClick}
                                         >
-                                            < AiFillLike />
-                                            <span className='likeCount'> {likeCounts()}</span>
-                                        </span>
-
-                                        :
-                                        <>
-                                            <span
-                                                onClick={handle_LikeButtonClick}
-                                            >
-                                                < AiOutlineLike />
-                                                <span className='likeCount'>  {likeCounts()}</span>
-
-                                            </span>
-                                        </>
-                                }
-                            </div>
-                            <div>
-
-                                {
-                                    videoPlaying?.dislikes.includes(sessionUser.id) ?
-                                        <span onClick={handle_UnDisLikeButtonClick}>
-                                            < AiFillDislike />
-                                            <span className='likeCount'>{disLikeCounts()}</span>
+                                            < AiOutlineLike />
+                                            <span className='likeCount'>  {likeCounts()}</span>
 
                                         </span>
+                                    </>
+                            }
 
-                                        :
+                            {
+                                videoPlaying?.dislikes.includes(sessionUser.id) ?
+                                    <span onClick={handle_UnDisLikeButtonClick}>
+                                        < AiFillDislike />
+                                        <span className='likeCount'>{disLikeCounts()}</span>
 
-                                        <span onClick={handle_DisLikeButtonClick}>
-                                            < AiOutlineDislike />
-                                            <span className='likeCount'> {disLikeCounts()}</span>
+                                    </span>
 
-                                        </span>
+                                    :
 
-                                }
-                            </div>
+                                    <span onClick={handle_DisLikeButtonClick}>
+                                        < AiOutlineDislike />
+                                        <span className='likeCount'> {disLikeCounts()}</span>
+
+                                    </span>
+
+                            }
+
+
 
 
 
@@ -217,7 +229,12 @@ function VideoDescription() {
                                 > Edit Video <BsGearWideConnected />
                                 </button>
                             }
-
+                            {/* {sessionUser.id === videoPlaying.user_id &&
+                                <button onClick={handle_NewSubscriber}
+                                    className='singlePageEditbtn'
+                                > Subscribe
+                                </button>
+                            } */}
                         </div>
                     </div>
 

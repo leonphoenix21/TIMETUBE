@@ -12,7 +12,7 @@ from .api.video_routes import video_routes
 from .api.comment_routes import comment_routes
 from .api.vidlikes_routes import like_routes
 from .api.viddislikes_routes import dislike_routes
-
+from .api.subscribers_routes import subscribers_routes
 
 from .seeds import seed_commands
 
@@ -40,6 +40,7 @@ app.register_blueprint(video_routes, url_prefix='/api/videos')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(like_routes, url_prefix='/api/likes')
 app.register_blueprint(dislike_routes, url_prefix='/api/dislikes')
+app.register_blueprint(subscribers_routes, url_prefix='/api/subscribers')
 db.init_app(app)
 Migrate(app, db)
 

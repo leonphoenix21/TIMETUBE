@@ -31,6 +31,18 @@ export const loadUserDetails = () => async (dispatch) => {
     }
 }
 
+export const newUserSubcriber = (data) => async (dispatch) => {
+    const response = await fetch(`/api/subscribers/`, {
+        method: 'POST',
+        body: data,
+    })
+    if (response.ok) {
+        const sub = await response.json();
+        dispatch(newDetail(sub))
+        return sub;
+    }
+}
+
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
