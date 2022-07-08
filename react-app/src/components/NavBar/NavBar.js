@@ -123,7 +123,6 @@ const NavBar = () => {
       </NavLink> */}
       <button className='logOutBtn' onClick={onLogout}> <span className='logOutSpan'> <RiAccountPinBoxFill />< GrLogout />  </span> </button>
 
-      {/* <ProfileModal user={sessionUser} /> */}
     </nav>
   )
 
