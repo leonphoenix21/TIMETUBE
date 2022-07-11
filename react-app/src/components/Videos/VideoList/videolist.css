@@ -1,8 +1,13 @@
+body {
+    background-color: whitesmoke;
+}
+
 .allVideos {
     padding: 50px;
     flex-direction: row;
     /* border: red 1px solid; */
     overflow-wrap: normal;
+
 }
 
 .gallery {
@@ -23,9 +28,12 @@
     cursor: pointer;
 }
 
+.HomePosterDesc.HomePoster:hover {
+    border: black solid 2px;
+}
+
 .HomePoster {
-    height: 190px;
-    width: 200px;
+
     position: relative;
     display: block;
     transition: .3s ease-in-out;
@@ -53,38 +61,19 @@
 }
 
 
-.PosterTitle {
-    margin-top: 20px;
-    margin-left: 60px;
-    /* border: red solid 1px; */
-    position: absolute;
-    width: 14%;
-    height: 60px;
-    font-family: 'Gentium Plus', serif;
-    font-size: 15px;
-    font-weight: bold;
-    overflow: wrap;
-    padding-top: 5px;
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-}
 
-.channelNamePost {
-    position: absolute;
-    margin: -55px 0px 0px 43px;
-    padding-left: 10px;
-
-}
-
-.channelNamePost {
-    margin-bottom: 2px;
-}
+.channelNamePost {}
 
 
 .allVideos .HomePoster:focus,
 .allVideos .HomePoster:hover {
-    transform: scaleX(1.1) scaleY(1.2);
+    box-shadow: none;
+}
+
+
+.allVideos .pics:focus,
+.allVideos .pics:hover {
+    transform: scaleX(1.4) scaleY(1.3);
     z-index: 1;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
     border: 3px solid whitesmoke;
@@ -142,4 +131,26 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
     }
+}
+
+
+.PosterTitleDiv {
+    margin-top: -20px;
+    padding: 5px;
+    width: 100%;
+
+}
+
+.PosterTitle {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pics {
+    transition: transform, .3s ease-in-out;
+}
+
+.channelNamePost {
+    margin-top: 10px;
+    margin-left: -15px;
 }

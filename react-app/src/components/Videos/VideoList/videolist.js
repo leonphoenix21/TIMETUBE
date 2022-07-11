@@ -59,7 +59,8 @@ const VideoDisplay = () => {
                                         placeholder={video.title}
                                         src={video.image_url}
                                         alt={video.title}
-                                        style={{ width: '100%' }}
+                                        height={155}
+                                        width='100%'
                                         onError={(e) =>
                                             e.target.src =
                                             ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
@@ -67,21 +68,24 @@ const VideoDisplay = () => {
 
                                 </NavLink>
                                 <div className='HomePosterDesc'>
-                                    <NavLink to={`/user/${video.user_id}`} style={{ color: 'black' }} >
-                                        <div className="homePosterAvtr">
+                                    <div className="homePosterAvtr">
+                                        <NavLink to={`/user/${video.user_id}`} style={{ color: 'black' }} >
                                             <img className='videoListAvtr'
                                                 src={`${PosterPicture(video.user_id)}`}
                                                 onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                                             />
+                                        </NavLink>
+                                    </div>
+
+                                    <div className="PosterTitleDiv">
+                                        <div className="PosterTitle">
+                                            <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'uppercase' }} >
+                                                {video.title}
+                                            </NavLink>
                                         </div>
                                         <div className='channelNamePost'>
                                             <span>{channelName(video.user_id)} </span>
                                         </div>
-                                    </NavLink>
-                                    <div className="PosterTitle">
-                                        <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'uppercase' }} >
-                                            {video.title}
-                                        </NavLink>
                                     </div>
                                 </div>
                             </div>
