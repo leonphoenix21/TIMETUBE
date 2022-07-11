@@ -59,7 +59,7 @@ const VideoDisplay = () => {
                                         placeholder={video.title}
                                         src={video.image_url}
                                         alt={video.title}
-                                        height={155}
+                                        height={165}
                                         width='100%'
                                         onError={(e) =>
                                             e.target.src =

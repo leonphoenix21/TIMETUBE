@@ -45,33 +45,30 @@ function HomeChannels() {
         <>
             <div className="homeChannels">
                 <div className='homechannelList'>
-                    <div style={{ position: 'relative', height: '100px', width: '100px', marginLeft: '130px' }}>
-                        <NavLink to='/home' >
-                            <span className='homeVidLogo homeEachChannel'>
-                                All
-                            </span >
-                        </NavLink>
-                    </div>
+                    <NavLink to='/home' style={{ textDecoration: 'none' }}>
+                        <span className=' homeEachChannel' style={{ fontSize: '14px', padding: '5px 15px 5px 15px ' }}>
+                            All
+                        </span >
+                    </NavLink>
+
                     {
+
                         users.map((user) => (
                             <>
-                                <NavLink to={`/home/${user.id}`} className='homeEachChannel' >
-                                    <div className='channelLinks'>
-                                        <div className='each'
-                                            style={{ textDecoration: 'none', color: 'black' }}
-                                            onClick={() => setChannelNum(user.id)}
-                                        >
-                                            <div className='channelIconName'>
-                                                <span className='vidPlayIcon'><BsFillPlayBtnFill /> </span>
-                                                <span style={{ fontSize: '15px', marginLeft: '10px' }}>{user.username}</span>
-                                                <span style={{ fontWeight: 'bold' }}>{userVideoCount(user.id)} </span>
-                                            </div >
-                                        </div>
-                                    </div>
-                                </NavLink>
+                                <span className='each'
+                                    style={{ textDecoration: 'none', color: 'black' }}
+                                    onClick={() => setChannelNum(user.id)}
+                                >
+                                    <NavLink to={`/home/${user.id}`} className='homeEachChannel' >
+                                        {user.username}
+
+                                    </NavLink>
+                                </span>
                             </>
                         ))
-                    };
+
+
+                    }
                 </div>
             </div>
 

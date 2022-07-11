@@ -107,7 +107,7 @@ const SignUpForm = () => {
           </div>
 
           <div className='contDiv'>
-            <label>User Name</label>
+            <label>Channel Name</label>
             <input
               className='videofield strings'
               type='text'
