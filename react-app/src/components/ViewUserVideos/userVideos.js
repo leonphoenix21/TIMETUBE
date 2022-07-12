@@ -52,12 +52,13 @@ const UserUploadedVids = ({ channelId }) => {
                                     <div className='pics' key={video.id} >
                                         <a href={`/videos/${video.id}/`} key={video.id}>
                                             <img
-                                                className='HomePoster'
+                                                // className='HomePoster'
                                                 alt=''
                                                 placeholder={video.title}
                                                 src={video.image_url}
                                                 alt={video.title}
-                                                style={{ width: '100%' }}
+                                                height='165'
+                                                width='100%'
                                                 onError={(e) =>
                                                     e.target.src =
                                                     ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
