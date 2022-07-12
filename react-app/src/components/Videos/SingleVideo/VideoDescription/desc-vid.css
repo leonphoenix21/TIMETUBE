@@ -4,6 +4,8 @@
     width: 100vw;
 } */
 
+
+
 .videoPlayerDiv {
     /* border: blue 1px solid; */
     background-color: black;
@@ -93,6 +95,8 @@
 
 .displayname {
     margin: 10px 0px 0px 15px;
+    font-size: 20px;
+    text-transform: capitalize;
 }
 
 .editVideoBtn {
@@ -135,8 +139,8 @@
 
 .likeIconsDiv {
     position: absolute;
-    margin-top: 10px;
-    right: 10%;
+    margin-top: 43px;
+    right: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -144,8 +148,23 @@
     width: 200px;
     /* border: red solid 1px; */
     padding: 5px;
+    font-size: 25px;
 }
 
 .likeCount {
     font-size: 15px;
+}
+
+
+.bottomLine-vid {
+    border-bottom: rgba(136, 136, 136, 0.511) solid .1px;
+    margin-top: 50px;
+}
+
+.vidDescCount {
+    margin-top: 38px;
+    /* border: red solid 1px; */
+    padding: 10px;
+    font-size: 15px;
+    margin-left: -8px;
 }

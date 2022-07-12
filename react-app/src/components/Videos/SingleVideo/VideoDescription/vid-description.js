@@ -6,12 +6,14 @@ import { AiOutlineLike } from 'react-icons/ai'; //Empty Like button
 import { AiFillLike } from 'react-icons/ai'; //Fill Like button
 import { AiOutlineDislike } from 'react-icons/ai'; //Empty DisLike button
 import { AiFillDislike } from 'react-icons/ai'; //Fill DisLike button
-
+import { BsDot } from 'react-icons/bs';
 import { disLikeVideo, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../../store/videos';
 // import { AiTwotoneLike } from 'react-icons/ai';
 // import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
 import { newUserSubcriber } from '../../../../store/details';
+
+
 
 function VideoDescription() {
 
@@ -145,6 +147,30 @@ function VideoDescription() {
         history.push(`/edit/${videoId}`)
     }
 
+    const TimeSession = (video) => {
+        return video.created_at.slice(4, 16)
+    }
+
+    const VideoViewCount = (video) => {
+        const ViewCount = video.view_count;
+        if (!ViewCount) return `0 views`
+
+        let numStr = ViewCount.toString()
+
+        if (ViewCount === 1) return `1 view`
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        } else {
+            return `${ViewCount} views`
+        }
+    }
+
     const showMoreBtn = () => {
         if (showMore === 'descriptionText') {
             setShowLess(false)
@@ -164,7 +190,10 @@ function VideoDescription() {
             {Object.values(Allvideos).length > 0 ?
                 <>
                     <div className='descriptionTitle'>
-                        <strong className='displayname' style={{ textTransform: 'uppercase' }}> {videoPlaying?.title}</strong>
+                        <strong className='displayname'> {videoPlaying?.title}</strong>
+                        <div className='videoCountDiv vidDescCount'>
+                            <span> {VideoViewCount(videoPlaying)} <BsDot /> {TimeSession(videoPlaying)}</span>
+                        </div>
                         <div className="likeIconsDiv">
 
                             {
@@ -212,7 +241,7 @@ function VideoDescription() {
 
                         </div>
                     </div>
-                    <div className='bottom-line singleline'></div>
+                    <div className='bottomLine-vid'></div>
 
                     <div className='VideoInfo'>
                         <div>
