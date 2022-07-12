@@ -91,18 +91,15 @@ export const addViewCount = (data) => async (dispatch) => {
         body: data
     });
 
-    console.log(response)
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {
-            console.log("this is first error")
             return data
         } else if (!data.errors) {
             dispatch(newVideo(data));
             return data;
         }
     } else {
-        console.log("this is second error")
         return { 'errors': ['an error has occured'] }
     }
 };

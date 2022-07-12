@@ -82,7 +82,6 @@ function LibraryUploadVids() {
         }
 
         const data = await dispatch(addViewCount(formData))
-        console.log(data)
     }
     return (
         <div className='LibraryUploadVids'>
