@@ -40,7 +40,7 @@ body {
     position: relative;
     display: block;
     transition: .3s ease-in-out;
-    transition: transform, .4s ease-in;
+    transition: transform, .3s ease-in;
     /* box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); */
 }
 
@@ -62,7 +62,7 @@ body {
 .pics {
     /* border: blue solid 1px; */
     margin-bottom: 25px;
-    transition: transform, .9s ease-in-out;
+    transition: transform, .3s ease-in-out;
     /* box-shadow: .1px .3px .1px .1px rgba(61, 61, 61, 0.051); */
 }
 

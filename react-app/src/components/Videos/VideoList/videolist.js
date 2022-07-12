@@ -65,20 +65,7 @@ const VideoDisplay = () => {
         )
     }
 
-    const View_Count_HandleSubmit = async (video) => {
-        let count = 1;
-        const formData = new FormData();
-        formData.append("id", video.id);
-        if (video.view_count === null) {
-            formData.append("view_count", count)
-        } else {
-            formData.append("view_count", video.view_count + 1)
 
-        }
-
-        const data = await dispatch(addViewCount(formData))
-        console.log(data)
-    }
 
 
 
@@ -102,7 +89,6 @@ const VideoDisplay = () => {
                                         placeholder={video.title}
                                         src={video.image_url}
                                         alt={video.title}
-                                        onClick={() => (View_Count_HandleSubmit(video))}
                                         height={185}
                                         width='100%'
                                         onError={(e) =>
