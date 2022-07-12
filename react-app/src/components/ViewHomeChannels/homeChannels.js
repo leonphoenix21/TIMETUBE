@@ -39,7 +39,11 @@ function HomeChannels() {
 
     const videos = allVideos.filter(vid => vid.user_id === +channelId).reverse()
 
-
+    //? Checks if each user has uploaded atleast one video
+    const checkedUsers = users.filter(user => {
+        const videos = allVideos.filter(vid => vid.user_id === user.id).reverse()
+        if (videos.length > 0) return user;
+    })
 
     return (
         <>
@@ -53,7 +57,7 @@ function HomeChannels() {
 
                     {
 
-                        users.map((user) => (
+                        checkedUsers.map((user) => (
                             <>
                                 <span className='each'
                                     style={{ textDecoration: 'none', color: 'black' }}
