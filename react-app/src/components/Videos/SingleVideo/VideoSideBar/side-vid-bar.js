@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import VideoDisplay from '../../VideoList/videolist';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
-import { getAllVideos } from '../../../../store/videos';
+import { getAllVideos, addViewCount } from '../../../../store/videos';
 import './sidebar.css';
 
 
@@ -35,13 +35,34 @@ function VideoSideBar() {
             </>
         )
     }
+
+    const View_Count_HandleSubmit = async (video) => {
+        let count = 1;
+        const formData = new FormData();
+        formData.append("id", video?.id);
+        if (video.view_count === null) {
+            formData.append("view_count", count)
+        } else {
+            formData.append("view_count", video?.view_count + 1)
+
+        }
+
+        const data = await dispatch(addViewCount(formData))
+    }
+
+    const videoJsOptions = async (video) => {
+        View_Count_HandleSubmit(video)
+    }
+
+
     return (
         <>
             <div className="sidebarContainer">
                 {allVideos.map(video => (
                     <>
                         <div className='picDiv' key={video.id} >
-                            <a href={`/videos/${+video.id}/`} key={video.id}>
+
+                            <a href={`/videos/${+video.id}/`} key={video.id} >
                                 <img
                                     className='sideBarImg'
                                     placeholder={video.title}

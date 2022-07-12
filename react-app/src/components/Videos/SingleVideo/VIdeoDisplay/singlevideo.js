@@ -29,7 +29,6 @@ function SingleVideo() {
             formData.append("view_count", count)
         } else {
             formData.append("view_count", video?.view_count + 1)
-
         }
 
         const data = await dispatch(addViewCount(formData))
@@ -52,12 +51,6 @@ function SingleVideo() {
         fetchData();
     }, [dispatch]);
 
-    const videoJsOptions = async (video) => {
-        View_Count_HandleSubmit(video)
-
-        return true
-
-    }
 
     window.onbeforeunload = () => {
         if (videoPlaying) {

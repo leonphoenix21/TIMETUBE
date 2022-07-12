@@ -7,7 +7,7 @@ import { AiFillLike } from 'react-icons/ai'; //Fill Like button
 import { AiOutlineDislike } from 'react-icons/ai'; //Empty DisLike button
 import { AiFillDislike } from 'react-icons/ai'; //Fill DisLike button
 import { BsDot } from 'react-icons/bs';
-import { disLikeVideo, likeVideo, unDisLikeVideo, unlikeVideo } from '../../../../store/videos';
+import { disLikeVideo, likeVideo, unDisLikeVideo, unlikeVideo, addViewCount } from '../../../../store/videos';
 // import { AiTwotoneLike } from 'react-icons/ai';
 // import { BiLike } from 'react-icons/bi';
 import './desc-vid.css'
@@ -87,6 +87,21 @@ function VideoDescription() {
 
     };
 
+    // View Count Handle Submit
+    const View_Count_HandleSubmit = async (video) => {
+        let count = 1;
+        const formData = new FormData();
+        formData.append("id", video?.id);
+        if (video.view_count === null) {
+            formData.append("view_count", count)
+        } else {
+            formData.append("view_count", video?.view_count + 1)
+
+        }
+
+        const data = await dispatch(addViewCount(formData))
+    }
+
 
     //Querrying for users and finding the user who uploaded this video
     useEffect(() => {
@@ -152,8 +167,13 @@ function VideoDescription() {
     }
 
     const VideoViewCount = (video) => {
+
+
+        if (!video.view_count) View_Count_HandleSubmit(video)
         const ViewCount = video.view_count;
-        if (!ViewCount) return `0 views`
+        if (!ViewCount || ViewCount === 0) return '1 view';
+
+
 
         let numStr = ViewCount.toString()
 
