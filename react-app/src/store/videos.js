@@ -84,6 +84,31 @@ export const deleteVideo = (videoId) => async (dispatch) => {
 };
 
 
+//! Add Video View Count
+export const addViewCount = (data) => async (dispatch) => {
+    const response = await fetch(`/api/videos/`, {
+        method: "PATCH",
+        body: data
+    });
+
+    console.log(response)
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            console.log("this is first error")
+            return data
+        } else if (!data.errors) {
+            dispatch(newVideo(data));
+            return data;
+        }
+    } else {
+        console.log("this is second error")
+        return { 'errors': ['an error has occured'] }
+    }
+};
+
+
+
 
 //? The Like button thunks below
 

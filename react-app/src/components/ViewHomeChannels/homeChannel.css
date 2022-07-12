@@ -8,16 +8,17 @@
     background-color: whitesmoke;
     border-radius: 10px 10px 0px 0px;
     margin-right: 20px;
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
 }
 
-/* .homechannelList::-webkit-scrollbar {
-    height: 10px;
-    background-color: rgba(205, 205, 205, 0.982);
+.homechannelList::-webkit-scrollbar {
+    height: 1px;
+    color: beige;
+    background-color: rgba(205, 205, 205, 0.014);
     border-radius: 10%;
     border-bottom: rgb(72, 71, 72, .5) solid 1px;
     margin-top: -10px;
-} */
+}
 
 .homeEachChannel {
     margin-right: 10px;
@@ -26,8 +27,8 @@
     border-radius: 50px;
     min-width: fit-content;
     /* border: rgba(0, 0, 0, 0.235) solid .2px; */
-    box-shadow: .5px 1.5px .5px rgba(0, 0, 0, 0.235);
-    background-color: #e9e9ea;
+    box-shadow: .2px .5px .2px rgba(0, 0, 0, 0.235);
+    background-color: #ceced0d3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +37,7 @@
     transition: transform, color, background-color .3s ease-in-out;
     font-size: 13px;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .homeEachChannel:hover {

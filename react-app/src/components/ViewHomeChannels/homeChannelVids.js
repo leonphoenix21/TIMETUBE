@@ -79,7 +79,7 @@ const ChannelHomeVids = () => {
                                                         {video.title}
                                                     </NavLink>
                                                 </div>
-                                                <div className='channelNamePost'>
+                                                <div className='channelNamePost' style={{ textTransform: 'capitalize' }}>
                                                     <span>{channelName(video.user_id)} </span>
                                                 </div>
                                             </div>

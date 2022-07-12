@@ -1,3 +1,4 @@
+from email.policy import default
 from .db import db
 from .vid_likes import video_likes
 from .vid_dislikes import video_dislikes
@@ -9,6 +10,7 @@ class Video(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    view_count = db.Column(db.Integer, default=0)
     title = db.Column(db.String(75), nullable=False)
     video_url = db.Column(db.String, nullable=False)
     description = db.Column(db.Text)
@@ -39,6 +41,7 @@ class Video(db.Model):
             'video_url': self.video_url,
             'description': self.description,
             'image_url': self.image_url,
+            'view_count': self.view_count,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'likes': [like.id for like in self.likes],

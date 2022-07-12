@@ -150,3 +150,14 @@ def delete_video(id):
         db.session.delete(video)
         db.session.commit()
         return {'id': id}
+
+
+@video_routes.route('/', methods=['PATCH'])
+def view_count():
+    """
+    View count of video id
+    """
+    video = Video.query.get(int(request.form['id']))
+    video.view_count = request.form["view_count"]
+    db.session.commit()
+    return video.to_dict()
