@@ -46,8 +46,7 @@ const ChannelHomeVids = () => {
                     <>
                         <div className='allVideos'>
                             <div className='gallery' >
-                                <div className='firstBlockDiv'>
-                                </div>
+
 
                                 {allVideos.map(video => (
                                     <div className='pics' key={video.id} >
