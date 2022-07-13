@@ -47,19 +47,16 @@ const NavBar = () => {
   const VideoResult = AllVideos?.filter(video => {
     if (searchInput.length === 1) {
       if (video?.title.toLowerCase().includes(searchInput.toLowerCase())
-        || video?.description.toLowerCase().includes(searchInput.toLowerCase())) return video
+      ) return video
     }
 
     else if (searchInput.length === 2) {
-      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())
-        || video?.description.toLowerCase().includes(searchInput.toLowerCase())) return video
+      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())) return video
     }
     else if (searchInput.length === 3) {
-      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())
-        || video?.description.toLowerCase().includes(searchInput.toLowerCase())) return video
+      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())) return video
     } else if (searchInput.length > 0) {
-      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())
-        || video?.description.toLowerCase().includes(searchInput.toLowerCase())) return video
+      if (video?.title.toLowerCase().includes(searchInput.toLowerCase())) return video
     }
 
   })
