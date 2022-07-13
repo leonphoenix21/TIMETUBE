@@ -429,9 +429,12 @@ span {
 .resultDisplayDiv {
     position: fixed;
     background-color: white;
-    border: #303030 solid .1px;
+    border: #30303079 solid .1px;
     padding: 10px;
     height: fit-content;
+    border-top: none;
+    border-left: #3030301d solid .1px;
+    width: 485px;
 }
 
 .resultSearchhdr {
