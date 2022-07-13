@@ -20,7 +20,7 @@ function SingleVideoPage() {
         }
     }, [comments]);
     return (
-        <>
+        <div className='Single-Page-Div'>
             <div className="single-videopage-container">
                 {/*this div plays the video only  */}
                 <div className="playing-video-container">
@@ -46,7 +46,7 @@ function SingleVideoPage() {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

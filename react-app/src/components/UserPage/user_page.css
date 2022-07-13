@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+.details {
+    margin-left: 1.7%;
+}
+
 .avatar {
     border-radius: 50px;
     height: 100px;

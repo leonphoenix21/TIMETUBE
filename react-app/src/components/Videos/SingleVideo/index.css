@@ -1,11 +1,17 @@
 .single-videopage-container {
     display: flex;
     flex-direction: column;
-    width: 99vw;
     /* overflow-x: auto; */
     max-width: fit-content;
     min-width: fit-content;
     overflow: hidden;
+
+}
+
+.Single-Page-Div {
+    /* border: red solid 1px; */
+    overflow: hidden;
+    margin-left: 3.5%;
 }
 
 
@@ -61,21 +67,5 @@
         height: 1000px;
         overflow: scroll;
         /* border: green 5px dotted; */
-    }
-}
-
-@media (max-width: 791px) {
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-}
-
-@media (max-width: 650px) {
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
     }
 }

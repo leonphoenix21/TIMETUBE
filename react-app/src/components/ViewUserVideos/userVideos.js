@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllVideos } from '../../store/videos';
+import { BsDot } from 'react-icons/bs';
+import Moment from "react-moment";
+import 'moment-timezone';
 import './userVideos.css';
 
 const UserUploadedVids = ({ channelId }) => {
@@ -22,6 +25,26 @@ const UserUploadedVids = ({ channelId }) => {
         fetchData();
     }, [dispatch]);
 
+    const VideoViewCount = (video) => {
+        const ViewCount = video.view_count;
+        if (!ViewCount) return `0 views`
+
+        let numStr = ViewCount.toString()
+
+        if (ViewCount === 1) return `1 view`
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        } else {
+            return `${ViewCount} views`
+        }
+    }
+
 
     const PosterPicture = (id) => {
         const findUser = users.filter(currUser => currUser?.id === +id);
@@ -36,17 +59,21 @@ const UserUploadedVids = ({ channelId }) => {
     const videos = useSelector(state => state.videos);
     const allVideos = useSelector(state => Object.values(state.videos).filter(vid => vid.user_id === channelId).reverse())
 
+    const TimeSession = (video) => {
+        return (
+            <Moment fromNow >{video?.created_at}</Moment>
+        )
+    }
 
 
     return (
-        <>
+        <div className='userUploadedVidsBody'>
             {
                 allVideos.length > 0 ?
                     <>
                         <div className='allVideos'>
                             <div className='gallery' >
-                                <div className='firstBlockDiv'>
-                                </div>
+
 
                                 {allVideos.map(video => (
                                     <div className='pics' key={video.id} >
@@ -65,21 +92,30 @@ const UserUploadedVids = ({ channelId }) => {
                                             />
                                         </a>
                                         <div className='HomePosterDesc'>
-                                            <NavLink to={`/users/${video.user_id}`} style={{ color: 'black' }} >
-                                                <div className="homePosterAvtr">
+                                            <div className="homePosterAvtr">
+                                                <NavLink to={`/user/${video.user_id}`} style={{ color: 'black' }} >
                                                     <img className='videoListAvtr'
+                                                        height='35'
+                                                        width='35'
                                                         src={`${PosterPicture(video.user_id)}`}
                                                         onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                                                     />
+                                                </NavLink>
+                                            </div>
+
+
+                                            <div className="PosterTitleDiv">
+                                                <div className="PosterTitle">
+                                                    <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'uppercase' }} >
+                                                        {video.title}
+                                                    </NavLink>
                                                 </div>
                                                 <div className='channelNamePost'>
                                                     <span>{channelName(video.user_id)} </span>
                                                 </div>
-                                            </NavLink>
-                                            <div className="PosterTitle">
-                                                <NavLink to={`/videos/${video.id}/`} style={{ color: 'black', textDecoration: 'none' }}>
-                                                    {video.title}
-                                                </NavLink>
+                                                <div className='videoCountDiv'>
+                                                    <span> {VideoViewCount(video)} <BsDot /> {TimeSession(video)}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +132,7 @@ const UserUploadedVids = ({ channelId }) => {
                     </div>
 
             }
-        </>
+        </div>
     )
 
 }

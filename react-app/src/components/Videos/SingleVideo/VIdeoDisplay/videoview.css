@@ -1,6 +1,7 @@
 .video-js {
-    height: 80vh;
-    width: 100vw;
+    height: 81.5vh;
+    width: 93vw;
+    margin-left: -80px;
 }
 
 .videoPlayerDiv {

@@ -5,10 +5,10 @@
     justify-content: flex-start;
     align-items: center;
     overflow-x: scroll;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 10px 10px 0px 0px;
     margin-right: 20px;
-    padding: 10px 10px 5px 10px;
+    padding: 10px 5px 0px 5px;
 }
 
 .homechannelList::-webkit-scrollbar {
@@ -16,19 +16,18 @@
     color: beige;
     background-color: rgba(205, 205, 205, 0.014);
     border-radius: 10%;
-    border-bottom: rgb(72, 71, 72, .5) solid 1px;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
     margin-top: -10px;
 }
 
 .homeEachChannel {
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 5px 10px 5px 10px;
+    padding: 7px 10px 7px 10px;
     border-radius: 50px;
     min-width: fit-content;
-    /* border: rgba(0, 0, 0, 0.235) solid .2px; */
-    box-shadow: .2px .5px .2px rgba(0, 0, 0, 0.235);
-    background-color: #ceced0d3;
+    background-color: #ceced084;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +37,7 @@
     font-size: 13px;
     cursor: pointer;
     text-transform: capitalize;
+    border: rgba(0, 0, 0, 0.123) solid .05px;
 }
 
 .homeEachChannel:hover {
@@ -60,4 +60,8 @@
 
 
 
-.homeChannels {}
+.homeChannels {
+    position: sticky;
+    top: 20;
+
+}
