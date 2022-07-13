@@ -512,6 +512,19 @@ span {
     cursor: pointer;
 }
 
+.userProfileImg {
+    position: absolute;
+    right: 40px;
+    cursor: pointer;
+    /* border: red solid 1px; */
+    border-radius: 50%;
+}
+
+.userProfileImg:hover {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.086);
+    border: solid .5px rgba(0, 0, 0, 0.086);
+}
+
 .signInIcon {
     font-size: 25px;
     margin-top: -3px;

@@ -24,11 +24,13 @@ import Logo from './Logo';
 const NavBar = () => {
   const dispatch = useDispatch();
 
+  const sessionUser = useSelector(state => state.session.user)
   const [sidebar, setSidebar] = useState(false);
   const [resultDisplay, setResultDisplay] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [closeResult, setCloseResult] = useState('');
   const [showMenu, setShowMenu] = useState(false);
+  const [users, setUsers] = useState([]);
   const showSidebar = () => setSidebar(!sidebar);
   const DontshowSidebar = () => setSidebar(false);
   const onLogout = () => {
@@ -59,6 +61,27 @@ const NavBar = () => {
       setResultDisplay(false);
     }
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      setUsers(responseData.users);
+    }
+    fetchData();
+  }, [dispatch]);
+
+
+
+  const PosterPicture = (id) => {
+
+    if (sessionUser) {
+      const findUser = users?.filter(currUser => currUser?.id === sessionUser.id);
+      const userAvatar = findUser[0]?.avatar
+      console.log('KKKlll', userAvatar)
+      return userAvatar;
+    }
+  }
 
   const AllVideos = useSelector(state => Object.values(state.videos))
 
@@ -107,7 +130,6 @@ const NavBar = () => {
     );
   }
 
-  const sessionUser = useSelector(state => state.session.user)
   let sessionlinks = (
     <nav className='navbar'>
       <>
@@ -246,7 +268,26 @@ const NavBar = () => {
         </button>
       </div>
 
-      <button className='logOutBtn' onClick={onLogout}> <span className='logOutSpan'> <RiAccountPinBoxFill />< GrLogout />  </span> </button>
+      <img className='userProfileImg'
+        onClick={openMenu}
+        height='30'
+        width='30'
+        src={`${PosterPicture(sessionUser?.user_id)}`}
+        onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+      />
+
+      <div className="dropdown">
+        {showMenu && (
+          <div className="profile-dropdown">
+            <div>
+              {/* <NavLink className='navlinks  lidrop-down' to={`/user/${sessionUser?.id}`} exact={true} activeClassName="active"> Account  <RiAccountPinBoxFill /></NavLink>
+              <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div> */}
+              <div className='navlinks sudrop-down' onClick={onLogout}> Logout < GrLogout /> </div>
+            </div>
+
+          </div>
+        )}
+      </div>
 
     </nav >
   )
