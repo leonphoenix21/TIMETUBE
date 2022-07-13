@@ -539,3 +539,9 @@ span {
     margin-left: 8px;
     margin-top: 1px;
 }
+
+.userProfileUploadIcon {
+    position: absolute;
+    right: 95px;
+    font-size: 20px;
+}

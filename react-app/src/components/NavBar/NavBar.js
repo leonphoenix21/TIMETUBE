@@ -16,6 +16,7 @@ import { GrLogout } from "react-icons/gr";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
+import { RiVideoAddLine } from "react-icons/ri";
 import { logout } from '../../store/session';
 
 import Logo from './Logo';
@@ -30,6 +31,7 @@ const NavBar = () => {
   const [searchInput, setSearchInput] = useState('');
   const [closeResult, setCloseResult] = useState('');
   const [showMenu, setShowMenu] = useState(false);
+  const [showIconMenu, setShowIconMenu] = useState(false);
   const [users, setUsers] = useState([]);
   const showSidebar = () => setSidebar(!sidebar);
   const DontshowSidebar = () => setSidebar(false);
@@ -42,6 +44,7 @@ const NavBar = () => {
     setShowMenu(true);
   };
 
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -53,6 +56,24 @@ const NavBar = () => {
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
+
+
+  //? Icon Menu 
+  const openIconMenu = () => {
+    if (showIconMenu) return;
+    setShowIconMenu(true);
+  };
+  useEffect(() => {
+    if (!showIconMenu) return;
+
+    const closeIconMenu = () => {
+      setShowIconMenu(false);
+    };
+
+    document.addEventListener('click', closeIconMenu);
+
+    return () => document.removeEventListener("click", closeIconMenu);
+  }, [showIconMenu]);
 
   const CheckSeachBar = () => {
     if (searchInput.length) {
@@ -268,6 +289,18 @@ const NavBar = () => {
         </button>
       </div>
 
+      <div className='userProfileUploadIcon' onClick={openIconMenu}> <RiVideoAddLine /> </div>
+      <div className="dropdown">
+        {showIconMenu && (
+          <div className="profile-dropdown">
+            <div>
+              <NavLink className='navlinks lidrop-down' to={`/upload`} exact={true} activeClassName="active"> Upload </NavLink>
+            </div>
+
+          </div>
+        )}
+      </div>
+
       <img className='userProfileImg'
         onClick={openMenu}
         height='30'
@@ -275,7 +308,6 @@ const NavBar = () => {
         src={`${PosterPicture(sessionUser?.user_id)}`}
         onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
       />
-
       <div className="dropdown">
         {showMenu && (
           <div className="profile-dropdown">
