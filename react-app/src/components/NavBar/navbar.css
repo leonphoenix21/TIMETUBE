@@ -463,3 +463,66 @@ span {
     font-size: 14px;
     text-decoration: none;
 }
+
+.profile-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 5px 25px;
+    border-radius: 6px;
+    color: #065fd4db;
+    right: 23px;
+    top: 32px;
+}
+
+
+
+.sudrop-down {
+    margin-left: -25px;
+    padding-left: 10px;
+    color: #065fd4db;
+    cursor: pointer;
+
+}
+
+
+
+
+.lidrop-down {
+    margin-left: -25px;
+    padding-left: 10px;
+    color: #065fd4db;
+    cursor: pointer;
+
+}
+
+.userProfileBtn {
+    position: absolute;
+    height: 33px;
+    width: 100px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    right: 30px;
+    background-color: #ffffff;
+    border: 1px solid #065fd4db;
+    color: #065fd4db;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    cursor: pointer;
+}
+
+.signInIcon {
+    font-size: 25px;
+    margin-top: -3px;
+    color: #065fd4db;
+}
+
+.signInText {
+    font-size: 13px;
+    font-weight: 600;
+    /* border: red solid 1px; */
+    width: 60px;
+    margin-left: 8px;
+    margin-top: 1px;
+}

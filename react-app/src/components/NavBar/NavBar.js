@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import ProfileModal from './ProfileModal';
@@ -15,10 +15,10 @@ import { MdSwitchAccount } from "react-icons/md";
 import { GrLogout } from "react-icons/gr";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
+import { BiUserCircle } from "react-icons/bi";
 import { logout } from '../../store/session';
 
 import Logo from './Logo';
-import { ALL } from 'dns';
 
 
 const NavBar = () => {
@@ -28,11 +28,29 @@ const NavBar = () => {
   const [resultDisplay, setResultDisplay] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [closeResult, setCloseResult] = useState('');
+  const [showMenu, setShowMenu] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const DontshowSidebar = () => setSidebar(false);
   const onLogout = () => {
     dispatch(logout());
   };
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
   const CheckSeachBar = () => {
     if (searchInput.length) {
@@ -121,7 +139,7 @@ const NavBar = () => {
 
               {SidebarData.map((item, index) => {
                 return (
-                  <li key={index} className={sidebar ? item.cName : 'nav-text-unactive'}>
+                  < li key={index} className={sidebar ? item.cName : 'nav-text-unactive'}>
                     <Link to={item.path}>
                       <span className={sidebar ? 'nav-text-icon' : 'nav-text-icon-unactive'}>{item.icon}</span>
                       <span className={sidebar ? 'sidebarItemTitle' : 'sIT'} >{item.title}</span>
@@ -244,13 +262,140 @@ const NavBar = () => {
         <>
           <nav className='navbar' >
             <span className='logoContainer'><Logo /> </span>
-            <NavLink to='/login' className='navlinks' exact={true} activeClassName='active'>
-              Login
-            </NavLink>
 
-            <NavLink to='/sign-up' className='navlinks' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
+
+            <IconContext.Provider value={{ color: 'black' }}>
+              <div className='sidenavbar'>
+                <Link to='#' className='menu-bars'>
+                  <FaIcons.FaBars onClick={showSidebar} className='navmenuIcon' />
+                </Link>
+              </div>
+              <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items' onClick={DontshowSidebar}>
+                  <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                      {/* <AiIcons.AiOutlineClose /> */}
+                      {/* <FaIcons.FaBars onClick={showSidebar} className='navmenuIcon' style={{ position: 'relative' }} /> */}
+                      {/* <span className={sidebar ? 'logoContainer sideLogo' : 'github-unactive'}><Logo /> </span> */}
+
+                    </Link>
+                  </li>
+
+                  {/* // SideBar columns and data mapped from and array of links, icons and name to location */}
+
+                  {SidebarData.map((item, index) => {
+                    return (
+                      <li key={index} className={sidebar ? item.cName : 'nav-text-unactive'}>
+                        <Link to={item.path}>
+                          <span className={sidebar ? 'nav-text-icon' : 'nav-text-icon-unactive'}>{item.icon}</span>
+                          <span className={sidebar ? 'sidebarItemTitle' : 'sIT'} >{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+
+
+                  {/* // Account Option on SideBar Menu */}
+
+                  <li className={sidebar ? 'nav-text' : 'nav-text-unactive'}>
+                    <Link to={`/user/${sessionUser?.id}`}>
+                      <span className={sidebar ? 'nav-text-icon' : 'nav-text-icon-unactive'}><MdSwitchAccount /></span>
+                      <span className={sidebar ? 'sidebarItemTitle' : 'sIT'}>Account </span>
+                    </Link>
+                  </li>
+
+                  {/* // Github and LinkedIn Links */}
+
+                  <div className={sidebar ? "githubLinkDiv" : 'githubLinkDiv-unactive '} >
+
+                    <a href='https://github.com/leonphoenix21/FAUXTUBE/wiki' >
+                      <img className={sidebar ? 'githubImg' : 'githubImg-unactive'}
+                        src='https://www.logo.wine/a/logo/GitHub/GitHub-Icon-White-Dark-Background-Logo.wine.svg'
+                        height={45}
+                        width={45}
+                        alt=''
+                        onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                      />
+                    </a>
+                    {/* <h3 className='mrTop'> Github </h3> */}
+
+                  </div>
+                  <a href="https://www.linkedin.com/in/noel-m-19145aa3/ " >
+                    <img
+                      className={sidebar ? "linkedInImg" : 'linkedInImg-unactive'}
+                      height={sidebar ? 100 : 45}
+                      width={sidebar ? 100 : 45}
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png"
+                      alt=""
+                      onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                    />
+
+                  </a>
+                  {/* <a href='https://www.linkedin.com/in/noel-m-19145aa3/' className={sidebar ? "linkedinDiv" : 'linkedInImg'}>
+                <img className='linkedIn transformOneOne'
+                  src='http://cdn.designblognews.com/wp-content/uploads/2020/07/linkedinlogo-1593683207nkg84.png'
+                  alt=''
+                />
+              </a> */}
+                </ul>
+              </nav>
+            </IconContext.Provider>
+            {/* { Search Bar Div and Information} */}
+            <div className="searchBarDiv">
+              <input
+                className='searchInput'
+                value={searchInput}
+                maxLength={55}
+                placeholder='Search'
+                onChange={(e) => (CheckSeachBar(), setSearchInput(e.target.value))}
+              />
+              {searchInput &&
+                <div className="resultDisplayDiv">
+                  <div className="Topresults">
+                    <div className='resultSearchhdr'> Top Results </div>
+                    {VideoResult?.map(video => (
+                      <a href={`/videos/${video.id}/`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <div className='eachVideoResultDiv'>
+                          <img src={video.image_url} alt='' height={20} width={20} />
+                          <span className='eachVidTitle'> {video.title}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="CloseResults">
+                    <div className='resultSearchhdr'> Close Results </div>
+                    {CloseVideoResults?.map(video => (
+                      <a href={`/videos/${video.id}/`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <div className='eachCloseVideoResultDiv'>
+                          <img src={video.image_url} alt='' height={20} width={20} />
+                          <span className='eachVidTitle'> {video.title}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              }
+              <button className="searchInputbtn">
+                <span className="searchInputIcon"><IoIosSearch /></span>
+              </button>
+            </div>
+            <div className="userProfileBtn" onClick={openMenu}>
+              <div className='signInIcon'> <  BiUserCircle /></div>
+              <div className='signInText'> SIGN IN </div>
+            </div>
+            <div className="dropdown">
+              {showMenu && (
+                <div className="profile-dropdown">
+                  <div>
+                    <NavLink className='navlinks  lidrop-down' to={`/login`} exact={true} activeClassName="active"> Log In </NavLink>
+                    <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div>
+                    <NavLink className='navlinks sudrop-down' to={`/sign-up`} exact={true} activeClassName="active"> Sign Up </NavLink>
+                  </div>
+
+                </div>
+              )}
+            </div>
           </nav>
         </>
       }

@@ -58,12 +58,12 @@ function App() {
         <ProtectedRoute path='/upload' exact={true}>
           < UploadVideos />
         </ProtectedRoute>
-        <ProtectedRoute path='/channels' exact={true} >
+        <Route path='/channels' exact={true} >
           <ChannelSplash />
-        </ProtectedRoute>
-        <ProtectedRoute path={`/channels/:channelId`} >
+        </Route>
+        <Route path={`/channels/:channelId`} >
           <Channels />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path={['/user/:userId', '/users/:userId']} >
           <User />
         </ProtectedRoute>
@@ -73,17 +73,15 @@ function App() {
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
         </ProtectedRoute>
-        <ProtectedRoute path={'/home'} exact={true}  >
+        <Route path={['/home', '/']} exact={true} >
           <HomeChannels />
           <VideoDisplay />
-        </ProtectedRoute>
-        <ProtectedRoute path={'/home/:channelId'}   >
+        </Route>
+        <Route path={'/home/:channelId'}   >
           <HomeChannels />
           <ChannelHomeVids />
-        </ProtectedRoute>
-        <Route path='/' exact={true}>
-          <SplashPage />
         </Route>
+
         <ProtectedRoute path='/library/upload' exact={true}>
           <LibraryPage />
           <LibraryUploadVids />

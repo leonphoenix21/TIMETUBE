@@ -31,17 +31,17 @@ function HomeChannels() {
 
     }
     const userVideoCount = (id) => {
-        const videos = allVideos.filter(vid => vid.user_id === id).reverse()
+        const videos = allVideos?.filter(vid => vid.user_id === id).reverse()
         if (videos.length < 1) return ' :( no vids';
         if (videos.length === 1) return `: ${videos.length} vid`;
         return `: ${videos.length} vids`;
     }
 
-    const videos = allVideos.filter(vid => vid.user_id === +channelId).reverse()
+    const videos = allVideos?.filter(vid => vid.user_id === +channelId).reverse()
 
     //? Checks if each user has uploaded atleast one video
-    const checkedUsers = users.filter(user => {
-        const videos = allVideos.filter(vid => vid.user_id === user.id).reverse()
+    const checkedUsers = users?.filter(user => {
+        const videos = allVideos?.filter(vid => vid.user_id === user.id).reverse()
         if (videos.length > 0) return user;
     })
 
@@ -57,14 +57,14 @@ function HomeChannels() {
 
                     {
 
-                        checkedUsers.map((user) => (
+                        checkedUsers?.map((user) => (
                             <>
                                 <span className='each'
                                     style={{ textDecoration: 'none', color: 'black' }}
-                                    onClick={() => setChannelNum(user.id)}
+                                    onClick={() => setChannelNum(user?.id)}
                                 >
-                                    <NavLink to={`/home/${user.id}`} className='homeEachChannel' >
-                                        {user.username}
+                                    <NavLink to={`/home/${user?.id}`} className='homeEachChannel' >
+                                        {user?.username}
 
                                     </NavLink>
                                 </span>
