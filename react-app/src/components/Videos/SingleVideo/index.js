@@ -23,9 +23,7 @@ function SingleVideoPage() {
         <div className='Single-Page-Div'>
             <div className="single-videopage-container">
                 {/*this div plays the video only  */}
-                <div className="playing-video-container">
-                    <SingleVideo />
-                </div>
+                <SingleVideo />
 
                 {/*comments and sidebar */}
                 <div className="video-comments-sidebar">

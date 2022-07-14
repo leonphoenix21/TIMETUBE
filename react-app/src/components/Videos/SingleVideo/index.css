@@ -21,7 +21,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 700px;
-    overflow: scroll;
+    overflow: hidden;
     /* border: green 5px dotted; */
 }
 
@@ -29,8 +29,8 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    margin-left: 10px;
-    width: 70%;
+    margin-left: -64px;
+    width: 91%;
     /* overflow-x: scroll; */
     /* border: blue 1px dotted; */
 }
@@ -38,6 +38,10 @@
 .video-sidebar-div {
     /* border: black 2px dotted; */
     width: 30%;
+    position: absolute;
+    right: 20px;
+    margin-top: 86px;
+    transform: scale(1.1);
 }
 
 .countSort {

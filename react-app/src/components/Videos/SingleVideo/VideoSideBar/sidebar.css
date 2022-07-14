@@ -3,7 +3,9 @@
     flex-direction: column-reverse;
     /* border: red dotted 1px; */
     box-sizing: border-box;
-
+    /* border: red solid 1px; */
+    position: absolute;
+    top: -583px;
 }
 
 .picDiv {
@@ -21,7 +23,6 @@
     /* border-left: 2px solid black;
     border-right: 2px solid black; */
     /* border-radius: 3px; */
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     position: relative;
     display: block;
     transition: transform 500ms;
@@ -29,7 +30,8 @@
 
 .sidebarContainer .sideBarImg:focus,
 .sidebarContainer .sideBarImg:hover {
-    transform: scale(1.2);
+    box-shadow: 0px .5px .9px 0px rgba(0, 0, 0, 0.5);
+    opacity: .9;
     z-index: 1;
 }
 

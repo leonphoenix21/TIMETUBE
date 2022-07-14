@@ -1,3 +1,24 @@
+*::-webkit-scrollbar {
+    color: beige;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+    z-index: -1;
+    visibility: hidden;
+    height: 2px;
+    width: 2px;
+}
+
+.man {
+    height: 1px;
+    color: beige;
+    background-color: rgba(205, 205, 205, 0.014);
+    border-radius: 10%;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+}
+
 .homechannelList {
     /* border: red solid 1px; */
     display: flex;

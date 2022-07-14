@@ -8,6 +8,7 @@
 
 .border-Top-line {
     margin: 2% 2% 0% 2%;
+    margin-left: 20px;
     border-top: 1px solid black;
     opacity: .3;
 }

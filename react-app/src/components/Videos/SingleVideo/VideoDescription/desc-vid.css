@@ -159,7 +159,10 @@
 .bottomLine-vid {
     border-bottom: rgba(136, 136, 136, 0.511) solid .1px;
     margin-top: 50px;
+    margin-left: 20px;
+
 }
+
 
 .vidDescCount {
     margin-top: 38px;

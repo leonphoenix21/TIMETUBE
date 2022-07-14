@@ -1,0 +1,91 @@
+.SinglevideoPlayerDiv {
+    /* border: red 1px solid; */
+    width: 1000px;
+    height: 560px;
+    margin-left: 3%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.video-js {
+    position: absolute;
+    height: 550px;
+    width: 980px;
+    background-color: black;
+    margin-top: 20px;
+}
+
+
+.videoPlayerDiv {
+    /* border: blue 1px solid; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.single {
+    margin: 50px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.singleview {
+    margin: 20px 0px 0px 20px;
+}
+
+.singleline {
+    margin-top: 20px;
+}
+
+.descriptionTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.videoDescription {
+    margin-right: 600px;
+}
+
+.displayname {
+    margin: 10px 0px 0px 15px;
+}
+
+.theaterMode {
+    position: absolute;
+    /* border: red solid 1px; */
+    color: whitesmoke;
+    font-size: 20px;
+    right: 180px;
+    bottom: 27.8px;
+    cursor: pointer;
+}
+
+.theaterModepopup {
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    height: 10px;
+    width: fit-content;
+    min-width: fit-content;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    right: 150px;
+    bottom: 63.5px;
+    border-radius: 3px;
+    box-shadow: .001px 001px .002px rgba(19, 19, 19, 0.709);
+}
