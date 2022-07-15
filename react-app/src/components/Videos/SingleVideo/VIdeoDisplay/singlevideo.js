@@ -13,6 +13,7 @@ function SingleVideo() {
     const dispatch = useDispatch();
     const { videoId } = useParams()
     const [opennote, setOpenNote] = useState(false)
+    const [opentheather, setOpenTheater] = useState(false)
     const [users, setUsers] = useState([]);
     const Allvideos = useSelector(state => Object.values(state.videos).filter(vid => vid.id === +videoId))
     const videoPlaying = Allvideos[0]
@@ -22,6 +23,18 @@ function SingleVideo() {
             setOpenNote(false)
         } else {
             setOpenNote(true)
+        }
+    }
+
+
+    const theatherFade = () => {
+
+        if (opentheather) {
+            setTimeout(() => {
+                setOpenTheater(false)
+            }, 500)
+        } else {
+            setOpenTheater(true)
         }
     }
 
@@ -76,16 +89,17 @@ function SingleVideo() {
             {Object.values(Allvideos).length > 0 ?
                 <>
                     <div data-vjs-player className='SinglevideoPlayerDiv'>
-                        <video className="video-js vjs-default-skin " width="640px" height="267px"
+                        <video onMouseEnter={theatherFade} className="video-js vjs-default-skin " width="640px" height="267px"
                             controls preload="none" poster={videoPlaying?.image_url}
                             data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'
                             autoPlay={true}
                         >
                             <source src={videoPlaying?.video_url} type='video/mp4' />
                         </video>
-                        <span onMouseEnter={openNote} onMouseLeave={openNote} className='theaterMode'> <TbRectangle /> </span>
-                        {opennote && <span className='theaterModepopup'> Theater mode </span>}
+
                     </div>
+                    {/* {opentheather && <span onMouseEnter={openNote} onMouseLeave={openNote} className='theaterMode'> <TbRectangle /> </span>}
+                    {opennote && <span className='theaterModepopup'> Theater mode </span>} */}
 
                 </>
                 :

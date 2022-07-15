@@ -67,10 +67,9 @@
     position: absolute;
     /* border: red solid 1px; */
     color: whitesmoke;
-    font-size: 20px;
-    right: 180px;
-    bottom: 27.8px;
+    font-size: 100px;
     cursor: pointer;
+
 }
 
 .theaterModepopup {

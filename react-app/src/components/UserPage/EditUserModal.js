@@ -6,7 +6,7 @@ import { useParams, Redirect } from 'react-router-dom'
 import './user_page.css';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUserDetails, userDetails } from '../../store/details';
+import { userDetails } from '../../store/details';
 import { MdOutlineManageAccounts } from "react-icons/md";
 
 function EditUserModal() {
