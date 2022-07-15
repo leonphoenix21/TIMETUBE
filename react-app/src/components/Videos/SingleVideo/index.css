@@ -29,8 +29,9 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    margin-left: -64px;
-    width: 91%;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 1000px;
     /* overflow-x: scroll; */
     /* border: blue 1px dotted; */
 }

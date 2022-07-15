@@ -6,7 +6,16 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.timetube {
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    position: absolute;
+    margin-top: -15px;
+    cursor: pointer;
+}
 
+.ttli {
+    margin-left: -15px;
+}
 
 .loginBody {
     height: 100vh;
@@ -29,7 +38,7 @@
 
 .signFullnameInput {
     height: 55px;
-    width: 180px;
+    width: 194px;
     border: #7b7b7b82 solid .1px;
     border-radius: 3px;
     padding-left: 20px;
@@ -39,7 +48,7 @@
 
 .signField {
     height: 55px;
-    width: 375px;
+    width: 400px;
     border: #7b7b7b82 solid .1px;
     border-radius: 3px;
     padding-left: 20px;
@@ -208,8 +217,7 @@
 
 .signUpform {
     font-size: 20px;
-    margin-top: 30px;
-    margin-left: -100px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -217,8 +225,8 @@
     transition: transform 2s ease-in-out;
     padding-top: 40px;
     padding-bottom: 40px;
-    width: 450px;
-    height: 650px;
+    width: 500px;
+    height: 690px;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .5);
@@ -239,6 +247,7 @@
     border-radius: 3px;
     align-items: center;
     color: white;
+
     padding: 5px 10px;
     margin-left: 250px;
 }
@@ -289,13 +298,26 @@
     color: var(--gm-colortextbutton-ink-color, #1900ff);
 }
 
+.haveAccount {
+    color: black;
+}
+
 .toLogin {
     text-decoration: none;
-    color: purple;
+    color: #1a73e8;
+    /* margin-top: 40px; */
+    /* border: red solid 1px; */
+    position: absolute;
+    width: 80px;
+    padding: 5px 10px;
+    min-width: fit-content;
+    font-size: 15px;
+    margin-left: -230px;
+    margin-top: -35px;
 }
 
 .toLogin:hover {
-    transform: scale(1.05);
+    color: #1900ff;
 }
 
 .errors {
@@ -317,7 +339,7 @@
 .signUpheader {
     color: #202124;
     padding-bottom: 0;
-    padding-top: 25px;
+    padding-top: 65px;
     font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
     font-size: 24px;
     font-weight: 400;

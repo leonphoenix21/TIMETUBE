@@ -39,12 +39,25 @@ const LoginForm = () => {
     }
     history.push("/home");
   };
+  const Homepage = () => {
+    return history.push('/home')
+  }
 
   return (
     <body className='loginBody'>
       <div className='loginContainer'>
         <div className='login-right-border'>
           <form onSubmit={onLogin} className='loginForm'>
+            <h2 className="timetube ttli" onClick={Homepage}>
+              <span style={{ color: 'blue' }}>t</span>
+              <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
+              <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
+              <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
+              <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
+              <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
+              <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
+              <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
+            </h2>
             <h2 className="logInheader"> Sign In </h2>
             <p className='logInContinue'> to continue to TimeTube</p>
             <div className='errors'>
