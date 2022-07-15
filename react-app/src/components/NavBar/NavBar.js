@@ -461,7 +461,7 @@ const NavBar = () => {
               {showMenu && (
                 <div className="profile-dropdown">
                   <div>
-                    <NavLink className='navlinks  lidrop-down' to={`/login`} exact={true} activeClassName="active"> Log In </NavLink>
+                    <NavLink className='navlinks  lidrop-down' to={`/login`} exact={true} activeClassName="active"> Sign In </NavLink>
                     <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div>
                     <NavLink className='navlinks sudrop-down' to={`/sign-up`} exact={true} activeClassName="active"> Sign Up </NavLink>
                   </div>

@@ -81,11 +81,14 @@ const SignUpForm = () => {
             ))}
           </div>
           <h2 className="signUpheader"> Sign Up </h2>
+          <p className='logInContinue'> to continue to TimeTube</p>
           <div className="fullname">
-            <div className='contDiv'>
-              <label>First Name</label>
+            <div className='contDiv' >
+              <label className='inputLabel' >First Name</label>
               <input
-                className='fullnameSign first'
+                // className=' fullnameSign first signFullnameInput'
+                style={{ marginRight: '10px' }}
+                className=' signFullnameInput'
                 type='text'
                 name='firstname'
                 onChange={updateFirstname}
@@ -94,9 +97,10 @@ const SignUpForm = () => {
               ></input>
             </div >
             <div className='contDiv'>
-              <label>Last Name</label>
+              <label className='inputLabel' >Last Name</label>
               <input
-                className='fullnameSign last'
+                // className='fullnameSign last'
+                className=' signFullnameInput'
                 type='text'
                 name='lastname'
                 onChange={updateLastname}
@@ -107,9 +111,9 @@ const SignUpForm = () => {
           </div>
 
           <div className='contDiv'>
-            <label>Channel Name</label>
+            <label className='inputLabel' >Channel Name</label>
             <input
-              className='videofield strings'
+              className='signField'
               type='text'
               name='username'
               onChange={updateUsername}
@@ -118,9 +122,9 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className='contDiv'>
-            <label>Email</label>
+            <label className='inputLabel' >Email</label>
             <input
-              className='videofield strings'
+              className='signField'
               type='text'
               name='email'
               onChange={updateEmail}
@@ -129,9 +133,9 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className='contDiv'>
-            <label>Password</label>
+            <label className='inputLabel' >Password</label>
             <input
-              className='videofield strings'
+              className='signField'
               type='password'
               name='password'
               onChange={updatePassword}
@@ -140,9 +144,9 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className='contDiv'>
-            <label>Confirm Password</label>
+            <label className='inputLabel' >Confirm Password</label>
             <input
-              className='videofield strings'
+              className='signField'
               type='password'
               name='repeat_password'
               onChange={(e) => (
@@ -157,7 +161,7 @@ const SignUpForm = () => {
             className="signUpbtn">
             Sign Up
           </button>
-          <div className='signupnav'>Already have an account?  <span><NavLink to='/login' className='toLogin'  >  Log In </NavLink> </span></div>
+          <div className='signupnav'> <span><NavLink to='/login' className='toLogin' style={{ textDecoration: 'none', color: '#1a73e8' }} >  Sign In </NavLink> </span></div>
         </form>
       </div>
     </body>

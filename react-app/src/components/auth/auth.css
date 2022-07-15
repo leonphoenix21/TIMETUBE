@@ -6,53 +6,86 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-.signUpform {
-    transform: scale(.8);
-}
+
 
 .loginBody {
-    height: 92.8vh;
+    height: 100vh;
     width: 100vw;
-    background: url('https://i.pinimg.com/originals/e1/54/08/e1540876956576d6391c8b96be0a25bc.jpg') no-repeat center;
     object-fit: contain;
-    background-size: cover;
+    background-color: white;
     z-index: 1;
     position: relative;
 }
+
+.logField {
+    height: 55px;
+    width: 375px;
+    border: #7b7b7b82 solid .1px;
+    border-radius: 3px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #000000;
+}
+
+.signFullnameInput {
+    height: 55px;
+    width: 180px;
+    border: #7b7b7b82 solid .1px;
+    border-radius: 3px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #000000;
+}
+
+.signField {
+    height: 55px;
+    width: 375px;
+    border: #7b7b7b82 solid .1px;
+    border-radius: 3px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #000000;
+}
+
+
 
 .loginContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin-left: 150px;
 }
 
-.login-right-border {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 25%;
-    /* border: red solid 1px; */
-    margin-top: 150px;
-    margin-left: 600px;
-}
 
 .logInheader {
-    color: #f1e8f9;
-    margin-bottom: 60px;
-    margin-top: 20px;
-    font-family: 'Satisfy', cursive;
-    text-shadow: 2px 2px #020002;
+    color: #202124;
+    padding-bottom: 0;
+    padding-top: 50px;
+    font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    word-break: break-word;
+    position: relative;
+}
+
+.logInContinue {
+    color: #202124;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 8px;
 
 }
+
 
 .loginForm {
     font-size: 20px;
-    margin-top: 25%;
+    margin-top: 30%;
+    margin-left: -100px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -60,42 +93,57 @@
     transition: transform 2s ease-in-out;
     padding-top: 40px;
     padding-bottom: 40px;
-    width: 350px;
-    height: 400px;
-    background-color: rgba(152, 145, 150, 0.363);
-    box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, .5);
-    position: absolute;
-    transform: scale(1.15);
+    width: 450px;
+    height: 500px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .5);
 }
 
 .lloginbtn {
     margin-top: 10px;
 }
 
-.loginbtn {
-    border: none;
-    height: 40px;
-    width: 250px;
-    background-color: whitesmoke;
-    border: none;
-    border-radius: 5px;
-    background-color: #7d7b7b;
-    font-size: 20px;
-    transition: background-color, transform .3s ease-in-out;
+.loginBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* border: red solid 1px; */
+    height: 100px;
+    width: 65%;
+    margin-left: 117px;
     position: relative;
-    margin-left: 30px;
+}
+
+.loginbtn {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    height: 35px;
+    width: 100px;
+    border: none;
+    border-radius: 3px;
+    align-items: center;
+    color: white;
+    padding: 5px 10px;
 }
 
 .loginbtn:hover {
-    background-color: rgb(249, 250, 252);
-    transform: scale(1.05);
+    opacity: .9;
 }
 
 #demoUserBtn {
     margin-top: 5px;
 }
 
-
+.inputLabel {
+    font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+    font-size: 15px;
+}
 
 .left-Border {
     margin: 3% 3% 8% 0px;
@@ -141,12 +189,12 @@
 
 
 .body {
-    height: 92.8vh;
+    height: 100vh;
     width: 100vw;
-    background: url('https://i.pinimg.com/originals/e1/54/08/e1540876956576d6391c8b96be0a25bc.jpg') no-repeat right;
-    background-size: cover;
+    object-fit: contain;
+    background-color: white;
     z-index: 1;
-
+    position: relative;
 }
 
 .signUpContainer {
@@ -158,53 +206,87 @@
 }
 
 
-
-
-
 .signUpform {
     font-size: 20px;
-    padding: 30px;
-    padding-top: 60px;
-    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-left: -100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #000000;
+    justify-content: flex-start;
     align-items: center;
     transition: transform 2s ease-in-out;
-    position: absolute;
-    background-color: rgba(250, 238, 238, 0.265);
-    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
-    margin-top: 700px;
-    margin-left: 700px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 450px;
+    height: 650px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .5);
 }
 
 
 
 .signUpbtn {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    height: 55px;
+    width: 125px;
     border: none;
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(219, 210, 210);
-    margin-top: 20px;
-    transition: background-color, transform .3s ease-in-out;
+    border-radius: 3px;
+    align-items: center;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 250px;
 }
 
 .signUpbtn:hover {
-    transform: scale(1.05);
-    background-color: #806a7c;
+    opacity: .8;
 }
 
-.signupnav {
-    margin-top: 10px;
+.loginnav {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
     transition: transform, .3s ease-in-out;
+    text-decoration: none;
+    color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    position: relative;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-left: -192px;
+}
+
+.loginnav:hover {
+    color: var(--gm-colortextbutton-ink-color, #1900ff);
+}
+
+
+.signupnav {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    transition: transform, .3s ease-in-out;
+    text-decoration: none;
+    color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    position: relative;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-top: 540px;
+
 }
 
 .signupnav:hover {
-    transform: scale(1.01);
+    color: var(--gm-colortextbutton-ink-color, #1900ff);
 }
 
 .toLogin {
@@ -233,17 +315,18 @@
 }
 
 .signUpheader {
-    color: #e7d6e7;
-    padding-bottom: 20px;
-    font-family: 'Satisfy', cursive;
-    text-shadow: 2px 2px rgba(0, 0, 0, 1);
+    color: #202124;
+    padding-bottom: 0;
+    padding-top: 25px;
+    font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    word-break: break-word;
+    position: relative;
 
 }
 
 .left-Border-sign {
     width: 100%;
-}
-
-.signupnav {
-    margin-top: 10px;
 }

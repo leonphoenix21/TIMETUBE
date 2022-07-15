@@ -45,7 +45,8 @@ const LoginForm = () => {
       <div className='loginContainer'>
         <div className='login-right-border'>
           <form onSubmit={onLogin} className='loginForm'>
-            <h2 className="logInheader"> Log In </h2>
+            <h2 className="logInheader"> Sign In </h2>
+            <p className='logInContinue'> to continue to TimeTube</p>
             <div className='errors'>
               {errors.map((error, ind) => (
                 <div key={ind} className='eachError'>{error}</div>
@@ -54,10 +55,11 @@ const LoginForm = () => {
             <div className='contDiv'>
               {/* <label htmlFor='email'>Email</label> */}
               <input
-                className='videofield strings'
+                className='logField'
+                style={{ marginTop: '70px' }}
                 name='email'
                 type='text'
-                placeholder='email'
+                placeholder='Email'
                 value={email}
                 onChange={updateEmail}
               />
@@ -65,31 +67,32 @@ const LoginForm = () => {
             <div className='contDiv'>
               {/* <label htmlFor='password'>Password</label> */}
               <input
-                className='videofield strings'
+                className='logField '
                 name='password'
                 type='password'
-                placeholder='password'
+                placeholder='Password'
                 value={password}
                 onChange={updatePassword}
               />
             </div>
-            <div className='loginBtns contDiv'>
+            <div className='loginBtns'>
+
               <button type='submit'
-                className="loginbtn lloginbtn">
+                className="loginbtn">
                 Login
               </button>
+              <span style={{ fontSize: '12px', marginLeft: '-10px', marginRight: '-10px' }}>OR</span>
               <button
                 className="loginbtn"
                 type="submit"
-                id="demoUserBtn"
                 onClick={demoLogin}
               >
                 Demo User
               </button>
 
-              <span className='signupnav'> Don't have an account? <NavLink to='/sign-up' style={{ textDecoration: 'none', color: 'purple' }}>  Sign Up </NavLink></span>
 
             </div>
+            <span > <NavLink to='/sign-up' className='loginnav' >  Create Account </NavLink></span>
           </form>
         </div>
       </div>
