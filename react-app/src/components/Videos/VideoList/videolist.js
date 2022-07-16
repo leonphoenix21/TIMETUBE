@@ -27,7 +27,6 @@ const VideoDisplay = () => {
         fetchData();
     }, [dispatch]);
 
-    console.log(users)
     const PosterPicture = (id) => {
         const findUser = users?.filter(currUser => currUser?.id === +id);
         const userAvatar = findUser[0]?.avatar

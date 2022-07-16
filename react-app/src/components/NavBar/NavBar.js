@@ -99,7 +99,6 @@ const NavBar = () => {
     if (sessionUser) {
       const findUser = users?.filter(currUser => currUser?.id === sessionUser.id);
       const userAvatar = findUser[0]?.avatar
-      console.log('KKKlll', userAvatar)
       return userAvatar;
     }
   }
@@ -125,15 +124,12 @@ const NavBar = () => {
 
   const CloseVideoResults = AllVideos?.filter(video => {
     for (let i = 0; i < searchInput.length; i++) {
-      console.log('how many times do i run')
       let letter = searchInput[0]
       if (video?.title.toLowerCase().includes(letter.toLowerCase())
         || video?.description.toLowerCase().includes(letter.toLowerCase())) return video
     }
   })
 
-  console.log('Question mark Videos', VideoResult, searchInput)
-  console.log('Question mark', CloseVideoResults, searchInput)
 
   const SessionLogo = () => {
     return (
@@ -195,10 +191,10 @@ const NavBar = () => {
               {/* // Account Option on SideBar Menu */}
 
               <li className={sidebar ? 'nav-text' : 'nav-text-unactive'}>
-                <Link to={`/user/${sessionUser?.id}`}>
+                <NavLink to={`/user/${sessionUser?.id}`}>
                   <span className={sidebar ? 'nav-text-icon' : 'nav-text-icon-unactive'}><MdSwitchAccount /></span>
                   <span className={sidebar ? 'sidebarItemTitle' : 'sIT'}>Account </span>
-                </Link>
+                </NavLink>
               </li>
 
               {/* // Github and LinkedIn Links */}

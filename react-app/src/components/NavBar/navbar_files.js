@@ -6,7 +6,6 @@ import { ImUpload2 } from 'react-icons/im';
 import { MdVideoLibrary } from 'react-icons/md';
 import { MdSubscriptions } from 'react-icons/md';
 
-
 export const SidebarData = [
     {
         title: 'Home',

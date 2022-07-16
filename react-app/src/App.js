@@ -57,6 +57,7 @@ function App() {
         </Route>
         <ProtectedRoute path='/upload' exact={true}>
           < UploadVideos />
+
         </ProtectedRoute>
         <Route path='/channels' exact={true} >
           <ChannelSplash />

@@ -6,13 +6,12 @@
     margin: 10px;
     /* border: red solid 10px; */
     height: 90vh;
-    width: 98vw;
+    width: 99.2vw;
+    overflow: scroll;
+    background-color: white;
 }
 
-.uppg {
-    margin-top: 60px;
 
-}
 
 
 .manFooterImg {
@@ -25,20 +24,18 @@
     border-radius: 20%;
 }
 
-.uploadTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* border: red solid 1px; */
-    width: 100%;
-}
+
 
 .contDiv {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 15px;
+}
+
+.uploadTitleDescDiv {
+    margin-top: 15px;
+    /* border: red solid 1px; */
 }
 
 .vidTitleField {
@@ -48,6 +45,7 @@
     border: .1px solid rgba(99, 98, 98, 0.569);
     padding-left: 10px;
     padding-bottom: 35px;
+    border: rgba(0, 0, 255, 0.573) solid .1px;
 }
 
 .vidDescriptionField {
@@ -63,7 +61,7 @@
     position: absolute;
     border: none;
     padding: 10px;
-    background-color: #d3d5f0;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
     margin: 5px 0px 10px 0px;
     width: 250px;
     transition: background-color, transform .3s ease-in-out;
@@ -71,7 +69,7 @@
 }
 
 #vidImgUploadField:hover {
-    background-color: #5021f7df;
+    opacity: .9;
 }
 
 .vidUploadField {
@@ -83,36 +81,79 @@
     width: 250px;
 }
 
-.upload-form {
+.upload-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 40px
+}
+
+.coolcolortube {
+    position: absolute;
+    margin-left: 350px;
+    font-size: 22px;
+    transform: scale(1.2);
+    margin-top: 20px;
+}
+
+.uploadTitle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    ;
+}
+
+.uppg {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.upload-form {
     position: absolute;
-    left: 150px;
+    left: 20%;
+    margin-top: 60px;
+    padding: 20px;
+    border: silver solid .1px;
+    height: fit-content;
+    min-height: fit-content;
+    width: fit-content;
+    min-width: fit-content;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: .1px .2px .1px rgb(rgb(0, 0, 0));
+    background-color: white;
+    transform: scale(1.1);
 }
 
+.splitintwo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-#fake-video-button {
-    border: none;
+.splitintwo>* {
     padding: 10px;
-    background-color: #73727690;
-    margin: 5px 0px 10px 0px;
-    width: 250px;
-    transition: background-color, transform .3s ease-in-out;
 }
+
+
 
 #select-video-button {
     border: none;
     padding: 10px;
-    background-color: #d3d5f0;
-    margin: 5px 0px 10px 0px;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    margin: 35px 0px 10px 0px;
     width: 250px;
     transition: background-color, transform .3s ease-in-out;
 }
 
 #select-video-button:hover {
-    background-color: #5021f7df;
+    opacity: .8;
 }
 
 
@@ -131,20 +172,15 @@
 
 .eachVidError {
     border-bottom: solid 1px rgb(18, 1, 1, .05);
-    background-color: rgb(54, 53, 53);
-    color: rgb(255, 68, 0);
+    background-color: rgba(48, 55, 251, 0.243);
+    color: rgb(255, 47, 5);
+    font-weight: bold;
     padding: 5px;
+    border-radius: 3px;
 }
 
 
-.upload-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 40vh;
-    margin-bottom: 20px;
-}
+
 
 .description {
     margin-top: -10px;
@@ -282,30 +318,33 @@
 }
 
 .errorsFile {
-    background-color: rgba(254, 2, 2, 0.63);
+    background-color: rgba(202, 202, 202, 0.63);
     color: black;
 }
 
 .previewVideoComp {
-    height: 305px;
-    background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center;
-    border: black 10px solid;
-    background-color: rgb(16, 16, 16);
-    box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
+    height: 180px;
+    width: 320px;
+    background-color: var(--gm-colortextbutton-ink-color, #051c39);
+    box-shadow: 1.7px .7px .2px rgba(0, 0, 0, 0.151);
     border-radius: 2px;
     background-size: cover;
     /* z-index: 1; */
-    width: 600px;
-    position: absolute;
-    margin-left: 605px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin-top: 30px;
+    margin-top: -20px;
+    margin-bottom: 10px;
 
 }
+
+.previewVideo {
+    height: 180;
+}
+
+
 
 .previewDisplayTitle {
     position: absolute;
@@ -318,30 +357,25 @@
 }
 
 .videoDisplayTitle {
-
     margin-right: 350px;
     width: 400px;
-
 }
 
 .uploadImgComp {
-    position: absolute;
-    height: 300px;
+    height: 180px;
+    width: 320px;
     background-color: black;
-    border: black 10px solid;
-    background-color: rgb(16, 16, 16);
-    box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
+    background-color: var(--gm-colortextbutton-ink-color, #051c39);
+    box-shadow: 1px 1px .2px rgba(0, 0, 0, 0.151);
     border-radius: 2px;
     background-size: cover;
     /* z-index: 1; */
-    width: 550px;
     /* position: absolute; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin-top: 700px;
 
 }
 

@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.timetube>* {
+    cursor: pointer;
+}
+
 .ttli {
     margin-left: -15px;
 }

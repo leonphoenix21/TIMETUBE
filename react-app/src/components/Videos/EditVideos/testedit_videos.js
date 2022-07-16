@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom'
 import { deleteVideo, editVideo } from '../../../store/videos'
 import { FaTools } from "react-icons/fa";
 import { VscSettingsGear } from "react-icons/vsc";
-import VideoPlayerComp from '../../VideoPlayer/video-player';
 import { videoComments } from '../../../store/comments';
 import DelComEditPg from './delCommentsEditPage';
 
@@ -108,13 +107,13 @@ function EditVideos() {
 
     }, [image_url])
 
-    const Idverify = sessionUser?.id === video?.user_id
+
+
     return (
+        {
+            sessionUser.id === video.id &&
+                < div className="bodyContainer" >
 
-
-        < div className="bodyContainer" >
-            {Idverify &&
-                <>
                     <div className="firstVidCon" >
                         <div className='edit-container'>
                             <form onSubmit={handleSubmit} className='editVideoForm'>
@@ -217,8 +216,8 @@ function EditVideos() {
                                 </div>
                             </form>
                             {/* <div >
-                    {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
-                </div> */}
+                        {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
+                    </div> */}
                         </div>
                     </div>
                     <div className="secondVidCon" >
@@ -276,14 +275,12 @@ function EditVideos() {
                             ))}
                         </div>
                     </div>
-                </>
-            }
 
 
-
-
-        </div >
+                </div >
+        }
     )
+
 }
 
 export default EditVideos;

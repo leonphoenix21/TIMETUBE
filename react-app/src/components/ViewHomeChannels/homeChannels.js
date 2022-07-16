@@ -50,7 +50,7 @@ function HomeChannels() {
             <div className="homeChannels">
                 <div className='homechannelList'>
                     <NavLink to='/home' style={{ textDecoration: 'none' }}>
-                        <span className=' homeEachChannel' style={{ fontSize: '14px', padding: '5px 15px 5px 15px ', marginLeft: '80px' }}>
+                        <span className=' homeEachChannel' style={{ fontSize: '14px', padding: '5px 15px 5px 15px ', marginLeft: '92px' }}>
                             All
                         </span >
                     </NavLink>
