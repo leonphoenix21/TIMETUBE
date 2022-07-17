@@ -14,6 +14,7 @@ import { loadUserDetails } from './store/details';
 import { getAllVideos } from './store/videos';
 import VideoDisplay from './components/Videos/VideoList/videolist';
 import EditVideos from './components/Videos/EditVideos/edit_videos';
+import EditVideoModal from './components/Videos/EditVideos/edit_videoModal';
 import SingleVideoPage from './components/Videos/SingleVideo/index';
 import SplashPage from './components/Splash/splash';
 import LibraryPage from './components/LibraryPage';
@@ -73,6 +74,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/edit/:videoId' exact={true} >
           <EditVideos />
+          {/* <EditVideoModal /> */}
         </ProtectedRoute>
         <Route path={['/home', '/']} exact={true} >
           <HomeChannels />

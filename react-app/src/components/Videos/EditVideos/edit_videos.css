@@ -315,3 +315,14 @@
     overflow: wrap;
     margin-left: 45px;
 }
+
+.editVideoButton {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: whitesmoke;
+    border: grey .01px solid;
+    color: black;
+}

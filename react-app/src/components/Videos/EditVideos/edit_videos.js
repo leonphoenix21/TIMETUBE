@@ -224,22 +224,22 @@ function EditVideos() {
                     <div className="secondVidCon" >
                         <div className="videoDisplayTitle"> <h3> Video Preview</h3> </div>
                         <div className='editVideoComp'>
-                            <span className='VideoCompSpan'>
-                                {Object.values(Allvideos).length > 0 ?
-                                    <>
-                                        <div data-vjs-player className='videoPlayerComp'>
-                                            <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
-                                                controls preload="none" poster={previewImg ? previewImg : video?.image_url}
-                                                data-setup='{"aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
-                                                <source src={videoPlaying?.video_url} type='video/mp4' />
-                                            </video>
-                                        </div>
 
-                                    </>
-                                    :
-                                    <>
-                                    </>
-                                } </span>
+                            {Object.values(Allvideos).length > 0 ?
+                                <>
+                                    <div data-vjs-player className='videoPlayerComp'>
+                                        <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
+                                            controls preload="none" poster={previewImg ? previewImg : video?.image_url}
+                                            data-setup='{"aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
+                                            <source src={videoPlaying?.video_url} type='video/mp4' />
+                                        </video>
+                                    </div>
+
+                                </>
+                                :
+                                <>
+                                </>
+                            }
                         </div>
                     </div>
 
