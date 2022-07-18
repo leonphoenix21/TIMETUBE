@@ -185,7 +185,6 @@ function EditVideos() {
         let dislikes;
         videoPlaying.likes ? likes = videoPlaying.likes.length : likes = 0;
         videoPlaying.dislikes ? dislikes = videoPlaying.dislikes.length : dislikes = 0;
-
         let percent = (likes / (likes + dislikes)) * 100
         return `${percent.toFixed(0)}%`
     }

@@ -17,6 +17,9 @@ import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
 import { RiVideoAddLine } from "react-icons/ri";
+import { MdOutlineAccountBox } from "react-icons/md";
+import { AiOutlinePlaySquare } from "react-icons/ai";
+import { GrHome } from "react-icons/gr";
 import { logout } from '../../store/session';
 
 import Logo from './Logo';
@@ -234,17 +237,9 @@ const NavBar = () => {
           </nav>
         </IconContext.Provider>
       </>
-      {/* <NavLink className='navlinks' to='/users' exact={true} activeClassName='active'>
-        Users
-      </NavLink> */}
-      {/* <NavLink className='navlinks' to='/home' exact={true} activeClassName='active'>
-        Home
-      </NavLink> */}
-      {/* <NavLink to='/upload' className='navlinks' exact={true} activeClassName='active'>
-        <span className='UploadIcon'> <ImUpload2 /> </span>
-      </NavLink> */}
 
-      {/* { Search Bar Div and Information} */}
+
+      {/*  Search Bar Div and Information */}
       <div className="searchBarDiv">
         <input
           className='searchInput'
@@ -288,9 +283,9 @@ const NavBar = () => {
       <div className='userProfileUploadIcon' onClick={openIconMenu}> <RiVideoAddLine /> </div>
       <div className="dropdown">
         {showIconMenu && (
-          <div className="profile-dropdown">
-            <div>
-              <NavLink className='navlinks lidrop-down' to={`/upload`} exact={true} activeClassName="active"> Upload </NavLink>
+          <div className="upload-dropdown">
+            <div className='lidrop-downDiv'>
+              <NavLink className='lidrop-down' to={`/upload`} exact={true} activeClassName="active">  <span className='logoutImgSpan' style={{ marginRight: '15px' }} > < AiOutlinePlaySquare /> </span>  Upload </NavLink>
             </div>
 
           </div>
@@ -307,11 +302,23 @@ const NavBar = () => {
       <div className="dropdown">
         {showMenu && (
           <div className="profile-dropdown">
-            <div>
-              {/* <NavLink className='navlinks  lidrop-down' to={`/user/${sessionUser?.id}`} exact={true} activeClassName="active"> Account  <RiAccountPinBoxFill /></NavLink>
-              <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div> */}
-              <div className='navlinks sudrop-down' onClick={onLogout}> Logout < GrLogout /> </div>
+            <div className='dropdownImgDiv'>
+              <img className='dropdownImg'
+                onClick={openMenu}
+                height='45'
+                width='45'
+                src={`${PosterPicture(sessionUser?.user_id)}`}
+                onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+              />
+
+              <div className='dropdownFullname'>
+                {sessionUser?.firstname} {sessionUser?.lastname}
+                <div className='myta'> <NavLink to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
+              </div>
             </div>
+            <div className='logoutDropdownDiv' style={{ marginTop: '10px' }} onClick={onLogout}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </div>
+            <div className='logoutDropdownDiv' onClick={onLogout}> <span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span>  </div>
+            <div className='logoutDropdownDiv' style={{ marginBottom: '15px' }} onClick={onLogout}> <span className='logoutImgSpan' style={{ marginLeft: '-1px' }}> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>  </div>
 
           </div>
         )}

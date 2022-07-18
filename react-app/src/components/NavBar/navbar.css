@@ -53,17 +53,64 @@
     color: black;
 }
 
+.lidrop-downDiv {
+    padding-left: 10px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lidrop-down {
+    margin-left: -25px;
+    padding-left: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 15px 5px 3px;
+}
+
+.upload-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: .1px rgba(128, 128, 128, 0.503) solid;
+    border-top: none;
+    padding: 5px 25px;
+    border-radius: 2px;
+    /* color: #065fd4db; */
+    color: black;
+    margin-top: 10px;
+    right: 23px;
+    top: 32px;
+    width: 200px;
+}
+
 .profile-dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border: whitesmoke 1px solid;
-    padding: 25px;
-    border-radius: 6px;
+    background-color: #ffffff;
+    border: .1px rgba(128, 128, 128, 0.503) solid;
+    border-top: none;
+    padding: 5px 25px;
+    border-radius: 2px;
+    /* color: #065fd4db; */
     color: black;
     margin-top: 10px;
+    right: 23px;
+    top: 32px;
+    width: 320px;
 }
+
 
 .dropdown button {
     background-color: white;
@@ -185,7 +232,6 @@
 
 }
 
-
 .nav-text a {
     text-decoration: none;
     color: grey;
@@ -280,8 +326,6 @@ span {
 
 }
 
-
-
 .githubLinkTitle {
     color: black;
     font-size: 25px;
@@ -299,7 +343,6 @@ span {
     width: 100px;
     height: 10px;
 }
-
 
 .logOutBtn {
     position: absolute;
@@ -467,17 +510,7 @@ span {
     text-decoration: none;
 }
 
-.profile-dropdown {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: 5px 25px;
-    border-radius: 6px;
-    color: #065fd4db;
-    right: 23px;
-    top: 32px;
-}
+
 
 
 
@@ -492,13 +525,59 @@ span {
 
 
 
-.lidrop-down {
-    margin-left: -25px;
-    padding-left: 10px;
-    color: #065fd4db;
-    cursor: pointer;
+.dropdownImgDiv {
+    border-bottom: rgba(128, 128, 128, 0.209) solid .1px;
+}
+
+.dropdownImg {
+    padding: 2px;
+    border: rgba(128, 128, 128, 0.078) .1px solid;
+    border-radius: 50%;
+}
+
+.dropdownFullname {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 1rem;
+    line-height: 2.2rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.myta {
+    color: #065FD4;
+    font-size: .85rem;
+    width: 220px;
+    margin-top: -5px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 500;
+    /* border: red solid 1px; */
+}
+
+.logoutImgSpan {
+    color: black;
+    font-size: 25px;
+    margin-left: -4px;
+}
+
+.logoutSpan {
+    color: black;
+    font-size: 15px;
+    font-family: "Roboto", "Arial", sans-serif;
 
 }
+
+.logoutDropdownDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.logoutSpan {}
 
 .userProfileBtn {
     position: absolute;
@@ -513,6 +592,16 @@ span {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     cursor: pointer;
+}
+
+.dropdownImgDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.dropdownImg {
+    margin-left: 10px;
 }
 
 .userProfileImg {
