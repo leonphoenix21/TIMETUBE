@@ -60,13 +60,13 @@
     width: 95%;
 }
 
-.channelList::-webkit-scrollbar {
+/* .channelList::-webkit-scrollbar {
     height: 10px;
     background-color: rgba(205, 205, 205, 0.982);
     border-radius: 10%;
     margin: 0px 5px 0px 5px;
     border-bottom: rgb(72, 71, 72, .5) solid 1px;
-}
+} */
 
 .vidPlayIcon {
     position: relative;

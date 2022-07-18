@@ -28,11 +28,13 @@
     overflow-x: scroll;
     background-color: white;
     border-radius: 10px 10px 0px 0px;
+    margin-top: -1px;
     margin-right: 20px;
     padding: 10px 5px 0px 5px;
+    width: 100vw;
 }
 
-.homechannelList::-webkit-scrollbar {
+/* .homechannelList::-webkit-scrollbar {
     height: 1px;
     color: beige;
     background-color: rgba(205, 205, 205, 0.014);
@@ -40,7 +42,7 @@
     border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
     box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
     margin-top: -10px;
-}
+} */
 
 .homeEachChannel {
     margin-right: 10px;
@@ -48,7 +50,7 @@
     padding: 7px 10px 7px 10px;
     border-radius: 50px;
     min-width: fit-content;
-    background-color: #ceced084;
+    background-color: #dcdcde84;
     display: flex;
     justify-content: center;
     align-items: center;

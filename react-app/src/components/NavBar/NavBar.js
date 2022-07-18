@@ -316,9 +316,9 @@ const NavBar = () => {
                 <div className='myta'> <NavLink to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
               </div>
             </div>
-            <div className='logoutDropdownDiv' style={{ marginTop: '10px' }} onClick={onLogout}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </div>
-            <div className='logoutDropdownDiv' onClick={onLogout}> <span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span>  </div>
-            <div className='logoutDropdownDiv' style={{ marginBottom: '15px' }} onClick={onLogout}> <span className='logoutImgSpan' style={{ marginLeft: '-1px' }}> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>  </div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> </span> <span className='logoutImgSpan' style={{ marginLeft: '-1px' }}> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>  </NavLink> </div>
 
           </div>
         )}
