@@ -179,6 +179,17 @@ function EditVideos() {
         }
     }
 
+    //? This will find the percentage liked
+    const likePercent = () => {
+        let likes;
+        let dislikes;
+        videoPlaying.likes ? likes = videoPlaying.likes.length : likes = 0;
+        videoPlaying.dislikes ? dislikes = videoPlaying.dislikes.length : dislikes = 0;
+
+        let percent = (likes / (likes + dislikes)) * 100
+        return `${percent.toFixed(0)}%`
+    }
+
     return (
         <div style={{ backgroundColor: 'white' }}>
             {Idverify &&
@@ -343,6 +354,7 @@ function EditVideos() {
                                                     < AiOutlineDislike />
                                                     <span className='likeCount'> {disLikeCounts()}</span>
                                                 </span>
+                                                <span className='likeCount'> {likePercent()}</span>
 
                                             </div>
                                         </div>
