@@ -108,9 +108,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 90%;
 }
 
 .commentContent {
     width: 100%;
     font-family: 'Patrick Hand', cursive;
+}
+
+.videoCommentTimeSession {
+    font-size: 11px;
+    margin-top: 4px;
+    width: 100px;
+    position: absolute;
 }

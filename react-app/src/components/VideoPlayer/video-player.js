@@ -13,8 +13,8 @@ function VideoPlayerComp({ videoId }) {
         <>
             {Object.values(Allvideos).length > 0 ?
                 <>
-                    <div data-vjs-player className='videoPlayerComp'>
-                        <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
+                    <div data-vjs-player >
+                        <video className=" vjs-default-skin " width="640px" height="267px"
                             controls preload="none" poster={videoPlaying?.image_url}
                             data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
                             <source src={videoPlaying?.video_url} type='video/mp4' />

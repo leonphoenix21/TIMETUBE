@@ -85,16 +85,18 @@ const SignUpForm = () => {
               <div key={ind} className='eachError'>{error}</div>
             ))}
           </div>
-          <h2 className="timetube" onClick={Homepage}>
-            <span style={{ color: 'blue' }}>t</span>
-            <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
-            <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
-            <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
-            <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
-            <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
-            <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
-            <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
-          </h2>
+          <div className="timetube" style={{ marginTop: '10px', marginBottom: '-35px', marginLeft: '-10px' }} onClick={Homepage}>
+            <h2 style={{ position: 'relative' }}>
+              <span style={{ color: 'blue' }}>t</span>
+              <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
+              <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
+              <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
+              <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
+              <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
+              <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
+              <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
+            </h2>
+          </div>
           <h2 className="signUpheader"> Sign Up </h2>
           <p className='logInContinue'> to continue to TimeTube</p>
           <div className="fullname">

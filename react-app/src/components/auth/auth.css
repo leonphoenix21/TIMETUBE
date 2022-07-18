@@ -8,14 +8,11 @@
 
 .timetube {
     font-family: 'Edu VIC WA NT Beginner', cursive;
-    position: absolute;
     margin-top: -15px;
     cursor: pointer;
+    margin-bottom: -25px;
 }
 
-.timetube>* {
-    cursor: pointer;
-}
 
 .ttli {
     margin-left: -15px;

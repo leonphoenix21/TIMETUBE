@@ -6,6 +6,9 @@ import { useHistory } from 'react-router-dom'
 import { deleteVideo, editVideo } from '../../../store/videos'
 import { FaTools } from "react-icons/fa";
 import { VscSettingsGear } from "react-icons/vsc";
+import { BsDot } from 'react-icons/bs';
+import { AiOutlineLike } from 'react-icons/ai'; //Empty Like button
+import { AiOutlineDislike } from 'react-icons/ai'; //Empty DisLike button
 import VideoPlayerComp from '../../VideoPlayer/video-player';
 import { videoComments } from '../../../store/comments';
 import DelComEditPg from './delCommentsEditPage';
@@ -109,18 +112,85 @@ function EditVideos() {
     }, [image_url])
 
     const Idverify = sessionUser?.id === video?.user_id
+    const GoToVideo = () => {
+        history.push(`/videos/${videoId}`)
+    }
+
+    const VideoViewCount = (video) => {
+
+        const ViewCount = video.view_count;
+        if (!ViewCount || ViewCount === 0) return '1 view';
+
+        let numStr = ViewCount.toString()
+
+        if (ViewCount === 1) return `1 view`
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        } else {
+            return `${ViewCount} views`
+        }
+    }
+
+    const TimeSession = (video) => {
+        return video.created_at.slice(4, 16)
+    }
+
+    //? This will count the likes
+    const likeCounts = () => {
+        let num = videoPlaying.likes.length;
+        let numStr = num.toString()
+
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        }
+        else {
+            return videoPlaying.likes.length
+        }
+    }
+
+    //? This will count the dislikes
+    const disLikeCounts = () => {
+        let num = videoPlaying.dislikes.length;
+        let numStr = num.toString()
+
+        if (numStr.length === 4) {
+            return `${numStr[0]}.${numStr[1]}K`
+        } else if (numStr.length === 5) {
+            return `${numStr[0]}${numStr[1]}.${numStr[2]}K`
+        } else if (numStr.length === 6) {
+            return `${numStr[0]}${numStr[1]}${numStr[2]}.${numStr[3]}K`
+        } else if (numStr.length === 7) {
+            return `${numStr[0]}.${numStr[1]}${numStr[2]}M`
+        }
+        else {
+            return videoPlaying.dislikes.length
+        }
+    }
+
     return (
-
-
-        < div className="bodyContainer" >
+        <div style={{ backgroundColor: 'white' }}>
             {Idverify &&
-                <>
+                < div className="bodyContainer" >
                     <div className="firstVidCon" >
                         <div className='edit-container'>
                             <form onSubmit={handleSubmit} className='editVideoForm'>
                                 <div className='edit-title-div'>
-                                    <h2 className='editTitleHeader'> Edit Video </h2>
-                                    <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
+                                    <h2 className='editTitleHeader'>
+                                        Video Details
+                                        <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
+                                    </h2>
                                 </div>
                                 <div className='commentErr' style={{ top: '50%' }}>
                                     {errors.map((error, ind) => (
@@ -128,34 +198,15 @@ function EditVideos() {
                                     ))}
                                 </div>
 
-                                <div className='contDiv'>
-                                    <img src={`${video?.image_url}`}
-                                        alt='' style={{ height: '150px', width: '250px' }}
-                                        onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
 
-                                    />
-                                </div>
-                                <div className='contDiv' >
-                                    <label className='approvedFileLabel'> Our approved image file types</label>
-                                    <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
-                                    <label htmlFor='edit-poster' id='select-file-button'> Update Cover Photo . . .</label>
-                                    <input
-                                        className='videofield'
-                                        type='file'
-                                        id='edit-poster'
-                                        accept='image/*'
-                                        onChange={updateImage}
-                                        hidden
-                                    />
-                                </div>
                                 <div className='contDiv'>
                                     <label> Edit Title </label>
                                     <input
-                                        className="videofield strings"
+                                        className="editTitleField"
                                         type="text"
                                         onChange={(e) => setTitle(e.target.value)}
                                         value={title}
-                                        placeholder={`add title here...`}
+                                        placeholder={video?.title ? video.title : 'add title here'}
                                         name="title"
                                         minLength={3}
                                         required
@@ -166,15 +217,56 @@ function EditVideos() {
 
                                     <label> Edit Description </label>
                                     <textarea
-                                        className="videotext strings"
+                                        className="editDescriptionField"
                                         value={description}
                                         onChange={(e) => (
                                             setDescription(e.target.value)
                                         )}
-                                        placeholder={`add description here ...`}
+                                        placeholder={video?.description ? video.description : 'add description here'}
                                         name="description"
                                         id="description"
                                     />
+                                </div>
+                                <div className='contDiv'>
+                                    <h3 className='thumbnailEditHeader'> Thumbnail </h3>
+                                    <div className='contDiv' >
+                                        <label className='approvedFileLabel'> Our approved image file types</label>
+                                        <label className='approvedFileLabel'> Include: pdf, png, jpg, jpeg, gif, jfif </label>
+                                        <label htmlFor='edit-poster' id='select-img-button'> Update Cover Photo . . .</label>
+                                        <input
+                                            className='videofield'
+                                            type='file'
+                                            id='edit-poster'
+                                            accept='image/*'
+                                            onChange={updateImage}
+                                            hidden
+                                        />
+                                    </div>
+                                    <div className='editPreviewImages'>
+                                        <div className="currThumbnail">
+                                            <h2 className='thumbnailHeader'>Current Thumbnail</h2>
+                                            <img src={`${video?.image_url}`}
+                                                alt='' style={{ height: '180px', width: '320px' }}
+                                                onError={(e) =>
+                                                    e.target.src =
+                                                    ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                                            />
+                                        </div>
+                                        {
+                                            previewImg &&
+                                            <div className="newThumbnail">
+                                                <h2 className='thumbnailHeader'>Preview Thumbnail</h2>
+                                                <img src={`${previewImg ? previewImg : video?.image_url}`}
+                                                    alt='' style={{ height: '180px', width: '320px' }}
+                                                    onError={(e) =>
+                                                        e.target.src =
+                                                        ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+
+                                                />
+                                            </div>
+                                        }
+
+                                    </div>
                                 </div>
 
                                 <div className='editBtnsDiv'>
@@ -185,15 +277,18 @@ function EditVideos() {
                                             </div>
                                             <div className='editBtns'>
                                                 <button
+                                                    className='editSubmitbtns'
                                                     type='button'
                                                     onClick={() => setShowDelete(false)}
-                                                    className='editvideobtn'>
+                                                    style={{ marginRight: "10px" }}
+                                                >
                                                     Cancel
                                                 </button>
                                                 <button
+                                                    className='editSubmitbtns'
                                                     type='button'
                                                     onClick={deleteVideoSubmit}
-                                                    className='deletebtn'>
+                                                >
                                                     Delete Video
                                                 </button>
                                             </div>
@@ -202,13 +297,16 @@ function EditVideos() {
                                         <div className='editBtns'>
                                             <button
                                                 type='submit'
-                                                className='editvideobtn'>
+                                                className='editSubmitbtns'
+                                            >
                                                 Submit
                                             </button>
                                             <button
                                                 type='button'
                                                 onClick={() => setShowDelete(true)}
-                                                className='editvideobtn'>
+                                                style={{ marginLeft: '10px' }}
+                                                className='editSubmitbtns'
+                                            >
                                                 Delete
                                             </button>
                                         </div>
@@ -216,23 +314,39 @@ function EditVideos() {
 
                                 </div>
                             </form>
-                            {/* <div >
-                    {errors.length > 1 && <span className='redX' ><FcCancel /></span>}
-                </div> */}
                         </div>
                     </div>
                     <div className="secondVidCon" >
-                        <div className="videoDisplayTitle"> <h3> Video Preview</h3> </div>
                         <div className='editVideoComp'>
 
                             {Object.values(Allvideos).length > 0 ?
                                 <>
                                     <div data-vjs-player className='videoPlayerComp'>
-                                        <video className="edit-video-js vjs-default-skin " width="640px" height="267px"
+                                        <video className="edit-video-js vjs-default-skin " width="320px" height="180px"
                                             controls preload="none" poster={previewImg ? previewImg : video?.image_url}
                                             data-setup='{"aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'>
                                             <source src={videoPlaying?.video_url} type='video/mp4' />
                                         </video>
+                                        <div className="videoDisplayTitle">
+                                            <span style={{ fontSize: '12px', color: 'grey' }}>Video Link</span>
+                                            <span onClick={GoToVideo} className='gotovideo'> Go to Video </span>
+                                            <div className='editVideoViewCountDiv'>
+                                                <span> {VideoViewCount(videoPlaying)} <BsDot /> {TimeSession(videoPlaying)}</span>
+                                                <div style={{ margin: '5px' }} ></div>
+                                                <span
+                                                    style={{ fontSize: '18px' }}
+                                                >
+                                                    <  AiOutlineLike />
+                                                    <span className='likeCount'> {likeCounts()}</span>
+                                                </span>
+                                                <span style={{ fontSize: '18px' }}>
+                                                    < AiOutlineDislike />
+                                                    <span className='likeCount'> {disLikeCounts()}</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </>
@@ -241,13 +355,10 @@ function EditVideos() {
                                 </>
                             }
                         </div>
-                    </div>
-
-                    <div className="thirdVidCon">
+                        <div className="CommentTitleandCount">
+                            <h2 className='thumbnailEditHeader'> {commCount}  Comments </h2>
+                        </div>
                         <div className="userViewComments">
-                            <div className="CommentTitleandCount">
-                                <h2> {commCount}  Comments </h2>
-                            </div>
                             <div className="border-bottomComm"> </div>
                             {comments?.map(comment => (
                                 <div className="editCommentsDisplay">
@@ -262,27 +373,30 @@ function EditVideos() {
                                         </a>
                                     </div>
                                     <div className="commentNameContent">
-                                        <div className="editCommFullname">
+                                        <div className="editCommFullname thumbnailEditHeader">
                                             {comment?.firstname}
                                             {comment?.lastname}
+                                            <div className="DelComEditPg" >
+                                                <span className="commentTimeSession" style={{ left: '0' }}>{TimeSession(comment)}</span>
+                                                <span className="commentTimeSession"> <DelComEditPg comment={comment} /></span>
+
+                                            </div>
                                         </div>
-                                        <div className="editCommContent">
-                                            {comment?.content}
+                                        <div className="editCommContent thumbnailHeader">
+                                            <span style={{ position: 'relative' }}>
+                                                {comment?.content}
+                                            </span>
+
                                         </div>
                                     </div>
-                                    <DelComEditPg comment={comment} />
                                     <div className="border-bottomComm"> </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                </>
+                </div >
             }
-
-
-
-
-        </div >
+        </div>
     )
 }
 

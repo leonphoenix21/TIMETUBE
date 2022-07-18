@@ -3,28 +3,103 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px;
     /* border: red solid 10px; */
-    height: 90vh;
-    width: 99.2vw;
     overflow: scroll;
+    background-color: white;
+    height: 97vh;
+    width: 100%;
+}
+
+.upload-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    align-self: center;
+    /* border: red solid 1px; */
+}
+
+.cp {
+    cursor: pointer;
+}
+
+
+.coolcolortube {
+    /* position: absolute; */
+    font-size: 22px;
+    transform: scale(1.2);
+    /* border: red solid 1px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: -50px;
+}
+
+.uppg {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.upload-form {
+    height: fit-content;
+    min-height: fit-content;
+    margin-top: 80px;
+    width: fit-content;
+    padding: 0 30px;
+    min-width: fit-content;
+    border-radius: 5px;
+    box-shadow: .1px .2px .1px rgb(rgb(0, 0, 0));
+    border: .1px solid rgba(99, 98, 98, 0.569);
     background-color: white;
 }
 
-
-
-
-.manFooterImg {
+.editOpenModalDiv {
+    padding: 10px;
     position: absolute;
-    top: 30%;
-    left: 10%;
-    margin-left: 40px;
-    width: 300px;
-    height: 300px;
-    border-radius: 20%;
+    height: 60vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    box-shadow: .1px .2px .1px rgb(rgb(0, 0, 0));
+    border: .1px solid rgba(99, 98, 98, 0.569);
+    background-color: white;
+    border-radius: 3px;
 }
 
+.editOpenModalBtn {
+    height: 45px;
+    width: 225px;
+    position: absolute;
+    border: none;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    z-index: 1;
+    font-size: 20px;
+}
 
+.slant1 {
+    position: absolute;
+    border-top: 1px solid black;
+    width: 106.5%;
+    transform: rotate(20.3deg);
+}
+
+.slant2 {
+    position: absolute;
+    border-top: 1px solid black;
+    width: 106.5%;
+    transform: rotate(-20.3deg);
+}
 
 .contDiv {
     display: flex;
@@ -40,36 +115,43 @@
 
 .vidTitleField {
     height: 80px;
-    width: 600px;
+    width: 700px;
     border-radius: 5px;
     border: .1px solid rgba(99, 98, 98, 0.569);
     padding-left: 10px;
     padding-bottom: 35px;
-    border: rgba(0, 0, 255, 0.573) solid .1px;
 }
 
 .vidDescriptionField {
     height: 200px;
-    width: 600px;
+    width: 700px;
     border-radius: 5px;
     border: .1px solid rgba(99, 98, 98, 0.569);
     padding-left: 10px;
     padding-top: 10px;
 }
 
-#vidImgUploadField {
-    position: absolute;
-    border: none;
-    padding: 10px;
-    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
-    margin: 5px 0px 10px 0px;
-    width: 250px;
-    transition: background-color, transform .3s ease-in-out;
-    cursor: pointer;
-}
+
 
 #vidImgUploadField:hover {
     opacity: .9;
+}
+
+.submitvideobtn {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 1.575rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    height: 55px;
+    width: 220px;
+    border: none;
+    border-radius: 4px;
+    align-items: center;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 10px;
 }
 
 .vidUploadField {
@@ -79,55 +161,6 @@
 .videofield {
     height: 40px;
     width: 250px;
-}
-
-.upload-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 40px
-}
-
-.coolcolortube {
-    position: absolute;
-    margin-left: 350px;
-    font-size: 22px;
-    transform: scale(1.2);
-    margin-top: 20px;
-}
-
-.uploadTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    ;
-}
-
-.uppg {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-}
-
-.upload-form {
-    position: absolute;
-    left: 20%;
-    margin-top: 60px;
-    padding: 20px;
-    border: silver solid .1px;
-    height: fit-content;
-    min-height: fit-content;
-    width: fit-content;
-    min-width: fit-content;
-    padding: 10px 30px;
-    border-radius: 5px;
-    box-shadow: .1px .2px .1px rgb(rgb(0, 0, 0));
-    background-color: white;
-    transform: scale(1.1);
 }
 
 .splitintwo {
@@ -141,7 +174,23 @@
     padding: 10px;
 }
 
+.previewVideoComp {
+    height: 180px;
+    width: 320px;
+    background-color: var(--gm-colortextbutton-ink-color, #051c39);
+    box-shadow: 1.7px .7px .2px rgba(0, 0, 0, 0.151);
+    border-radius: 2px;
+    background-size: cover;
+    /* z-index: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: 10px;
 
+}
 
 #select-video-button {
     border: none;
@@ -154,6 +203,35 @@
 
 #select-video-button:hover {
     opacity: .8;
+}
+
+.uploadImgComp {
+    height: 180px;
+    width: 320px;
+    background-color: black;
+    background-color: var(--gm-colortextbutton-ink-color, #051c39);
+    box-shadow: 1px 1px .2px rgba(0, 0, 0, 0.151);
+    border-radius: 2px;
+    background-size: cover;
+    /* z-index: 1; */
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+
+#vidImgUploadField {
+    position: absolute;
+    border: none;
+    padding: 10px;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    margin: 5px 0px 10px 0px;
+    width: 250px;
+    transition: background-color, transform .3s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -195,23 +273,7 @@
     background-color: #d3d3d3;
 }
 
-.submitvideobtn {
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 1.175rem;
-    letter-spacing: .0107142857em;
-    font-weight: 500;
-    text-transform: none;
-    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
-    height: 50px;
-    width: 180px;
-    border: none;
-    border-radius: 4px;
-    align-items: center;
-    color: white;
-    padding: 5px 10px;
-    margin-left: 417px;
-    margin-top: 10px;
-}
+
 
 .submitvideobtn:hover {
     opacity: .8;
@@ -310,76 +372,7 @@
     flex-direction: column;
 }
 
-.approvedFileLabel {
-    font-size: 12px;
-    width: 250px;
-    display: flex;
-    align-items: center;
-}
-
 .errorsFile {
     background-color: rgba(202, 202, 202, 0.63);
     color: black;
-}
-
-.previewVideoComp {
-    height: 180px;
-    width: 320px;
-    background-color: var(--gm-colortextbutton-ink-color, #051c39);
-    box-shadow: 1.7px .7px .2px rgba(0, 0, 0, 0.151);
-    border-radius: 2px;
-    background-size: cover;
-    /* z-index: 1; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: -20px;
-    margin-bottom: 10px;
-
-}
-
-.previewVideo {
-    height: 180;
-}
-
-
-
-.previewDisplayTitle {
-    position: absolute;
-    /* border: red solid 1px; */
-    margin-left: 600px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.videoDisplayTitle {
-    margin-right: 350px;
-    width: 400px;
-}
-
-.uploadImgComp {
-    height: 180px;
-    width: 320px;
-    background-color: black;
-    background-color: var(--gm-colortextbutton-ink-color, #051c39);
-    box-shadow: 1px 1px .2px rgba(0, 0, 0, 0.151);
-    border-radius: 2px;
-    background-size: cover;
-    /* z-index: 1; */
-    /* position: absolute; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-
-}
-
-.ImgDisplayTitle {
-    position: absolute;
-    margin-top: 370px;
 }

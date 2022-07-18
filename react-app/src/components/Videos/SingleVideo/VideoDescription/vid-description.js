@@ -168,12 +168,9 @@ function VideoDescription() {
 
     const VideoViewCount = (video) => {
 
-
         if (!video.view_count) View_Count_HandleSubmit(video)
         const ViewCount = video.view_count;
         if (!ViewCount || ViewCount === 0) return '1 view';
-
-
 
         let numStr = ViewCount.toString()
 

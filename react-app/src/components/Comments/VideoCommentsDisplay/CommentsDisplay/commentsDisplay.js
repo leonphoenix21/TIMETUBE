@@ -45,6 +45,9 @@ function CommentsDisplay({ boxId }) {
         const fullname = `${firstname} ${lastname}`
         return fullname;
     }
+    const TimeSession = (video) => {
+        return video.created_at.slice(4, 16)
+    }
 
     return (
         <div className='commentBody'>
@@ -71,19 +74,20 @@ function CommentsDisplay({ boxId }) {
                             <div className="fullCommentName">
                                 <div className="commentFirstname" style={{ marginRight: '3px' }}>
                                     {channelName(comment.user_id)}
+                                    <span className="videoCommentTimeSession">{TimeSession(comment)}</span>
                                 </div>
                             </div>
                             <div className='individualContent'>
                                 <div className="contentItems">
                                     <p className="commentContent">  {comment?.content}</p>
                                     {comment?.user_id === sessionUser.id ?
-                                        <span className="commentReactIcons commEdit"> <EditComment commentId={comment.id} /></span>
+                                        <div className=""> <EditComment commentId={comment.id} /></div>
                                         :
                                         <>
                                         </>
                                     }
                                     {comment?.user_id === sessionUser.id || sessionUser.id === video.user ?
-                                        <span className="navlinks homeIcon commDell"> <DeleteComments commentId={comment.id} /></span>
+                                        <div> <DeleteComments commentId={comment.id} /></div>
                                         :
                                         <>
                                         </>

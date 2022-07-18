@@ -3,6 +3,8 @@ import { GiTrashCan } from "react-icons/gi";
 import { useDispatch } from 'react-redux';
 import './edit_videos.css';
 import { removeComment } from '../../../store/comments'
+import { BsCheck2 } from 'react-icons/bs';
+import { MdOutlineCancel } from 'react-icons/md';
 
 
 function DelComEditPg({ comment }) {
@@ -24,15 +26,17 @@ function DelComEditPg({ comment }) {
         <div className="editVideodeleteComment">
             {showCommDelete ?
                 <>
-                    <form onSubmit={handleSubmit}>
-                        <div className='areUSure'><label >are you sure you want to delete <span style={{ fontWeight: 'bold' }}>{comment?.firstname}</span>'s comment? </label></div>
-                        <button className='commComfirmDel'> Confirm Delete </button>
-                        <button className='commComfirmCancel' onClick={() => setShowCommDelete(false)}>Cancel</button>
+                    <form onSubmit={handleSubmit} className='ConfirmDel '>
+                        <div className='thumbnailHeader ' style={{ marginBottom: '-8px' }}><label >Confirm delete? </label></div>
+                        <div className="delcommIcons">
+                            <button className='commComfirmDel' style={{ marginRight: '10px' }}> <BsCheck2 /> </button>
+                            <button className='commComfirmDel' onClick={() => setShowCommDelete(false)}><MdOutlineCancel /></button>
+                        </div>
                     </form>
                 </>
                 :
                 <>
-                    <span className="navlinks homeIcon" onClick={() => setShowCommDelete(true)} style={{ position: 'absolute', right: '5%' }}> <GiTrashCan /></span>
+                    <span className="navlinks homeIcon" onClick={() => setShowCommDelete(true)} > <GiTrashCan /></span>
                 </>
             }
 

@@ -1,17 +1,20 @@
 import React, { useEffect, useRef } from 'react';
+import Modal from 'react-modal';
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 import { BsArrowUpShort } from 'react-icons/bs';
 import { VscLoading } from 'react-icons/vsc';
-import { uploadVideo } from '../../../store/videos'
+import { uploadVideo } from '../../../store/videos';
+import { MdOutlineManageAccounts, MdPadding } from "react-icons/md";
 import './upload_videos.css';
 
 // import videojs from 'video.js';
 // import { useParams } from 'react-router-dom';
 
 function UploadVideos() {
+
 
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
@@ -24,8 +27,10 @@ function UploadVideos() {
     const [previewImg, setPreviewImg] = useState('');
     const [description, setDescription] = useState('');
     const [image_url, setImageUrl] = useState('');
-    const [vidActive, setVidActive] = useState(false);
     const [previewVidLoading, setPreviewVidLoading] = useState(false);
+
+
+
 
 
     const updateVideo = (e) => {
@@ -38,9 +43,7 @@ function UploadVideos() {
         setVideoUrl(file);
         setPreviewVidLoading(true)
 
-        if (video_url) {
-            setVidActive(true)
-        }
+
 
     };
 
@@ -59,7 +62,6 @@ function UploadVideos() {
         let fileReader, isCancel = false;
 
         if (video_url) {
-            setVidActive(true)
             setPreviewVidLoading(true)
             fileReader = new FileReader();
             fileReader.onload = (e) => {
@@ -160,51 +162,42 @@ function UploadVideos() {
 
     return (
         <div className='uploadbodyCon'>
-            <form onSubmit={handleSubmit} className='upload-form'>
-                <div className='upload-title'>
-                    {
-                        loading ?
-                            <>
-                                <div className="coolcolortube">
-                                    <h2 className="uppg" onClick={Homepage}>
-                                        <span style={{ fontSize: '24px', marginRight: '-12px' }}> Upload to </span>
-                                        <span style={{ color: 'blue' }}>t</span>
-                                        <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
-                                        <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
-                                        <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
-                                        <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
-                                        <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
-                                        <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
-                                        <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
-                                    </h2>
-                                </div>
-                                <div className="uploadTitle">
-                                    <h2 className="loadingTitle"> uploading ... </h2>
-                                </div>
-                            </>
-                            :
-                            <div className="coolcolortube">
-                                <h2 className="uppg" onClick={Homepage}>
-                                    <span style={{ fontSize: '22px', marginRight: '-12px' }}> Upload to </span>
-                                    <span style={{ color: 'blue' }}>t</span>
-                                    <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
-                                    <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
-                                    <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
-                                    <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
-                                    <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
-                                    <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
-                                    <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
-                                </h2>
-                            </div>
 
-                    }
-                    {
-                        loading &&
-                        <div className="loadingIcons">
-                            <span className='videoUploadCloud'> <BsFillCloudArrowUpFill /> </span>
-                            <span className='videoUploadArrow'> <BsArrowUpShort /> </span>
-                        </div>
-                    }
+
+
+            <form onSubmit={handleSubmit} className='upload-form'>
+                <div className="coolcolortube">
+                    <h2 className="uppg" onClick={Homepage}>
+                        <span style={{ fontSize: '24px', marginRight: '-12px' }}> Upload to </span>
+                        <span style={{ color: 'blue' }}>t</span>
+                        <span style={{ color: 'rgb(255, 3, 238)', marginLeft: '1px' }}>i</span>
+                        <span style={{ color: 'green', marginLeft: '1px' }}>m</span>
+                        <span style={{ color: 'black', marginLeft: '1px' }}>e</span>
+                        <span style={{ color: 'red', marginLeft: '1px' }}>t</span>
+                        <span style={{ color: 'orange', marginLeft: '1px' }}>u</span>
+                        <span style={{ color: 'rgb(10, 189, 254)', marginLeft: '1px' }}>b</span>
+                        <span style={{ color: 'orange', marginLeft: '1px' }}>e</span>
+                    </h2>
+                </div>
+                <div className='upload-title'>
+                    <div className="uploadTitle">
+                        {
+                            loading ?
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <h2 className="loadingTitle"> Uploading ... </h2>
+                                    <div className="loadingIcons">
+                                        <span className='videoUploadCloud'> <BsFillCloudArrowUpFill /> </span>
+                                        <span className='videoUploadArrow'> <BsArrowUpShort /> </span>
+                                    </div>
+                                </div>
+                                :
+                                <>
+
+                                </>
+
+                        }
+
+                    </div>
                 </div>
                 <div className='videoErr'>
                     {errors.map((error, ind) => (

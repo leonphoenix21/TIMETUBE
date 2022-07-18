@@ -1,253 +1,156 @@
-.editUploadIcon {
-    padding-left: 28px;
-    font-size: 20px;
-}
-
 .bodyContainer {
-    position: absolute;
-    height: 92.5%;
-    width: 99.6%;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    z-index: 1;
-    display: grid;
-    grid-template-rows: (3, 1fr);
-}
-
-.bodyCon .editUploadIcon {
-    overflow: hidden;
-    animation: hopping 3s infinite linear;
-}
-
-@keyframes hopping {
-    0% {
-        transform: translateX(10px);
-        color: blue;
-        opacity: 50%;
-    }
-
-    50% {
-        transform: translateX(0px);
-        color: '';
-        opacity: 0%;
-    }
-
-    100% {
-        transform: translateX(10px);
-        color: blue;
-        opacity: 50%;
-    }
-
-}
-
-.descriptionedit {}
-
-.editBodyCon {
-    position: absolute;
-    height: 92.5%;
-    width: 99.6%;
-    overflow: hidden;
-    /* background: url('https://cdn.pixabay.com/photo/2022/01/18/11/42/repair-6946846_1280.png') no-repeat center; */
-    background-size: cover;
-    z-index: 1;
-}
-
-.edit-container {
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    /* border: red solid 1px; */
-    margin-left: 50px;
-    margin-top: 10px;
-    height: 650px;
+    height: fit-content;
+    width: 98vw;
+    /* border: red solid 10px; */
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-    padding: 25px;
-    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
+    align-items: flex-start;
+    margin-left: 7%;
+}
+
+.firstVidCon {
+    /* border: red solid 5px; */
+    /* width: 70%; */
+    height: 100%;
 }
 
 .editVideoForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    margin-bottom: 10px;
+    /* margin-left: 15%; */
 }
-
-.editBtnsDiv {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.verifyDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    padding: 5px;
-    background-color: #e5fe05;
-    color: rgb(252, 3, 3);
-}
-
-.editBtns {
-    display: flex;
-    flex-direction: row;
-}
-
-.editvideobtn {
-    border: none;
-    height: 40px;
-    width: 120px;
-    margin: 5px;
-    background-color: whitesmoke;
-    border: solid white 1.5px;
-    border-radius: 5px;
-    transition: transform, background-color .3s ease-in-out;
-}
-
-.deletebtn {
-    border: none;
-    height: 40px;
-    width: 120px;
-    margin: 5px;
-    background-color: rgb(254, 132, 132);
-    border: solid white 1.5px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: transform, background-color .3s ease-in-out;
-}
-
-.deletebtn:hover {
-    background-color: #fe0505;
-    transform: scale(1.1);
-}
-
-.editvideobtn:hover {
-    background-color: #a3e5f9;
-    transform: scale(1.1);
-}
-
-.editTitleHeader {}
 
 .edit-title-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
     /* border: red solid 1px; */
-    min-width: 250px;
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    margin: 5px;
-    margin-top: 0px;
+    margin: 10px 0;
 }
 
-#select-file-button {
-    transition: transform, background-color .2s ease-in-out;
+.editTitleHeader {
+    font-family: "YouTube Sans", "Roboto", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    white-space: nowrap;
 }
 
-.editVideoComp {
-    height: 305px;
-    background: url('https://static.vecteezy.com/system/resources/previews/002/184/666/non_2x/couple-enjoying-watching-drive-in-cinema-free-vector.jpg') no-repeat center;
-    border: black 10px solid;
-    background-color: rgb(16, 16, 16);
-    box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
-    border-radius: 2px;
-    background-size: cover;
-    /* z-index: 1; */
-    width: 595px;
-    /* position: absolute; */
-    margin-left: 380px;
+
+#select-img-button {
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.editTitleField {
+    height: 80px;
+    width: 700px;
+    border-radius: 5px;
+    border: .1px solid rgba(99, 98, 98, 0.569);
+    padding-left: 10px;
+    padding-bottom: 35px;
+    text-transform: capitalize;
+}
+
+.editDescriptionField {
+    height: 200px;
+    width: 700px;
+    border-radius: 5px;
+    border: .1px solid rgba(99, 98, 98, 0.569);
+    padding-left: 10px;
+    padding-top: 10px;
+    text-transform: capitalize;
+
+}
+
+.thumbnailEditHeader {
+    font-family: "YouTube Sans", "Roboto", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    white-space: nowrap;
+}
+
+.editPreviewImages {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: rows;
     align-items: center;
-    padding: 10px;
-
-}
-
-.editImgComp {
-    height: 300px;
-    background-color: black;
-    border: black 10px solid;
-    background-color: rgb(16, 16, 16);
-    box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.151);
-    border-radius: 2px;
-    background-size: cover;
-    /* z-index: 1; */
-    width: 550px;
-    /* position: absolute; */
-    margin-left: 425px;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
-
+    /* border: red solid 1px; */
 }
 
-.videoDisplayTitle {
-    margin-left: 600px;
-    font-size: 18px;
-    padding: 10px;
+.thumbnailHeader {
+    font-family: "Roboto", "Noto", sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--ytcp-text-primary);
+}
+
+.currThumbnail {
+    margin-right: 30px;
+}
+
+.newThumbnail {}
+
+.secondVidCon {
+    /* border: red solid 5px; */
+    /* width: 30%; */
+    height: 100%;
+    padding: 20px;
+}
+
+.videoPlayerComp {
+    background-color: rgba(192, 192, 192, 0.159);
+    margin-top: 53px;
+    width: 320px;
+    border-radius: 1px;
 }
 
 .edit-video-js {
-    /* position: absolute; */
-    height: 280px;
-    width: 570px;
-    background-color: black;
-    margin-right: 15px;
-    margin-top: 5px;
-}
-
-
-
-
-
-#select-file-button:hover {
-    transform: scale(1.07);
-    background-color: #a3e5f9;
-}
-
-
-
-#select-file-button {
-    border: none;
-    padding: 10px;
-    background-color: #d3d3d3;
-    margin: 5px 0px 10px 0px;
-    width: 250px;
-}
-
-.VideoCompSpanImg {
-    height: 290px;
-    width: 540px;
     background-color: black;
 }
 
-.userViewComments {
-    position: absolute;
-    margin-left: 1000px;
-    top: 1%;
-    /* border: red solid 2px; */
-    height: 90vh;
-    width: 540px;
-    overflow-y: scroll;
-    border: .1px whitesmoke solid;
+.videoDisplayTitle {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 20px 0;
+
+    /* border: red solid 1px; */
 }
 
 .CommentTitleandCount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: -30px;
 }
 
-.border-bottomComm {
-    border-bottom: rgba(0, 0, 0, 0.171) solid .1px;
-    margin: 20px;
+.userViewComments {
+    margin-top: 35px;
+    border: .1px rgba(128, 128, 128, 0.41) solid;
+    box-shadow: .1px .3px .1px rgba(0, 0, 0, 0.07);
+    border-radius: 3px;
+    height: 390px;
+    width: 320px;
+    overflow: auto;
+    padding: 5px 2px 0 5px;
+    /* overflow-x: hidden; */
+}
+
+.userViewComments::-webkit-scrollbar {
+    background-color: rgba(113, 113, 113, 0.303);
+    border-radius: 10%;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+    z-index: -1;
+    visibility: visible;
+    height: 2px;
+    width: 5px;
 }
 
 .editCommentsDisplay {
@@ -255,74 +158,130 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    /* border: green 1px solid; */
+    background-color: rgba(99, 98, 98, 0.048);
+    height: fit-content;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+
+
+.commentNameContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .editCommFullname {
-    /* border: red solid 1px; */
-    width: 220px;
-    max-width: 225px;
-    text-overflow: wrap;
-    overflow: wrap;
+    font-size: 15px;
     display: flex;
-    overflow: hidden;
-    text-decoration: underline;
+    flex-direction: row;
+    position: relative;
+}
 
+.editCommContent {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    font-size: 13px;
+}
+
+.commentTimeSession {
+    font-size: 10px;
+    position: absolute;
+    width: fit-content;
+    top: 1px;
+    left: 60px;
+}
+
+.DelComEditPg {
+    /* border: red solid 1px; */
+    /* margin-left: 90px; */
+    position: relative;
 }
 
 
+.ConfirmDel {
+    margin-left: -35px;
+    margin-top: -8px;
+    position: absolute;
+    /* border: red solid 1px; */
+    z-index: 1;
+    font-weight: bold;
+    color: var(--gm-colortextbutton-ink-color, #e8431a);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delcommIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5px 5px;
+}
 
 .commComfirmDel {
-    position: absolute;
-    right: 17%;
-    padding: 7px;
+    font-size: 15px;
+    height: 20px;
+    width: 42px;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
     border: none;
-    border-radius: 1px;
-    transition: background-color, transform .3s ease-in-out;
-}
-
-.wantToDel {
-    font-weight: bold;
-    margin-top: -25px;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .commComfirmDel:hover {
-    background-color: rgba(240, 54, 54, 0.721);
-    transform: scale(1.1);
+    opacity: .9;
 }
 
-.commComfirmCancel {
-    position: absolute;
-    right: 5%;
-    padding: 7px;
+.editVideoViewCountDiv {
+    margin-top: 2.5px;
+    font-size: 14px;
+    font-family: 'Kalam', cursive;
+    color: rgba(0, 0, 0, 0.814)
+}
+
+.gotovideo {
+    font-size: 15px;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    border-radius: 3px;
+    padding: 5px 24px;
+    border: blue solid 1px;
+    width: fit-content;
+    margin: 5px;
+    margin-left: 15px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.editBtnsDiv {
+    background-color: white;
+    margin-top: 40px;
+}
+
+.editSubmitbtns {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
+    height: 45px;
+    width: 200px;
     border: none;
-    border-radius: 1px;
-    transition: background-color, transform .3s ease-in-out;
-}
-
-.commComfirmCancel:hover {
-    background-color: rgb(202, 200, 200);
-    transform: scale(1.1);
-}
-
-.areUSure {
-    position: relative;
-    right: 5%;
-    margin-top: -30px;
-    font-size: 10px;
-    width: 170px;
-    /* border: red solid 1px; */
-    overflow: wrap;
-    margin-left: 45px;
-}
-
-.editVideoButton {
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    padding: 10px;
-    font-size: 20px;
-    background-color: whitesmoke;
-    border: grey .01px solid;
-    color: black;
+    border-radius: 4px;
+    align-items: center;
+    color: white;
+    padding: 5px 10px;
 }
