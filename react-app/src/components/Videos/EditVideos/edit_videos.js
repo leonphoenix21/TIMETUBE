@@ -185,7 +185,8 @@ function EditVideos() {
         let dislikes;
         videoPlaying.likes ? likes = videoPlaying.likes.length : likes = 0;
         videoPlaying.dislikes ? dislikes = videoPlaying.dislikes.length : dislikes = 0;
-        let percent = (likes / (likes + dislikes)) * 100
+        let percent = (likes / (likes + dislikes)) * 100;
+        if (!percent) percent = 0;
         return `${percent.toFixed(0)}%`
     }
 
@@ -346,14 +347,14 @@ function EditVideos() {
                                                 <span
                                                     style={{ fontSize: '18px' }}
                                                 >
-                                                    <  AiOutlineLike />
-                                                    <span className='likeCount'> {likeCounts()}</span>
+                                                    <  AiOutlineLike /> Likes:
+                                                    <span className='likeCount' style={{ marginLeft: '3px', fontSize: '20px', fontWeight: 'bold', color: 'blue' }}> {likeCounts()}</span>
                                                 </span>
                                                 <span style={{ fontSize: '18px' }}>
-                                                    < AiOutlineDislike />
-                                                    <span className='likeCount'> {disLikeCounts()}</span>
+                                                    < AiOutlineDislike /> Dislikes:
+                                                    <span className='likeCount' style={{ marginLeft: '3px', fontSize: '20px', fontWeight: 'bold', color: 'blue' }}> {disLikeCounts()}</span>
                                                 </span>
-                                                <span className='likeCount'> {likePercent()}</span>
+                                                <span className='likeCount' style={{ marginLeft: '20px', fontSize: '20px', fontWeight: 'bold', color: 'blue' }}> {likePercent()}</span>
 
                                             </div>
                                         </div>

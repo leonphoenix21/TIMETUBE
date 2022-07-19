@@ -77,6 +77,11 @@
     padding: 5px 15px 5px 3px;
 }
 
+.lidrop-down:hover {
+    color: blue;
+    /* background-color: whitesmoke; */
+}
+
 .upload-dropdown {
     position: absolute;
     display: flex;

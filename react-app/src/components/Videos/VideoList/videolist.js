@@ -6,12 +6,13 @@ import { BsDot } from 'react-icons/bs';
 import Moment from "react-moment";
 import 'moment-timezone';
 import './videolist.css';
-
+import { platform } from 'os';
 
 
 const VideoDisplay = () => {
 
     const [hoverVid, setHoverVid] = useState(false);
+    const [hoverText, setHoverText] = useState(false);
     const history = useHistory();
     const dispatch = useDispatch();
     const [users, setUsers] = useState([]);
@@ -65,12 +66,27 @@ const VideoDisplay = () => {
     }
 
 
-
-
-
     const videos = useSelector(state => state.videos);
-    const allVideos = Object.values(videos).reverse()
-    // const likes = 
+    const allVideos = Object.values(videos).reverse();
+
+    const PlayHoverVid = () => {
+        // if (hoverVid) {
+        //     setHoverText(true)
+        //     setHoverVid(false)
+
+        // } else {
+        //     setHoverText(false)
+        //     setTimeout(() => {
+        //         if ()
+        //             setHoverVid(true)
+        //     }, 3000)
+        // }
+
+        setTimeout(() => {
+            if (!hoverVid) setHoverVid(true)
+        }, 3000)
+    }
+
     return (
         <div className='allVideos'>
             <div className='gallery' >
@@ -78,23 +94,21 @@ const VideoDisplay = () => {
                 </div> */}
                 {
                     allVideos?.map(video => (
-
                         <>
-
                             <div className='pics' key={video?.id} >
                                 <NavLink to={`/videos/${video.id}/`} key={video?.id} >
+
                                     <img
                                         className='HomePoster'
                                         placeholder={video?.title}
                                         src={video?.image_url}
                                         alt={video?.title}
-                                        height={185}
-                                        width='100%'
+                                        height={180}
+                                        width={320}
                                         onError={(e) =>
                                             e.target.src =
                                             ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                                     />
-
                                 </NavLink>
                                 <div className='HomePosterDesc'>
                                     <div className="homePosterAvtr">
@@ -111,7 +125,7 @@ const VideoDisplay = () => {
 
                                     <div className="PosterTitleDiv">
                                         <div className="PosterTitle">
-                                            <NavLink to={`/videos/${video?.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'uppercase' }} >
+                                            <NavLink to={`/videos/${video?.id}/`} style={{ color: 'black', textDecoration: 'none', textTransform: 'capitalize', fontSize: '15px' }} >
                                                 {video?.title}
                                             </NavLink>
                                         </div>
@@ -132,3 +146,35 @@ const VideoDisplay = () => {
 }
 
 export default VideoDisplay;
+
+// {!hoverVid ?
+//     <>
+//         <img
+//             className='HomePoster'
+//             placeholder={video?.title}
+//             src={video?.image_url}
+//             alt={video?.title}
+//             height={180}
+//             width={320}
+//             onMouseEnter={() => (PlayHoverVid(), setHoverText(true))}
+//             onMouseLeave={() => (setHoverVid(false), setHoverText(false))}
+//             onError={(e) =>
+//                 e.target.src =
+//                 ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+//         />
+//         {hoverText && <span className='hoverText'> Keep Hovering To Play</span>}
+
+//     </>
+//     :
+//     <>
+//         <video onMouseLeave={() => PlayHoverVid()} className=" vjs-default-skin Homeposter" width="320" height="180px"
+//             style={{ backgroundColor: 'black' }}
+//             controls preload="none" poster={video?.image_url} muted={true}
+//             data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'
+//             autoPlay={true}
+//         >
+//             <source src={video?.video_url} type='video/mp4' />
+//         </video>
+
+//     </>
+// }

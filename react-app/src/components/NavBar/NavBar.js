@@ -17,6 +17,8 @@ import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
 import { RiVideoAddLine } from "react-icons/ri";
+import { BiLogIn } from "react-icons/bi";
+import { IoMdCreate } from 'react-icons/io';
 import { MdOutlineAccountBox } from "react-icons/md";
 import { AiOutlinePlaySquare } from "react-icons/ai";
 import { GrHome } from "react-icons/gr";
@@ -285,7 +287,10 @@ const NavBar = () => {
         {showIconMenu && (
           <div className="upload-dropdown">
             <div className='lidrop-downDiv'>
-              <NavLink className='lidrop-down' to={`/upload`} exact={true} activeClassName="active">  <span className='logoutImgSpan' style={{ marginRight: '15px' }} > < AiOutlinePlaySquare /> </span>  Upload </NavLink>
+              <NavLink className='lidrop-down' to={`/upload`} exact={true} activeClassName="active">
+                <span className='logoutImgSpan' style={{ marginRight: '15px' }} >
+                  < AiOutlinePlaySquare /></span>  Upload
+              </NavLink>
             </div>
 
           </div>
@@ -313,12 +318,12 @@ const NavBar = () => {
 
               <div className='dropdownFullname'>
                 {sessionUser?.firstname} {sessionUser?.lastname}
-                <div className='myta'> <NavLink to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
+                <div className='myta'> <NavLink to={`/users/${sessionUser?.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
               </div>
             </div>
-            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
-            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
-            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> </span> <span className='logoutImgSpan' style={{ marginLeft: '-1px' }}> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>  </NavLink> </div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser?.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/home`} style={{ textDecoration: 'none', cursor: 'pointer', marginTop: '-15px' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
+            <div className='logoutDropdownDiv' onClick={onLogout} style={{ cursor: 'pointer' }}> <span> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>   </div>
 
           </div>
         )}
@@ -462,13 +467,17 @@ const NavBar = () => {
             </div>
             <div className="dropdown">
               {showMenu && (
-                <div className="profile-dropdown">
-                  <div>
-                    <NavLink className='navlinks  lidrop-down' to={`/login`} exact={true} activeClassName="active"> Sign In </NavLink>
-                    <div style={{ width: '100%', borderBottom: 'whitesmoke solid 1px', paddingTop: '7px' }}> </div>
-                    <NavLink className='navlinks sudrop-down' to={`/sign-up`} exact={true} activeClassName="active"> Sign Up </NavLink>
-                  </div>
 
+
+                <div className="upload-dropdown">
+                  <NavLink className='lidrop-down' to={`/login`} exact={true} activeClassName="active">
+                    <span className='logoutImgSpan' style={{ marginLeft: '15px', marginRight: '10px' }} >
+                      < BiLogIn /></span>  Sign In
+                  </NavLink>
+                  <NavLink className='lidrop-down' to={`/sign-up`} exact={true} activeClassName="active">
+                    <span className='logoutImgSpan' style={{ marginLeft: '15px', marginRight: '10px' }} >
+                      < IoMdCreate /> </span>  Sign Up
+                  </NavLink>
                 </div>
               )}
             </div>
