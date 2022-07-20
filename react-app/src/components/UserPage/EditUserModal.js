@@ -79,13 +79,16 @@ function EditUserModal() {
 
         // const detail = await dispatch(userDetails(formData));
         dispatch(userDetails(formData)).then(res => {
-            if (res) {
-                // return <Redirect to={`/users/${user.id}`} />;
-                closeModal()
-                history.push(`/user/${user.id}`);
-            } else {
+            if (res.errors) {
                 if (res.errors) {
                     setErrors(res.errors);
+                }
+                // return <Redirect to={`/users/${user.id}`} />;
+
+            } else {
+                if (!res.errors) {
+                    closeModal()
+                    history.push(`/user/${user.id}`);
                 }
             }
         })
@@ -156,17 +159,18 @@ function EditUserModal() {
                 contentLabel="EditUser"
             >
                 <form onSubmit={handleSubmit} >
+                    <div className='errors'>
+                        {errors.map((error, ind) => (
+                            <div key={ind} className='eachError'>{error}</div>
+                        ))}
+                    </div>
                     <div className='editModals' ref={(_subtitle) => (subtitle = _subtitle)}>
                         <div className='modalIcons'>
                             <span className='modalHeader'> < MdManageAccounts /></span>
                             <span className='closeIcon' onClick={closeModal}> <AiIcons.AiOutlineClose /></span>
                         </div>
                         <div className="bottom-line modal"></div>
-                        <div className='commentErr'>
-                            {errors.map((error, ind) => (
-                                <div key={ind} className='eachCommError'>{error}</div>
-                            ))}
-                        </div>
+
 
                         <div className='fullname'>
                             <div>
@@ -205,7 +209,7 @@ function EditUserModal() {
                         </div>
 
                         <div className='inputDiv' >
-                            <label htmlFor='avatar' id='select-video-button'> Choose Profile Image . . .</label>
+                            <label htmlFor='avatar' className='select-video-button' style={{ margin: '5px 5px 5px 0px' }}> Choose Profile Image . . .</label>
                             <input
                                 className="field"
                                 type="file"
@@ -217,7 +221,7 @@ function EditUserModal() {
                             />
                         </div>
                         <div className='inputDiv' >
-                            <label htmlFor='header' id='select-video-button'> Choose Header Image . . .</label>
+                            <label htmlFor='header' className='select-video-button' style={{ margin: '5px 5px -5px 0px' }}> Choose Header Image . . .</label>
                             <input
                                 className="field"
                                 type="file"

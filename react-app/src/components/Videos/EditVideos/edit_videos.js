@@ -197,18 +197,17 @@ function EditVideos() {
                     <div className="firstVidCon" >
                         <div className='edit-container'>
                             <form onSubmit={handleSubmit} className='editVideoForm'>
+                                <div className='errors' style={{ marginTop: '10px' }}>
+                                    {errors.map((error, ind) => (
+                                        <div key={ind} className='eachError'>{error}</div>
+                                    ))}
+                                </div>
                                 <div className='edit-title-div'>
                                     <h2 className='editTitleHeader'>
                                         Video Details
                                         <span className='editUploadIcon '> <FaTools /> <VscSettingsGear /> </span>
                                     </h2>
                                 </div>
-                                <div className='commentErr' style={{ top: '50%' }}>
-                                    {errors.map((error, ind) => (
-                                        <div key={ind} className='eachCommError'>{error}</div>
-                                    ))}
-                                </div>
-
 
                                 <div className='contDiv'>
                                     <label> Edit Title </label>

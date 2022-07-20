@@ -48,6 +48,11 @@ const LoginForm = () => {
       <div className='loginContainer'>
         <div className='login-right-border'>
           <form onSubmit={onLogin} className='loginForm'>
+            <div className='errors'>
+              {errors.map((error, ind) => (
+                <div key={ind} className='eachError'>{error}</div>
+              ))}
+            </div>
             <div className="timetube" onClick={Homepage}>
               <h2 >
                 <span style={{ color: 'blue' }}>t</span>
@@ -62,11 +67,7 @@ const LoginForm = () => {
             </div>
             <h2 className="logInheader"> Sign In </h2>
             <p className='logInContinue'> to continue to TimeTube</p>
-            <div className='errors'>
-              {errors.map((error, ind) => (
-                <div key={ind} className='eachError'>{error}</div>
-              ))}
-            </div>
+
             <div className='contDiv'>
               {/* <label htmlFor='email'>Email</label> */}
               <input

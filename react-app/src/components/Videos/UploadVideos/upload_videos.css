@@ -192,7 +192,7 @@
 
 }
 
-#select-video-button {
+.select-video-button {
     border: none;
     padding: 10px;
     background-color: var(--gm-colortextbutton-ink-color, #1a73e8);
@@ -201,7 +201,51 @@
     transition: background-color, transform .3s ease-in-out;
 }
 
-#select-video-button:hover {
+.loading {
+    position: absolute;
+    border: none;
+    padding: 10px;
+    margin: 5px 0px 10px -15px;
+    width: 250px;
+    font-size: 100px;
+    color: white;
+    animation: loading 3s infinite linear;
+}
+
+
+@keyframes loading {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    25% {
+        transform: rotate(270deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.select-video-button:hover {
+    opacity: .8;
+}
+
+.pv {
+    position: absolute;
+    margin-top: -220px;
+}
+
+.pv:hover {
     opacity: .8;
 }
 

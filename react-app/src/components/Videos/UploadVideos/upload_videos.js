@@ -210,6 +210,18 @@ function UploadVideos() {
                             <>
                                 {previewVid ?
                                     <>
+                                        <label htmlFor='vid-upload' className='select-video-button pv'> Choose Video File . . .</label>
+
+                                        <input
+                                            className='videofield'
+                                            type='file'
+                                            id='vid-upload'
+                                            name='img-upload'
+                                            accept='video/*'
+                                            // onClick={onChangeVid}
+                                            onChange={updateVideo}
+                                            hidden
+                                        />
                                         <div data-vjs-player className='previewVideo' >
                                             <video className="vjs-default-skin " width="320px" height="180px"
                                                 controls preload="none"
@@ -217,13 +229,12 @@ function UploadVideos() {
                                                 <source src={previewVid ? previewVid : ''} type='video/mp4' />
                                             </video>
                                         </div>
-                                        <label htmlFor='vid-upload' id='select-video-button'> Choose Video File . . .</label>
 
                                     </>
                                     :
                                     <>
                                         <div className='contDiv'>
-                                            <label htmlFor='vid-upload' id='select-video-button'> Choose Video File . . .</label>
+                                            <label htmlFor='vid-upload' className='select-video-button'> Choose Video File . . .</label>
                                             <input
                                                 className='videofield'
                                                 type='file'
@@ -234,6 +245,7 @@ function UploadVideos() {
                                                 onChange={updateVideo}
                                                 hidden
                                             />
+                                            {previewVidLoading && <VscLoading className='loading' />}
                                         </div>
                                     </>
                                 }

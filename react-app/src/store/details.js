@@ -18,6 +18,17 @@ export const userDetails = (data) => async (dispatch) => {
     });
     if (response.ok) {
         const detail = await response.json();
+        if (detail.errors) {
+            return detail
+        } else if (!detail.errors) {
+            dispatch(newDetail(detail))
+            return detail;
+        }
+    } else {
+        return { 'errors': ['an error has occured please verify your file types'] }
+    }
+    if (response.ok) {
+        const detail = await response.json();
         dispatch(newDetail(detail))
         return detail;
     }
