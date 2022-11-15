@@ -325,6 +325,7 @@ const NavBar = () => {
                 <div className='myta'> <NavLink to={`/users/${sessionUser?.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
               </div>
             </div>
+            <div style={{ margin: '0px' }}> </div>  {/*Puts a gap between the top and bottom */}
             <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownNav' to={`/users/${sessionUser?.id}`} > <span className='userIconSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
             <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownNav' to={`/home`} ><span className='userIconSpan' > < MdOutlineHouse /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
             <div className='logoutDropdownDiv' onClick={onLogout} style={{ cursor: 'pointer' }}> <span className='logoutIconSpan' > < MdOutlineLogin /></span> <span className='logoutSpan'> Sign Out </span>   </div>
