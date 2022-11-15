@@ -20,6 +20,8 @@ import { RiVideoAddLine } from "react-icons/ri";
 import { BiLogIn } from "react-icons/bi";
 import { IoMdCreate } from 'react-icons/io';
 import { MdOutlineAccountBox } from "react-icons/md";
+import { MdOutlineHouse } from "react-icons/md";
+import { MdOutlineLogin } from "react-icons/md";
 import { AiOutlinePlaySquare } from "react-icons/ai";
 import { GrHome } from "react-icons/gr";
 import { logout } from '../../store/session';
@@ -87,6 +89,7 @@ const NavBar = () => {
       setResultDisplay(false);
     }
   };
+
 
   useEffect(() => {
     async function fetchData() {
@@ -308,22 +311,23 @@ const NavBar = () => {
         {showMenu && (
           <div className="profile-dropdown">
             <div className='dropdownImgDiv'>
-              <img className='dropdownImg'
-                onClick={openMenu}
-                height='45'
-                width='45'
-                src={`${PosterPicture(sessionUser?.user_id)}`}
-                onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
-              />
-
+              <NavLink to={`/users/${sessionUser?.id}`} >
+                <img className='dropdownImg'
+                  onClick={openMenu}
+                  height='45'
+                  width='45'
+                  src={`${PosterPicture(sessionUser?.user_id)}`}
+                  onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
+                />
+              </NavLink>
               <div className='dropdownFullname'>
                 {sessionUser?.firstname} {sessionUser?.lastname}
                 <div className='myta'> <NavLink to={`/users/${sessionUser?.id}`} style={{ textDecoration: 'none', color: '#065FD4', cursor: 'pointer' }}> Manage your TimeTube account  </NavLink></div>
               </div>
             </div>
-            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/users/${sessionUser?.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}> <span className='logoutImgSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
-            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownDiv' to={`/home`} style={{ textDecoration: 'none', cursor: 'pointer', marginTop: '-15px' }}><span className='logoutImgSpan' style={{ marginLeft: '-4px' }}> < GrHome /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
-            <div className='logoutDropdownDiv' onClick={onLogout} style={{ cursor: 'pointer' }}> <span> < GrLogout /></span> <span className='logoutSpan'> Sign Out </span>   </div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownNav' to={`/users/${sessionUser?.id}`} > <span className='userIconSpan'> < MdOutlineAccountBox /> </span> <span className='logoutSpan'> Your Channel </span>  </NavLink></div>
+            <div className='logoutDropdownDiv'> <NavLink className='logoutDropdownNav' to={`/home`} ><span className='userIconSpan' > < MdOutlineHouse /> </span> <span className='logoutSpan' > Back To Home </span> </NavLink> </div>
+            <div className='logoutDropdownDiv' onClick={onLogout} style={{ cursor: 'pointer' }}> <span className='logoutIconSpan' > < MdOutlineLogin /></span> <span className='logoutSpan'> Sign Out </span>   </div>
 
           </div>
         )}

@@ -103,10 +103,10 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #fffffffA;
     border: .1px rgba(128, 128, 128, 0.503) solid;
     border-top: none;
-    padding: 5px 25px;
+    /* padding: 5px 25px; */
     border-radius: 2px;
     /* color: #065fd4db; */
     color: black;
@@ -114,6 +114,7 @@
     right: 23px;
     top: 32px;
     width: 320px;
+    height: 280px;
 }
 
 
@@ -545,33 +546,37 @@ span {
     text-transform: capitalize;
     color: black;
     font-family: "Roboto", "Arial", sans-serif;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 2.2rem;
-    font-weight: 600;
     margin-left: 10px;
 }
 
 .myta {
     color: #065FD4;
-    font-size: .85rem;
+    font-size: 14px;
     width: 220px;
     margin-top: -5px;
     font-family: "Roboto", "Arial", sans-serif;
-    font-weight: 500;
     /* border: red solid 1px; */
 }
 
-.logoutImgSpan {
-    color: black;
+.userIconSpan {
+    color: #030303c1;
     font-size: 25px;
-    margin-left: -4px;
+    margin-left: -17px;
+}
+
+.logoutIconSpan {
+    color: #030303c1;
+    font-size: 25px;
+    margin-left: -8px;
+    margin-top: -2px;
 }
 
 .logoutSpan {
-    color: black;
-    font-size: 15px;
+    font-size: 14px;
     font-family: "Roboto", "Arial", sans-serif;
-
+    color: #030303;
 }
 
 .logoutDropdownDiv {
@@ -579,7 +584,24 @@ span {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 15px;
+    font-size: 14px;
+    color: #030303;
+    max-height: 45px;
+    height: 40px;
+    margin-left: 20px;
+    /* border: red solid 1px; */
+}
+
+.logoutDropdownNav {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 10px;
+    font-size: 12px;
+
 }
 
 .logoutSpan {}

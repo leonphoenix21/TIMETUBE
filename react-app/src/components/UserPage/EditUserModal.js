@@ -26,7 +26,6 @@ function EditUserModal() {
     Modal.ariaHideApp = false
 
 
-
     const customStyles = {
         content: {
             top: '50%',
