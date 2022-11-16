@@ -1,76 +1,47 @@
+.Single-Page-Div {
+    border: red solid 5px;
+    overflow: hidden;
+    margin-left: 3.5%;
+    display: flex;
+    flex-direction: row;
+    width: 99vw;
+    position: relative;
+}
+
 .single-videopage-container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    /* overflow-x: auto; */
     max-width: fit-content;
     min-width: fit-content;
     overflow: hidden;
-
-}
-
-.Single-Page-Div {
-    /* border: red solid 1px; */
-    overflow: hidden;
-    margin-left: 3.5%;
-}
-
-
-.video-comments-sidebar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    height: 700px;
-    overflow: hidden;
-    /* border: green 5px dotted; */
-}
-
-.video-description-comments-div {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-left: 10px;
-    width: 1000px;
-    /* overflow-x: scroll; */
-    /* border: blue 1px dotted; */
+    width: 70%;
+    border: red 2px solid;
 }
 
 .video-sidebar-div {
-    /* border: black 2px dotted; */
-    width: 30%;
-    position: absolute;
-    right: 20px;
-    margin-top: 86px;
-    transform: scale(1.1);
-}
-
-.countSort {
-    /* border: red 1px solid; */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-
+    position: relative;
+    border: black 2px solid;
+    width: 25%;
 }
 
 .commentsCount {
-    font-size: 20px;
-    top: 10%;
-    position: relative;
-    margin-top: -125px;
-    margin-bottom: 90px;
-    /* margin: 20px 0px -30px 20px; */
+    cursor: pointer;
+    border: red solid 1px;
+    margin-left: 35px;
+    margin-right: 25px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 18px;
+    max-width: 1090px;
+
 }
 
-@media (max-width: 991px) {
-    .video-comments-sidebar {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        height: 1000px;
-        overflow: scroll;
-        /* border: green 5px dotted; */
-    }
+.singlevid-border-Top-line {
+
+    margin-left: 35px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-right: 25px;
+    border-top: 1px solid black;
+    opacity: .3;
 }

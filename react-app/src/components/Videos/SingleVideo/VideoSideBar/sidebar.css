@@ -4,8 +4,7 @@
     /* border: red dotted 1px; */
     box-sizing: border-box;
     /* border: red solid 1px; */
-    position: absolute;
-    top: -583px;
+
 }
 
 .picDiv {
@@ -36,9 +35,10 @@
 }
 
 .sidebarDescription {
-    /* border: red solid 1px; */
+    border: red solid 1px;
+    position: relative;
     height: 90px;
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -50,14 +50,16 @@
 }
 
 .sideDescription {
+    border: blue solid 1px;
     margin-top: 5px;
-    min-height: 50px;
+    min-height: 47px;
     font-size: 12px;
-    width: 230px;
+    width: 210px;
     overflow: hidden;
 }
 
 .sideTitle {
+    border: blue solid 1px;
     width: 230px;
     min-height: 37px;
     max-height: 37px;
@@ -65,4 +67,6 @@
     margin-top: -9px;
     overflow: hidden;
     font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
 }

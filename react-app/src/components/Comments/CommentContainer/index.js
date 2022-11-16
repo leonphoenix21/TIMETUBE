@@ -7,7 +7,6 @@ function CommentContainer({ videoCommentId }) {
 
     return (
         <>
-
             < CreateComments Id={videoCommentId} />
         </>
     )

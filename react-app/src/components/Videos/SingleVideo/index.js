@@ -23,26 +23,24 @@ function SingleVideoPage() {
         <div className='Single-Page-Div'>
             <div className="single-videopage-container">
                 {/*this div plays the video only  */}
-                <SingleVideo />
-
-                {/*comments and sidebar */}
                 <div className="video-comments-sidebar">
+                    <div className="single-video-container">
+                        <SingleVideo />
+                    </div>
+                    {/*comments and sidebar */}
                     <div className="video-description-comments-div">
                         <VideoDescription />
-                        <div className="border-Top-line"></div>
+                        <div className="singlevid-border-Top-line"></div>
+
+                        <div className='commentsCount' > {commCount} Comments  </div>
+
                         <CommentContainer videoCommentId={videoId} />
-                        <div className="commentsCount">
-                            <span>
-                                {commCount} Comments
-                            </span>
-                        </div>
                         <CommentsDisplay boxId={videoId} />
                     </div>
-                    <div className="video-sidebar-div">
-                        <VideoSideBar />
-                    </div>
                 </div>
-
+            </div>
+            <div className="video-sidebar-div">
+                <VideoSideBar />
             </div>
         </div>
     )

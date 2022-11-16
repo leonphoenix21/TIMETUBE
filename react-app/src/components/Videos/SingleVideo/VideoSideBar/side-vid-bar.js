@@ -58,7 +58,7 @@ function VideoSideBar() {
                                 />
                             </a>
                             <div className="sidebarDescription">
-                                <div className='sideTitle'><strong style={{ textTransform: 'uppercase' }}> {video.title}</strong></div>
+                                <div className='sideTitle'> {video.title}</div>
                                 <p className='sideDescription'> {video.description}</p>
                             </div>
 

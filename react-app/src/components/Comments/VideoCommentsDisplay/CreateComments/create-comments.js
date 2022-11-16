@@ -63,8 +63,6 @@ function CreateComments({ Id }) {
 
     return (
         <>
-
-
             <div className="commentsContainer">
                 <div className="commentsDisplay">
                     <form onSubmit={handleSubmit}>

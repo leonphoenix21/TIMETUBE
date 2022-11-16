@@ -89,7 +89,7 @@ function SingleVideo() {
             {Object.values(Allvideos).length > 0 ?
                 <>
                     <div data-vjs-player className='SinglevideoPlayerDiv'>
-                        <video onMouseEnter={theatherFade} className="video-js vjs-default-skin " width="640px" height="267px"
+                        <video onMouseEnter={theatherFade} className="video-js vjs-default-skin " width="740px" height="267px"
                             controls preload="none" poster={videoPlaying?.image_url}
                             data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'
                             autoPlay={true}

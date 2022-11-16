@@ -52,9 +52,10 @@
 
 .eachCommentAvtr {
     border-radius: 50px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin: 20px 20px;
+
 }
 
 .commentIcons {
@@ -82,14 +83,7 @@
 
 
 
-.commentsCount {
-    position: absolute;
-    margin-bottom: 220px;
-    margin-left: 20px;
-    margin-top: 300px;
-    font-size: 20px;
-    cursor: pointer;
-}
+
 
 /* .commentContent::-webkit-scrollbar {
     color: red;

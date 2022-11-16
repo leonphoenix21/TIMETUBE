@@ -32,7 +32,6 @@
 .read-more-button {
     position: relative;
     border: none;
-    background-color: white;
     color: rgb(130, 129, 129);
     padding: 5px 10px;
     border-radius: 5px;
@@ -55,48 +54,68 @@
     overflow: hidden;
 }
 
-.videoDescription {} */
+*/
 
 .VideoInfo {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    border: red solid 1px;
+    margin-left: 35px;
+    margin-right: 25px;
+    max-width: 1090px;
+
 }
 
-.single {
-    margin: 50px 0px 0px 20px;
+.uploader-fullname {
     display: flex;
     flex-direction: column;
+    border: blue solid 1px;
+    margin-left: 25px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 18px;
+
 }
 
 .singleview {
-    margin: 20px 0px 0px 20px;
-    height: 80px;
-    width: 80px;
+    margin: 0;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
 }
 
-.singleline {
+/* .singleline {
     margin: 20px;
 
-}
+} */
 
 .descriptionTitle {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 30px;
-    /* border: red 1px solid; */
-    margin: 10px 20px 0px 5px;
+    font-size: 18px;
+    border: red 1px solid;
+    margin-left: 35px;
+    margin-top: 40px;
+    margin-right: 25px;
+    max-width: 1090px;
 }
 
 .videoDescription {
-    margin: 20px 0px 0px 119.5px;
-    /* border: red dotted 1px; */
+    border: blue solid 1px;
+    margin-left: 109px;
+    width: 70%;
+    max-width: 990px;
+
 }
 
 .displayname {
-    margin: 10px 0px 0px 15px;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 20px;
     text-transform: capitalize;
+    margin-left: 0px;
 }
 
 .editVideoBtn {
@@ -138,9 +157,6 @@
 }
 
 .likeIconsDiv {
-    position: absolute;
-    margin-top: 43px;
-    right: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -158,16 +174,29 @@
 
 .bottomLine-vid {
     border-bottom: rgba(136, 136, 136, 0.511) solid .1px;
-    margin-top: 50px;
-    margin-left: 20px;
-
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 35px;
+    margin-right: 25px;
 }
 
 
 .vidDescCount {
-    margin-top: 38px;
-    /* border: red solid 1px; */
-    padding: 10px;
+    border: red solid 1px;
     font-size: 15px;
-    margin-left: -8px;
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.814);
+    margin-left: 35px;
+    margin-top: 1px;
+    margin-right: 25px;
+    max-width: 1090px;
+
 }

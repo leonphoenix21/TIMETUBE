@@ -14,7 +14,7 @@
 .video-js {
     position: absolute;
     height: 550px;
-    width: 980px;
+    width: 1080px;
     background-color: black;
     margin-top: 20px;
 }
@@ -87,4 +87,11 @@
     bottom: 63.5px;
     border-radius: 3px;
     box-shadow: .001px 001px .002px rgba(19, 19, 19, 0.709);
+}
+
+@media (min-width: 1440px) {
+    .single-videopage-container {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

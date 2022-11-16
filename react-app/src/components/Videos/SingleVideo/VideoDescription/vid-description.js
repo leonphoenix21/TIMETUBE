@@ -207,10 +207,11 @@ function VideoDescription() {
             {Object.values(Allvideos).length > 0 ?
                 <>
                     <div className='descriptionTitle'>
-                        <strong className='displayname'> {videoPlaying?.title}</strong>
-                        <div className='videoCountDiv vidDescCount'>
-                            <span> {VideoViewCount(videoPlaying)} <BsDot /> {TimeSession(videoPlaying)}</span>
-                        </div>
+                        <div className='displayname'> {videoPlaying?.title}</div>
+                    </div>
+                    <div className='vidDescCount'>
+                        <div> {VideoViewCount(videoPlaying)} <BsDot /> {TimeSession(videoPlaying)}</div>
+
                         <div className="likeIconsDiv">
 
                             {
@@ -252,23 +253,18 @@ function VideoDescription() {
 
                             }
 
-
-
-
-
                         </div>
                     </div>
                     <div className='bottomLine-vid'></div>
-
                     <div className='VideoInfo'>
                         <div>
-                            <img className='avatar singleview'
+                            <img className='singleview'
                                 src={`${user?.avatar}`}
                                 onError={(e) => e.target.src = ('https://as1.ftcdn.net/jpg/03/35/13/14/220_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg')}
                             />
                         </div>
-                        <div className='fullname single'>
-                            <strong > {user?.firstname} {user?.lastname} </strong>
+                        <div className='uploader-fullname'>
+                            <div> {user?.firstname} {user?.lastname} </div>
                             {sessionUser.id === videoPlaying.user_id &&
                                 <button onClick={navLink}
                                     className='singlePageEditbtn'
@@ -285,21 +281,21 @@ function VideoDescription() {
                     </div>
 
                     <div className='videoDescription'>
-                        <p className={showMore}> {videoPlaying?.description}</p>
-                        {videoPlaying?.description.length > 250 &&
+                        <div className={showMore}> {videoPlaying?.description} </div>
+                        {videoPlaying?.description.length > 450 &&
                             <>
                                 {
                                     showLess ?
                                         <>
                                             < button className='read-more-button'
                                                 onClick={showMoreBtn}
-                                            > Show More . . . </button>
+                                            > . . . Show More </button>
                                         </>
                                         :
                                         <>
                                             < button className='read-more-button'
                                                 onClick={showMoreBtn}
-                                            > Show Less . . . </button>
+                                            > . . . Show Less </button>
                                         </>
                                 }
                             </>

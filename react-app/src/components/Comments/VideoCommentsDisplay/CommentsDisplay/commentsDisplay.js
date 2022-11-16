@@ -51,12 +51,7 @@ function CommentsDisplay({ boxId }) {
 
     return (
         <div className='commentBody'>
-            <div className="countSort">
 
-                <div className="sortByComments">
-
-                </div>
-            </div>
             <div className='CommentsDisplayContainer'>
                 {comments?.map(comment => (
                     <div className="commentDisplayBox">
