@@ -1,10 +1,10 @@
 .Single-Page-Div {
     border: red solid 5px;
     overflow: hidden;
-    margin-left: 3.5%;
+    /* margin-left: 3.5%; */
     display: flex;
     flex-direction: row;
-    width: 99vw;
+    width: 100vw;
     position: relative;
 }
 
@@ -12,17 +12,34 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    max-width: fit-content;
-    min-width: fit-content;
+    justify-content: flex-end;
+    align-items: center;
     overflow: hidden;
-    width: 70%;
-    border: red 2px solid;
+    width: 70vw;
+    border: green 2px solid;
+}
+
+.single-video-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    border: brown 2px solid;
+    margin-right: 10px;
+}
+
+.single-video-container>* {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .video-sidebar-div {
     position: relative;
     border: black 2px solid;
-    width: 25%;
+    width: 30vw;
 }
 
 .commentsCount {
@@ -44,4 +61,68 @@
     margin-right: 25px;
     border-top: 1px solid black;
     opacity: .3;
+}
+
+@media all and (min-width: 1752px) {
+    .single-videopage-container {
+        border: brown solid 5px;
+        padding-left: 50px;
+    }
+}
+
+@media all and (min-width: 1852px) {
+    .single-videopage-container {
+        border: blue solid 5px;
+        padding-left: 150px;
+    }
+}
+
+@media all and (min-width: 1972px) {
+    .single-videopage-container {
+        border: grey solid 5px;
+        padding-left: 250px;
+    }
+}
+
+@media all and (min-width: 2132px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 350px;
+    }
+}
+
+@media all and (min-width: 2332px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 450px;
+    }
+}
+
+@media all and (min-width: 2632px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 650px;
+    }
+}
+
+@media all and (min-width: 2932px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 850px;
+    }
+}
+
+@media all and (min-width: 3232px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 1050px;
+    }
+}
+
+
+@media all and (min-width: 3532px) {
+    .single-videopage-container {
+        border: pink solid 5px;
+        padding-left: 1250px;
+    }
 }

@@ -85,3 +85,114 @@
         /* border: green 5px dotted; */
     }
 }
+
+@media all and (min-width: 1662px) {
+    .single-videopage-container {
+        border: brown solid 5px;
+        padding-left: 50px;
+    }
+}
+
+
+@media all and (min-width: 1712px) {
+    .single-videopage-container {
+        border: brown solid 5px;
+        padding-left: 150px;
+    }
+}
+
+@media all and (min-width: 1762px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 250px;
+    }
+}
+
+@media all and (min-width: 1812px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 300px;
+    }
+}
+
+@media all and (min-width: 1862px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 400px;
+    }
+}
+
+
+
+@media all and (min-width: 1962px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+@media all and (min-width: 2012px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 550px;
+    }
+}
+
+@media all and (min-width: 2062px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 600px;
+    }
+}
+
+@media all and (min-width: 2132px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 700px;
+    }
+}
+
+@media all and (min-width: 2192px) {
+    .single-videopage-container {
+        border: cyan solid 5px;
+        padding-left: 550px;
+    }
+}
+
+@media all and (min-width: 1612px) {
+    .Single-Page-Div {
+        border: blue solid 5px;
+        overflow: hidden;
+        margin-left: 3.5%;
+        display: flex;
+        flex-direction: row;
+        width: 97vw;
+        position: relative;
+    }
+
+    .single-videopage-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+        width: 70vw;
+        border: red 2px solid;
+        padding-left: 70px;
+        /* padding-left: 500px; */
+    }
+
+    .video-sidebar-div {
+        position: relative;
+        justify-content: flex-start;
+        align-items: center;
+        border: black 2px solid;
+        width: 25vw;
+
+    }
+}
