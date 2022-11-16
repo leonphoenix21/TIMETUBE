@@ -30,6 +30,8 @@
     margin-right: 10px;
 }
 
+
+
 .single-video-container>* {
     display: flex;
     flex-direction: column;
@@ -45,12 +47,17 @@
 .commentsCount {
     cursor: pointer;
     border: red solid 1px;
-    margin-left: 35px;
+    margin-left: 80px;
     margin-right: 25px;
     font-family: "Roboto", "Arial", sans-serif;
     font-size: 18px;
     max-width: 1090px;
 
+}
+
+.comment-single-page-box {
+    margin-left: 40px;
+    border: green solid 2px;
 }
 
 .singlevid-border-Top-line {
@@ -66,63 +73,111 @@
 @media all and (min-width: 1752px) {
     .single-videopage-container {
         border: brown solid 5px;
-        padding-left: 50px;
+        margin-left: 50px;
     }
+
+    .video-description-comments-div {
+        border: brown solid 5px;
+        margin-left: 100px;
+    }
+
+
 }
 
 @media all and (min-width: 1852px) {
     .single-videopage-container {
         border: blue solid 5px;
-        padding-left: 150px;
+        margin-left: 150px;
     }
+
+    .video-description-comments-div {
+        border: blue solid 5px;
+        margin-left: 200px;
+    }
+
 }
 
 @media all and (min-width: 1972px) {
     .single-videopage-container {
-        border: grey solid 5px;
-        padding-left: 250px;
+        border: black solid 5px;
+        margin-left: 250px;
+    }
+
+    .video-description-comments-div {
+        border: black solid 5px;
+        margin-left: 300px;
     }
 }
 
 @media all and (min-width: 2132px) {
     .single-videopage-container {
-        border: pink solid 5px;
-        padding-left: 350px;
+        border: blue solid 5px;
+        margin-left: 350px;
+    }
+
+    .video-description-comments-div {
+        border: blue solid 5px;
+        margin-left: 400px;
     }
 }
 
 @media all and (min-width: 2332px) {
     .single-videopage-container {
+        border: green solid 5px;
+        margin-left: 450px;
+    }
+
+    .video-description-comments-div {
         border: pink solid 5px;
-        padding-left: 450px;
+        margin-left: 500px;
     }
 }
 
 @media all and (min-width: 2632px) {
     .single-videopage-container {
-        border: pink solid 5px;
-        padding-left: 650px;
+        border: purple solid 5px;
+        margin-left: 650px;
+    }
+
+    .video-description-comments-div {
+        border: purple solid 5px;
+        margin-left: 700px;
     }
 }
 
 @media all and (min-width: 2932px) {
     .single-videopage-container {
+        border: green solid 5px;
+        margin-left: 850px;
+    }
+
+    .video-description-comments-div {
         border: pink solid 5px;
-        padding-left: 850px;
+        margin-left: 900px;
     }
 }
 
 @media all and (min-width: 3232px) {
     .single-videopage-container {
-        border: pink solid 5px;
-        padding-left: 1050px;
+        border: blue solid 5px;
+        margin-left: 1050px;
+    }
+
+    .video-description-comments-div {
+        border: blue solid 5px;
+        margin-left: 1100px;
     }
 }
 
 
 @media all and (min-width: 3532px) {
     .single-videopage-container {
-        border: pink solid 5px;
-        padding-left: 1250px;
+        border: green solid 5px;
+        margin-left: 1250px;
+    }
+
+    .video-description-comments-div {
+        border: green solid 5px;
+        margin-left: 1200px;
     }
 }

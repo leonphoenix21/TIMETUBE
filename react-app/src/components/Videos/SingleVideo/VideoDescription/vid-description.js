@@ -205,7 +205,7 @@ function VideoDescription() {
            state before loading the page to make sure the items display on reload */}
 
             {Object.values(Allvideos).length > 0 ?
-                <>
+                <div className='video-description-single-page-container'>
                     <div className='descriptionTitle'>
                         <div className='displayname'> {videoPlaying?.title}</div>
                     </div>
@@ -305,7 +305,7 @@ function VideoDescription() {
                     </div>
 
 
-                </>
+                </div>
                 :
                 <>
                 </>

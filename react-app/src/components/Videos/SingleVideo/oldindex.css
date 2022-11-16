@@ -25,7 +25,7 @@
     /* border: green 5px dotted; */
 }
 
-.video-description-comments-div {
+/* .video-description-comments-div {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -33,10 +33,10 @@
     margin-left: 10px;
     width: 1000px;
     /* overflow-x: scroll; */
-    /* border: blue 1px dotted; */
+/* border: blue 1px dotted; */
 }
 
-.video-sidebar-div {
+*/ .video-sidebar-div {
     /* border: black 2px dotted; */
     width: 30%;
     position: absolute;
@@ -195,4 +195,84 @@
         width: 25vw;
 
     }
+}
+
+.descriptionTitle {
+    border: brown solid 5px;
+    /* margin-left: 50px; */
+}
+
+.vidDescCount {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.bottomLine-vid {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.videoInfo {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.videoDescription {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.commentsCount {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.addCommentDiv {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.comment-single-page-box {
+    border: brown solid 5px;
+    margin-left: 50px;
+}
+
+.descriptionTitle {
+    border: blue solid 5px;
+    margin-left: 85px;
+}
+
+.vidDescCount {
+    border: blue solid 5px;
+    margin-left: 150px;
+}
+
+.bottomLine-vid {
+    border: blue solid 5px;
+    margin-left: 100px;
+}
+
+.videoInfo {
+    border: blue solid 5px;
+    margin-left: 150px;
+}
+
+.videoDescription {
+    border: blue solid 5px;
+    margin-left: 100px;
+}
+
+.commentsCount {
+    border: blue solid 5px;
+    margin-left: 100px;
+}
+
+.addCommentDiv {
+    border: blue solid 5px;
+    margin-left: 100px;
+}
+
+.comment-single-page-box {
+    border: blue solid 5px;
+    margin-left: 100px;
 }

@@ -61,7 +61,7 @@
     flex-direction: row;
     justify-content: flex-start;
     border: red solid 1px;
-    margin-left: 35px;
+    margin-left: 80px;
     margin-right: 25px;
     max-width: 1090px;
 
@@ -94,10 +94,10 @@
 .descriptionTitle {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-size: 18px;
     border: red 1px solid;
-    margin-left: 35px;
+    margin-left: 80px;
     margin-top: 40px;
     margin-right: 25px;
     max-width: 1090px;
@@ -105,10 +105,10 @@
 
 .videoDescription {
     border: blue solid 1px;
-    margin-left: 109px;
+    margin-left: 154px;
     width: 70%;
     max-width: 990px;
-
+    padding-left: 0px;
 }
 
 .displayname {
@@ -176,7 +176,7 @@
     border-bottom: rgba(136, 136, 136, 0.511) solid .1px;
     margin-top: 20px;
     margin-bottom: 15px;
-    margin-left: 35px;
+    margin-left: 80px;
     margin-right: 25px;
     max-width: 1090px;
 }
@@ -195,9 +195,16 @@
     font-size: 16px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.814);
-    margin-left: 35px;
+    margin-left: 80px;
     margin-top: 1px;
     margin-right: 25px;
     max-width: 1090px;
 
+}
+
+.video-description-single-page-container {
+    border: blue solid 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
