@@ -11,6 +11,7 @@ function CommentsDisplay({ boxId }) {
     const [commCount, setCommCount] = useState(0)
     const [users, setUsers] = useState([]);
 
+
     const dispatch = useDispatch();
     useEffect(() => {
         (async () => {
@@ -48,6 +49,9 @@ function CommentsDisplay({ boxId }) {
     const TimeSession = (video) => {
         return video.created_at.slice(4, 16)
     }
+
+
+
 
     return (
         <div className='commentBody'>

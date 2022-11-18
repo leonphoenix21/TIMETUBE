@@ -1,22 +1,7 @@
-.SinglevideoPlayerDiv {
-    /* border: red 1px solid; */
-    width: 1000px;
-    height: 560px;
-    margin-left: 3%;
-    /* background-color: black; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
-}
-
 .video-js {
-    position: absolute;
     height: 720px;
     width: 1080px;
     background-color: black;
-    margin-top: 20px;
 }
 
 

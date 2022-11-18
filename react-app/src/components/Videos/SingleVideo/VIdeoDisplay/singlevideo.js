@@ -87,21 +87,21 @@ function SingleVideo() {
     return (
         <>
             {Object.values(Allvideos).length > 0 ?
-                <>
-                    <div data-vjs-player className='SinglevideoPlayerDiv'>
-                        <video onMouseEnter={theatherFade} className="video-js vjs-default-skin " width="1080px" height="720px"
-                            controls preload="none" poster={videoPlaying?.image_url}
-                            data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'
-                            autoPlay={false}
-                        >
-                            <source src={videoPlaying?.video_url} type='video/mp4' />
-                        </video>
+                <div className='single-video-container'>
 
-                    </div>
+                    <video onMouseEnter={theatherFade} className="video-js vjs-default-skin " width="640px" height="360px"
+                        controls preload="none" poster={videoPlaying?.image_url}
+                        data-setup='{ "aspectRatio"16:9", "playbackRates": [1, 1.5, 2] }'
+                        autoPlay={false}
+                    >
+                        <source src={videoPlaying?.video_url} type='video/mp4' />
+                    </video>
+
+
                     {/* {opentheather && <span onMouseEnter={openNote} onMouseLeave={openNote} className='theaterMode'> <TbRectangle /> </span>}
                     {opennote && <span className='theaterModepopup'> Theater mode </span>} */}
 
-                </>
+                </div>
                 :
                 <>
                 </>

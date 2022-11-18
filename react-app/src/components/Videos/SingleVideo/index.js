@@ -10,6 +10,7 @@ import CommentContainer from '../../Comments/CommentContainer';
 
 function SingleVideoPage() {
     const [commCount, setCommCount] = useState(0)
+    const [showComments, setShowComments] = useState('hidden-comments');
 
     const { videoId } = useParams()
     const comments = useSelector(state => Object.values(state.comments).filter(comment => comment.video_id === +videoId).reverse()
@@ -19,23 +20,38 @@ function SingleVideoPage() {
             setCommCount(comments.length)
         }
     }, [comments]);
+
+    const showCommentsBtn = () => {
+        if (showComments === 'hidden-comments') {
+            setShowComments('display-comments');
+        } else {
+            setShowComments('hidden-comments');
+        }
+    }
     return (
         <div className='Single-Page-Div'>
             <div className="single-videopage-container">
                 {/*this div plays the video only  */}
                 <div className="video-comments-sidebar">
-                    <div className="single-video-container">
-                        <SingleVideo />
-                    </div>
+
+                    <SingleVideo />
+
                     {/*comments and sidebar */}
                     <div className="video-description-comments-div">
                         <VideoDescription />
                         <div className="singlevid-border-Top-line"></div>
 
-                        <div className='commentsCount' > {commCount} Comments  </div>
+                        <div className='commentsCount' >
+                            {commCount} Comments
+                            <button
+                                onClick={showCommentsBtn}
+                                className='show-comment-btn'>
+                                Show Comments
+                            </button>
+                        </div>
 
                         <CommentContainer videoCommentId={videoId} />
-                        <div className="comment-single-page-box">
+                        <div className={`comment-single-page-box ${showComments}`}>
                             <CommentsDisplay boxId={videoId} />
                         </div>
                     </div>

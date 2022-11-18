@@ -60,8 +60,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border: red solid 1px;
-    margin-left: 80px;
+    /* border: red solid 1px; */
+    margin-left: 90px;
     margin-right: 25px;
     max-width: 1090px;
 
@@ -70,7 +70,7 @@
 .uploader-fullname {
     display: flex;
     flex-direction: column;
-    border: blue solid 1px;
+    /* border: blue solid 1px; */
     margin-left: 25px;
     justify-content: center;
     align-items: center;
@@ -96,19 +96,18 @@
     flex-direction: row;
     justify-content: flex-start;
     font-size: 18px;
-    border: red 1px solid;
-    margin-left: 80px;
+    /* border: red 1px solid; */
+    margin-left: 90px;
     margin-top: 40px;
     margin-right: 25px;
     max-width: 1090px;
 }
 
 .videoDescription {
-    border: blue solid 1px;
-    margin-left: 154px;
+    /* border: blue solid 1px; */
+    margin-left: 164px;
     width: 70%;
     max-width: 990px;
-    padding-left: 0px;
 }
 
 .displayname {
@@ -176,14 +175,14 @@
     border-bottom: rgba(136, 136, 136, 0.511) solid .1px;
     margin-top: 20px;
     margin-bottom: 15px;
-    margin-left: 80px;
+    margin-left: 90px;
     margin-right: 25px;
     max-width: 1090px;
 }
 
 
 .vidDescCount {
-    border: red solid 1px;
+    /* border: red solid 1px; */
     font-size: 15px;
     display: flex;
     width: auto;
@@ -195,15 +194,15 @@
     font-size: 16px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.814);
-    margin-left: 80px;
-    margin-top: 1px;
+    margin-left: 90px;
+    margin-top: 10px;
     margin-right: 25px;
-    max-width: 1090px;
+
 
 }
 
 .video-description-single-page-container {
-    border: blue solid 2px;
+    /* border: blue solid 1px; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

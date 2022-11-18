@@ -48,9 +48,9 @@
     flex-direction: row;
     justify-content: flex start;
     align-items: center;
-    border: red solid 1px;
+    /* border: red solid 1px; */
     margin-top: -35px;
-    margin-left: 70px;
+    margin-left: 80px;
     margin-right: 25px;
     width: 100%;
     max-width: 1090px;
@@ -126,4 +126,12 @@
 .submitCommentbtn:hover {
     transform: scale(1.07);
     background-color: #5021f7df;
+}
+
+@media all and (max-width: 1606px) {
+    .addCommentDiv {
+        margin-left: 30px;
+        /* border: blue solid 1px; */
+        width: 65vw;
+    }
 }

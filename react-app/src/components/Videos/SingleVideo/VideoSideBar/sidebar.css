@@ -35,7 +35,7 @@
 }
 
 .sidebarDescription {
-    border: red solid 1px;
+    /* border: red solid 1px; */
     position: relative;
     height: 90px;
     width: fit-content;
@@ -50,7 +50,7 @@
 }
 
 .sideDescription {
-    border: blue solid 1px;
+    /* border: blue solid 1px; */
     margin-top: 5px;
     min-height: 47px;
     font-size: 12px;
@@ -59,7 +59,7 @@
 }
 
 .sideTitle {
-    border: blue solid 1px;
+    /* border: blue solid 1px; */
     width: 230px;
     min-height: 37px;
     max-height: 37px;
